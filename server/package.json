@@ -1,0 +1,23 @@
+{
+  "name": "husky_coin_server",
+  "version": "1.0.0",
+  "description": "Final project for Husky Miners",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners.git"
+  },
+  "author": "Husky Miners",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.3"
+  },
+  "bugs": {
+    "url": "https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners/issues"
+  },
+  "homepage": "https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners#readme"
+}
