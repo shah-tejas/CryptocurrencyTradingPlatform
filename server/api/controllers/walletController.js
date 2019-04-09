@@ -34,7 +34,7 @@ exports.updateUserWallet = function (request, response) {
         response.status(200);
         response.json(wallet);
     };
-    wallet.id = request.params.id;
+    wallet._id = request.params.id;
     walletService.update(wallet)
         .then(resolve)
         .catch(renderErrorResponse(response));
@@ -70,6 +70,24 @@ exports.createWalletTransaction = function (request, response) {
         response.json(walletHistory);
     };
     walletService.createWalletHistory(newWalletHistory)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
+};
+
+/**
+ * Creates a new wallet with the request JSON and
+ * returns wallter JSON object.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.createWallet = function (request, response) {
+    const newWallet = Object.assign({}, request.body);
+    const resolve = (newWallet) => {
+        response.status(200);
+        response.json(newWallet);
+    };
+    walletService.createWallet(newWallet)
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
