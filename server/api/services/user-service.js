@@ -16,7 +16,6 @@
   }
 
   exports.createNewUser=function(req){
-    console.log(req.body.user);
     const newuser = new User(req.body.user);
     console.log(req.body.user);
     return newuser.save();
@@ -31,7 +30,6 @@
     const id = req.params.userId;
     const user = {};
     for(const temp of req.body){
-      console.log(temp.value);
       user[temp.field] = temp.value;
     }
     return User.findOneAndUpdate({_id: id},{$set: user}).exec();
@@ -43,7 +41,6 @@
   }
 
   exports.inspectError=function(err,res){
-    console.log(err);
     res.status(500).json({
       error: err
     });
