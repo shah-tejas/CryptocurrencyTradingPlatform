@@ -16,28 +16,9 @@
   }
 
   exports.createNewUser=function(req){
-    // console.log(req.body);
-    const newuser = new User({
-      _id: new mongoose.Types.ObjectId(),
-      fname: req.body.fname,
-      lname: req.body.lname,
-      emailId: req.body.emailId,
-      Phno: req.body.Phno,
-      // address: {
-        address1: req.body.address1,
-        address2: req.body.address2,
-        city: req.body.city,
-        country: req.body.country,
-        Azipcode: req.body.Azipcode,
-      // },
-      // payment: {
-        cardno: req.body.cardno,
-        cvv: req.body.cvv,
-        expire: req.body.expire,
-        name: req.body.name,
-        Czipcode: req.body.Czipcode,
-      // }
-    });
+    console.log(req.body.user);
+    const newuser = new User(req.body.user);
+    console.log(req.body.user);
     return newuser.save();
   }
 
@@ -53,13 +34,11 @@
       console.log(temp.value);
       user[temp.field] = temp.value;
     }
-    // return User.update({_id: id},{$set: user}).exec();
     return User.findOneAndUpdate({_id: id},{$set: user}).exec();
   }
 
   exports.deleteUser=function(req){
     const id = req.params.userId;
-    // return User.remove({_id: id}).exec();
     return User.findOneAndDelete({_id: id}).exec();
   }
 

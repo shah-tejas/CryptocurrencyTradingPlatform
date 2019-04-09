@@ -8,7 +8,6 @@
 
   mongoose.connect("mongodb+srv://root:Onepiece181195@cyril-spa-zudqm.mongodb.net/HuskyCoins?retryWrites=true", { useNewUrlParser: true }).then(() => console.log('connected to DB'))
   .catch(err => {
-    console.log("xxxxxxxxxxxxxxxxxx");
     console.log(err);
   });
 
