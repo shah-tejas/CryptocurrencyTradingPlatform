@@ -17,8 +17,8 @@
   "dependencies": {
     "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
-    "express": "^4.16.2",
-    "mongoose": "^4.13.3"
+    "express": "^4.16.4",
+    "mongoose": "^5.5.0"
   },
   "bugs": {
     "url": "https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners/issues"
