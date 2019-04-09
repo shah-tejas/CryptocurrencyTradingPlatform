@@ -4,10 +4,10 @@ let express = require('express'),
     mongoose = require('mongoose'), //created model loading here
     bodyParser = require('body-parser');
 
-    mongoose.connect("mongodb+srv://root:"+Onepiece181195+"@cyril-spa-zudqm.mongodb.net/HuskyCoins?retryWrites=true",{
-         useNewUrlParser: true
-        });
-    mongoose.Promise = global.Promise;
+mongoose.connect("mongodb+srv://root:Onepiece181195@cyril-spa-zudqm.mongodb.net/HuskyCoins?retryWrites=true", {
+    useNewUrlParser: true
+});
+mongoose.Promise = global.Promise;
 
 //Adding body parser for handling request and response objects.
 app.use(bodyParser.urlencoded({
