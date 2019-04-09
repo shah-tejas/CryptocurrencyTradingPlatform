@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 
 /**
  * Mongoose schema for wallet object.
+ * This schema is present for each User
+ * This schema represents the wallet for each user
+ * It contains all the coins the user has alongwith the balance
  */
 let WalletSchema = new Schema({
-
-    user_id, usd_value, 
 
     /**
      * user_id of the User the Wallet belongs to.
