@@ -7,7 +7,7 @@
  * @desc import user service.
  */
 const userService = require('../services/user-service');
-
+const jwtService  = require('../services/jwt-service');
 /**
  * @desc Creates a new user with the request JSON and
  * @return returns user JSON object.
@@ -35,10 +35,19 @@ exports.getUser = function (request, response) {
     let pwd = request.body.password;
     const resolve = (user) => {
         if(user[0].login.password == pwd){
+        //     console.log(jwtService.generateToken());
+        //     response.send(jwtService.generateToken(user[0]));
             response.status(200);
-            response.json(user[0]);
+            response.json({
+                success: true,
+                message: 'Authentication successful!',
+                token: jwtService.generateToken(user[0]),
+                User:user[0]
+        });
+            
         }else{
         response.status(401);
+        
         response.json("user credentials invalid!!!")
         }
     };
