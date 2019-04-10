@@ -32,11 +32,18 @@ exports.post = function (request, response) {
  * @return Returns a user object in JSON.
  */
 exports.getUser = function (request, response) {
+    let pwd = request.body.password;
     const resolve = (user) => {
-        response.status(200);
-        response.json(user);
+        if(user[0].login.password == pwd){
+            response.status(200);
+            response.json(user[0]);
+        }else{
+        response.status(401);
+        response.json("user credentials invalid!!!")
+        }
     };
-    userService.get(request.params.userId)
+    console.log(request.body );
+    userService.search(JSON.parse("{\"login.username\":\""+ request.body.username +"\"}"))
         .then(resolve)
         .catch(renderErrorResponse(response));
 };

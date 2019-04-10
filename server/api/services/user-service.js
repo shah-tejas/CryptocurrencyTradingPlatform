@@ -50,7 +50,16 @@ exports.inspectError = function (err, res) {
  * @desc to search a particular user using emailId
  */
 exports.search = function (params) {
-  console.log(params);
   const promise = User.find(params).exec();
   return promise;
+};
+
+/**
+ * @param {Object} user {User object}-Saves and returns the new Contact object.
+ */
+exports.save = function (user) {
+  const newUser = new User(user);
+      const promise = newUser.save();
+      return promise;
+
 };

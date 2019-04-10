@@ -9,7 +9,7 @@ module.exports = function (app) {
     .put(UserController.put)
     .delete(UserController.delete);
 
-  const userloginController = require('../controllers/loginController');
+  const loginController = require('../controllers/loginController');
   /** 
    * @desc userlogin Routes for search and create
    */
