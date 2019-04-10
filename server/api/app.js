@@ -1,11 +1,9 @@
-'use strict';
-module.exports = function (app) {
-    //Initialize models
-    //TO-DO
-    // let contactModel = require('./model/');
+  'use strict';
+  module.exports = function (app) {
+      //Initialize models
+      let userModel = require('./model/users');
 
-    //Initialize routes
-    //TO-DO
-    // let contactRoutes = require('./routes/');
-    // contactRoutes(app);
-};
+      //Initialize routes
+      let userRoutes = require('./routes/user');
+      userRoutes(app);
+  };
