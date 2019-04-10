@@ -5,7 +5,7 @@
     fname: String,
     lname: String,
     emailId: { type: String, unique: true, required: true},
-    Phno:  { type: Number, unique: true},
+    Phno:  { type: Number},
     address: {
       address1: String,
       address2: String,
@@ -14,8 +14,8 @@
       zipcode: Number,
     },
     payment: {
-      cardno: { type: Number, unique: true, required: true},
-      cvv: { type: Number, unique: true, required: true},
+      cardno: { type: Number, required: true},
+      cvv: { type: Number, required: true},
       expire: String,
       name: String,
       zipcode: Number
