@@ -19,6 +19,11 @@
       expire: String,
       name: String,
       zipcode: Number
+    },
+    login: {
+      username: { type: String, unique: true, required: true},
+      //emailId: { type: String, unique: true, required: true},
+      password: password
     }
   });
 
