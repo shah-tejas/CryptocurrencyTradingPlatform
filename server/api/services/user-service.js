@@ -15,9 +15,9 @@
     return User.find().exec();
   }
 
-  exports.createNewUser=function(req){    
-    const newuser = new User(req.body.user);
-    console.log(req.body.user);
+  exports.createNewUser=function(req){
+    console.log(req.body);
+    const newuser = new User(req.body);
     return newuser.save();
   }
 
@@ -27,12 +27,9 @@
   }
 
   exports.updateUser=function(req){
-    const id = req.params.userId;
-    const user = {};
-    for(const temp of req.body){
-      user[temp.field] = temp.value;
-    }
-    return User.findOneAndUpdate({_id: id},{$set: user}).exec();
+    console.log(req.body);
+    const user = Object.assign({}, req.body);
+    return User.findOneAndUpdate({_id: user._id}, user).exec();
   }
 
   exports.deleteUser=function(req){

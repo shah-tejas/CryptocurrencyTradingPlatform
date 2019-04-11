@@ -3,8 +3,8 @@
 
   exports.getAllOrders=function(req){
     console.log(req.body);
-    let type = req.body.order_type;
-    return Order.find({order_type: type}).exec();
+    let type = req.body.buy_or_sell;
+    return Order.find({buy_or_sell: type}).exec();
   }
 
   exports.createNewOrder=function(req){
@@ -21,20 +21,13 @@
 
   exports.updateOrder=function(req){
     console.log(req.body);
-    const id = req.params.orderId;
-    const changes = {};
-    for(const temp of req.body){
-      changes[temp.field] = temp.value;
-    }
-    return Order.findOneAndUpdate({_id: id},{$set: changes}).exec();
+    const order = Object.assign({}, req.body);
+    return Order.findOneAndUpdate({_id: order._id}, order).exec();
   }
 
   exports.deleteOrder=function(req){
-    console.log(req.body);
     const id = req.params.orderId;
     return Order.findOneAndDelete({_id: id}).exec();
-    // let type = req.body.order_type;
-    // return Order.findOneAndDelete({order_type: type}).exec();
   }
 
   exports.inspectError=function(err,res){
