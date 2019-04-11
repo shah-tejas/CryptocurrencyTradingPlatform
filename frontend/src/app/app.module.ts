@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistrationComponent } from './registration/registration.component';
 import { MyMaterialModule } from './material';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { MyMaterialModule } from './material';
       { path: 'register', component: RegistrationComponent },
       { path: 'login', component: LoginComponent }
     ]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   exports: [MatButtonModule,MatToolbarModule,MatTabsModule],
   providers: [],
