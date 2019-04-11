@@ -17,7 +17,6 @@ exports.getAllUsers = function () {
 
 exports.createNewUser = function (req) {
   const newuser = new User(req.body.user);
-  console.log(req.body.user);
   return newuser.save();
 }
 

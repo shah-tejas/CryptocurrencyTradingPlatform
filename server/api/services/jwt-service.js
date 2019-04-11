@@ -7,7 +7,6 @@ const secretKey  = require('../commons/app-constant')
 exports.generateToken = (user) =>{   
                 var expiry = new Date();
                 expiry.setDate(expiry.getDate() + 7);
-                console.log(secretKey);
                 return jwt.sign(
                 
                   {user},
@@ -33,9 +32,5 @@ const checkToken = (req, res, next) => {
 
         req.token = token;
 
-//         next();
-//     } else {
-//         //If header is undefined return Forbidden (403)
-//         res.sendStatus(403)
-//     }
-// }
+      }
+    }

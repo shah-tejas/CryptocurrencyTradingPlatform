@@ -35,8 +35,6 @@ exports.getUser = function (request, response) {
     let pwd = request.body.password;
     const resolve = (user) => {
         if(user[0].login.password == pwd){
-        //     console.log(jwtService.generateToken());
-        //     response.send(jwtService.generateToken(user[0]));
             response.status(200);
             response.json({
                 success: true,
