@@ -1,11 +1,13 @@
 'use strict';
 module.exports = function (app) {
     //Initialize models
-    //TO-DO
-    // let contactModel = require('./model/');
+    let walletModel = require('./model/wallet');
+    let walletHistoryModel = require('./model/wallet-history');
+    let userModel = require('./model/users');
 
     //Initialize routes
-    //TO-DO
-    // let contactRoutes = require('./routes/');
-    // contactRoutes(app);
+    let walletRoutes = require('./routes/wallet-route');
+    walletRoutes(app);
+    let userRoutes = require('./routes/user');
+    userRoutes(app);
 };
