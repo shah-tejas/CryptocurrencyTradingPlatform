@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user';
-import { AppState } from '../store/state/app.states';
+import { AppState, selectAuthState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
 import { Register } from '../store/actions/user.actions';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,7 +20,11 @@ export class RegisterComponent implements OnInit {
   user:User = new User();
   confirmpassword:String;
 
+  //error msgs
+  getState: Observable<any>;
+  errorMessage: string | null;
   constructor(private _formBuilder: FormBuilder,private store : Store<AppState> ) { 
+    this.getState = this.store.select(selectAuthState);
   }
 
   ngOnInit() {
@@ -44,6 +49,9 @@ export class RegisterComponent implements OnInit {
       expire: ['', Validators.required],
       name: ['', Validators.required],
       zipcode: ['', Validators.required],
+    });
+    this.getState.subscribe((state) => {
+      this.errorMessage = state.errorMessage;
     });
   }
 

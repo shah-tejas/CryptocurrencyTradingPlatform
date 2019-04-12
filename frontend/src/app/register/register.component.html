@@ -1,4 +1,9 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{errorMessage}}
+        </div>
+      </div>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>General Information</ng-template>

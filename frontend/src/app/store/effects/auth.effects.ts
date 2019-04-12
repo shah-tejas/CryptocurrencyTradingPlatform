@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, Register, RegisterSuccess, RegisterFailure } from '../actions/user.actions';
+import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, Register, RegisterSuccess, RegisterFailure,LogOut } from '../actions/user.actions';
 
 
 @Injectable()
@@ -42,8 +42,8 @@ export class AuthEffects {
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap((result) => {
-      //  localStorage.setItem('token', result.payload.token);
-      //   localStorage.setItem('user', result.payload.user);
+       localStorage.setItem('token', result.payload.token);
+        localStorage.setItem('user', result.payload.user);
       this.router.navigateByUrl('/home');
     })
   );
@@ -73,7 +73,7 @@ export class AuthEffects {
   RegisterSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.REGISTER_SUCCESS),
     tap((user) => {
-      // localStorage.setItem('token', user.payload.token);
+       localStorage.setItem('token', user.payload.token);
       alert("Registration Successful!!");
       this.router.navigateByUrl('/login');
     })
@@ -81,5 +81,14 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   RegisterFailure: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.REGISTER_FAILURE)
+  );
+
+  //Add effect (to remove token from localStorage)
+  @Effect({ dispatch: false })
+  public LogOut: Observable<any> = this.actions.pipe(
+    ofType(AuthActionTypes.LOGOUT),
+    tap((user) => {
+      localStorage.removeItem('token');
+    })
   );
 }
