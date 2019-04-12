@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
     private store: Store<AppState>
   ) { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   /**
    * @desc dispatch a new Login Action with input data

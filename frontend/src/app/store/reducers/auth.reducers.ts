@@ -38,6 +38,23 @@ export function reducer(state = initialState, action: All): State {
         errorMessage: 'Incorrect email and/or password.'
       };
     }
+    case AuthActionTypes.REGISTER_SUCCESS: {
+      return {
+        ...state,
+        isAuthenticated: true,
+        result:{
+          token: null,
+          user: action.payload.User
+        },
+        errorMessage: null
+      };
+    }
+    case AuthActionTypes.REGISTER_FAILURE: {
+      return {
+        ...state,
+        errorMessage: 'That email is already in use.'
+      };
+    }
     default: {
       return state;
     }

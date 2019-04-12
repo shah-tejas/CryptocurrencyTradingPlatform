@@ -22,12 +22,14 @@ import { AuthService } from './services/auth.service';
 import { AuthEffects } from './store/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/state/app.states';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { reducers } from './store/state/app.states';
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
-      { path: '**', redirectTo:'/' }
+      { path: 'home', component: HomePageComponent}
      // {path: ,component:ForgotPassword}
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

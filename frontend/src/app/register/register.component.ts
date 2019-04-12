@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user';
 import { AppState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
+import { Register } from '../store/actions/user.actions';
 
 
 @Component({
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     this.user.login.username=this.user.emailId;
     if(this.user.login.password===(this.confirmpassword)){
-      this.store.dispatch(new RegisterUserAction(this.user));
+      this.store.dispatch(new Register(this.user));
     }else{
       alert("Please enter same password");
     }

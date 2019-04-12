@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure } from '../actions/user.actions';
+import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, Register, RegisterSuccess, RegisterFailure } from '../actions/user.actions';
 
 
 @Injectable()
@@ -42,8 +42,8 @@ export class AuthEffects {
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap((result) => {
-    //  localStorage.setItem('token', result.payload.token);
-    //   localStorage.setItem('user', result.payload.user);
+      //  localStorage.setItem('token', result.payload.token);
+      //   localStorage.setItem('user', result.payload.user);
       this.router.navigateByUrl('/register');
     })
   );
@@ -51,5 +51,35 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   LogInFailure: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_FAILURE)
+  );
+
+  @Effect()
+  Register: Observable<any> = this.actions
+    .ofType(AuthActionTypes.REGISTER)
+    .map((action: Register) => action.payload)
+    .switchMap(payload => {
+      return this.authService.register(payload)
+        .map((user) => {
+          console.log(user);
+          return new RegisterSuccess({ User: user });
+        })
+        .catch((error) => {
+          console.log(error);
+          return Observable.of(new RegisterFailure({ error: error }));
+        });
+    });
+
+  @Effect({ dispatch: false })
+  RegisterSuccess: Observable<any> = this.actions.pipe(
+    ofType(AuthActionTypes.REGISTER_SUCCESS),
+    tap((user) => {
+      // localStorage.setItem('token', user.payload.token);
+      alert("Registration Successful!!");
+      this.router.navigateByUrl('/');
+    })
+  );
+  @Effect({ dispatch: false })
+  RegisterFailure: Observable<any> = this.actions.pipe(
+    ofType(AuthActionTypes.REGISTER_FAILURE)
   );
 }
