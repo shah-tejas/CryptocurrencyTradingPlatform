@@ -3,7 +3,8 @@ import { Action } from '@ngrx/store';
 
 export enum UserActionType {
   REGISTER_USER = '[User] Add User',
-  LOGIN_USER = '[User] Login  User',
+  LOGIN_USER = '[User] Login User',
+
   
 }
 /**
@@ -25,6 +26,16 @@ export class LoginUserAction implements Action {
 
   constructor(public payload: User) { }
 }
+
+// /**
+//  * @desc
+//  */
+// export class AddManyUsersAction implements Action {
+
+//   readonly type = UserActionType.LOGIN_USER;
+
+//   constructor(public payload: User) { }
+// }
 
 /**
  * @desc 

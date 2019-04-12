@@ -1,23 +1,23 @@
 <mat-card class="md-padding" layout-xs="column" layout="row" layout-align="center center">
-   <mat-card class="my-card">
-      <mat-card-content>
-         <form class="example-form example-full-width">
-            <mat-form-field class="full-width">
-               <mat-label>Email</mat-label>
-               <input matInput  placeholder="Email" name="email">
-            </mat-form-field><br />
-            <mat-form-field class="full-width">
-               <mat-label>Password</mat-label>
-               <input matInput placeholder="Password" name="password">
-            </mat-form-field>
-         </form>
-      </mat-card-content>
-      <mat-card-actions>
-         <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
-         <!-- <a mat-raised-button (click)="login()" color="primary">Register User</a><br /><br /> -->
-         <a  mat-button routerLink="/register">Register User</a><br><br>
-         <a  mat-button routerLink="/forgotPassword">Forgot Password??</a>
-         <!-- <a mat-raised-button (click)="login()" color="primary">Forgot Password ?</a> -->
-      </mat-card-actions>
-   </mat-card>
+  <mat-card class="my-card">
+    <mat-card-content>
+      <form class="example-form example-full-width">
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" name="email">
+        </mat-form-field><br />
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" name="password">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
+      <!-- <a mat-raised-button (click)="login()" color="primary">Register User</a><br /><br /> -->
+      <a mat-button routerLink="/register">Register</a><br><br>
+      <a mat-button routerLink="/forgotPassword">Forgot Password??</a>
+      <!-- <a mat-raised-button (click)="login()" color="primary">Forgot Password ?</a> -->
+    </mat-card-actions>
+  </mat-card>
 </mat-card>
