@@ -44,7 +44,7 @@ export class AuthEffects {
     tap((result) => {
       //  localStorage.setItem('token', result.payload.token);
       //   localStorage.setItem('user', result.payload.user);
-      this.router.navigateByUrl('/register');
+      this.router.navigateByUrl('/home');
     })
   );
 
@@ -75,7 +75,7 @@ export class AuthEffects {
     tap((user) => {
       // localStorage.setItem('token', user.payload.token);
       alert("Registration Successful!!");
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/login');
     })
   );
   @Effect({ dispatch: false })
