@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user';
 import { AppState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
-import { RegisterUserAction } from '../store/actions/user.actions';
+
 
 @Component({
   selector: 'app-register',
@@ -11,12 +11,13 @@ import { RegisterUserAction } from '../store/actions/user.actions';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  isLinear = false;
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup:FormGroup;
   user:User = new User();
   confirmpassword:String;
+
   constructor(private _formBuilder: FormBuilder,private store : Store<AppState> ) { 
   }
 
@@ -46,9 +47,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.user);
-    console.log(this.confirmpassword);
-    console.log(this.user.login.password);
     this.user.login.username=this.user.emailId;
     if(this.user.login.password===(this.confirmpassword)){
       this.store.dispatch(new RegisterUserAction(this.user));

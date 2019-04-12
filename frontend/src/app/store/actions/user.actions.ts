@@ -1,43 +1,30 @@
-import { User } from './../../models/user';
 import { Action } from '@ngrx/store';
 
-export enum UserActionType {
-  REGISTER_USER = '[User] Add User',
-  LOGIN_USER = '[User] Login User',
 
-  
-}
-/**
- * @desc
- */
-export class RegisterUserAction implements Action {
-
-  readonly type = UserActionType.REGISTER_USER
-
-  constructor(public payload: User) { }
+export enum AuthActionTypes {
+  LOGIN = '[Auth] Login',
+  LOGIN_SUCCESS = '[Auth] Login Success',
+  LOGIN_FAILURE = '[Auth] Login Failure',
 }
 
-/**
- * @desc
- */
-export class LoginUserAction implements Action {
-
-  readonly type = UserActionType.LOGIN_USER;
-
-  constructor(public payload: User) { }
+export class LogIn implements Action {
+  readonly type = AuthActionTypes.LOGIN;
+  constructor(public payload: any) {
+    console.log("Inside LogIn Constructor",payload);
+  }
 }
 
-// /**
-//  * @desc
-//  */
-// export class AddManyUsersAction implements Action {
+export class LogInSuccess implements Action {
+  readonly type = AuthActionTypes.LOGIN_SUCCESS;
+  constructor(public payload: any) {}
+}
 
-//   readonly type = UserActionType.LOGIN_USER;
+export class LogInFailure implements Action {
+  readonly type = AuthActionTypes.LOGIN_FAILURE;
+  constructor(public payload: any) {}
+}
 
-//   constructor(public payload: User) { }
-// }
-
-/**
- * @desc 
- */
-export type UserActions = RegisterUserAction | LoginUserAction ;
+export type All =
+  | LogIn
+  | LogInSuccess
+  | LogInFailure;

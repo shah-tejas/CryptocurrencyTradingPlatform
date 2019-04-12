@@ -21,6 +21,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { AuthService } from './services/auth.service';
 import { AuthEffects } from './store/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { reducers } from './store/state/app.states';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { EffectsModule } from '@ngrx/effects';
     MyMaterialModule,
     MatStepperModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument({ name: 'App Dev Tools'}) : [],
     RouterModule.forRoot([

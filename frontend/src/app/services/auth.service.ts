@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import{environment} from '../../environments/environment';
 import { User } from '../models/user';
+import { Login } from '../models/login';
 
 
 @Injectable()
@@ -15,13 +16,14 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  logIn(email: string, password: string): Observable<any> {
+  logIn(username: string, password: string): Observable<any> {
     const url = `${environment.serverBaseURL}/login`;
-    return this.http.post<User>(url, {email, password});
+    console.log(username);
+    return this.http.post<Login>(url, {username, password});
   }
 
-  signUp(email: string, password: string): Observable<User> {
+  register(user:User): Observable<User> {
     const url = `${environment.serverBaseURL}/register`;
-    return this.http.post<User>(url, {email, password});
+    return this.http.post<User>(url,user);
   }
 }
