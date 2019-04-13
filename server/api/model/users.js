@@ -21,7 +21,7 @@
       zipcode: Number
     },
     login: {
-      username: {type: String, unique: true},
+      username: { type: String, unique: true, required: true},
       password: String
     }
   });
