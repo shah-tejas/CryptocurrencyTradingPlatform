@@ -5,12 +5,10 @@ import { MatButtonModule, MatToolbarModule,MatTabsModule, MatStepperModule, MatS
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, CanActivate, Router } from '@angular/router';
 import { MyMaterialModule } from './material';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Store
 import { StoreModule } from '@ngrx/store';
@@ -23,13 +21,15 @@ import { AuthEffects } from './store/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/state/app.states';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomePageComponent
+    HomePageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -49,13 +49,15 @@ import { HomePageComponent } from './home-page/home-page.component';
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
-      { path: 'home', component: HomePageComponent}
+      { path: 'home', component: HomePageComponent, canActivate: [AuthGuardService]},
+    
      // {path: ,component:ForgotPassword}
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   exports: [MatButtonModule,MatToolbarModule,MatTabsModule],
-  providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},AuthService],
+  providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
+    AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

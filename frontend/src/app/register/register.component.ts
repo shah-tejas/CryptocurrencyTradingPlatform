@@ -20,21 +20,21 @@ export class RegisterComponent implements OnInit {
   user:User = new User();
   confirmpassword:String;
 
-  //error msgs
-  getState: Observable<any>;
-  errorMessage: string | null;
+  // //error msgs
+  // getState: Observable<any>;
+  // errorMessage: string | null;
   constructor(private _formBuilder: FormBuilder,private store : Store<AppState> ) { 
-    this.getState = this.store.select(selectAuthState);
+    // this.getState = this.store.select(selectAuthState);
   }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      emailId: ['',Validators.required],
-      Phno: ['', Validators.required],
-      password:['', Validators.required],
-      confirmpassword:['', Validators.required]
+      emailId: ['',Validators.required, Validators.pattern('^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$')],
+      Phno: ['', Validators.required, Validators.length],
+      password:['', Validators.required, Validators.minLength(6)],
+      confirmpassword:['', Validators.required, Validators.minLength(6)]
     });
     this.secondFormGroup = this._formBuilder.group({
       address1: ['', Validators.required],
@@ -50,9 +50,7 @@ export class RegisterComponent implements OnInit {
       name: ['', Validators.required],
       zipcode: ['', Validators.required],
     });
-    this.getState.subscribe((state) => {
-      this.errorMessage = state.errorMessage;
-    });
+    
   }
 
   onSubmit(){

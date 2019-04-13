@@ -26,4 +26,6 @@ export class AuthService {
     const url = `${environment.serverBaseURL}/register`;
     return this.http.post<User>(url,user);
   }
+
+  
 }

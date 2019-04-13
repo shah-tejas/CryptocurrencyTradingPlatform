@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, Register, RegisterSuccess, RegisterFailure,LogOut } from '../actions/user.actions';
+import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, Register, RegisterSuccess, RegisterFailure,LogOut, GetStatus } from '../actions/user.actions';
 
 
 @Injectable()
@@ -27,9 +27,10 @@ export class AuthEffects {
     .ofType(AuthActionTypes.LOGIN)
     .map((action: LogIn) => action.payload)
     .switchMap(payload => {
+      console.log("Inside Effect");
       return this.authService.logIn(payload.username, payload.password)
         .map((result) => {
-          console.log(result.user);
+          console.log("Inside map of Effect",result);
           return new LogInSuccess({ user: result.User, token: result.token });
         })
         .catch((error) => {
@@ -91,4 +92,5 @@ export class AuthEffects {
       localStorage.removeItem('token');
     })
   );
+
 }
