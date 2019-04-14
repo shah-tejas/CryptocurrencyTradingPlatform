@@ -1,3 +1,26 @@
-<p>
-  wallet works!
-</p>
+<div *ngIf="userWallet">
+  Your Wallet Details:<br/>
+  USD Value: {{ userWallet.usd_value }}<br/>
+
+  <div *ngIf="userWallet.coins">
+      Crypto Currencies: <br/>
+      <table>
+        <thead>
+          <td>Coin</td>
+          <td>Quantity</td>
+          <td>Rate (USD)</td>
+          <td>Total (USD)</td>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coin of userWallet.coins">
+            <td>{{ coin.coin_name }}</td>
+            <td>{{ coin.coin_qty }}</td>
+            <td>{{ coin.coin_rate }}</td>
+            <td>{{ coin.coin_rate * coin.coin_qty }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+</div>
