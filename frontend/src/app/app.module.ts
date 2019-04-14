@@ -49,7 +49,7 @@ import { AuthGuardService } from './services/auth-guard.service';
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
-      { path: 'home', component: HomePageComponent, canActivate: [AuthGuardService]},
+      { path: 'home', component: HomePageComponent},
     
      // {path: ,component:ForgotPassword}
     ]),

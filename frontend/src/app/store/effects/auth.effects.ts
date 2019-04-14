@@ -74,7 +74,6 @@ export class AuthEffects {
   RegisterSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.REGISTER_SUCCESS),
     tap((user) => {
-       localStorage.setItem('token', user.payload.token);
       alert("Registration Successful!!");
       this.router.navigateByUrl('/login');
     })
@@ -90,6 +89,7 @@ export class AuthEffects {
     ofType(AuthActionTypes.LOGOUT),
     tap((user) => {
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
     })
   );
 

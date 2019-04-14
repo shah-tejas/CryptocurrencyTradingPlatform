@@ -6,6 +6,7 @@ import {Login} from '../models/login';
 import { AppState, selectAuthState } from '../store/state/app.states';
 import { LogIn } from '../store/actions/user.actions';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,11 +23,16 @@ export class LoginComponent implements OnInit {
   //error msgs
   getState: Observable<any>;
   errorMessage: string | null;
-  constructor(
+  constructor(private router: Router,
     private store: Store<AppState>
   ) {this.getState = this.store.select(selectAuthState); }
 
   ngOnInit() {
+
+    if(localStorage.getItem('token')){
+      this.router.navigateByUrl('/home');
+    }
+
     this.getState.subscribe((state) => {
       this.errorMessage = state.errorMessage;
     });

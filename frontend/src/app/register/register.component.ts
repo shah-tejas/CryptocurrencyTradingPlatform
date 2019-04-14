@@ -1,56 +1,63 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { User } from '../models/user';
 import { AppState, selectAuthState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
 import { Register } from '../store/actions/user.actions';
-import { Observable } from 'rxjs';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
-  isLinear = true;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup:FormGroup;
+  isLinear = false;
+  generalDetailsFormGroup: FormGroup;
+  addressDetailsFormGroup: FormGroup;
+  paymentDetailsFormGroup:FormGroup;
+  loginDetailsFormGroup: FormGroup;
   user:User = new User();
   confirmpassword:String;
 
   // //error msgs
   // getState: Observable<any>;
   // errorMessage: string | null;
-  constructor(private _formBuilder: FormBuilder,private store : Store<AppState> ) { 
+  constructor(private _formBuilder: FormBuilder,private store : Store<AppState>, private router:Router ) { 
     // this.getState = this.store.select(selectAuthState);
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
+    if(localStorage.getItem('token')){
+      this.router.navigateByUrl('/home');
+    }
+
+    this.generalDetailsFormGroup = this._formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      emailId: ['',Validators.required, Validators.pattern('^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$')],
-      Phno: ['', Validators.required, Validators.length],
-      password:['', Validators.required, Validators.minLength(6)],
-      confirmpassword:['', Validators.required, Validators.minLength(6)]
+      emailId: ['',Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')],
+      Phno: ['', Validators.pattern('[1-9]{1}[0-9]{9}')],
     });
-    this.secondFormGroup = this._formBuilder.group({
+    this.addressDetailsFormGroup = this._formBuilder.group({
       address1: ['', Validators.required],
       address2: [''],
       city: ['',Validators.required],
       country: ['', Validators.required],
-      zipcode: ['',Validators.required]
+      zipcode: ['',Validators.pattern('[0-9]{5}')]
     });
-    this.thirdFormGroup = this._formBuilder.group({
-      cardno: ['', Validators.required],
-      cvv: ['', Validators.required],
+    this.paymentDetailsFormGroup = this._formBuilder.group({
+      cardno: ['', Validators.pattern('([0-9]{4}){4}')],
+      cvv: ['', Validators.pattern('[0-9]{3}')],
       expire: ['', Validators.required],
       name: ['', Validators.required],
-      zipcode: ['', Validators.required],
+      zipcode: ['', Validators.required]
     });
-    
+    this.loginDetailsFormGroup = this._formBuilder.group({
+      emailId: [{Value:'',disabled:true}],
+      password: ['',Validators.required],
+      confirmpassword: ['',Validators.required]
+    });
   }
 
   onSubmit(){
