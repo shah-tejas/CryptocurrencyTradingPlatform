@@ -14,7 +14,7 @@ module.exports = function (app) {
         .post(walletController.createWallet);
 
     // Wallet History routes to get and create wallet history transactions
-    app.route('/wallethistory/:id')
+    app.route('/wallethistory/:user_id')
         .get(walletController.getWalletHistory);
     app.route('/wallethistory')
         .post(walletController.createWalletTransaction);

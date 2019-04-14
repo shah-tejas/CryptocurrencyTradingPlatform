@@ -52,7 +52,7 @@ exports.getWalletHistory = function (request, response) {
         response.status(200);
         response.json(walletHistory);
     };
-    walletService.searchWalletTransactionById(request.params.id)
+    walletService.searchWalletTransactionById(request.params.user_id)
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
