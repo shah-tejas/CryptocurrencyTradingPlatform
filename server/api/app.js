@@ -13,4 +13,6 @@
       userRoutes(app);
       let orderRoutes = require('./routes/order');
       orderRoutes(app);
+      let orderHistoryRoutes = require('./routes/order-history');
+      orderHistoryRoutes(app);
   };

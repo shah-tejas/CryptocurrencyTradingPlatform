@@ -11,6 +11,7 @@
     to_coin: {type: String, required: true},
     to_qty: {type: Number, required: true},
     to_value: {type: Number, required: true},
+    created_date: {type: Date, default: Date.now},
     completion_date: {type: Date, default: Date.now}
   });
 

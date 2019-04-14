@@ -4,7 +4,7 @@
   exports.getAllOrders=function(req){
     console.log(req.body);
     let type = req.body.buy_or_sell;
-    return Order.find({buy_or_sell: type}).exec();
+    return Order.find({buy_or_sell: type}).sort( { created_date: 1 } ).exec();
   }
 
   exports.createNewOrder=function(req){
@@ -22,6 +22,7 @@
   exports.updateOrder=function(req){
     console.log(req.body);
     const order = Object.assign({}, req.body);
+    order.completion_date = Date.now;
     return Order.findOneAndUpdate({_id: order._id}, order).exec();
   }
 
