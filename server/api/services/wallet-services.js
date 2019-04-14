@@ -13,8 +13,8 @@ const mongoose = require("mongoose"),
  *
  * @param {Object} params {id}
  */
-exports.searchById = function (params) {
-  const promise = Wallet.findById(params).exec();
+exports.searchByUserId = function (params) {
+  const promise = Wallet.find(params).exec();
   return promise;
 };
 
@@ -26,7 +26,7 @@ exports.searchById = function (params) {
 exports.update = function (wallet) {
   wallet.modified_date = new Date();
   const promise = Wallet.findOneAndUpdate(
-    { _id: wallet._id },
+    { user_id: wallet.user_id },
     wallet
   ).exec();
   return promise;
