@@ -6,10 +6,10 @@
       Crypto Currencies: <br/>
       <table>
         <thead>
-          <td>Coin</td>
-          <td>Quantity</td>
-          <td>Rate (USD)</td>
-          <td>Total (USD)</td>
+          <th>Coin</th>
+          <th>Quantity</th>
+          <th>Rate (USD)</th>
+          <th>Total (USD)</th>
         </thead>
         <tbody>
           <tr *ngFor="let coin of userWallet.coins">
@@ -20,6 +20,30 @@
           </tr>
         </tbody>
       </table>
+  </div>
+  <br/>
+  <div *ngIf="userWallet.walletTransactions">
+    Wallet Transactions: <br/>
+    <table>
+      <thead>
+        <th>Date</th>
+        <th>Transaction Type</th>
+        <th>Cryptocurrency</th>
+        <th>Coin Quantity</th>
+        <th>Value in USD</th>
+        <th>Transaction Status</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of userWallet.walletTransactions">
+          <td>{{ transaction.created_date }}</td>
+          <td>{{ transaction.transaction_type }}</td>
+          <td>{{ transaction.coin_name }}</td>
+          <td>{{ transaction.coin_qty }}</td>
+          <td>{{ transaction.usd_value }}</td>
+          <td>{{ transaction.transaction_type }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 

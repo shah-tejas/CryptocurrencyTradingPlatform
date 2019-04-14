@@ -23,7 +23,6 @@ export class WalletComponent implements OnInit {
       // get current rates of all coins in the wallet
       for(const coin of this.userWallet.coins){
         this.walletService.getCoinRate(coin.coin_name).subscribe(coinRate => {
-          console.log(coinRate);
           coin.coin_rate = coinRate[0].usdvalue;
           this.userWallet.usd_value += coin.coin_rate * coin.coin_qty;
           // update the current wallet's usd_value in server
@@ -31,6 +30,12 @@ export class WalletComponent implements OnInit {
         });
       }
 
+      // get user wallet's transactions
+      this.walletService.getUserWalletTransactions(this.userWallet.user_id)
+          .subscribe(walletTransactions => {
+              this.userWallet.walletTransactions = walletTransactions;
+              console.log(this.userWallet.walletTransactions);
+          });
 
     });
   }
