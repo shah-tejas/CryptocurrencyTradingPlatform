@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 
 export class RegisterComponent implements OnInit {
-  isLinear = false;
+  isLinear = true;
   generalDetailsFormGroup: FormGroup;
   addressDetailsFormGroup: FormGroup;
   paymentDetailsFormGroup:FormGroup;
