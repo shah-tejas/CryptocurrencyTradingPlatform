@@ -1,0 +1,29 @@
+<h2>Load Wallet</h2>
+
+<form (ngSubmit)="loadWallet()">
+
+  <label>Coin Name:</label>
+  <select *ngIf="coins" [(ngModel)]="selectedCoin" (change)="getCurrentCoinRate()" name="coin_name">
+    <option *ngFor="let coin of coins" [ngValue]="coin">
+      {{ coin.coin_name}}
+    </option>
+  </select>
+
+
+  <div *ngIf="selectedCoin">
+    <label>Current Rate: </label>{{ selectedCoin.coin_rate }}
+  </div>
+
+  <label>Quantity: </label>
+  <input type="number" [(ngModel)]="walletTransaction.coin_qty" name="coin_qty" (change)="updateUSDValue()" />
+
+  <br/>
+
+  <label>USD Value: </label>
+  <input type="number" [(ngModel)]="walletTransaction.usd_value" name="usd_value" readonly />
+
+  <br/>
+
+  <button type="submit">Load Wallet</button>
+
+</form>

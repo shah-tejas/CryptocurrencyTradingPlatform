@@ -1,3 +1,5 @@
+<a routerLink="/loadWallet">Load Wallet</a>
+
 <div *ngIf="userWallet">
   Your Wallet Details:<br/>
   USD Value: {{ userWallet.usd_value }}<br/>
@@ -40,7 +42,7 @@
           <td>{{ transaction.coin_name }}</td>
           <td>{{ transaction.coin_qty }}</td>
           <td>{{ transaction.usd_value }}</td>
-          <td>{{ transaction.transaction_type }}</td>
+          <td>{{ transaction.status }}</td>
         </tr>
       </tbody>
     </table>

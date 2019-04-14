@@ -27,4 +27,8 @@ export class WalletService {
     return this.http.get<Array<WalletHistory>>('http://localhost:3000/wallethistory/' + user_id);
   }
 
+  createUserWalletTransaction(walletTransaction: WalletHistory): Observable<WalletHistory>{
+    return this.http.post<WalletHistory>('http://localhost:3000/wallethistory', walletTransaction)
+  }
+
 }
