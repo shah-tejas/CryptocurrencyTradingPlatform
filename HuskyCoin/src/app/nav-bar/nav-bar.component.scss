@@ -12,7 +12,7 @@ ul {
 mat-drawer{
   background-color: #c6cbef;
   text-align: center;
-  min-width: 200px;
+  min-width: 220px;
   h2{
     cursor: pointer;
     margin: 0;
@@ -53,4 +53,8 @@ a{
   border: 1px solid #ffc3e7;
   background-color: #ffc3e7;
   color: #fb3569;
+}
+
+router-outlet{
+  background-color: #b8b2a6;
 }

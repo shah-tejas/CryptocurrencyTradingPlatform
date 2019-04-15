@@ -2,7 +2,9 @@
   const mongoose = require('mongoose');
 
   exports.getAllOrders=function(req){
-    console.log(req.body);
+    console.log("----------");
+
+    console.log(req.headers,req.url);
     let type = req.body.buy_or_sell;
     return Order.find({buy_or_sell: type}).sort( { created_date: 1 } ).exec();
   }

@@ -1,8 +1,11 @@
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="over" [opened]="isToggled" (mouseleave)="toggle()">
+  <mat-drawer [@fadein]="display" mode="over" [opened]="isToggled" (mouseleave)="toggle()">
     <h2>Menu</h2>
     <ul>
-      <li routerLinkActive="pressed" *ngFor="let tab of tabs; let i = index" ><a [routerLink]="urls[i]">{{tab}}</a></li>
+      <li routerLinkActive="pressed" *ngFor="let tab of tabs; let i = index" >
+        <a [routerLink]="urls[i]">{{tab}}</a>
+        <span *ngIf="i===4" [matBadge]="noOfPings" matBadgeOverlap="false"></span>
+      </li>
     </ul>
   </mat-drawer>
   <mat-drawer-content>

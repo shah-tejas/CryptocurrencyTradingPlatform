@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrderTypeHistoryComponent } from './order-type-history.component';
+import { CarouselComponent } from './carousel.component';
 
-describe('OrderTypeHistoryComponent', () => {
-  let component: OrderTypeHistoryComponent;
-  let fixture: ComponentFixture<OrderTypeHistoryComponent>;
+describe('CarouselComponent', () => {
+  let component: CarouselComponent;
+  let fixture: ComponentFixture<CarouselComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderTypeHistoryComponent ]
+      declarations: [ CarouselComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OrderTypeHistoryComponent);
+    fixture = TestBed.createComponent(CarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

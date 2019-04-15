@@ -1,26 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+
+// Service import
+import { OrderHistoryService } from './services/order-history.service';
+
+// Component imports
 import { AppComponent } from './app.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
-import { OrderTypeHistoryComponent } from './order-history/order-type-history/order-type-history.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatBadgeModule } from '@angular/material';
+import { CarouselComponent } from './carousel/carousel.component';
+import {MatTableModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule} from '@angular/material';
+import { TableComponent } from './order-history/table/table.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, OrderHistoryComponent, OrderTypeHistoryComponent, NavBarComponent
+    AppComponent, OrderHistoryComponent, NavBarComponent, CarouselComponent, TableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     LayoutModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -28,8 +35,16 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatBadgeModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
-  providers: [],
+  providers: [
+    OrderHistoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

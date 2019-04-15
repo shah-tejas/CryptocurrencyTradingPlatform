@@ -2,8 +2,8 @@ const Order = require('../model/orders');
 const mongoose = require('mongoose');
 
 exports.getAllOrderHistory=function(req){
-  const user_id = req.body.user_id;
-  console.log("************************************"+user_id);
+  let user_id = req.params.userId;
+  console.log(req.body);
   return Order.find({user_id: user_id}).sort( { created_date: -1 } ).exec();
 }
 
