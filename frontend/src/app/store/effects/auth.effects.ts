@@ -12,7 +12,10 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, Register, RegisterSuccess, RegisterFailure,LogOut, GetStatus } from '../actions/user.actions';
 
-
+/**
+ * @desc NGRX Effects listen for actions dispatched from the NGRX Store, 
+ * perform some logic (e.g., a side effect), and then dispatch a new action.
+ */
 @Injectable()
 export class AuthEffects {
 
