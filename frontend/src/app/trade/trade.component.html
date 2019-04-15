@@ -1,3 +1,20 @@
-<p>
-  trade works!
-</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span>BUY/SELL</span>
+      <span class="spacer"></span>
+      <button mat-raised-button (click)="logOut()"mat-button routerLink="/login">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-tab-group>
+  <mat-tab label="BUY">
+    <ng-template matTabContent>
+        <p>Sell orders here!</p>
+        </ng-template>
+  </mat-tab>
+
+  <mat-tab label=SELL>
+      <ng-template matTabContent>
+      <p>Buy orders here!</p>
+      </ng-template>
+  </mat-tab>
+</mat-tab-group>
