@@ -22,6 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/state/app.states';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { TradeComponent } from './trade/trade.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
+    TradeComponent,
     
   ],
   imports: [
