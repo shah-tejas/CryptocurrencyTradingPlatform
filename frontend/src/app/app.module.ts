@@ -45,6 +45,9 @@ import { AuthGuardService } from './services/auth-guard.service';
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument({ name: 'App Dev Tools'}) : [],
+    /**
+     * @desc RouterOutlet directive to tell Angular where to insert each of our HTML templates.
+     */
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },

@@ -15,6 +15,9 @@ export class User {
     login: Login;
 
     constructor(){
+        /**
+         * @desc creating objects of address, payment,Login
+         */
         this.address =  new Address();
         this.payment = new Payment();
         this.login = new Login();

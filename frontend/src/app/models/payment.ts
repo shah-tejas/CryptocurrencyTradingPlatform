@@ -1,3 +1,6 @@
+/**
+ * @desc Payment model
+ */
 export class Payment {
 
     cardno: Number;

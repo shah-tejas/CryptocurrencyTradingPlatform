@@ -16,10 +16,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  // user: User = new User();
+  /**
+   *  @var login  creating an instance  of Login class
+   *  @var getState Observable
+   *  @var errorMessage String value could  be string or nulll
+   */
   login:Login = new Login();
-
-
   //error msgs
   getState: Observable<any>;
   errorMessage: string | null;
@@ -28,11 +30,16 @@ export class LoginComponent implements OnInit {
   ) {this.getState = this.store.select(selectAuthState); }
 
   ngOnInit() {
-
+    /**
+     * @desc the if loop check if the token is present in the local storage .
+     *  if the token is present then it will directly be redirected to home page
+     */
     if(localStorage.getItem('token')){
       this.router.navigateByUrl('/home');
     }
-
+    /**
+     * @desc subbscribed the getstate observable to print the error message if there is invalid credentials
+     */
     this.getState.subscribe((state) => {
       this.errorMessage = state.errorMessage;
     });

@@ -13,38 +13,51 @@ import { Router } from '@angular/router';
 })
 
 export class RegisterComponent implements OnInit {
+  /**
+ * @var isLinear boolean value. checks if the form should be allowed to the  secon part or not
+ * @var generalDetailsFormGroup FormGroup
+ * @var addressDetailsFormGroup FormGroup
+ * @var paymentDetailsFormGroup FormGroup
+ * @var loginDetailsFormGroup FormGroup
+ */
   isLinear = true;
   generalDetailsFormGroup: FormGroup;
   addressDetailsFormGroup: FormGroup;
-  paymentDetailsFormGroup:FormGroup;
+  paymentDetailsFormGroup: FormGroup;
   loginDetailsFormGroup: FormGroup;
-  user:User = new User();
-  confirmpassword:String;
+  user: User = new User();
+  confirmpassword: String;
 
-  // //error msgs
-  // getState: Observable<any>;
-  // errorMessage: string | null;
-  constructor(private _formBuilder: FormBuilder,private store : Store<AppState>, private router:Router ) { 
-    // this.getState = this.store.select(selectAuthState);
+
+  constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
   }
 
   ngOnInit() {
-    if(localStorage.getItem('token')){
+    /**
+     * @desc the if loop checks if the user is logged  in or not , 
+     * if it is then it does not allow the user to got the register page, it routes you  back to the home page.
+     */
+    if (localStorage.getItem('token')) {
       this.router.navigateByUrl('/home');
+      //  this.store.subscribe(result => {
+      //   this.user = result.authState.result.user;
+      // })
     }
-
+    /**
+     * @desc  ._formBuilder.group is used to add validations for each field on the registration form
+     */
     this.generalDetailsFormGroup = this._formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      emailId: ['',Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')],
+      emailId: ['', Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')],
       Phno: ['', Validators.pattern('[1-9]{1}[0-9]{9}')],
     });
     this.addressDetailsFormGroup = this._formBuilder.group({
       address1: ['', Validators.required],
       address2: [''],
-      city: ['',Validators.required],
+      city: ['', Validators.required],
       country: ['', Validators.required],
-      zipcode: ['',Validators.pattern('[0-9]{5}')]
+      zipcode: ['', Validators.pattern('[0-9]{5}')]
     });
     this.paymentDetailsFormGroup = this._formBuilder.group({
       cardno: ['', Validators.pattern('([0-9]{4}){4}')],
@@ -54,17 +67,21 @@ export class RegisterComponent implements OnInit {
       zipcode: ['', Validators.required]
     });
     this.loginDetailsFormGroup = this._formBuilder.group({
-      emailId: [{Value:'',disabled:true}],
-      password: ['',Validators.required],
-      confirmpassword: ['',Validators.required]
+      emailId: [{ Value: '', disabled: true }],
+      password: ['', Validators.required],
+      confirmpassword: ['', Validators.required]
     });
   }
 
-  onSubmit(){
-    this.user.login.username=this.user.emailId;
-    if(this.user.login.password===(this.confirmpassword)){
+  /***
+   * @desc this method is called on the submit button .
+   * It checks if the username and email id is same and also  checks if the password and confirm password is used.
+   */
+  onSubmit() {
+    this.user.login.username = this.user.emailId;
+    if (this.user.login.password === (this.confirmpassword)) {
       this.store.dispatch(new Register(this.user));
-    }else{
+    } else {
       alert("Please enter same password");
     }
   }

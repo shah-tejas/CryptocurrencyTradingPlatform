@@ -1,3 +1,4 @@
+<!-- Start of the appliction-->
 <mat-card class="md-padding" layout-xs="column" layout="row" layout-align="center center">
   <mat-card class="my-card">
     <mat-card-content>
@@ -9,6 +10,7 @@
       <form class="example-form example-full-width">
         <mat-form-field class="full-width">
           <mat-label>Email</mat-label>
+          <!-- 2 way interpolation-->
           <input matInput placeholder="Email" name="username" [(ngModel)]="login.username">
         </mat-form-field><br />
         <mat-form-field class="full-width">
@@ -18,11 +20,10 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="onSubmit()" color="primary">LOGIN</button>
-      <!-- <a mat-raised-button (click)="login()" color="primary">Register User</a><br /><br /> -->
+      <!-- created  2 buttons , 1 for register and  one for submit-->
+      <button mat-raised-button (click)="onSubmit()" color="primary">LOGIN</button>      
       <a mat-button routerLink="/register">Register</a><br><br>
-      <a mat-button routerLink="/forgotPassword">Forgot Password??</a>
-      <!-- <a mat-raised-button (click)="login()" color="primary">Forgot Password ?</a> -->
+      <!-- <a mat-button routerLink="/forgotPassword">Forgot Password??</a> -->
     </mat-card-actions>
   </mat-card>
 </mat-card>
