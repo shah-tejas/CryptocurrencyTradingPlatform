@@ -9,26 +9,43 @@ import { Order } from '../models/order';
   styleUrls: ['./order-history.component.scss']
 })
 export class OrderHistoryComponent implements OnInit {
-  private orders: Object[];
-  private display: boolean = false;
-  // private sellorders: Object[];
-  // private buyorders: Object[];
+  private orders: Array<Order>;
+  private canceledOrders: Array<Order>;
+  // private display: boolean = false;
 
   constructor(private orderhistory: OrderHistoryService) {
   }
 
   ngOnInit() {
     console.log("^^^^^^^^^^^^^^^^^^^^^");
-    this.orderhistory.get()
+    this.orderhistory.get("pending")
     .subscribe({
       next: response => {
-        console.log(response);
-        this.orders = response["data"] as Order[];
-        this.display = true;
+        this.orders = response["data"];
+      },
+      error: err => console.log(err)
+    });
+    this.reloadCanceled();
+  }
+
+  reloadCanceled = function(){
+    console.log("////////////////////////");
+    console.log("////////////////////////");
+    console.log("////////////////////////");
+    console.log("//////            //////");
+    console.log("//////            //////");
+    console.log("//////            //////");
+    console.log("//////            //////");
+    console.log("////////////////////////");
+    console.log("////////////////////////");
+    console.log("////////////////////////");
+    this.orderhistory.get("canceled")
+    .subscribe({
+      next: response => {
+        this.canceledOrders = response["data"];
       },
       error: err => console.log(err)
     })
-    console.log(this.orders)
   }
 
 }

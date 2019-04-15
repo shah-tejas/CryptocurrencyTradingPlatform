@@ -2,27 +2,21 @@
   const mongoose = require('mongoose');
 
   exports.getAllOrders=function(req){
-    console.log("----------");
-
-    console.log(req.headers,req.url);
     let type = req.body.buy_or_sell;
     return Order.find({buy_or_sell: type}).sort( { created_date: 1 } ).exec();
   }
 
   exports.createNewOrder=function(req){
-    console.log(req.body);
     let neworder = new Order(req.body);
     return neworder.save();
   }
 
   exports.getOneOrder=function(req){
-    console.log(req.body);
     const id = req.params.orderId;
     return Order.find({_id: id}).exec();
   }
 
   exports.updateOrder=function(req){
-    console.log(req.body);
     const order = Object.assign({}, req.body);
     order.completion_date = Date.now;
     return Order.findOneAndUpdate({_id: order._id}, order).exec();

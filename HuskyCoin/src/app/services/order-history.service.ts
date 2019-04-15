@@ -7,11 +7,20 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class OrderHistoryService {
-  private url: String = "localhost:3000/orders"
+  private url: String = "http://localhost:3000/orderhistory/"
   constructor( private http: HttpClient ) { }
 
-  public get = function(): Observable<Order[]>{
-    return this.http.get(this.url,JSON.stringify({buy_or_sell: "sell"}));
+  public get = function(status): Observable<Order[]>{
+    return this.http.get(this.url+"5caebdd4c30e596a7216d4e5"+"/"+status);
     // return this.http.get((this.url+"5caebdd4c30e596a7216d4e5"),{body: { hey: "there"}});
+  }
+
+  public cancel = function(orderId,order): Observable<Order[]>{
+    console.log("!@!@!@@!@@!@!@!@@!@!@!@!@!@!@!");
+    return this.http.put((this.url+orderId),JSON.stringify(order))
+    .subscribe({
+      next: response => console.log(response),
+      error: err => console.log(err),
+    });
   }
 }

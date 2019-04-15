@@ -1,7 +1,6 @@
   const OrderHistoryService = require('../services/order-history-service');
 
   exports.getAll=function(req,res,next){
-    console.log("-=============+++++++++++++++++");
     let Order = OrderHistoryService.getAllOrderHistory(req);
     Order.then(data=>{
       if(data){ res.status(200).json({message: "Handling GET request", data: data }); }
@@ -17,6 +16,7 @@
     Order.then(result=>{
       res.status(200).json({
         message: "Handling PUT request",
+        data: result
       });
     })
     .catch(err=>OrderHistoryService.inspectError(err,res));

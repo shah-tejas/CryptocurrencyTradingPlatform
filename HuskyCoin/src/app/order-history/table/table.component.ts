@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { fade } from '../animations/Fade';
 import { OrderHistoryService } from '../../services/order-history.service';
 import { Order } from '../../models/order';
@@ -9,9 +9,33 @@ import { Order } from '../../models/order';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  @Input() data;
+  @Input() public display: boolean;
+  @Input() public data: Array<Order>;
 
-  ngOnInit() {
+  @Output() public notifyparent = new EventEmitter<String>();
+
+  constructor(private orderhistory: OrderHistoryService){}
+
+  ngOnInit() {}
+
+  cancel = function($event){
+    var child = $event.target;
+    var parent = child.parentElement;
+    var index = Array.prototype.indexOf.call(parent.children, child);
+    //
+    $event.target.remove();
+    let canceledOrder: Order = this.data[index];
+    // canceledOrder.status = "canceled";
+    // this.canceledData.push(canceledOrder);
+    //
+    // console.log(this.canceledData);
+    this.data.splice(index, 1);
+    //
+    console.log("################");
+    console.log(canceledOrder);
+    this.orderhistory.cancel(this.data[index]._id, canceledOrder);
+
+    this.notifyparent.emit("canceled");
 
   }
 }

@@ -17,7 +17,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { CarouselComponent } from './carousel/carousel.component';
 import {MatTableModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule} from '@angular/material';
 import { TableComponent } from './order-history/table/table.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -40,7 +40,8 @@ import { TableComponent } from './order-history/table/table.component';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatMenuModule
   ],
   providers: [
     OrderHistoryService

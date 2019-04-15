@@ -4,4 +4,10 @@
   </video> -->
   <!-- <adata *ngIf="display" [orders]="orders"></app-order-type-history> -->
   <!-- <app-order-type-history [data]="sellorders"></app-order-type-history> -->
-  <app-table [data]="orders"></app-table>
+  <h1>Pending / Completed Orders</h1>
+  <app-table (notifyparent)="reloadCanceled($event)" [display]="true" [data]="orders"></app-table>
+  <br>
+  <h1>Canceled Orders</h1>
+  <app-table [data]="canceledOrders"></app-table>
+  <br><br>
+  <!-- <app-table [canceledData]="canceledOrders" [data]="orders"></app-table> -->
