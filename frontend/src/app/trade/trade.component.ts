@@ -1,8 +1,9 @@
 import { AppState } from './../store/state/app.states';
 import { LogOut } from './../store/actions/user.actions';
 import { Store } from '@ngrx/store';
-import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { MatSort, MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Order } from '../models/order';
 
 const BUY_DATA = [
     {
@@ -77,12 +78,13 @@ export class TradeComponent implements OnInit {
   displayedColumns: string[] = ["buy_or_sell", "from_coin", "from_qty", "from_value", "to_coin", "to_qty", "to_value"];
   buyDataSource = new MatTableDataSource(BUY_DATA);
   sellDataSource = new MatTableDataSource(SELL_DATA);
+
   @ViewChild('buySort') public buySort: MatSort;
   @ViewChild('sellSort') public sellSort: MatSort;
   @ViewChild('buyPaginator') buyPaginator: MatPaginator;
-@ViewChild('sellPaginator') sellPaginator: MatPaginator;
+  @ViewChild('sellPaginator') sellPaginator: MatPaginator;
 
-  constructor(private store: Store<AppState>)
+  constructor(private store: Store<AppState>, public dialog: MatDialog)
   {
 
    }
@@ -110,6 +112,44 @@ export class TradeComponent implements OnInit {
 
   logOut(): void {
     this.store.dispatch(new LogOut);
+  }
+
+  openDialog(row: Order){
+    const dialogRef = this.dialog.open(ConfirmOrderDialogComponent, {
+      width: '400px',
+      maxHeight: '600px',
+      data: {
+        buy_or_sell: row['buy_or_sell'],
+        from_coin: row['from_coin'],
+        from_qty: row['from_qty'],
+        from_value: '$'+row['from_value'],
+        to_coin: row['to_coin'],
+        to_qty: row['to_qty'],
+        to_value: '$'+row['to_value']
+        },
+      panelClass: 'custom-dialog-box'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      alert(`${result}`);
+    });
+  }
+
+}
+
+
+@Component({
+  selector: 'confirm-order-dialog',
+  templateUrl: 'confirm-order-dialog.html',
+})
+export class ConfirmOrderDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmOrderDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Order) {}
+
+    cancelClick(): void {
+    this.dialogRef.close(undefined);
   }
 
 }

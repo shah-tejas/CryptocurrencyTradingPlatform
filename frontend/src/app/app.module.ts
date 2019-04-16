@@ -22,7 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/state/app.states';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { TradeComponent } from './trade/trade.component';
+import { TradeComponent, ConfirmOrderDialogComponent } from './trade/trade.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { TradeComponent } from './trade/trade.component';
     RegisterComponent,
     HomePageComponent,
     TradeComponent,
-    
+    ConfirmOrderDialogComponent
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,7 @@ import { TradeComponent } from './trade/trade.component';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatToolbarModule,
     MyMaterialModule,
     MatStepperModule,
@@ -52,12 +53,15 @@ import { TradeComponent } from './trade/trade.component';
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
       { path: 'home', component: HomePageComponent},
-    
+
      // {path: ,component:ForgotPassword}
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   exports: [MatButtonModule,MatToolbarModule,MatTabsModule],
+  entryComponents: [
+    ConfirmOrderDialogComponent
+  ],
   providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
     AuthService, AuthGuardService],
   bootstrap: [AppComponent]
