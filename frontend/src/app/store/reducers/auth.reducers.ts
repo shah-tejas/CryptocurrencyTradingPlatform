@@ -21,9 +21,7 @@ export interface State {
   errorMessage: string | null;
 }
 
-/***
- * @desc implementation of State interface
- */
+
 export const initialState: State = {
   isAuthenticated: false,
   result: null,
@@ -75,6 +73,26 @@ export function reducer(state = initialState, action: All): State {
     case AuthActionTypes.LOGOUT: {
       return initialState;
     }
+    
+    case AuthActionTypes.UPDATEUSER_SUCCESS:{
+      return {
+        ...state,
+        isAuthenticated: true,
+        result:{
+          token: localStorage.getItem("token"),
+          user: action.payload.User
+        },
+        errorMessage: null
+      };
+    };
+
+    case AuthActionTypes.UPDATEUSER_FAILURE:{
+      return {
+        ...state,
+        errorMessage: 'Please enter the right details'
+      };
+    }
+    
     default: {
       return state;
     }

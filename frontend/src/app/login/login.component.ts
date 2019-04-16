@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/home');
     }
     /**
-     * @desc subbscribed the getstate observable to print the error message if there is invalid credentials
+     * @desc subscribed the getstate observable to print the error message if there is invalid credentials
      */
     this.getState.subscribe((state) => {
       this.errorMessage = state.errorMessage;
@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
    */
   onSubmit(): void {
     console.log(this.login);
+    
     this.store.dispatch(new LogIn(this.login));
   }
 

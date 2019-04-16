@@ -25,14 +25,16 @@ exports.getOneUser = function (req) {
   return User.findById(id).exec();
 }
 
-exports.updateUser = function (req) {
-  const id = req.params.userId;
-  const user = {};
-  for (const temp of req.body) {
-    user[temp.field] = temp.value;
-  }
-  return User.findOneAndUpdate({ _id: id }, { $set: user }).exec();
-}
+/**
+ * Updates and returns the sticky object.
+ *
+ * @param {Object} sticky {Sticky object}
+ */
+exports.updateUser = function (user) {
+  const promise = User.findOneAndUpdate({_id: user._id}, user).exec();
+  return promise;
+};
+
 
 exports.deleteUser = function (req) {
   const id = req.params.userId;

@@ -41,5 +41,14 @@ export class AuthService {
     return this.http.post<User>(url,user);
   }
 
+  /**
+ * @desc sends the post request to server and update user details in the mongo  
+ * @param user User model
+ * @returns
+ */
+  updateUser(user:User):Observable<User> {
+    const url = `${environment.serverBaseURL}/users/`+user._id;
+    return this.http.put<User>(url,user);
+  }
   
 }

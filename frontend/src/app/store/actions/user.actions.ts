@@ -12,49 +12,97 @@ export enum AuthActionTypes {
   REGISTER_SUCCESS = '[Auth] Register Success',
   REGISTER_FAILURE = '[Auth] Register Failure',
   LOGOUT = '[Auth] Logout',
-  GET_STATUS = '[Auth] GetStatus'
+  ACCOUNTSETTINGS = '[Auth] AccountSettings',
+  UPDATEUSER = '[Auth] UpdateUser',
+  UPDATEUSER_SUCCESS = '[Auth] Update User Success',
+  UPDATEUSER_FAILURE = '[Auth] UpdateUser Failure'
 }
 
+/**
+ * @desc implementation of Action
+ */
 export class LogIn implements Action {
   readonly type = AuthActionTypes.LOGIN;
   constructor(public payload: any) {
     console.log("Inside LogIn Constructor", payload);
   }
 }
-
+/**
+ * @desc implementation of Action
+ */
 export class LogInSuccess implements Action {
   readonly type = AuthActionTypes.LOGIN_SUCCESS;
   constructor(public payload: any) { }
 }
 
+/**
+ * @desc implementation of Action
+ */
 export class LogInFailure implements Action {
   readonly type = AuthActionTypes.LOGIN_FAILURE;
   constructor(public payload: any) { }
 }
 
+/**
+ * @desc implementation of Action
+ */
 export class Register implements Action {
   readonly type = AuthActionTypes.REGISTER;
   constructor(public payload: any) { }
 }
 
+/**
+ * @desc implementation of Action
+ */
 export class RegisterSuccess implements Action {
   readonly type = AuthActionTypes.REGISTER_SUCCESS;
   constructor(public payload: any) { }
 }
 
+/**
+ * @desc implementation of Action
+ */
 export class RegisterFailure implements Action {
   readonly type = AuthActionTypes.REGISTER_FAILURE;
   constructor(public payload: any) { }
 }
 
+/**
+ * @desc implementation of Action
+ */
 export class LogOut implements Action {
   readonly type = AuthActionTypes.LOGOUT;
 }
 
-export class GetStatus implements Action {
-  readonly type = AuthActionTypes.GET_STATUS;
+/**
+ * @desc implementation of Action
+ */
+export class AccountSettings implements Action {
+  readonly type = AuthActionTypes.ACCOUNTSETTINGS;
 }
 
+/**
+ * @desc implementation of Action
+ */
+export class UpdateUser implements Action {
+  readonly type = AuthActionTypes.UPDATEUSER;
+  constructor(public payload: any) { }
+}
+/**
+ * @desc implementation of Action
+ */
+export class UpdateUserSuccess implements Action {
+  readonly type = AuthActionTypes.UPDATEUSER_SUCCESS;
+  constructor(public payload: any) { }
+}
+
+/**
+ * @desc implementation of Action
+ */
+export class UpdateUserFailure implements Action {
+  readonly type = AuthActionTypes.UPDATEUSER_FAILURE;
+  constructor(public payload: any) { }
+}
 export type All =
   | LogIn
   | LogInSuccess
@@ -63,4 +111,7 @@ export type All =
   | RegisterSuccess
   | RegisterFailure
   | LogOut
-  | GetStatus;
+  | AccountSettings
+  | UpdateUser
+  | UpdateUserSuccess
+  | UpdateUserFailure;
