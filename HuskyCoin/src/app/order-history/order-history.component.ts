@@ -17,7 +17,10 @@ export class OrderHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("^^^^^^^^^^^^^^^^^^^^^");
+    setInterval(this.reload, 2000);
+  }
+
+  reload = function(){
     this.orderhistory.get("pending")
     .subscribe({
       next: response => {
@@ -25,20 +28,7 @@ export class OrderHistoryComponent implements OnInit {
       },
       error: err => console.log(err)
     });
-    this.reloadCanceled();
-  }
 
-  reloadCanceled = function(){
-    console.log("////////////////////////");
-    console.log("////////////////////////");
-    console.log("////////////////////////");
-    console.log("//////            //////");
-    console.log("//////            //////");
-    console.log("//////            //////");
-    console.log("//////            //////");
-    console.log("////////////////////////");
-    console.log("////////////////////////");
-    console.log("////////////////////////");
     this.orderhistory.get("canceled")
     .subscribe({
       next: response => {
@@ -47,5 +37,4 @@ export class OrderHistoryComponent implements OnInit {
       error: err => console.log(err)
     })
   }
-
 }

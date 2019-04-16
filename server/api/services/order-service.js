@@ -2,8 +2,10 @@
   const mongoose = require('mongoose');
 
   exports.getAllOrders=function(req){
-    let type = req.body.buy_or_sell;
-    return Order.find({buy_or_sell: type}).sort( { created_date: 1 } ).exec();
+    let queryParams= req.query;
+    let orderType = queryParams['orderType'];
+    let status = queryParams['status'];
+    return Order.find({buy_or_sell: orderType, status: status}).sort( { created_date: 1 } ).exec();
   }
 
   exports.createNewOrder=function(req){

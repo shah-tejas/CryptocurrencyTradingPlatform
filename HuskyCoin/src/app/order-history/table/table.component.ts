@@ -22,20 +22,16 @@ export class TableComponent implements OnInit {
     var child = $event.target;
     var parent = child.parentElement;
     var index = Array.prototype.indexOf.call(parent.children, child);
-    //
+
     $event.target.remove();
     let canceledOrder: Order = this.data[index];
-    // canceledOrder.status = "canceled";
-    // this.canceledData.push(canceledOrder);
-    //
-    // console.log(this.canceledData);
+
     this.data.splice(index, 1);
-    //
-    console.log("################");
+
     console.log(canceledOrder);
     this.orderhistory.cancel(this.data[index]._id, canceledOrder);
 
-    this.notifyparent.emit("canceled");
 
+    this.notifyparent.emit("canceled");
   }
 }
