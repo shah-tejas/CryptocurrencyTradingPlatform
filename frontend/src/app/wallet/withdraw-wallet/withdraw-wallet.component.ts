@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WalletService } from '../../services/wallet.service';
+import { AuthService } from '../../services/auth.service';
 import { Coin } from 'src/app/models/coin';
 import { WalletHistory } from 'src/app/models/wallet-history';
 import { FormControl, FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
@@ -15,8 +16,9 @@ export class WithdrawWalletComponent implements OnInit {
   withdrawForm: FormGroup;
   coins: Array<Coin>;
   walletTransaction: WalletHistory;
+  user_id: string;
 
-  constructor(private walletService: WalletService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private walletService: WalletService, private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
 
     // build the user input form
     this.withdrawForm = this.formBuilder.group({
@@ -33,10 +35,12 @@ export class WithdrawWalletComponent implements OnInit {
     // Allow access only if user is authenticated
     if (!localStorage.getItem('token')) {
       this.router.navigateByUrl('/login');
+    } else {
+      this.user_id = this.authService.getUserId();
     }
 
     // get the coins from user's wallet
-    this.walletService.getUserWallet('123').subscribe(userWallet => {
+    this.walletService.getUserWallet(this.user_id).subscribe(userWallet => {
       this.coins = userWallet[0].coins;
       for(const coin of this.coins){
         this.walletService.getCoinRate(coin.coin_name)
@@ -81,7 +85,7 @@ export class WithdrawWalletComponent implements OnInit {
     this.walletTransaction.coin_qty = this.withdrawForm.controls.coinQty.value;
     this.walletTransaction.usd_value = this.withdrawForm.controls.totalUSDValue.value;
     this.walletTransaction.transaction_type = "wallet_unload";
-    this.walletTransaction.user_id = "123";
+    this.walletTransaction.user_id = this.user_id;
     this.walletTransaction.status = "Success";
     this.walletService.createUserWalletTransaction(this.walletTransaction).subscribe(() => {
       this.updateUserWallet();
@@ -89,7 +93,7 @@ export class WithdrawWalletComponent implements OnInit {
   }
 
   updateUserWallet(){
-    this.walletService.getUserWallet('123').subscribe(wallet => {
+    this.walletService.getUserWallet(this.user_id).subscribe(wallet => {
       let removeCoin = false;
       let coinIndex = -1;
       for(let index = 0; index < wallet[0].coins.length; index++){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Coin } from 'src/app/models/coin';
 import { WalletService } from '../../services/wallet.service';
+import { AuthService } from '../../services/auth.service';
 import { WalletHistory } from 'src/app/models/wallet-history';
 import { Router } from '@angular/router';
 
@@ -20,14 +21,16 @@ export class LoadWalletComponent implements OnInit {
   ];
 
   selectedCoin: Coin;
-
+  user_id: string;
   walletTransaction = new WalletHistory();
 
-  constructor(private walletService: WalletService, private router: Router) {
+  constructor(private walletService: WalletService, private router: Router, private authService: AuthService) {
 
     // Allow access only if user is authenticated
     if (!localStorage.getItem('token')) {
       this.router.navigateByUrl('/login');
+    } else {
+      this.user_id = this.authService.getUserId();
     }
 
     // Initialize selectedCoin
@@ -58,7 +61,7 @@ export class LoadWalletComponent implements OnInit {
   loadWallet(): void{
     this.walletTransaction.coin_name = this.selectedCoin.coin_name;
     this.walletTransaction.transaction_type = "wallet_load";
-    this.walletTransaction.user_id = "123";
+    this.walletTransaction.user_id = this.user_id;
     this.walletTransaction.status = "Success";
     this.walletService.createUserWalletTransaction(this.walletTransaction).subscribe(() => {
       this.updateUserWallet(new Coin(this.walletTransaction.coin_name, this.walletTransaction.coin_qty));

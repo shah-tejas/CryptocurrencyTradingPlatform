@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { WalletService } from '../services/wallet.service';
+import { AuthService } from '../services/auth.service';
 import { Wallet } from '../models/wallet';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-wallet',
@@ -12,17 +15,20 @@ import { Router } from '@angular/router';
 export class WalletComponent implements OnInit {
 
   userWallet: Wallet;
+  user_id: string;
 
-  constructor(private walletService: WalletService, private router: Router) { }
+  constructor(private walletService: WalletService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
 
     // Allow access only if user is authenticated
     if (!localStorage.getItem('token')) {
       this.router.navigateByUrl('/login');
+    } else {
+      this.user_id = this.authService.getUserId();
     }
 
-    const userWalletObservable$: Observable<Wallet> = this.walletService.getUserWallet('123');
+    const userWalletObservable$: Observable<Wallet> = this.walletService.getUserWallet(this.user_id);
     userWalletObservable$.subscribe(wallet => {
       this.userWallet = wallet[0];
       this.userWallet.usd_value = 0;
@@ -41,7 +47,6 @@ export class WalletComponent implements OnInit {
       this.walletService.getUserWalletTransactions(this.userWallet.user_id)
           .subscribe(walletTransactions => {
               this.userWallet.walletTransactions = walletTransactions;
-              console.log(this.userWallet.walletTransactions);
           });
 
     });

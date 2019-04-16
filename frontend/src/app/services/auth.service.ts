@@ -27,5 +27,7 @@ export class AuthService {
     return this.http.post<User>(url,user);
   }
 
-  
+  getUserId(): string{
+    return JSON.parse(localStorage.getItem('user'))._id;
+  }
 }
