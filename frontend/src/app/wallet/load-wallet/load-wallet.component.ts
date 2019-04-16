@@ -60,15 +60,10 @@ export class LoadWalletComponent implements OnInit {
   }
 
   updateUserWallet(newCoin: Coin){
-    console.log("in updateUserWallet");
-    console.log("newCoin = " + newCoin);
     this.walletService.getUserWallet('123').subscribe(wallet => {
-      console.log("new " + newCoin.coin_name);
       let existing = false;
       for(const coin of wallet[0].coins){
-        console.log(coin.coin_name);
         if(coin.coin_name === newCoin.coin_name){
-          console.log("coin is existing");
           existing = true;
           coin.coin_qty += newCoin.coin_qty;
           break;
@@ -76,7 +71,6 @@ export class LoadWalletComponent implements OnInit {
       }
 
       if(!existing){
-        console.log("new coin");
         wallet[0].coins.push(newCoin);
       }
 
