@@ -4,6 +4,7 @@
 
 table{
   width: 100%;
+  border: 1px solid black;
 }
 
 th.mat-header-sorted{
@@ -29,4 +30,10 @@ tr:active{
   overflow: auto;
   height: 400px;
 
+}
+
+.mat-form-field {
+  font-size: 14px;
+  margin: auto;
+  padding-left: 30px;
 }

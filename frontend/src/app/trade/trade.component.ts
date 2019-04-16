@@ -19,6 +19,21 @@ const BUY_DATA = [
       to_value:24,
       created_date:"2019-04-14T05:46:09.357Z",
       completion_date:"2019-04-14T05:46:09.357Z"
+    },
+    {
+      _id:"5cb2c9216bfe0e5cb1010af5",
+      status:"pending",
+      matched_order_id:"",
+      user_id:"5caebdd4c30e596a7216d4e5",
+      buy_or_sell:"sell",
+      from_coin:"EOS",
+      from_qty:50,
+      from_value:45,
+      to_coin:"PIC",
+      to_qty:2000,
+      to_value:24,
+      created_date:"2019-04-14T05:46:09.357Z",
+      completion_date:"2019-04-14T05:46:09.357Z"
     }
 ];
 const SELL_DATA = [
@@ -33,6 +48,21 @@ const SELL_DATA = [
     from_value:15,
     to_coin:"ETH",
     to_qty:300,
+    to_value:24,
+    created_date:"2019-04-14T05:46:09.357Z",
+    completion_date:"2019-04-14T05:46:09.357Z"
+  },
+  {
+    _id:"5cb2c9216bfe0e5cb1010af5",
+    status:"pending",
+    matched_order_id:"",
+    user_id:"5caebdd4c30e596a7216d4e5",
+    buy_or_sell:"buy",
+    from_coin:"EOS",
+    from_qty:50,
+    from_value:45,
+    to_coin:"PIC",
+    to_qty:2000,
     to_value:24,
     created_date:"2019-04-14T05:46:09.357Z",
     completion_date:"2019-04-14T05:46:09.357Z"
@@ -55,6 +85,14 @@ export class TradeComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  applyFilterBuy(filterValue: string) {
+    this.buyDataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  applyFilterSell(filterValue: string) {
+    this.sellDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   logOut(): void {

@@ -8,6 +8,10 @@
 <mat-tab-group>
   <mat-tab label="BUY">
     <div class="order-container">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilterBuy($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+
       <table mat-table [dataSource]="buyDataSource" matSort multiTemplateDataRows>
           <ng-container matColumnDef="buy_or_sell">
             <th mat-header-cell *matHeaderCellDef>Buy/Sell</th>
@@ -67,6 +71,9 @@
 
   <mat-tab label=SELL>
     <div class="order-container">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilterSell($event.target.value)" placeholder="Filter">
+          </mat-form-field>
       <table mat-table [dataSource]="sellDataSource" matSort multiTemplateDataRows>
           <ng-container matColumnDef="buy_or_sell">
             <th mat-header-cell *matHeaderCellDef>Buy/Sell</th>
