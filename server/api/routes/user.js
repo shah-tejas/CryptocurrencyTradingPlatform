@@ -18,7 +18,7 @@ module.exports = function (app) {
    * @desc userlogin Routes for search and create
    */
   app.route('/login')
-    .get(loginController.getUser)
+    .post(loginController.getUser)
 
   /**
    * @desc userlogin Routes for get, update and delete
