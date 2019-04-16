@@ -7,14 +7,120 @@
 </mat-toolbar>
 <mat-tab-group>
   <mat-tab label="BUY">
-    <ng-template matTabContent>
-        <p>Sell orders here!</p>
-        </ng-template>
+    <div class="order-container">
+      <table mat-table [dataSource]="buyDataSource" matSort multiTemplateDataRows>
+          <ng-container matColumnDef="buy_or_sell">
+            <th mat-header-cell *matHeaderCellDef>Buy/Sell</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.buy_or_sell }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="from_coin">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>From-Coin </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.from_coin }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="from_qty">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.from_qty }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="from_value">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.from_value | currency }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="to_coin">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>To-Coin </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.to_coin }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="to_qty">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.to_qty }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="to_value">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.to_value | currency }}
+                      </td>
+                    </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true;"></tr>
+              <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+
+      </table>
+    </div>
   </mat-tab>
 
   <mat-tab label=SELL>
-      <ng-template matTabContent>
-      <p>Buy orders here!</p>
-      </ng-template>
+    <div class="order-container">
+      <table mat-table [dataSource]="sellDataSource" matSort multiTemplateDataRows>
+          <ng-container matColumnDef="buy_or_sell">
+            <th mat-header-cell *matHeaderCellDef>Buy/Sell</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.buy_or_sell }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="from_coin">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>From-Coin </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.from_coin }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="from_qty">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.from_qty }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="from_value">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.from_value | currency }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="to_coin">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>To-Coin </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.to_coin }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="to_qty">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.to_qty }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="to_value">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.to_value | currency }}
+                      </td>
+                    </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true;"></tr>
+              <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+
+      </table>
+    </div>
   </mat-tab>
 </mat-tab-group>
