@@ -11,13 +11,12 @@ import { Order } from '../models/order';
 export class OrderHistoryComponent implements OnInit {
   private orders: Array<Order>;
   private canceledOrders: Array<Order>;
-  // private display: boolean = false;
 
-  constructor(private orderhistory: OrderHistoryService) {
-  }
+  constructor(private orderhistory: OrderHistoryService) {}
 
   ngOnInit() {
-    setInterval(this.reload, 2000);
+    // setInterval(this.reload, 1000);
+    this.reload();
   }
 
   reload = function(){
