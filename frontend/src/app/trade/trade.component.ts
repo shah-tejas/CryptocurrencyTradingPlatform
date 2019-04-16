@@ -1,7 +1,7 @@
 import { AppState } from './../store/state/app.states';
 import { LogOut } from './../store/actions/user.actions';
 import { Store } from '@ngrx/store';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 
 const BUY_DATA = [
@@ -77,8 +77,8 @@ export class TradeComponent implements OnInit {
   displayedColumns: string[] = ["buy_or_sell", "from_coin", "from_qty", "from_value", "to_coin", "to_qty", "to_value"];
   buyDataSource = new MatTableDataSource(BUY_DATA);
   sellDataSource = new MatTableDataSource(SELL_DATA);
-  @ViewChild(MatSort) sortBuy: MatSort;
-  @ViewChild(MatSort) sortSell: MatSort;
+  @ViewChild('buySort') public buySort: MatSort;
+  @ViewChild('sellSort') public sellSort: MatSort;
 
   constructor(private store: Store<AppState>)
   {
@@ -86,8 +86,8 @@ export class TradeComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.buyDataSource.sort = this.sortBuy;
-    this.sellDataSource.sort = this.sortSell;
+    this.buyDataSource.sort = this.buySort;
+    this.sellDataSource.sort = this.sellSort;
   }
 
   applyFilterBuy(filterValue: string) {
