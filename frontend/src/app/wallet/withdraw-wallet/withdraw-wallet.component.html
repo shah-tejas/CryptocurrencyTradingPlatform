@@ -1,28 +1,30 @@
 <h2>Withdraw Funds from Wallet</h2>
+<div *ngIf="coins">
+  <form [formGroup]="withdrawForm" (ngSubmit)="submitWithdrawForm()" *ngIf="coins.length > 0">
+    <label>Coin Name: </label>
+    <select formControlName="coinName" (change)="onCoinChange()">
+      <option *ngFor="let coin of coins" [ngValue]="coin.coin_name">{{ coin.coin_name }}</option>
+    </select>
 
-<form [formGroup]="withdrawForm" (ngSubmit)="submitWithdrawForm()">
-  <label>Coin Name: </label>
-  <select formControlName="coinName" (change)="onCoinChange()" *ngIf="coins">
-    <option *ngFor="let coin of coins" [ngValue]="coin.coin_name">{{ coin.coin_name }}</option>
-  </select>
+    <br/>
 
-  <br/>
+    <label>Coin Qty: </label>
+    <input type="number" formControlName="coinQty" (change)="updateUSDValue()" />
 
-  <label>Coin Qty: </label>
-  <input type="number" formControlName="coinQty" (change)="updateUSDValue()" />
+    <br/>
 
-  <br/>
+    <label>Coin Rate: </label>
+    <input type="number" formControlName="coinRate" />
 
-  <label>Coin Rate: </label>
-  <input type="number" formControlName="coinRate" />
+    <br/>
 
-  <br/>
+    <label>Total Value: </label>
+    <input type="number" formControlName="totalUSDValue" />
 
-  <label>Total Value: </label>
-  <input type="number" formControlName="totalUSDValue" />
+    <br/>
 
-  <br/>
+    <button type="submit">Withdraw</button>
 
-  <button type="submit">Withdraw</button>
+  </form>
+</div>
 
-</form>

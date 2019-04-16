@@ -69,7 +69,7 @@ export class LoadWalletComponent implements OnInit {
   }
 
   updateUserWallet(newCoin: Coin){
-    this.walletService.getUserWallet('123').subscribe(wallet => {
+    this.walletService.getUserWallet(this.user_id).subscribe(wallet => {
       let existing = false;
       for(const coin of wallet[0].coins){
         if(coin.coin_name === newCoin.coin_name){

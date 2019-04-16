@@ -16,6 +16,8 @@ export class WalletComponent implements OnInit {
 
   userWallet: Wallet;
   user_id: string;
+  walletTransactionsColumns: string[] = ['created_date', 'transaction_type', 'coin_name', 'coin_qty', 'usd_value', 'status'];
+  coinBalanceColumns: string[] = ['coin_name', 'coin_qty', 'coin_rate', 'coin_total_rate'];
 
   constructor(private walletService: WalletService, private authService: AuthService, private router: Router) { }
 
