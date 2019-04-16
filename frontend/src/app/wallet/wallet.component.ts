@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WalletService } from '../services/wallet.service';
 import { Wallet } from '../models/wallet';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wallet',
@@ -12,9 +13,15 @@ export class WalletComponent implements OnInit {
 
   userWallet: Wallet;
 
-  constructor(private walletService: WalletService) { }
+  constructor(private walletService: WalletService, private router: Router) { }
 
   ngOnInit() {
+
+    // Allow access only if user is authenticated
+    if (!localStorage.getItem('token')) {
+      this.router.navigateByUrl('/login');
+    }
+
     const userWalletObservable$: Observable<Wallet> = this.walletService.getUserWallet('123');
     userWalletObservable$.subscribe(wallet => {
       this.userWallet = wallet[0];

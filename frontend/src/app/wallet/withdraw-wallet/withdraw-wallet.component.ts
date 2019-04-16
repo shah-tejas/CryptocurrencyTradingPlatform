@@ -3,6 +3,7 @@ import { WalletService } from '../../services/wallet.service';
 import { Coin } from 'src/app/models/coin';
 import { WalletHistory } from 'src/app/models/wallet-history';
 import { FormControl, FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-withdraw-wallet',
@@ -15,7 +16,7 @@ export class WithdrawWalletComponent implements OnInit {
   coins: Array<Coin>;
   walletTransaction: WalletHistory;
 
-  constructor(private walletService: WalletService, private formBuilder: FormBuilder) {
+  constructor(private walletService: WalletService, private formBuilder: FormBuilder, private router: Router) {
 
     // build the user input form
     this.withdrawForm = this.formBuilder.group({
@@ -28,6 +29,12 @@ export class WithdrawWalletComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // Allow access only if user is authenticated
+    if (!localStorage.getItem('token')) {
+      this.router.navigateByUrl('/login');
+    }
+
     // get the coins from user's wallet
     this.walletService.getUserWallet('123').subscribe(userWallet => {
       this.coins = userWallet[0].coins;
