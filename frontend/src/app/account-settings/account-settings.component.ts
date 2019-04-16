@@ -56,6 +56,7 @@ export class AccountSettingsComponent implements OnInit {
       Phno: ['', Validators.pattern('[1-9]{1}[0-9]{9}')],
     });
     this.addressDetailsFormGroup = this._formBuilder.group({
+     
       address1: ['', Validators.required],
       address2: [''],
       city: ['', Validators.required],
