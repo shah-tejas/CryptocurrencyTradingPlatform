@@ -66,6 +66,7 @@
               <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
 
       </table>
+      <mat-paginator #buyPaginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
   </mat-tab>
 
@@ -128,6 +129,7 @@
               <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
 
       </table>
+      <mat-paginator #sellPaginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
   </mat-tab>
 </mat-tab-group>

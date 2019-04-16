@@ -2,7 +2,7 @@ import { AppState } from './../store/state/app.states';
 import { LogOut } from './../store/actions/user.actions';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { MatSort, MatTableDataSource } from '@angular/material';
+import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 
 const BUY_DATA = [
     {
@@ -79,6 +79,8 @@ export class TradeComponent implements OnInit {
   sellDataSource = new MatTableDataSource(SELL_DATA);
   @ViewChild('buySort') public buySort: MatSort;
   @ViewChild('sellSort') public sellSort: MatSort;
+  @ViewChild('buyPaginator') buyPaginator: MatPaginator;
+@ViewChild('sellPaginator') sellPaginator: MatPaginator;
 
   constructor(private store: Store<AppState>)
   {
@@ -88,14 +90,22 @@ export class TradeComponent implements OnInit {
   ngOnInit() {
     this.buyDataSource.sort = this.buySort;
     this.sellDataSource.sort = this.sellSort;
+    this.buyDataSource.paginator = this.buyPaginator;
+    this.sellDataSource.paginator = this.sellPaginator;
   }
 
   applyFilterBuy(filterValue: string) {
     this.buyDataSource.filter = filterValue.trim().toLowerCase();
+    if (this.buyDataSource.paginator) {
+      this.buyDataSource.paginator.firstPage();
+    }
   }
 
   applyFilterSell(filterValue: string) {
     this.sellDataSource.filter = filterValue.trim().toLowerCase();
+    if (this.sellDataSource.paginator) {
+      this.sellDataSource.paginator.firstPage();
+    }
   }
 
   logOut(): void {
