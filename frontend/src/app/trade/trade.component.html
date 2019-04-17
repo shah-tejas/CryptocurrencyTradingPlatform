@@ -135,9 +135,21 @@
 
   <mat-tab label="PLACE-ORDER">
       <div class="order-container">
-          <p> Place Orders here!
+          <form class="placeOrder-form" [formGroup]="placeOrderForm" (ngSubmit)="onSubmit()">
+              <h5 class="success" *ngIf="success">Order placed successfully!!!</h5>
 
-          </p>
+              <label >Select the Order-Type<span class="requiredSpan">*</span>: </label>
+              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="selectedOrderType">
+                <mat-radio-button class="example-radio-button" *ngFor="let orderType of orderTypes" [value]="orderType">
+                  {{orderType}}
+                </mat-radio-button>
+              </mat-radio-group>
+              <div *ngIf="submitted && placeOrderForm.controls.selectedOrderType.errors " class="error">
+                <div *ngIf="placeOrderForm.controls.selectedOrderType.errors.required">Order-Type is required!</div>
+            </div>
+
+            <button type="submit" mat-raised-button color="primary">Confirm Order</button>
+            </form>
       </div>
     </mat-tab>
 </mat-tab-group>
