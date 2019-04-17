@@ -144,9 +144,9 @@
                   {{orderType}}
                 </mat-radio-button>
               </mat-radio-group>
-              <div *ngIf="submitted && placeOrderForm.controls.selectedOrderType.errors " class="error">
-                <div *ngIf="placeOrderForm.controls.selectedOrderType.errors.required">Order-Type is required!</div>
-            </div>
+              <mat-error *ngIf="submitted && placeOrderForm.controls.selectedOrderType.errors && placeOrderForm.controls.selectedOrderType.hasError('required')">
+                  Order-Type is required!
+                </mat-error>
 
             <mat-form-field>
                 <input type="text" formControlName="fromCoin" placeholder="From-Coin" matInput [matAutocomplete]="auto" required>
@@ -155,11 +155,21 @@
                   {{fromCoin}}
                   </mat-option>
                 </mat-autocomplete>
+                <mat-error *ngIf="placeOrderForm.controls.fromCoin.hasError('required')">
+                    This field is <strong>required</strong>
+                  </mat-error>
             </mat-form-field>
             <mat-form-field>
               <input matInput  placeholder="Quantity (From) " formControlName="fromQty" required>
+              <mat-error *ngIf="placeOrderForm.controls.fromQty.hasError('required')">
+                  This field is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="placeOrderForm.controls.toQty.hasError('pattern')">
+                    This field should be <strong>numeric</strong>
+                  </mat-error>
             </mat-form-field>
             <mat-form-field>
+                <span matPrefix>$ &nbsp;</span>
               <input matInput  placeholder="USD Value (From) " formControlName="fromValue"  class="fromValueClass">
             </mat-form-field>
 
@@ -170,11 +180,21 @@
                   {{toCoin}}
                   </mat-option>
                 </mat-autocomplete>
+                <mat-error *ngIf="placeOrderForm.controls.toCoin.hasError('required')">
+                    This field is <strong>required</strong>
+                  </mat-error>
             </mat-form-field>
             <mat-form-field>
               <input matInput  placeholder="Quantity (To) " formControlName="toQty" required>
+              <mat-error *ngIf="placeOrderForm.controls.toQty.hasError('required')">
+                    This field is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="placeOrderForm.controls.toQty.hasError('pattern')">
+                      This field should be <strong>numeric</strong>
+                    </mat-error>
             </mat-form-field>
             <mat-form-field>
+                <span matPrefix>$ &nbsp;</span>
               <input matInput  placeholder="USD Value (To) " formControlName="toValue"  class="toValueClass">
             </mat-form-field>
 

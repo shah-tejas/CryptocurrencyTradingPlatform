@@ -235,11 +235,11 @@ export class TradeComponent implements OnInit {
     this.placeOrderForm = this.formBuilder.group({
       selectedOrderType: ["", Validators.required],
       fromCoin: ["",Validators.required],
-      fromQty: ["", [Validators.required, Validators.pattern(/^\d{4}$/)]],
-      fromValue: [{value: "$123.00", disabled: true},],
+      fromQty: ["", [Validators.required, Validators.pattern(/^([1-9][0-9]*)$/)]],
+      fromValue: [{value: "123.00", disabled: true},],
       toCoin: ["",Validators.required],
-      toQty: ["", [Validators.required, Validators.pattern(/^\d{4}$/)]],
-      toValue: [{value: "$124.00", disabled: true},]
+      toQty: ["", [Validators.required, Validators.pattern(/^(0|[1-9][0-9]*)$/)]],
+      toValue: [{value: "124.00", disabled: true},]
     });
   }
 
