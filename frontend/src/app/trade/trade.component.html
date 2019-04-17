@@ -148,7 +148,42 @@
                 <div *ngIf="placeOrderForm.controls.selectedOrderType.errors.required">Order-Type is required!</div>
             </div>
 
-            <button type="submit" mat-raised-button color="primary">Confirm Order</button>
+            <mat-form-field>
+                <input type="text" formControlName="fromCoin" placeholder="From-Coin" matInput [matAutocomplete]="auto" required>
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                  <mat-option *ngFor="let fromCoin of coins" [value]="fromCoin">
+                  {{fromCoin}}
+                  </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput  placeholder="Quantity (From) " formControlName="fromQty" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput  placeholder="USD Value (From) " formControlName="fromValue"  class="fromValueClass">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" formControlName="toCoin" placeholder="To-Coin" matInput [matAutocomplete]="auto" required>
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                  <mat-option *ngFor="let toCoin of coins" [value]="toCoin">
+                  {{toCoin}}
+                  </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput  placeholder="Quantity (To) " formControlName="toQty" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput  placeholder="USD Value (To) " formControlName="toValue"  class="toValueClass">
+            </mat-form-field>
+
+
+              <div class="submitDiv">
+                  <div class="flex-spacer"></div>
+                <button type="submit" mat-raised-button color="primary">Confirm Order</button>
+              </div>
+
             </form>
       </div>
     </mat-tab>

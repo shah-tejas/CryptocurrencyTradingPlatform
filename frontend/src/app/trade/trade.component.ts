@@ -223,6 +223,7 @@ export class TradeComponent implements OnInit {
   submitted: boolean = false;
   success: boolean = false;
   orderTypes: string[] = ['BUY', 'SELL'];
+  coins: string[] = ['BTC', 'EOS', 'ETH', 'LTC'];
 
   //Bind childs to tables in Buy-Sell Sections
   @ViewChild("buySort") public buySort: MatSort;
@@ -232,7 +233,14 @@ export class TradeComponent implements OnInit {
 
   constructor(private store: Store<AppState>, public dialog: MatDialog, private formBuilder: FormBuilder) {
     this.placeOrderForm = this.formBuilder.group({
-      selectedOrderType: ["", Validators.required] });
+      selectedOrderType: ["", Validators.required],
+      fromCoin: ["",Validators.required],
+      fromQty: ["", [Validators.required, Validators.pattern(/^\d{4}$/)]],
+      fromValue: [{value: "$123.00", disabled: true},],
+      toCoin: ["",Validators.required],
+      toQty: ["", [Validators.required, Validators.pattern(/^\d{4}$/)]],
+      toValue: [{value: "$124.00", disabled: true},]
+    });
   }
 
   onSubmit() {
@@ -244,11 +252,11 @@ export class TradeComponent implements OnInit {
 
     // Map Form-Control values to local variables
     let orderType = this.placeOrderForm.get("selectedOrderType").value;
-    // let lname = this.placeOrderForm.get("lastname").value;
+    let fromCoin = this.placeOrderForm.get("fromCoin").value;
     // let phone = this.placeOrderForm.get("phone").value;
     // let email = this.placeOrderForm.get("email").value;
 
-    alert("values : "+orderType);
+    alert("values : "+orderType+" , fromCoin: "+fromCoin);
     // Call to Add-Contact REST-API
     // this.data.addContact(fname, lname, phone, email).subscribe(contact => {
     //   this.success = true;
