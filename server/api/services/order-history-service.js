@@ -1,4 +1,4 @@
-const Order = require('../model/orders');
+ const Order = require('../model/orders');
 const mongoose = require('mongoose');
 
 exports.getAllOrderHistory=function(req){

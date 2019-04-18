@@ -19,9 +19,26 @@
   }
 
   exports.updateOrder=function(req){
-    const order = Object.assign({}, req.body);
-    order.completion_date = Date.now;
-    return Order.findOneAndUpdate({_id: order._id}, order).exec();
+    console.log("Im Here");
+    let id = req.params.orderId;
+    let neworder = Object.assign({}, req.body);
+    neworder["completion_date"] = Date.now();
+    neworder["status"] = "completed";
+    neworder["matched_order_id"] = id;
+    const persistOrder = new Order(neworder);
+    return persistOrder.save()
+    .then(data => {
+      const oldorder = {
+        matched_order_id: data._id,
+        status: "completed",
+        completion_date: Date.now()
+      }
+      Order.findOneAndUpdate(
+        {_id: data.matched_order_id},
+        {$set: oldorder}
+      ).exec();
+    })
+    .catch(err => console.log(err));
   }
 
   exports.deleteOrder=function(req){
