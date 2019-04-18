@@ -64,7 +64,7 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
       { path: 'home', component: HomePageComponent},
-      {p ath: 'accountsettings', component: AccountSettingsComponent}
+      { path: 'accountsettings', component: AccountSettingsComponent}
 
      // {path: ,component:ForgotPassword}
     ]),
