@@ -6,6 +6,7 @@ import { Login } from './login';
  * @desc User model
  */
 export class User {
+    _id :String;
     fname: String;
     lname: String;
     emailId: String;

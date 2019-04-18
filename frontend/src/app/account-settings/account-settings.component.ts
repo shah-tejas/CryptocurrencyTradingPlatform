@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { User } from '../models/user';
 import { AppState, selectAuthState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
-import { Register } from '../store/actions/user.actions';
+import { UpdateUser } from '../store/actions/user.actions';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-account-settings',
+  templateUrl: './account-settings.component.html',
+  styleUrls: ['./account-settings.component.scss']
 })
+export class AccountSettingsComponent implements OnInit {
 
-export class RegisterComponent implements OnInit {
   /**
  * @var isLinear boolean value. checks if the form should be allowed to the  secon part or not
  * @var generalDetailsFormGroup FormGroup
@@ -20,17 +19,20 @@ export class RegisterComponent implements OnInit {
  * @var paymentDetailsFormGroup FormGroup
  * @var loginDetailsFormGroup FormGroup
  */
-  isLinear = true;
+  isLinear = false;
   generalDetailsFormGroup: FormGroup;
   addressDetailsFormGroup: FormGroup;
   paymentDetailsFormGroup: FormGroup;
-  loginDetailsFormGroup: FormGroup;
-  user: User = new User();
+  changePasswordFormGroup: FormGroup;
+  user: User;
   confirmpassword: String;
-
+  initialPassword: String="";
+  //changePassword: boolean = false;
 
   constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
+    // this.user = localStorage.getItem("result.user") ;
   }
+
 
   ngOnInit() {
     /**
@@ -38,8 +40,11 @@ export class RegisterComponent implements OnInit {
      * if it is then it does not allow the user to got the register page, it routes you  back to the home page.
      */
     if (localStorage.getItem('token')) {
-      this.router.navigateByUrl('/home');
-      
+      this.router.navigateByUrl('/accountsettings');
+      this.user = JSON.parse((localStorage.getItem("user")))
+      this.initialPassword = this.user.login.password;
+    } else {
+      this.router.navigateByUrl('/login');
     }
     /**
      * @desc  ._formBuilder.group is used to add validations for each field on the registration form
@@ -51,6 +56,7 @@ export class RegisterComponent implements OnInit {
       Phno: ['', Validators.pattern('[1-9]{1}[0-9]{9}')],
     });
     this.addressDetailsFormGroup = this._formBuilder.group({
+     
       address1: ['', Validators.required],
       address2: [''],
       city: ['', Validators.required],
@@ -64,23 +70,25 @@ export class RegisterComponent implements OnInit {
       name: ['', Validators.required],
       zipcode: ['', Validators.required]
     });
-    this.loginDetailsFormGroup = this._formBuilder.group({
-      emailId: [{ Value: '', disabled: true }],
+    this.changePasswordFormGroup = this._formBuilder.group({
       password: ['', Validators.required],
-      confirmpassword: ['', Validators.required]
-    });
+      confirmpassword: ['']
+      });
   }
 
-  /***
-   * @desc this method is called on the submit button .
-   * It checks if the username and email id is same and also  checks if the password and confirm password is used.
-   */
   onSubmit() {
-    this.user.login.username = this.user.emailId;
-    if (this.user.login.password === (this.confirmpassword)) {
-      this.store.dispatch(new Register(this.user));
-    } else {
-      alert("Please enter same password");
+    if(this.user.login.password == this.initialPassword){
+      this.confirmpassword = "";
+      this.store.dispatch(new UpdateUser(this.user));
+    }else{
+      if(this.user.login.password == this.confirmpassword){
+        this.store.dispatch(new UpdateUser(this.user));
+      }else{
+        alert("Password and Confirm Password must Match");
+      }
     }
+
   }
+
+  
 }

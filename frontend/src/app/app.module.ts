@@ -6,6 +6,7 @@ import { MatButtonModule, MatToolbarModule,MatTabsModule, MatStepperModule, MatS
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import {AccountSettingsComponent} from './account-settings/account-settings.component'
 import { RouterModule, CanActivate, Router } from '@angular/router';
 import { MyMaterialModule } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -37,7 +38,8 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     WithdrawWalletComponent,
     LoginComponent,
     RegisterComponent,
-    HomePageComponent
+    HomePageComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
       { path: 'home', component: HomePageComponent},
+      {p ath: 'accountsettings', component: AccountSettingsComponent}
 
      // {path: ,component:ForgotPassword}
     ]),

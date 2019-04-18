@@ -4,7 +4,7 @@
     <span>HOME</span>
     <span class="spacer"></span>
     <div class="full-width">
-      <button mat-raised-button mat-button routerLink="/register">Logout</button>
+      <button mat-raised-button mat-button (click)="settings()" routerLink="/accountsettings">Account Settings</button>&nbsp;&nbsp;
     </div>
     <button mat-raised-button (click)="logOut()"mat-button routerLink="/login">Logout</button>
   </mat-toolbar-row>
