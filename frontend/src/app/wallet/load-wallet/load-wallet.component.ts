@@ -21,6 +21,7 @@ export class LoadWalletComponent implements OnInit {
   ];
 
   selectedCoin: Coin;
+  selectedCoinName: string;
   user_id: string;
   walletTransaction = new WalletHistory();
 
@@ -35,6 +36,7 @@ export class LoadWalletComponent implements OnInit {
 
     // Initialize selectedCoin
     this.selectedCoin = this.coins[0];
+    this.selectedCoinName = this.selectedCoin.coin_name;
 
     // fetch coin rates for all coins
     for(const coin of this.coins){
@@ -48,6 +50,7 @@ export class LoadWalletComponent implements OnInit {
   }
 
   getCurrentCoinRate(): void {
+    this.selectedCoin.coin_name = this.selectedCoinName;
     this.walletService.getCoinRate(this.selectedCoin.coin_name).subscribe(coinRate => {
       this.selectedCoin.coin_rate = coinRate[0].usdvalue;
     });

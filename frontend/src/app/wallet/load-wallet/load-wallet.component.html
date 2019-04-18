@@ -1,29 +1,37 @@
-<h2>Load Wallet</h2>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Load Wallet</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="loadWallet()">
 
-<form (ngSubmit)="loadWallet()">
+      <mat-label>Coin Name:</mat-label>
+      <mat-form-field>
+        <mat-select *ngIf="coins" [(ngModel)]="selectedCoinName" (selectionChange)="getCurrentCoinRate()"
+          name="coin_name">
+          <mat-option *ngFor="let coin of coins" [value]="coin.coin_name">
+            {{ coin.coin_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <label>Coin Name:</label>
-  <select *ngIf="coins" [(ngModel)]="selectedCoin" (change)="getCurrentCoinRate()" name="coin_name">
-    <option *ngFor="let coin of coins" [ngValue]="coin">
-      {{ coin.coin_name}}
-    </option>
-  </select>
 
+      <div *ngIf="selectedCoin">
+        <label>Current Rate: </label>{{ selectedCoin.coin_rate }}
+      </div>
 
-  <div *ngIf="selectedCoin">
-    <label>Current Rate: </label>{{ selectedCoin.coin_rate }}
-  </div>
+      <label>Quantity: </label>
+      <input type="number" [(ngModel)]="walletTransaction.coin_qty" name="coin_qty" (change)="updateUSDValue()" />
 
-  <label>Quantity: </label>
-  <input type="number" [(ngModel)]="walletTransaction.coin_qty" name="coin_qty" (change)="updateUSDValue()" />
+      <br />
 
-  <br/>
+      <label>USD Value: </label>
+      <input type="number" [(ngModel)]="walletTransaction.usd_value" name="usd_value" readonly />
 
-  <label>USD Value: </label>
-  <input type="number" [(ngModel)]="walletTransaction.usd_value" name="usd_value" readonly />
+      <br />
 
-  <br/>
+      <button type="submit">Load Wallet</button>
 
-  <button type="submit">Load Wallet</button>
-
-</form>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -11,7 +11,8 @@ import {
   MatInputModule,
   MatRadioModule,
   MatListModule,
-  MatTableModule
+  MatTableModule,
+  MatSelectModule
 } from '@angular/material';
 import {MatDatepickerModule} from  '@angular/material/datepicker';
 
@@ -23,7 +24,7 @@ imports: [MatNativeDateModule,MatTabsModule,MatDatepickerModule,MatIconModule,
 exports: [MatNativeDateModule,MatTabsModule,
 MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule,
 MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,
-MatListModule,MatRadioModule,MatTableModule],
+MatListModule,MatRadioModule,MatTableModule, MatSelectModule],
 
 })
 

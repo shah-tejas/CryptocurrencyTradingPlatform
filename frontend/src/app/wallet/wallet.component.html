@@ -1,6 +1,7 @@
 <mat-card class="md-padding" layout-xs="column" layout="row" layout-align="center center">
-  <a mat-button routerLink="/loadWallet">Load Wallet</a>
-  <a mat-button routerLink="/withdrawWallet">Withdraw from Wallet</a>
+  <a mat-button mat-raised-button color="primary" routerLink="/loadWallet">Load Wallet</a>
+  &nbsp;&nbsp;
+  <a mat-button mat-raised-button color="primary" routerLink="/withdrawWallet">Withdraw from Wallet</a>
 </mat-card>
 
 
@@ -36,12 +37,12 @@
 
           <ng-container matColumnDef="coin_rate">
             <mat-header-cell *matHeaderCellDef> Coin Rate (USD) </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.coin_rate}} </mat-cell>
+            <mat-cell *matCellDef="let element"> ${{element.coin_rate}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="coin_total_rate">
             <mat-header-cell *matHeaderCellDef> Total USD </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.coin_qty * element.coin_rate}} </mat-cell>
+            <mat-cell *matCellDef="let element"> ${{element.coin_qty * element.coin_rate}} </mat-cell>
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="coinBalanceColumns"></mat-header-row>
@@ -84,7 +85,7 @@
 
         <ng-container matColumnDef="usd_value">
           <mat-header-cell *matHeaderCellDef> Value in USD </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.usd_value}} </mat-cell>
+          <mat-cell *matCellDef="let element"> ${{element.usd_value}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="status">
