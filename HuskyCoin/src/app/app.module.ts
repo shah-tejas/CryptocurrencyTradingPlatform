@@ -18,11 +18,12 @@ import { CarouselComponent } from './carousel/carousel.component';
 import {MatTableModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule} from '@angular/material';
 import { TableComponent } from './order-history/table/table.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
 
 
 @NgModule({
   declarations: [
-    AppComponent, OrderHistoryComponent, NavBarComponent, CarouselComponent, TableComponent
+    AppComponent, OrderHistoryComponent, NavBarComponent, CarouselComponent, TableComponent, jqxChartComponent
   ],
   imports: [
     BrowserModule,
