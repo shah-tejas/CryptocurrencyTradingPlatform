@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import{environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 import { User } from '../models/user';
 import { Login } from '../models/login';
 
@@ -49,6 +49,14 @@ export class AuthService {
   updateUser(user:User):Observable<User> {
     const url = `${environment.serverBaseURL}/users/`+user._id;
     return this.http.put<User>(url,user);
+  }
+
+  /**
+   * @desc fetches the user's id
+   * @returns user._id
+   */
+  getUserId(): string{
+    return JSON.parse(localStorage.getItem('user'))._id;
   }
 
 }
