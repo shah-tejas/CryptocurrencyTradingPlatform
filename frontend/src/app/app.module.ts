@@ -5,6 +5,7 @@ import { MatButtonModule, MatToolbarModule,MatTabsModule, MatStepperModule, MatS
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import {AccountSettingsComponent} from './account-settings/account-settings.component'
 import { RouterModule, CanActivate, Router } from '@angular/router';
 import { MyMaterialModule } from './material';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +30,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
-    
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +54,7 @@ import { AuthGuardService } from './services/auth-guard.service';
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
       { path: 'home', component: HomePageComponent},
+      {path: 'accountsettings', component:AccountSettingsComponent}
     
      // {path: ,component:ForgotPassword}
     ]),

@@ -1,5 +1,6 @@
 module.exports = function (app) {
   const UserController = require('../controllers/user-controller');
+  const loginController = require('../controllers/loginController');
   /**
    * @desc User Routes for search and create.
     */
@@ -9,16 +10,18 @@ module.exports = function (app) {
   /**
    * @desc User Routes for get, update and delete.
    */
-  app.route('/users/:userId').get(UserController.getOne)
-    .put(UserController.put)
+  app.route('/users/:userId')
+  .get(UserController.getOne)
+    .put(loginController.put)
     .delete(UserController.delete);
 
-  const loginController = require('../controllers/loginController');
+ 
   /** 
    * @desc userlogin Routes for search and create
    */
   app.route('/login')
     .post(loginController.getUser)
+ 
 
   /**
    * @desc userlogin Routes for get, update and delete
