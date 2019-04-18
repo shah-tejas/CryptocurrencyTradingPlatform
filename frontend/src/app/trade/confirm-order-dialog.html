@@ -22,6 +22,7 @@
     <p>
         <mat-form-field appearance="outline">
             <mat-label>From-Value</mat-label>
+            <span matPrefix>$ &nbsp;</span>
             <input matInput [(ngModel)]="data.from_value" #from_value="ngModel" name="from_value" type="text" disabled>
           </mat-form-field>
       </p>
@@ -41,6 +42,7 @@
     <p>
         <mat-form-field appearance="outline">
             <mat-label>To-Value</mat-label>
+            <span matPrefix>$ &nbsp;</span>
             <input matInput [(ngModel)]="data.to_value" #to_value="ngModel" name="to_value" type="text" disabled>
           </mat-form-field>
       </p>

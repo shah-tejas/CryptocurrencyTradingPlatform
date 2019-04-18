@@ -1,18 +1,17 @@
 export class Order {
 
-  constructor(
-    public _id: String,
-    public user_id: String,
-    public status: String,
-    public matched_order_id: String,
-    public buy_or_sell: String,
-    public from_coin: String,
-    public from_qty: Number,
-    public from_value: Number,
-    public to_coin: String,
-    public to_qty: Number,
-    public to_value: Number,
-    public created_date: Date,
-    public completion_date: Date
-  ) { }
+    _id: String;
+    user_id: String;
+    status: String;
+    matched_order_id: String;
+    buy_or_sell: String;
+    from_coin: String;
+    from_qty: Number;
+    from_value: Number;
+    to_coin: String;
+    to_qty: Number;
+    to_value: Number;
+    created_date: Date;
+    completion_date: Date
+  constructor(  ) { }
 }
