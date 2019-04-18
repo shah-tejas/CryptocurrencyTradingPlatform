@@ -1,3 +1,4 @@
+import { CoinOrder } from './../models/coin-order';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppState } from './../store/state/app.states';
@@ -33,7 +34,8 @@ export class TradeComponent implements OnInit {
   submitted: boolean = false;
   success: boolean = false;
   orderTypes: string[] = ['BUY', 'SELL'];
-  coins: string[] = ['BTC', 'EOS', 'ETH', 'LTC'];
+  coins: string[] = [];// = ['BTC', 'EOS', 'ETH', 'LTC'];
+  coinsArr: Array<CoinOrder>;
 
   //Wallet variable declaration
 
@@ -55,6 +57,22 @@ export class TradeComponent implements OnInit {
       toQty: ['', [Validators.required, Validators.pattern(/^(0|[1-9][0-9]*)$/)]],
       toValue: [{value: '124.00', disabled: true},]
     });
+
+    //Fetch latest rates for all coins
+    this.orderService.getCoinRate().subscribe(result => {
+      console.log(result);
+      this.coinsArr= result as Array<CoinOrder>;
+      for(let coinVar of this.coinsArr){
+        console.log('coin-name :' + coinVar.coinname);
+        this.coins.push(coinVar.coinname);
+      }
+
+    });
+
+  }
+
+  updateFromValue(){
+
   }
 
   onSubmit() {

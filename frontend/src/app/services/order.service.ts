@@ -10,6 +10,10 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
+  getCoinRate() {
+    return this.http.get('http://localhost:3000/currentRate/');
+  }
+
   getPendingBuyOrders() : Observable<Array<Order>>{
     return this.http.get<Array<Order>>("http://localhost:3000/orders?orderType=BUY&status=pending");
   }
