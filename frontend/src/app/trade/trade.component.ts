@@ -1,3 +1,5 @@
+import { Coin } from "src/app/models/coin";
+import { WalletService } from "./../services/wallet.service";
 import { AuthService } from "./../services/auth.service";
 import { CoinOrder } from "./../models/coin-order";
 import { Observable } from "rxjs";
@@ -17,6 +19,7 @@ import {
 import { Order } from "../models/order";
 import { OrderService } from "../services/order.service";
 import { Router } from "@angular/router";
+import { JsonPipe } from "@angular/common";
 
 @Component({
   selector: "app-trade",
@@ -50,6 +53,7 @@ export class TradeComponent implements OnInit {
   coinsArr: Array<CoinOrder>;
 
   //Wallet variable declaration
+  matchingUserId: string = "";
 
   //Bind childs to tables in Buy-Sell Sections
   @ViewChild("buySort") public buySort: MatSort;
@@ -63,7 +67,8 @@ export class TradeComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private formBuilder: FormBuilder,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private walletService: WalletService
   ) {
     this.placeOrderForm = this.formBuilder.group({
       selectedOrderType: ["", Validators.required],
@@ -165,7 +170,7 @@ export class TradeComponent implements OnInit {
     order.to_coin = this.placeOrderForm.get("toCoin").value;
     order.to_qty = this.placeOrderForm.get("toQty").value;
     order.to_value = this.placeOrderForm.get("toValue").value;
-    order.user_id = "5caebdd4c30e596a7216d4e5";
+    order.user_id = this.userId;
 
     console.log(order);
     console.log(JSON.stringify(order));
@@ -174,6 +179,8 @@ export class TradeComponent implements OnInit {
     this.orderService.addOrder(order).subscribe(order => {
       console.log(order["createdUser"]);
       this.success = true;
+      this.loadBuyTable();
+      this.loadSellTable();
     });
   }
 
@@ -229,6 +236,7 @@ export class TradeComponent implements OnInit {
   }
 
   openDialog(row: Order) {
+    this.matchingUserId = row["user_id"];
     const dialogRef = this.dialog.open(ConfirmOrderDialogComponent, {
       width: "600px",
       maxHeight: "800px",
@@ -252,16 +260,105 @@ export class TradeComponent implements OnInit {
         let order = result as Order;
         console.log(order);
 
-        // Call to Add-Pending-Order REST-API
-        this.orderService.matchOrder(order).subscribe(result => {
-          console.log(result);
-          alert("order matched successfully!");
+        // Check if the logged-in user can make the trade
+        this.walletService.getUserWallet(this.userId).subscribe(wallet => {
+          console.log(wallet);
+          let existingFrom = false;
+          let existingTo = false;
+          // Debit coins from the logged-In user's wallet
+          for (const coin of wallet[0].coins) {
+            if (coin.coin_name === order.from_coin) {
+              existingFrom = true;
+              coin.coin_qty -= order.from_qty;
+              break;
+            }
+          }
 
-          // Update the user's wallet
+          console.log("FROM: User-Coins: " + JSON.stringify(wallet[0].coins));
 
-          // Update the order-tables
-          this.loadBuyTable();
-          this.loadSellTable();
+          if (!existingFrom) {
+            alert("Insufficient Funds for the Order!!!!!");
+            return;
+          } else {
+            // Add coins to loggedIn User's wallet
+            for (const coin of wallet[0].coins) {
+              if (coin.coin_name === order.to_coin) {
+                existingTo = true;
+                coin.coin_qty += order.to_qty;
+                break;
+              }
+            }
+
+            if (!existingTo) {
+              wallet[0].coins.push(new Coin(order.to_coin, order.to_qty));
+            }
+            console.log("TO: User-Coins: " + JSON.stringify(wallet[0].coins));
+
+            // Check matched-user's wallet for the transaction
+            console.log(this.matchingUserId);
+            this.walletService
+              .getUserWallet(this.matchingUserId)
+              .subscribe(walletMatched => {
+                console.log(walletMatched);
+                let existingFrom = false;
+                let existingTo = false;
+                // Debit coins from the matched-user wallet
+                for (const coin of walletMatched[0].coins) {
+                  if (coin.coin_name === order.to_coin) {
+                    existingFrom = true;
+                    coin.coin_qty -= order.to_qty;
+                    break;
+                  }
+                }
+
+                console.log(
+                  "FROM: matched-Coins: " +
+                    JSON.stringify(walletMatched[0].coins)
+                );
+
+                if (!existingFrom) {
+                  alert("Insufficient Funds for the matched-user Order!!!!!");
+                  return;
+                } else {
+                  // Add coins to loggedIn User's wallet
+                  for (const coin of walletMatched[0].coins) {
+                    if (coin.coin_name === order.from_coin) {
+                      existingTo = true;
+                      coin.coin_qty += order.from_qty;
+                      break;
+                    }
+                  }
+
+                  if (!existingTo) {
+                    walletMatched[0].coins.push(
+                      new Coin(order.from_coin, order.from_qty)
+                    );
+                  }
+                  console.log(
+                    "TO: matched-Coins: " +
+                      JSON.stringify(walletMatched[0].coins)
+                  );
+                  this.walletService
+                    .updateUserWallet(walletMatched[0])
+                    .subscribe();
+                  console.log("updated matched-user wallet");
+                }
+              });
+
+            // Update the logged-in-user's wallet with the transaction
+            this.walletService.updateUserWallet(wallet[0]).subscribe();
+            console.log("updated logged-user wallet");
+
+            // Call to Add-Pending-Order REST-API
+            this.orderService.matchOrder(order).subscribe(result => {
+              console.log(result);
+              alert("order matched successfully!");
+
+              // reload the order-tables
+              this.loadBuyTable();
+              this.loadSellTable();
+            });
+          }
         });
       } else {
         alert("Pop up cancelled");
