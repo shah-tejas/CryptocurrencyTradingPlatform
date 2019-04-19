@@ -18,7 +18,10 @@ export class WithdrawWalletComponent implements OnInit {
   walletTransaction: WalletHistory;
   user_id: string;
 
-  constructor(private walletService: WalletService, private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(private walletService: WalletService,
+              private formBuilder: FormBuilder,
+              private router: Router,
+              private authService: AuthService) {
 
     // build the user input form
     this.withdrawForm = this.formBuilder.group({
@@ -112,7 +115,11 @@ export class WithdrawWalletComponent implements OnInit {
       }
 
       // update user's wallet object
-      this.walletService.updateUserWallet(wallet[0]).subscribe();
+      this.walletService.updateUserWallet(wallet[0])
+          .subscribe(() => {
+        // redirect to the wallet page
+        this.router.navigateByUrl('/wallet');
+      });
     });
   }
 
