@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+
 import { MatButtonModule, MatToolbarModule,MatTabsModule, MatStepperModule, MatStepperIntl } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component'
 import { RouterModule, CanActivate, Router } from '@angular/router';
 import { MyMaterialModule } from './material';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Store
@@ -24,9 +25,17 @@ import { reducers } from './store/state/app.states';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
+// Wallet components
+import { WalletComponent } from './wallet/wallet.component';
+import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
+import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-wallet.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    WalletComponent,
+    LoadWalletComponent,
+    WithdrawWalletComponent,
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
@@ -38,10 +47,11 @@ import { AuthGuardService } from './services/auth-guard.service';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatToolbarModule,
     MyMaterialModule,
     MatStepperModule,
+    FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
@@ -54,8 +64,8 @@ import { AuthGuardService } from './services/auth-guard.service';
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
       { path: 'home', component: HomePageComponent},
-      {path: 'accountsettings', component:AccountSettingsComponent}
-    
+      { path: 'accountsettings', component: AccountSettingsComponent}
+
      // {path: ,component:ForgotPassword}
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

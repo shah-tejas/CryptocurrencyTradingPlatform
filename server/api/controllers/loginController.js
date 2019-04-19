@@ -7,7 +7,8 @@
  * @desc import user service.
  */
 const userService = require('../services/user-service');
-const jwtService = require('../services/jwt-service');
+const jwtService  = require('../services/jwt-service');
+const walletService = require('../services/wallet-services');
 /**
  * @desc Creates a new user with the request JSON and
  * @return returns user JSON object.
@@ -18,6 +19,8 @@ exports.post = function (request, response) {
     // const user1 = null;
     const newUser = Object.assign({}, request.body);
     const resolve = (user) => {
+        const userWallet = Object.assign({}, {user_id: user._id});
+        walletService.createWallet(userWallet).then();
         response.status(200);
         response.json(user);
     };

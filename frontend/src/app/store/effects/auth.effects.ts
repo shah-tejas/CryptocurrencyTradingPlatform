@@ -13,7 +13,7 @@ import { tap } from 'rxjs/operators';
 import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, Register, RegisterSuccess, RegisterFailure, LogOut, AccountSettings, UpdateUser, UpdateUserFailure, UpdateUserSuccess } from '../actions/user.actions';
 
 /**
- * @desc NGRX Effects listen for actions dispatched from the NGRX Store, 
+ * @desc NGRX Effects listen for actions dispatched from the NGRX Store,
  * perform some logic (e.g., a side effect), and then dispatch a new action.
  */
 @Injectable()
@@ -46,7 +46,6 @@ export class AuthEffects {
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap((result) => {
-
       localStorage.setItem('token', result.payload.token);
       localStorage.setItem('user', JSON.stringify(result.payload.user));
       this.router.navigateByUrl('/home');

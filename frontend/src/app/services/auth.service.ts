@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import{environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 import { User } from '../models/user';
 import { Login } from '../models/login';
 
@@ -14,15 +14,15 @@ export class AuthService {
 
   /**
    * @desc provides the token from the local storage
-   * @returns String 
+   * @returns String
    */
   getToken(): string {
     return localStorage.getItem('token');
   }
 /**
- * @desc sends the post request to the server 
+ * @desc sends the post request to the server
  * @param username  that is checked with the email id that is stored in the mongo db
- * @param password  that needs to be checked with password 
+ * @param password  that needs to be checked with password
  * @returns
  */
   logIn(username: string, password: string): Observable<any> {
@@ -32,7 +32,7 @@ export class AuthService {
   }
 
 /**
- * @desc sends the post request to server and saves user details in the mongo  
+ * @desc sends the post request to server and saves user details in the mongo
  * @param user User model
  * @returns
  */
@@ -42,7 +42,7 @@ export class AuthService {
   }
 
   /**
- * @desc sends the post request to server and update user details in the mongo  
+ * @desc sends the post request to server and update user details in the mongo
  * @param user User model
  * @returns
  */
@@ -50,5 +50,13 @@ export class AuthService {
     const url = `${environment.serverBaseURL}/users/`+user._id;
     return this.http.put<User>(url,user);
   }
-  
+
+  /**
+   * @desc fetches the user's id
+   * @returns user._id
+   */
+  getUserId(): string{
+    return JSON.parse(localStorage.getItem('user'))._id;
+  }
+
 }
