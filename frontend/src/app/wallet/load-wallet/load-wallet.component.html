@@ -1,37 +1,59 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Load Wallet</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form (ngSubmit)="loadWallet()">
+<mat-card class="md-padding" layout-align="center center">
+  <mat-grid-list cols="2" rowHeight="80px">
+    <mat-card-header>
+      <mat-grid-tile colspan="2">
+        <mat-card-title>Load Wallet</mat-card-title>
+      </mat-grid-tile>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="loadWallet()">
 
-      <mat-label>Coin Name:</mat-label>
-      <mat-form-field>
-        <mat-select *ngIf="coins" [(ngModel)]="selectedCoinName" (selectionChange)="getCurrentCoinRate()"
-          name="coin_name">
-          <mat-option *ngFor="let coin of coins" [value]="coin.coin_name">
-            {{ coin.coin_name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-grid-tile>
+          <mat-label>Coin Name:</mat-label>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-select *ngIf="coins" [(ngModel)]="selectedCoinName" (selectionChange)="getCurrentCoinRate()"
+              name="coin_name">
+              <mat-option *ngFor="let coin of coins" [value]="coin.coin_name">
+                {{ coin.coin_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
 
 
-      <div *ngIf="selectedCoin">
-        <label>Current Rate: </label>{{ selectedCoin.coin_rate }}
-      </div>
+        <div *ngIf="selectedCoin">
+          <mat-grid-tile>
+            <mat-label>Current Rate: </mat-label>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            {{ selectedCoin.coin_rate }}
+          </mat-grid-tile>
+        </div>
 
-      <label>Quantity: </label>
-      <input type="number" [(ngModel)]="walletTransaction.coin_qty" name="coin_qty" (change)="updateUSDValue()" />
+        <mat-grid-tile>
+          <mat-label>Quantity: </mat-label>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <input matInput type="number" [(ngModel)]="walletTransaction.coin_qty" min="1" name="coin_qty" (change)="updateUSDValue()" (keyup)="updateUSDValue()" />
+        </mat-grid-tile>
 
-      <br />
+        <mat-grid-tile>
+          <mat-label>USD Value: </mat-label>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <input matInput type="number" [(ngModel)]="walletTransaction.usd_value" name="usd_value" readonly />
+        </mat-grid-tile>
 
-      <label>USD Value: </label>
-      <input type="number" [(ngModel)]="walletTransaction.usd_value" name="usd_value" readonly />
+        <mat-grid-tile colspan="2">
+          <button mat-button mat-raised-button color="primary" type="submit">Load Wallet</button>
+        </mat-grid-tile>
 
-      <br />
 
-      <button type="submit">Load Wallet</button>
 
-    </form>
-  </mat-card-content>
+      </form>
+    </mat-card-content>
+  </mat-grid-list>
 </mat-card>

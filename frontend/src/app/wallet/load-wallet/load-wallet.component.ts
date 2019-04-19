@@ -86,7 +86,11 @@ export class LoadWalletComponent implements OnInit {
         wallet[0].coins.push(newCoin);
       }
 
-      this.walletService.updateUserWallet(wallet[0]).subscribe();
+      this.walletService.updateUserWallet(wallet[0])
+          .subscribe(() => {
+            // redirect to the wallet page
+            this.router.navigateByUrl('/wallet');
+          });
     });
   }
 
