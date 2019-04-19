@@ -4,15 +4,13 @@
   <a mat-button mat-raised-button color="primary" routerLink="/withdrawWallet">Withdraw from Wallet</a>
 </mat-card>
 
-
-
 <mat-card *ngIf="userWallet">
     <mat-card-header>
         <mat-card-title>Your Wallet Details:</mat-card-title>
   </mat-card-header>
 
   <mat-card>
-      <mat-card-title>USD Value: ${{ userWallet.usd_value }}</mat-card-title>
+      <mat-card-title>USD Value: ${{ Math.round(userWallet.usd_value *100) / 100 }}</mat-card-title>
   </mat-card>
 
   <br/>

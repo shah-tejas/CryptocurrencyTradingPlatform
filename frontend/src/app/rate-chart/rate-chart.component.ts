@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RateChartComponent implements OnInit {
 
-    private days: any[] = [
+    days: any[] = [
         { Day: '2019-04-18' },
         { Day: '2019-04-19' },
         { Day: '2019-05-20' },
@@ -19,10 +19,10 @@ export class RateChartComponent implements OnInit {
         { Day: '2019-08-23' },
         { Day: '2019-08-24' }
     ];
-    private BTC: Array<Rate>;
-    private ETH: Array<Rate>;
-    private LTC: Array<Rate>;
-    private EOS: Array<Rate>;
+    BTC: Array<Rate>;
+    ETH: Array<Rate>;
+    LTC: Array<Rate>;
+    EOS: Array<Rate>;
 
   private BTCobserver: any = {
     next: data => {

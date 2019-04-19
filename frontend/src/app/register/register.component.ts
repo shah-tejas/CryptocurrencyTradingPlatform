@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
   loginDetailsFormGroup: FormGroup;
   user: User = new User();
   confirmpassword: String;
+  errorMessage = '';
 
 
   constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
@@ -34,12 +35,12 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     /**
-     * @desc the if loop checks if the user is logged  in or not , 
+     * @desc the if loop checks if the user is logged  in or not ,
      * if it is then it does not allow the user to got the register page, it routes you  back to the home page.
      */
     if (localStorage.getItem('token')) {
       this.router.navigateByUrl('/home');
-      
+
     }
     /**
      * @desc  ._formBuilder.group is used to add validations for each field on the registration form
