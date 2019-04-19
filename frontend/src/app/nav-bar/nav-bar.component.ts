@@ -19,8 +19,8 @@ export class NavBarComponent {
   display: string = 'invisible';
   isToggled: boolean = false;
   noOfPings: Number = 10;
-  tabs: String[] = ["Login", "Register", "Home", "Charts", "Pings", "Order History", "Logout"];
-  urls: String[] = ["login", "register", "home", "charts", "pings", "orderHistory", "logout"];
+  tabs: String[] = ["Login", "Register", "Home", "Charts", "Pings", "Order History", "A/c Settings", "Wallet", "LoadWallet", "WithdrawWallet",  "Logout"];
+  urls: String[] = ["login", "register", "home", "charts", "pings", "orderHistory", "accountsettings", "wallet", "loadWallet", "withdrawWallet", "logout"];
   constructor(){}
 
   toggle=function(){

@@ -18,5 +18,5 @@ module.exports = ((app) => {
     //Route to fetch rate-history of a particular coin based on coin-name
     app.route('/rateHistory/:coinname')
         .get(rateController.allRateHistoryCoin);
-
+ 
 });

@@ -5,9 +5,10 @@ import { MatButtonModule, MatToolbarModule,MatTabsModule, MatStepperModule, MatS
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import {AccountSettingsComponent} from './account-settings/account-settings.component'
 import { RouterModule, CanActivate, Router } from '@angular/router';
 import { MyMaterialModule } from './material';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Store
@@ -26,12 +27,16 @@ import { AuthGuardService } from './services/auth-guard.service';
 // services
 import { OrderHistoryService } from './services/order-history.service';
 import { RateListService } from './services/rate-list.service';
-// Component imports
+// Order components
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RateChartComponent } from './rate-chart/rate-chart.component';
 import { TableComponent } from './order-history/table/table.component';
 import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
+// Wallet components
+import { WalletComponent } from './wallet/wallet.component';
+import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
+import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-wallet.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,11 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
     NavBarComponent,
     TableComponent,
     jqxChartComponent,
-    RateChartComponent
+    RateChartComponent,
+    WalletComponent,
+    LoadWalletComponent,
+    WithdrawWalletComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +64,7 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
     MatToolbarModule,
     MyMaterialModule,
     MatStepperModule,
+    FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
@@ -68,8 +78,9 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
       { path: '', component: LoginComponent },
       { path: 'home', component: HomePageComponent},
       {path: 'charts', component: RateChartComponent},
-      {path: 'orderHistory', component: OrderHistoryComponent}
+      {path: 'orderHistory', component: OrderHistoryComponent},
       // {path: ,component:ForgotPassword}
+      { path: 'accountsettings', component: AccountSettingsComponent}
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],

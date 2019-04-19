@@ -25,13 +25,27 @@
     return User.findById(id).exec();
   }
 
-  exports.updateUser=function(req){
-    const user = Object.assign({}, req.body);
-    return User.findOneAndUpdate({_id: user._id}, user).exec();
-  }
+/**
+ * Updates and returns the sticky object.
+ *
+ * @param {Object} sticky {Sticky object}
+ */
+exports.updateUser = function (user) {
+  const promise = User.findOneAndUpdate({_id: user._id}, user).exec();
+  return promise;
+};
 
 
 
+
+/**
+ * @desc to search a particular user using emailId
+ */
+exports.search = function (params) {
+  console.log(params);
+  const promise = User.find(params).exec();
+  return promise;
+};
 
 
   exports.deleteUser = function (req) {

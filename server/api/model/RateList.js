@@ -18,7 +18,7 @@ let RateSchema = new Schema({
     //Active
    active: {
        type: String,
-       default: "A"
+       default: "A" 
    },
     //Date-Of-Creation
     insert_date: {

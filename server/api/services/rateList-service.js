@@ -36,6 +36,6 @@ exports.getAllRates = (() => {
 
 //Service to fetch all-rates of single coin from DB using coin-name
 exports.getAllRatesCoin = ((coinname) => {
-    const promise = RateList.find({coinname: coinname }).sort( { insert_date: 1 } ).exec();
+    const promise = RateList.find({coinname: coinname }).exec();
     return promise
 });

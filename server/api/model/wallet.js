@@ -2,6 +2,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+let coinSchema = new Schema({
+
+    /* Coin Name */
+    coin_name: {
+        type: String
+    },
+    /* Coin quantity in user's wallet */
+    coin_qty: {
+        type: Number
+    }
+}, {
+    versionKey: false
+});
+
 /**
  * Mongoose schema for wallet object.
  * This schema is present for each User
@@ -24,13 +38,10 @@ let WalletSchema = new Schema({
         type: Number
     },
     /** 
-     * Map of various crypto coins with their existing quantities
-     * key of map => Coin Name
-     * value of map => Coin Quantity
+     * Array of various crypto coins with their existing quantities
      */
     coins: {
-        type: Map,
-        of: Number
+        type: [coinSchema]
     },
     /**
      * Wallet created date.
@@ -49,5 +60,7 @@ let WalletSchema = new Schema({
 }, {
     versionKey: false
 });
+
+
 
 module.exports = mongoose.model('wallet', WalletSchema);

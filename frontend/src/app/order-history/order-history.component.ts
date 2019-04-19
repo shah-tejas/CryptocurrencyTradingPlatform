@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { fade } from '../animations/Fade';
 import { OrderHistoryService } from '../services/order-history.service';
 import { Order } from '../models/order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-history',
@@ -13,11 +14,16 @@ export class OrderHistoryComponent implements OnInit {
   private completedOrders: Array<Order>;
   private canceledOrders: Array<Order>;
 
-  constructor(private orderhistory: OrderHistoryService) {}
+  constructor(private orderhistory: OrderHistoryService,  private router: Router) {}
 
   ngOnInit() {
     // setInterval(this.reload, 1000);
-    this.reload();
+    if (!localStorage.getItem('token')) {
+      this.router.navigateByUrl('/login');
+    }else{
+      this.reload();
+    }
+    
   }
 
   reload = function(){

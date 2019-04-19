@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RateListService } from '../services/rate-list.service';
 import { Rate } from '../models/rate';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rate-chart',
@@ -59,11 +60,15 @@ export class RateChartComponent implements OnInit {
     error: err => console.log(err)
   };
 
-  constructor(private rateService: RateListService) {
-    rateService.get("BTC").subscribe(this.BTCobserver);
-    rateService.get("ETH").subscribe(this.ETHobserver);
-    rateService.get("LTC").subscribe(this.LTCobserver);
-    rateService.get("EOS").subscribe(this.EOSobserver);
+  constructor(private rateService: RateListService, private router: Router) {
+    if (!localStorage.getItem('token')) {
+      this.router.navigateByUrl('/login');
+    }else{
+      rateService.get("BTC").subscribe(this.BTCobserver);
+      rateService.get("ETH").subscribe(this.ETHobserver);
+      rateService.get("LTC").subscribe(this.LTCobserver);
+      rateService.get("EOS").subscribe(this.EOSobserver);
+    }
   }
 
   ngOnInit() {
