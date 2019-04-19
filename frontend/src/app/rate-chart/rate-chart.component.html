@@ -1,14 +1,14 @@
-<jqxChart #myChart
-    [width]="getWidth()" [height]="500"
-    [title]="'Currency Rate'"
-    [description]="'fluctuating currency rates'"
-    [showLegend]="true" [enableAnimations]="true" [padding]="padding"
-    [titlePadding]="titlePadding" [source]="days" [xAxis]="xAxis"
-    [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme02'">
-</jqxChart>
+<!-- <p *ngIf="EOS==null">qwerty</p> -->
+<div *ngIf="display" class="">
+  <jqxChart *ngIf="display" #myChart
+      [width]="getWidth()" [height]="500"
+      [title]="'Currency Rate'"
+      [description]="'fluctuating currency rates'"
+      [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+      [titlePadding]="titlePadding" [source]="days" [xAxis]="xAxis"
+      [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme02'">
+  </jqxChart>
+</div>
 
-{{ days[0].Day }}
-{{ BTC[0] }}
-{{ ETH }}
-{{ LTC }}
-{{ EOS }}
+
+{{ display }}

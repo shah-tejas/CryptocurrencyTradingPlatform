@@ -34,7 +34,7 @@ MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule,
 MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,
 MatListModule,MatRadioModule,
 LayoutModule, MatSidenavModule, MatBadgeModule, MatTableModule, MatPaginatorModule, MatSortModule, MatMenuModule,
-MatRadioModule,MatTableModule, MatSelectModule],
+MatTableModule, MatSelectModule],
 
 })
 

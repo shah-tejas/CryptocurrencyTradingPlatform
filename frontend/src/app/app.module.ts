@@ -73,11 +73,11 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
      * @desc RouterOutlet directive to tell Angular where to insert each of our HTML templates.
      */
     RouterModule.forRoot([
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
-      { path: 'home', component: HomePageComponent},
-      {path: 'charts', component: RateChartComponent},
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent},
+      { path: 'home', component: RateChartComponent},
+      // {path: 'charts', component: RateChartComponent},
       {path: 'orderHistory', component: OrderHistoryComponent},
       // {path: ,component:ForgotPassword}
       { path: 'accountsettings', component: AccountSettingsComponent}

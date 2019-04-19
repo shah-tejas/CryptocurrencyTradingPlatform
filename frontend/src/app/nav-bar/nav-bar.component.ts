@@ -3,6 +3,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { EventEmitter, Output } from '@angular/core';
 
 import { fadein } from '../animations/Fade';
 
@@ -19,12 +20,20 @@ export class NavBarComponent {
   display: string = 'invisible';
   isToggled: boolean = false;
   noOfPings: Number = 10;
-  tabs: String[] = ["Login", "Register", "Home", "Charts", "Pings", "Order History", "A/c Settings", "Wallet", "LoadWallet", "WithdrawWallet",  "Logout"];
-  urls: String[] = ["login", "register", "home", "charts", "pings", "orderHistory", "accountsettings", "wallet", "loadWallet", "withdrawWallet", "logout"];
-  constructor(){}
+  tabs: String[] = ["Home", "Pings", "Order History", "A/c Settings", "Wallet", "LoadWallet", "WithdrawWallet"];
+  urls: String[] = ["home", "pings", "orderHistory", "accountsettings", "wallet", "loadWallet", "withdrawWallet"];
+  @Output() logoutnav: EventEmitter<String> = new EventEmitter<String>();
+  constructor(){
+    // console.log("****************");
+  }
+
+  logedoutfunc(){
+    this.logoutnav.emit("loggedout");
+  }
+
 
   toggle=function(){
-    console.log(this.display);
+    console.log("-----------------");
     this.display = (this.display === 'invisible' ? 'visible' : 'invisible');
     this.isToggled = !this.isToggled;
   }

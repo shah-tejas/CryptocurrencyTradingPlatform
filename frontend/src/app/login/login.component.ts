@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { User } from '../models/user';
@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
   //error msgs
   getState: Observable<any>;
   errorMessage: string | null;
+  @Output() authenticate: EventEmitter<String> = new EventEmitter<String>();
+
   constructor(private router: Router,
     private store: Store<AppState>
   ) {this.getState = this.store.select(selectAuthState); }
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
      *  if the token is present then it will directly be redirected to home page
      */
     if(localStorage.getItem('token')){
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/wallet');
     }
     /**
      * @desc subscribed the getstate observable to print the error message if there is invalid credentials
@@ -49,9 +51,10 @@ export class LoginComponent implements OnInit {
    * @desc dispatch a new Login Action with input data
    */
   onSubmit(): void {
-    console.log(this.login);
-    
+    // console.log(this.login);
+    console.log("$$Loging in");
     this.store.dispatch(new LogIn(this.login));
+    this.authenticate.emit("loggedin");
   }
 
 }

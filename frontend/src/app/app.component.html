@@ -1,1 +1,3 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar (logoutnav)="logout()" *ngIf="loggedin"></app-nav-bar>
+<app-log-in *ngIf="!loggedin" (authenticate)="authenticate()"></app-log-in>
+<!-- <router-outlet></router-outlet> -->

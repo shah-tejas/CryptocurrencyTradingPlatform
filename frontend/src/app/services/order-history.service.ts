@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Order } from '../models/order';
 import { Observable } from "rxjs";
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderHistoryService {
-  private userId: String = "5caebdd4c30e596a7216d4e5";
+  private userId: String;
   private url: String = "http://localhost:3000/orderhistory/";
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient ) {
+    this.userId = JSON.parse(localStorage.getItem('user'))._id;
+  }
 
   public get = function(status): Observable<Order[]>{
     return this.http.get(this.url+this.userId+"/"+status);
