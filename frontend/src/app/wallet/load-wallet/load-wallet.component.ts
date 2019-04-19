@@ -57,10 +57,6 @@ export class LoadWalletComponent implements OnInit {
   }
 
   getCurrentCoinRate(): void {
-    console.log("in getCurrentCoinRate");
-    for(const coin of this.coins){
-      console.log(coin.coin_name);
-    }
     this.selectedCoin.coin_name = this.selectedCoinName;
     this.walletService.getCoinRate(this.selectedCoin.coin_name).subscribe(coinRate => {
       this.selectedCoin.coin_rate = Math.round(coinRate[0].usdvalue * 100) / 100;
