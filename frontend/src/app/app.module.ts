@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
 import { MatButtonModule, MatToolbarModule,MatTabsModule, MatStepperModule, MatStepperIntl } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +24,15 @@ import { reducers } from './store/state/app.states';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
+// services
+import { OrderHistoryService } from './services/order-history.service';
+import { RateListService } from './services/rate-list.service';
+// Order components
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { RateChartComponent } from './rate-chart/rate-chart.component';
+import { TableComponent } from './order-history/table/table.component';
+import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
 // Wallet components
 import { WalletComponent } from './wallet/wallet.component';
 import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
@@ -33,12 +41,17 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
 @NgModule({
   declarations: [
     AppComponent,
-    WalletComponent,
-    LoadWalletComponent,
-    WithdrawWalletComponent,
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
+    OrderHistoryComponent,
+    NavBarComponent,
+    TableComponent,
+    jqxChartComponent,
+    RateChartComponent,
+    WalletComponent,
+    LoadWalletComponent,
+    WithdrawWalletComponent,
     AccountSettingsComponent
   ],
   imports: [
@@ -64,15 +77,16 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
       { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
       { path: 'home', component: HomePageComponent},
+      {path: 'charts', component: RateChartComponent},
+      {path: 'orderHistory', component: OrderHistoryComponent},
+      // {path: ,component:ForgotPassword}
       { path: 'accountsettings', component: AccountSettingsComponent}
-
-     // {path: ,component:ForgotPassword}
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   exports: [MatButtonModule,MatToolbarModule,MatTabsModule],
   providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
-    AuthService, AuthGuardService],
+    AuthService, AuthGuardService, OrderHistoryService, RateListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,11 @@
+<div>
+  <h1>Pending Orders</h1>
+  <app-table (notifyparent)="reload()" [display]="true" [data]="orders"></app-table>
+  <br>
+  <h1>Completed Orders</h1>
+  <app-table [display]="false" [data]="completedOrders"></app-table>
+  <br>
+  <h1>Canceled Orders</h1>
+  <app-table [display]="false" [data]="canceledOrders"></app-table>
+  <br>
+</div>

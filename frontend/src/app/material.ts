@@ -12,19 +12,29 @@ import {
   MatRadioModule,
   MatListModule,
   MatTableModule,
-  MatSelectModule
+  MatSelectModule,
+  MatSidenavModule,
+  MatBadgeModule,
+  MatPaginatorModule,
+  MatSortModule,
 } from '@angular/material';
 import {MatDatepickerModule} from  '@angular/material/datepicker';
+import { LayoutModule } from '@angular/cdk/layout';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
 imports: [MatNativeDateModule,MatTabsModule,MatDatepickerModule,MatIconModule,
     MatButtonModule,MatCheckboxModule, MatToolbarModule, MatCardModule,
-    MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule],
+    MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,
+  LayoutModule, MatSidenavModule, MatBadgeModule, MatTableModule, MatPaginatorModule, MatSortModule, MatMenuModule],
 
 exports: [MatNativeDateModule,MatTabsModule,
 MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule,
 MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,
-MatListModule,MatRadioModule,MatTableModule, MatSelectModule],
+MatListModule,MatRadioModule,
+LayoutModule, MatSidenavModule, MatBadgeModule, MatTableModule, MatPaginatorModule, MatSortModule, MatMenuModule,
+MatRadioModule,MatTableModule, MatSelectModule],
 
 })
 
