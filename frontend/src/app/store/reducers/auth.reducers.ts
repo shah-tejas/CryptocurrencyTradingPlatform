@@ -21,7 +21,6 @@ export interface State {
   errorMessage: string | null;
 }
 
-
 export const initialState: State = {
   isAuthenticated: false,
   result: null,
