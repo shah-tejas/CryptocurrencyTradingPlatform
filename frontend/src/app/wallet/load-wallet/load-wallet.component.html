@@ -48,7 +48,7 @@
         </mat-grid-tile>
 
         <mat-grid-tile colspan="2">
-          <button mat-button mat-raised-button color="primary" type="submit">Load Wallet</button>
+          <button mat-button mat-raised-button color="primary" type="submit" [disabled]="isDisabled">Load Wallet</button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <a mat-button mat-raised-button color="warn" routerLink="/wallet">Cancel</a>
         </mat-grid-tile>

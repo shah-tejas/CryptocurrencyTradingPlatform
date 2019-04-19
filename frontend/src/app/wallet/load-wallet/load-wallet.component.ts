@@ -5,6 +5,9 @@ import { AuthService } from '../../services/auth.service';
 import { WalletHistory } from 'src/app/models/wallet-history';
 import { Router } from '@angular/router';
 
+import {MatDialog, MatDialogRef} from '@angular/material';
+import { ConfirmationBoxComponent } from '../confirmation-box/confirmation-box.component';
+
 @Component({
   selector: 'app-load-wallet',
   templateUrl: './load-wallet.component.html',
@@ -24,8 +27,12 @@ export class LoadWalletComponent implements OnInit {
   selectedCoinName: string;
   user_id: string;
   walletTransaction = new WalletHistory();
+  isDisabled = true;
 
-  constructor(private walletService: WalletService, private router: Router, private authService: AuthService) {
+  constructor(private walletService: WalletService,
+              private router: Router,
+              private authService: AuthService,
+              public dialog: MatDialog) {
 
     // Allow access only if user is authenticated
     if (!localStorage.getItem('token')) {
@@ -41,7 +48,7 @@ export class LoadWalletComponent implements OnInit {
     // fetch coin rates for all coins
     for(const coin of this.coins){
       this.walletService.getCoinRate(coin.coin_name).subscribe(coinRate => {
-        coin.coin_rate = coinRate[0].usdvalue;
+        coin.coin_rate = Math.round(coinRate[0].usdvalue * 100) / 100;
       });
     }
   }
@@ -50,15 +57,23 @@ export class LoadWalletComponent implements OnInit {
   }
 
   getCurrentCoinRate(): void {
+    console.log("in getCurrentCoinRate");
+    for(const coin of this.coins){
+      console.log(coin.coin_name);
+    }
     this.selectedCoin.coin_name = this.selectedCoinName;
     this.walletService.getCoinRate(this.selectedCoin.coin_name).subscribe(coinRate => {
-      this.selectedCoin.coin_rate = coinRate[0].usdvalue;
+      this.selectedCoin.coin_rate = Math.round(coinRate[0].usdvalue * 100) / 100;
+      this.updateUSDValue();
     });
-    this.updateUSDValue();
   }
 
   updateUSDValue(): void{
-    this.walletTransaction.usd_value = this.selectedCoin.coin_rate * this.walletTransaction.coin_qty;
+    if(this.walletTransaction.coin_qty < 1){
+      return;
+    }
+    this.isDisabled = false;
+    this.walletTransaction.usd_value = Math.round(this.selectedCoin.coin_rate * this.walletTransaction.coin_qty * 100) / 100;
   }
 
   loadWallet(): void{
@@ -66,9 +81,8 @@ export class LoadWalletComponent implements OnInit {
     this.walletTransaction.transaction_type = "wallet_load";
     this.walletTransaction.user_id = this.user_id;
     this.walletTransaction.status = "Success";
-    this.walletService.createUserWalletTransaction(this.walletTransaction).subscribe(() => {
-      this.updateUserWallet(new Coin(this.walletTransaction.coin_name, this.walletTransaction.coin_qty));
-    });
+
+    this.openDialog(this.walletTransaction);
   }
 
   updateUserWallet(newCoin: Coin){
@@ -91,6 +105,22 @@ export class LoadWalletComponent implements OnInit {
             // redirect to the wallet page
             this.router.navigateByUrl('/wallet');
           });
+    });
+  }
+
+  openDialog(transaction: WalletHistory): void {
+    const dialogRef = this.dialog.open(ConfirmationBoxComponent, {
+      width: '450px',
+      data: {action: 'load', walletTransaction: transaction}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== null){
+        // Save the transaction
+        this.walletService.createUserWalletTransaction(this.walletTransaction).subscribe(() => {
+          this.updateUserWallet(new Coin(this.walletTransaction.coin_name, this.walletTransaction.coin_qty));
+        });
+      }
     });
   }
 

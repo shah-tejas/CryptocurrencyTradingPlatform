@@ -29,6 +29,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { WalletComponent } from './wallet/wallet.component';
 import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
 import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-wallet.component';
+import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation-box.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    ConfirmationBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +72,7 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
+  entryComponents: [ ConfirmationBoxComponent ],
   exports: [MatButtonModule,MatToolbarModule,MatTabsModule],
   providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
     AuthService, AuthGuardService],

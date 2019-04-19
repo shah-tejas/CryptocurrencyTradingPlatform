@@ -12,7 +12,7 @@
   </mat-card-header>
 
   <mat-card>
-      <mat-card-title>USD Value: {{ userWallet.usd_value }}</mat-card-title>
+      <mat-card-title>USD Value: ${{ userWallet.usd_value }}</mat-card-title>
   </mat-card>
 
   <br/>
@@ -42,7 +42,7 @@
 
           <ng-container matColumnDef="coin_total_rate">
             <mat-header-cell *matHeaderCellDef> Total USD </mat-header-cell>
-            <mat-cell *matCellDef="let element"> ${{element.coin_qty * element.coin_rate}} </mat-cell>
+            <mat-cell *matCellDef="let element"> ${{ Math.round(element.coin_qty * element.coin_rate * 100) / 100 }} </mat-cell>
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="coinBalanceColumns"></mat-header-row>
@@ -65,7 +65,7 @@
 
         <ng-container matColumnDef="created_date">
           <mat-header-cell *matHeaderCellDef> Transaction Date </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.created_date}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{ formatMyDate(element.created_date) }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="transaction_type">
@@ -85,7 +85,7 @@
 
         <ng-container matColumnDef="usd_value">
           <mat-header-cell *matHeaderCellDef> Value in USD </mat-header-cell>
-          <mat-cell *matCellDef="let element"> ${{element.usd_value}} </mat-cell>
+          <mat-cell *matCellDef="let element"> ${{ Math.round(element.usd_value * 100) / 100 }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="status">
