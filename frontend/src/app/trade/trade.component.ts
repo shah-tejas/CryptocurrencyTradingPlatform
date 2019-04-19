@@ -81,7 +81,7 @@ export class TradeComponent implements OnInit {
         if(coin.coinname == coinName){
           console.log('USD Value :' + coin.usdvalue);
           let val = (coin.usdvalue * qty).toFixed(2);
-          if(Number.isNaN(+val)){
+          if(Number.isNaN(+val) || (+val) < 0){
             this.placeOrderForm.get('fromValue').setValue('-');
           } else{
             this.placeOrderForm.get('fromValue').setValue(val);
@@ -101,7 +101,7 @@ export class TradeComponent implements OnInit {
         if(coin.coinname == coinName){
           console.log('USD Value :' + coin.usdvalue);
           let val = (coin.usdvalue * qty).toFixed(2);
-          if(Number.isNaN(+val)){
+          if(Number.isNaN(+val) || (+val) < 0){
             this.placeOrderForm.get('toValue').setValue('-');
           } else{
             this.placeOrderForm.get('toValue').setValue(val);
