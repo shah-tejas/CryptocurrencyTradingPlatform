@@ -1,0 +1,14 @@
+<jqxChart #myChart
+    [width]="getWidth()" [height]="500"
+    [title]="'Currency Rate'"
+    [description]="'fluctuating currency rates'"
+    [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+    [titlePadding]="titlePadding" [source]="days" [xAxis]="xAxis"
+    [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme02'">
+</jqxChart>
+
+{{ days[0].Day }}
+{{ BTC[0] }}
+{{ ETH }}
+{{ LTC }}
+{{ EOS }}

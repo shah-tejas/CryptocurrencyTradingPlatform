@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 exports.getAllOrderHistory=function(req){
   let user_id = req.params.userId;
   let status = req.params.status;
+  console.log(status);
   return Order.find({user_id: user_id, status: status}).sort( { created_date: -1 } ).exec();
 }
 

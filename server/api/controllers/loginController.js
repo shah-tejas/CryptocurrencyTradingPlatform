@@ -34,22 +34,28 @@ exports.post = function (request, response) {
 exports.getUser = function (request, response) {
     let pwd = request.body.password;
     const resolve = (user) => {
-        if(user[0].login.password == pwd){
-            response.status(200);
-            response.json({
-                success: true,
-                message: 'Authentication successful!',
-                token: jwtService.generateToken(user[0]),
-                User:user[0]
-        });
-            
+        console.log(user);
+        if(user.length > 0){
+            if(user[0].login.password == pwd){
+                response.status(200);
+                response.json({
+                    success: true,
+                    message: 'Authentication successful!',
+                    token: jwtService.generateToken(user[0]),
+                    User:user[0]
+            });
         }else{
-        response.status(401);
-        
-        response.json("user credentials invalid!!!")
+            response.status(401);
+            response.json("user credentials invalid!!!")
+            }
+    }else{
+            response.status(404);
+            response.json("User not found");
         }
+
+
     };
-    console.log(request.body );
+    console.log(request.body);
     userService.search(JSON.parse("{\"login.username\":\""+ request.body.username +"\"}"))
         .then(resolve)
         .catch(renderErrorResponse(response));
@@ -65,11 +71,12 @@ exports.getUser = function (request, response) {
 let renderErrorResponse = (response) => {
     const errorCallback = (error) => {
         if (error) {
+            console.log(error);
             response.status(500);
             response.json({
                 message: error.message
             });
         }
     }
-    return errorCallback; 
+    return errorCallback;
 };

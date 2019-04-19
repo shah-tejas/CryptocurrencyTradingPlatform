@@ -6,8 +6,6 @@
       let userModel = require('./model/users');
       const rateModel = require('./model/RateList');
       let orderModel = require('./model/orders');
-
-
       //Initialize routes
       let walletRoutes = require('./routes/wallet-route');
       walletRoutes(app);

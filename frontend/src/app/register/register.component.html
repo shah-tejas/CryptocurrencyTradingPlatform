@@ -1,0 +1,96 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{errorMessage}}
+        </div>
+      </div>
+  <mat-step [stepControl]="generalDetailsFormGroup">
+    <form [formGroup]="generalDetailsFormGroup">
+      <ng-template matStepLabel>General Information</ng-template>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="First name" formControlName="fname" [(ngModel)]="user.fname" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Last name" formControlName="lname" [(ngModel)]="user.lname"  required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email Address" formControlName="emailId"  [(ngModel)]="user.emailId" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Contact Number" formControlName="Phno" [(ngModel)]="user.Phno" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <div class="full-width">
+        <button mat-raised-button matStepperNext color="primary">Continue</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="addressDetailsFormGroup">
+    <form [formGroup]="addressDetailsFormGroup">
+      <ng-template matStepLabel>Address Details</ng-template>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Address 1" formControlName="address1" [(ngModel)]="user.address.address1" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Address 2" formControlName="address2" [(ngModel)]="user.address.address2">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="City" formControlName="city" [(ngModel)]="user.address.city" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Country" formControlName="country" [(ngModel)]="user.address.country" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="ZipCode" formControlName="zipcode" [(ngModel)]="user.address.zipcode" required>
+      </mat-form-field>
+      <div class="full-width">
+        <button mat-raised-button matStepperPrevious color='primary'>Back</button>
+        <button mat-raised-button matStepperNext color='primary'>Continue</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="paymentDetailsFormGroup">
+    <form [formGroup]="paymentDetailsFormGroup">
+      <ng-template matStepLabel>Payment Details</ng-template>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Card Number" formControlName="cardno" [(ngModel)]="user.payment.cardno" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="CVV Number" type="password" formControlName="cvv" [(ngModel)]="user.payment.cvv"  required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Expiry" formControlName="expire" [(ngModel)]="user.payment.expire" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="CardHolder Name" formControlName="name" [(ngModel)]="user.payment.name" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+          <input matInput placeholder="Zipcode" formControlName="zipcode" [(ngModel)]="user.payment.zipcode" required>
+        </mat-form-field>
+        <div class="full-width">
+          <button mat-raised-button matStepperPrevious color='primary'>Back</button>
+          <button mat-raised-button matStepperNext color='primary'>Continue</button>
+        </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="loginDetailsFormGroup" class="marginLeft">
+    <form [formGroup]="loginDetailsFormGroup">
+      <ng-template matStepLabel>Logn Credential Details</ng-template>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Username" formControlName="emailId"  [(ngModel)]="user.emailId" readonly>
+      </mat-form-field><br/>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Password" type="password" formControlName="password" [(ngModel)]="user.login.password" required>
+      </mat-form-field><br/>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Confirm Password"  type="password" formControlName="confirmpassword" [(ngModel)]="confirmpassword" required>
+      </mat-form-field><br/>
+      <div class="full-width">
+        <button mat-raised-button matStepperPrevious color='primary'>Back</button>
+        <button mat-raised-button matStepperNext color='primary' type="submit" (click)="onSubmit()">Submit</button>
+      </div>
+  </form>
+  </mat-step>
+
+  
+</mat-horizontal-stepper>

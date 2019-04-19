@@ -14,7 +14,7 @@ module.exports = function (app) {
     .delete(UserController.delete);
 
   const loginController = require('../controllers/loginController');
-  /** 
+  /**
    * @desc userlogin Routes for search and create
    */
   app.route('/login')
