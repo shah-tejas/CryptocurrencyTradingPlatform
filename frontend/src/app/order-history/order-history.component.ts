@@ -14,7 +14,7 @@ export class OrderHistoryComponent implements OnInit {
   private completedOrders: Array<Order>;
   private canceledOrders: Array<Order>;
 
-  constructor(private orderhistory: OrderHistoryService,  private router: Router) {}
+  constructor(private orderhistory: OrderHistoryService, private router: Router) {}
 
   ngOnInit() {
     // setInterval(this.reload, 1000);
