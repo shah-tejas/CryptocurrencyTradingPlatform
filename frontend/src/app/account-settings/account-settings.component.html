@@ -1,7 +1,7 @@
 <!-- used stepper fromm angular material , it uses form group and  the registration is divided into  4 parts-->
 <!-- 2 way interpolation is  used-->
 <!-- linear attribute (intialised at the .ts file) : if set to isLinear then it does not allow you to go to  the second part of the form till you complete 1st part and so on-->
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper [linear]="isLinear" #stepper>
     <div *ngIf="errorMessage">
         <div class="alert alert-danger" role="alert">
           {{errorMessage}}
@@ -18,18 +18,18 @@
         <input matInput placeholder="Last name" formControlName="lname" [(ngModel)]="user.lname"  required>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Email Address" formControlName="emailId"  [(ngModel)]="user.emailId" required>
+        <input matInput placeholder="Email Address" formControlName="emailId"  [(ngModel)]="user.emailId" readonly>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Contact Number" formControlName="Phno" [(ngModel)]="user.Phno" required>
         <mat-icon matSuffix>mode_edit</mat-icon>
       </mat-form-field>
-      <div class="full-width">
+      <!-- <div class="full-width">
         <button mat-raised-button matStepperNext color="primary">Continue</button>
-      </div>
+      </div> -->
     </form>
   </mat-step>
-    <!-- 1st part of the form(addressDetailsFormGroup)-->
+    <!-- 2nd part of the form(addressDetailsFormGroup)-->
   <mat-step [stepControl]="addressDetailsFormGroup">
     <form [formGroup]="addressDetailsFormGroup">
       <ng-template matStepLabel>Address Details</ng-template>
@@ -48,13 +48,9 @@
       <mat-form-field class="full-width">
         <input matInput placeholder="ZipCode" formControlName="zipcode" [(ngModel)]="user.address.zipcode" required>
       </mat-form-field>
-      <div class="full-width">
-        <button mat-raised-button matStepperPrevious color='primary'>Back</button>
-        <button mat-raised-button matStepperNext color='primary'>Continue</button>
-      </div>
     </form>
   </mat-step>
-  <!-- 1st part of the form(paymentDetailsFormGroup)-->
+  <!-- 3rd part of the form(paymentDetailsFormGroup)-->
   <mat-step [stepControl]="paymentDetailsFormGroup">
     <form [formGroup]="paymentDetailsFormGroup">
       <ng-template matStepLabel>Payment Details</ng-template>
@@ -76,31 +72,23 @@
       <mat-form-field class="full-width">
           <input matInput placeholder="Zipcode" formControlName="zipcode" [(ngModel)]="user.payment.zipcode" required>
         </mat-form-field>
-        <div class="full-width">
-          <button mat-raised-button matStepperPrevious color='primary'>Back</button>
-          <button mat-raised-button matStepperNext color='primary'>Continue</button>
-        </div>
     </form>
   </mat-step>
-  <!-- 1st part of the form(loginDetailsFormGroup)-->
-  <mat-step [stepControl]="loginDetailsFormGroup" class="marginLeft">
-    <form [formGroup]="loginDetailsFormGroup">
+  <!-- 4th part of the form(loginDetailsFormGroup)-->
+  <mat-step [stepControl]="changePasswordFormGroup" class="marginLeft">
+    <form [formGroup]="changePasswordFormGroup">
       <ng-template matStepLabel>Logn Credential Details</ng-template>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Username" formControlName="emailId"  [(ngModel)]="user.emailId" readonly>
+        <input matInput placeholder="Password" type="password" formControlName="password"  [(ngModel)]="user.login.password" required>
       </mat-form-field><br/>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Password" type="password" formControlName="password" [(ngModel)]="user.login.password" required>
-      </mat-form-field><br/>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Confirm Password"  type="password" formControlName="confirmpassword" [(ngModel)]="confirmpassword" required>
+      <mat-form-field class="full-width" >
+        <input matInput placeholder="Confirm Password"  type="password" formControlName="confirmpassword" [(ngModel)]="confirmpassword">
       </mat-form-field><br/>
       <div class="full-width">
-        <button mat-raised-button matStepperPrevious color='primary'>Back</button>
-        <button mat-raised-button matStepperNext color='primary' type="submit" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button matStepperNext color='primary' type="submit" (click)="onSubmit()">Update</button>
       </div>
   </form>
   </mat-step>
 
   
-</mat-horizontal-stepper>
+</mat-vertical-stepper>

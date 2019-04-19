@@ -8,6 +8,7 @@
  */
 const userService = require('../services/user-service');
 const jwtService  = require('../services/jwt-service');
+const walletService = require('../services/wallet-services');
 /**
  * @desc Creates a new user with the request JSON and
  * @return returns user JSON object.
@@ -15,14 +16,18 @@ const jwtService  = require('../services/jwt-service');
  * @param {response} {HTTP response object}
  */
 exports.post = function (request, response) {
+    // const user1 = null;
     const newUser = Object.assign({}, request.body);
     const resolve = (user) => {
+        const userWallet = Object.assign({}, {user_id: user._id});
+        walletService.createWallet(userWallet).then();
         response.status(200);
         response.json(user);
     };
     userService.save(newUser)
         .then(resolve)
         .catch(renderErrorResponse(response));
+
 };
 
 
@@ -35,32 +40,49 @@ exports.getUser = function (request, response) {
     let pwd = request.body.password;
     const resolve = (user) => {
         console.log(user);
-        if(user.length > 0){
-            if(user[0].login.password == pwd){
+        if (user.length > 0) {
+            if (user[0].login.password == pwd) {
                 response.status(200);
                 response.json({
                     success: true,
                     message: 'Authentication successful!',
                     token: jwtService.generateToken(user[0]),
-                    User:user[0]
-            });
-        }else{
-            response.status(401);
-            response.json("user credentials invalid!!!")
+                    User: user[0]
+                });
+            } else {
+                response.status(401);
+                response.json("user credentials invalid!!!")
             }
-    }else{
+        } else {
             response.status(404);
             response.json("User not found");
         }
-            
-    
+
+
     };
     console.log(request.body);
-    userService.search(JSON.parse("{\"login.username\":\""+ request.body.username +"\"}"))
+    userService.search(JSON.parse("{\"login.username\":\"" + request.body.username + "\"}"))
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
 
+/**
+ * Updates and returns a sticky object in JSON.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.put = function (request, response) {
+    const user = Object.assign({}, request.body);
+    const resolve = () => {
+        response.status(200);
+        response.json(user);
+    };
+    user._id = request.params.userId;
+    userService.updateUser(user)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
+};
 
 
 /**
@@ -71,12 +93,12 @@ exports.getUser = function (request, response) {
 let renderErrorResponse = (response) => {
     const errorCallback = (error) => {
         if (error) {
-            console.log(error);
+            //console.log(error);
             response.status(500);
             response.json({
                 message: error.message
             });
         }
     }
-    return errorCallback; 
+    return errorCallback;
 };

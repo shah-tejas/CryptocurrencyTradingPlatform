@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+
 import { MatButtonModule, MatToolbarModule,MatTabsModule, MatStepperModule, MatStepperIntl } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import {AccountSettingsComponent} from './account-settings/account-settings.component'
 import { RouterModule, CanActivate, Router } from '@angular/router';
 import { MyMaterialModule } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,15 +26,23 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { TradeComponent, ConfirmOrderDialogComponent } from './trade/trade.component';
 
+// Wallet components
+import { WalletComponent } from './wallet/wallet.component';
+import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
+import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-wallet.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    WalletComponent,
+    LoadWalletComponent,
+    WithdrawWalletComponent,
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
+    AccountSettingsComponent,
     TradeComponent,
     ConfirmOrderDialogComponent
-
   ],
   imports: [
     BrowserModule,
@@ -44,10 +54,14 @@ import { TradeComponent, ConfirmOrderDialogComponent } from './trade/trade.compo
     MatToolbarModule,
     MyMaterialModule,
     MatStepperModule,
+    FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument({ name: 'App Dev Tools'}) : [],
+    /**
+     * @desc RouterOutlet directive to tell Angular where to insert each of our HTML templates.
+     */
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },

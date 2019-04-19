@@ -1,3 +1,6 @@
+/**
+ * @desc Login model
+ */
 export class Login{
     username:String;
       password: String;
