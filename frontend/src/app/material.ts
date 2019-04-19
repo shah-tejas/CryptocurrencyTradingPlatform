@@ -1,18 +1,18 @@
 import { NgModule } from  '@angular/core';
-import {MatNativeDateModule,MatTabsModule,MatIconModule,MatButtonModule,MatCheckboxModule, MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatRadioModule,MatListModule, MatTableModule, MatSortModule, MatPaginatorModule, MatDialogModule, MatAutocompleteModule, MatSelectModule} from  '@angular/material';
+import {MatNativeDateModule,MatTabsModule,MatIconModule,MatButtonModule,MatCheckboxModule, MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatRadioModule,MatListModule, MatTableModule, MatSortModule, MatPaginatorModule, MatDialogModule, MatAutocompleteModule, MatSelectModule, MatGridListModule} from  '@angular/material';
 import {MatDatepickerModule} from  '@angular/material/datepicker';
 
 @NgModule({
 imports: [MatNativeDateModule,MatTabsModule,MatDatepickerModule,MatIconModule,
     MatButtonModule,MatCheckboxModule, MatToolbarModule, MatCardModule,
     MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule, MatTableModule, MatSortModule, MatPaginatorModule,
-    MatDialogModule, MatAutocompleteModule, MatSelectModule ],
+    MatDialogModule, MatAutocompleteModule, MatSelectModule, MatGridListModule ],
 
 exports: [MatNativeDateModule,MatTabsModule,
 MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule,
 MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,
 MatListModule,MatRadioModule,MatTableModule, MatSortModule, MatPaginatorModule, MatDialogModule,
-MatAutocompleteModule, MatSelectModule
+MatAutocompleteModule, MatSelectModule, MatGridListModule
 ],
 
 })

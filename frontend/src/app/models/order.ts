@@ -1,5 +1,6 @@
+// Class for the Orders being placed on the crypto-currency exchange
 export class Order {
-
+    // Fields
     _id: String;
     user_id: String;
     status: String;
@@ -13,5 +14,7 @@ export class Order {
     to_value: Number;
     created_date: Date;
     completion_date: Date
+
+  // Constructor
   constructor(  ) { }
 }

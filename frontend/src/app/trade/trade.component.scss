@@ -1,16 +1,21 @@
+/* Style for Trade-Component */
+/* Style for spacing button */
 .spacer{
   flex: 1 1 auto;
 }
 
-table{
-  width: 100%;
-  border-bottom: 1px solid black;
+/* Style for the Buy & Sell Tables */
+.mat-table{
+  width: 95%;
+  margin: 2%;
 }
 
+/* Style for the table-header when sorted */
 th.mat-header-sorted{
   color:#000000;
 }
 
+/* Style for the fixing table-header on top */
 .mat-table-sticky{
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -18,57 +23,60 @@ th.mat-header-sorted{
   font-size: 18px;
 }
 
-tr:hover{
+/* Style for table-row when it is hovered */
+.mat-row:hover, .mat-header-row :hover{
   background: #bbd1e6d3;
 }
 
-tr:active{
+/* Style for table-row when it is active */
+.mat-row:active, .mat-header-row :active{
   background: grey;
 }
 
+/* Style for container div for Tabs */
 .order-container{
   overflow: auto;
   height: 400px;
-
 }
 
+/* Style for Form-Fields on PLACE-ORDER section */
 .mat-form-field {
   font-size: 14px;
   margin: auto;
   padding-left: 30px;
 }
 
-/*Place-Order Form*/
+/* Style for PLACE-ORDER form */
 .placeOrder-form {
   min-width: 150px;
   max-width: 800px;
   width: 100%;
 }
 
-.example-full-width {
-  width: 100%;
-}
+// .example-full-width {
+//   width: 100%;
+// }
 
-.example-radio-group {
-  padding-left: 20px;
-  display: flex;
-  flex-direction: row;
-}
+// .example-radio-group {
+//   padding-left: 20px;
+//   display: flex;
+//   flex-direction: row;
+// }
 
-.example-radio-button {
-  margin: 5px;
-}
+// .example-radio-button {
+//   margin: 5px;
+// }
 
-label {
-  display: block;
+// label {
+//   display: block;
 
-  input, textarea {
-      display: block;
-      width: 50%;
-      margin-bottom: 20px;
-      padding: 1em;
-  }
-}
+//   input, textarea {
+//       display: block;
+//       width: 50%;
+//       margin-bottom: 20px;
+//       padding: 1em;
+//   }
+// }
 .error {
   margin-top: 20px;
   color: red;
