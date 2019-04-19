@@ -52,10 +52,10 @@ export class TradeComponent implements OnInit {
       selectedOrderType: ['', Validators.required],
       fromCoin: ['',Validators.required],
       fromQty: ['', [Validators.required, Validators.pattern(/^([1-9][0-9]*)$/)]],
-      fromValue: [{value: '123.00', disabled: true},],
+      fromValue: [{value: '-', disabled: true},],
       toCoin: ['',Validators.required],
       toQty: ['', [Validators.required, Validators.pattern(/^(0|[1-9][0-9]*)$/)]],
-      toValue: [{value: '124.00', disabled: true},]
+      toValue: [{value: '-', disabled: true},]
     });
 
     //Fetch latest rates for all coins
@@ -72,7 +72,44 @@ export class TradeComponent implements OnInit {
   }
 
   updateFromValue(){
+    let coinName = this.placeOrderForm.get('fromCoin').value;
+    let qty = this.placeOrderForm.get('fromQty').value;
+    console.log('Coin-Name' + coinName);
+    console.log('Coin-Qty' + qty);
+    if(coinName.length > 0 && qty.length > 0){
+      for(let coin of this.coinsArr){
+        if(coin.coinname == coinName){
+          console.log('USD Value :' + coin.usdvalue);
+          let val = (coin.usdvalue * qty).toFixed(2);
+          if(Number.isNaN(+val)){
+            this.placeOrderForm.get('fromValue').setValue('-');
+          } else{
+            this.placeOrderForm.get('fromValue').setValue(val);
+          }
+        }
+      }
+    }
+  }
 
+  updateToValue(){
+    let coinName = this.placeOrderForm.get('toCoin').value;
+    let qty = this.placeOrderForm.get('toQty').value;
+    console.log('Coin-Name' + coinName);
+    console.log('Coin-Qty' + qty);
+    if(coinName.length > 0 && qty.length > 0){
+      for(let coin of this.coinsArr){
+        if(coin.coinname == coinName){
+          console.log('USD Value :' + coin.usdvalue);
+          let val = (coin.usdvalue * qty).toFixed(2);
+          if(Number.isNaN(+val)){
+            this.placeOrderForm.get('toValue').setValue('-');
+          } else{
+            this.placeOrderForm.get('toValue').setValue(val);
+          }
+
+        }
+      }
+    }
   }
 
   onSubmit() {

@@ -137,8 +137,9 @@
       <div class="order-container">
           <form class="placeOrder-form" [formGroup]="placeOrderForm" (ngSubmit)="onSubmit()">
               <h5 class="success" *ngIf="success">Order placed successfully!!!</h5>
+              <br/>
 
-              <label >Select the Order-Type<span class="requiredSpan">*</span>: </label>
+              &emsp;&emsp;<label >Select the Order-Type<span class="requiredSpan">*</span>: </label>
               <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="selectedOrderType">
                 <mat-radio-button class="example-radio-button" *ngFor="let orderType of orderTypes" [value]="orderType">
                   {{orderType}}
@@ -147,20 +148,20 @@
               <mat-error *ngIf="submitted && placeOrderForm.controls.selectedOrderType.errors && placeOrderForm.controls.selectedOrderType.hasError('required')">
                   Order-Type is required!
                 </mat-error>
-
-            <mat-form-field>
-                <input type="text" formControlName="fromCoin" placeholder="From-Coin" matInput [matAutocomplete]="auto" required>
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                  <mat-option *ngFor="let fromCoin of coins" [value]="fromCoin">
-                  {{fromCoin}}
-                  </mat-option>
-                </mat-autocomplete>
-                <mat-error *ngIf="placeOrderForm.controls.fromCoin.hasError('required')">
+                <br/>
+                <mat-form-field>
+                  <mat-label>From-Coin</mat-label>
+                  <mat-select formControlName="fromCoin" required (selectionChange)="updateFromValue()" placeholder="From-Coin">
+                    <mat-option *ngFor="let fromCoin of coins" [value]="fromCoin">
+                      {{fromCoin}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="placeOrderForm.controls.fromCoin.hasError('required')">
                     This field is <strong>required</strong>
                   </mat-error>
-            </mat-form-field>
+                </mat-form-field>
             <mat-form-field>
-              <input matInput  placeholder="Quantity (From) " formControlName="fromQty" required>
+              <input matInput  placeholder="Quantity (From) " formControlName="fromQty" required (change)="updateFromValue()">
               <mat-error *ngIf="placeOrderForm.controls.fromQty.hasError('required')">
                   This field is <strong>required</strong>
                 </mat-error>
@@ -172,20 +173,20 @@
                 <span matPrefix>$ &nbsp;</span>
               <input matInput  placeholder="USD Value (From) " formControlName="fromValue"  class="fromValueClass">
             </mat-form-field>
-
+            <br/><br/>
             <mat-form-field>
-                <input type="text" formControlName="toCoin" placeholder="To-Coin" matInput [matAutocomplete]="auto" required>
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                  <mat-option *ngFor="let toCoin of coins" [value]="toCoin">
+              <mat-label>To-Coin</mat-label>
+              <mat-select formControlName="toCoin" required (selectionChange)="updateToValue()" placeholder="To-Coin">
+                <mat-option *ngFor="let toCoin of coins" [value]="toCoin">
                   {{toCoin}}
-                  </mat-option>
-                </mat-autocomplete>
-                <mat-error *ngIf="placeOrderForm.controls.toCoin.hasError('required')">
-                    This field is <strong>required</strong>
-                  </mat-error>
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="placeOrderForm.controls.toCoin.hasError('required')">
+                This field is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
             <mat-form-field>
-              <input matInput  placeholder="Quantity (To) " formControlName="toQty" required>
+              <input matInput  placeholder="Quantity (To) " formControlName="toQty" required (change)="updateToValue()">
               <mat-error *ngIf="placeOrderForm.controls.toQty.hasError('required')">
                     This field is <strong>required</strong>
                   </mat-error>
@@ -198,7 +199,7 @@
               <input matInput  placeholder="USD Value (To) " formControlName="toValue"  class="toValueClass">
             </mat-form-field>
 
-
+              <br/><br/>
               <div class="submitDiv">
                   <div class="flex-spacer"></div>
                 <button type="submit" mat-raised-button color="primary">Confirm Order</button>
