@@ -1,14 +1,5 @@
-<!-- <p *ngIf="EOS==null">qwerty</p> -->
-<div *ngIf="display" class="">
-  <jqxChart *ngIf="display" #myChart
-      [width]="getWidth()" [height]="500"
-      [title]="'Currency Rate'"
-      [description]="'fluctuating currency rates'"
-      [showLegend]="true" [enableAnimations]="true" [padding]="padding"
-      [titlePadding]="titlePadding" [source]="days" [xAxis]="xAxis"
-      [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme02'">
-  </jqxChart>
+<div class="contain">
+  <div *ngIf="chart">
+    <canvas id="canvas" width="600">{{ chart }}</canvas>
+  </div>
 </div>
-
-
-{{ display }}
