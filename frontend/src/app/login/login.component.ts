@@ -7,6 +7,7 @@ import { AppState, selectAuthState } from '../store/state/app.states';
 import { LogIn } from '../store/actions/user.actions';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -16,6 +17,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loginDetailsFormGroup: FormGroup;
+  
   /**
    *  @var login  creating an instance  of Login class
    *  @var getState Observable
@@ -26,7 +29,7 @@ export class LoginComponent implements OnInit {
   getState: Observable<any>;
   errorMessage: string | null;
   constructor(private router: Router,
-    private store: Store<AppState>
+    private store: Store<AppState>,private _formBuilder: FormBuilder
   ) {this.getState = this.store.select(selectAuthState); }
 
   ngOnInit() {
@@ -34,6 +37,7 @@ export class LoginComponent implements OnInit {
      * @desc the if loop check if the token is present in the local storage .
      *  if the token is present then it will directly be redirected to home page
      */
+   
     if(localStorage.getItem('token')){
       this.router.navigateByUrl('/home');
     }
@@ -42,6 +46,11 @@ export class LoginComponent implements OnInit {
      */
     this.getState.subscribe((state) => {
       this.errorMessage = state.errorMessage;
+    });
+
+    this.loginDetailsFormGroup = this._formBuilder.group({
+      emailId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')]],
+      password: ['', [Validators.required,Validators.pattern('^\s{6,13}')]],
     });
   }
 
