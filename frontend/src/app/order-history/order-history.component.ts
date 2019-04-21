@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./order-history.component.scss']
 })
 export class OrderHistoryComponent implements OnInit {
-  private orders: Array<Order>;
-  private completedOrders: Array<Order>;
-  private canceledOrders: Array<Order>;
+  orders: Array<Order>;
+  completedOrders: Array<Order>;
+  canceledOrders: Array<Order>;
 
   constructor(private orderhistory: OrderHistoryService, private router: Router) {
   }

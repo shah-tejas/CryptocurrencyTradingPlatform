@@ -23,6 +23,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/state/app.states';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { TradeComponent, ConfirmOrderDialogComponent } from './trade/trade.component';
 
 // order and chart services
 import { OrderHistoryService } from './services/order-history.service';
@@ -36,6 +37,7 @@ import { RateChartComponent } from './rate-chart/rate-chart.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
 import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-wallet.component';
+import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation-box.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +45,17 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
+    AccountSettingsComponent,
+    ConfirmationBoxComponent,
+    TradeComponent,
+    ConfirmOrderDialogComponent,
     OrderHistoryComponent,
     NavBarComponent,
     TableComponent,
     RateChartComponent,
     WalletComponent,
     LoadWalletComponent,
-    WithdrawWalletComponent,
-    AccountSettingsComponent
+    WithdrawWalletComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +86,7 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
+  entryComponents: [ ConfirmationBoxComponent, ConfirmOrderDialogComponent ],
   exports: [MatButtonModule,MatToolbarModule,MatTabsModule],
   providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
     AuthService, AuthGuardService, OrderHistoryService, RateListService],

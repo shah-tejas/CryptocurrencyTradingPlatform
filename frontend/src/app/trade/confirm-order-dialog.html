@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Confirm-Order</h1>
+<div mat-dialog-content>
+    <p>
+      <mat-form-field appearance="outline">
+          <mat-label>Type of Order</mat-label>
+          <input matInput [(ngModel)]="data.buy_or_sell" #buy_or_sell="ngModel" name="buy_or_sell" type="text" [contentEditable]=false>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>From-Coin</mat-label>
+            <input matInput [(ngModel)]="data.from_coin" #from_coin="ngModel" name="from_coin" type="text" disabled>
+          </mat-form-field>
+      </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>From-Quantity</mat-label>
+            <input matInput [(ngModel)]="data.from_qty" #from_qty="ngModel" name="from_qty" type="text" disabled>
+          </mat-form-field>
+      </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>From-Value</mat-label>
+            <span matPrefix>$ &nbsp;</span>
+            <input matInput [(ngModel)]="data.from_value" #from_value="ngModel" name="from_value" type="text" disabled>
+          </mat-form-field>
+      </p>
+
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>To-Coin</mat-label>
+            <input matInput [(ngModel)]="data.to_coin" #to_coin="ngModel" name="to_coin" type="text" disabled>
+          </mat-form-field>
+      </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>To-Quantity</mat-label>
+            <input matInput [(ngModel)]="data.to_qty" #from_qty="ngModel" name="to_qty" type="text" disabled>
+          </mat-form-field>
+      </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>To-Value</mat-label>
+            <span matPrefix>$ &nbsp;</span>
+            <input matInput [(ngModel)]="data.to_value" #to_value="ngModel" name="to_value" type="text" disabled>
+          </mat-form-field>
+      </p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancelClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirm</button>
+</div>

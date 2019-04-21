@@ -8,4 +8,8 @@ export class WalletHistory {
   transaction_type: string;
   created_date: Date;
   modified_date: Date;
+
+  constructor(){
+    this.coin_qty = 0;
+  }
 }
