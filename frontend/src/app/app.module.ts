@@ -38,6 +38,7 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
 import { WalletComponent } from './wallet/wallet.component';
 import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
 import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-wallet.component';
+import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation-box.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     RegisterComponent,
     HomePageComponent,
     AccountSettingsComponent,
+    ConfirmationBoxComponent,
     TradeComponent,
     ConfirmOrderDialogComponent,
     OrderHistoryComponent,
@@ -55,8 +57,7 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     RateChartComponent,
     WalletComponent,
     LoadWalletComponent,
-    WithdrawWalletComponent,
-    AccountSettingsComponent
+    WithdrawWalletComponent
   ],
   imports: [
     BrowserModule,
@@ -88,10 +89,8 @@ import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-walle
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
+  entryComponents: [ ConfirmationBoxComponent, ConfirmOrderDialogComponent ],
   exports: [MatButtonModule,MatToolbarModule,MatTabsModule],
-  entryComponents: [
-    ConfirmOrderDialogComponent
-  ],
   providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
     AuthService, AuthGuardService, OrderHistoryService, RateListService],
   bootstrap: [AppComponent]

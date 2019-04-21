@@ -28,6 +28,7 @@ export class AccountSettingsComponent implements OnInit {
   confirmpassword: String;
   initialPassword: String="";
   //changePassword: boolean = false;
+  errorMessage = '';
 
   constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
     // this.user = localStorage.getItem("result.user") ;
@@ -36,7 +37,7 @@ export class AccountSettingsComponent implements OnInit {
 
   ngOnInit() {
     /**
-     * @desc the if loop checks if the user is logged  in or not , 
+     * @desc the if loop checks if the user is logged  in or not ,
      * if it is then it does not allow the user to got the register page, it routes you  back to the home page.
      */
     if (localStorage.getItem('token')) {
@@ -56,7 +57,7 @@ export class AccountSettingsComponent implements OnInit {
       Phno: ['', Validators.pattern('[1-9]{1}[0-9]{9}')],
     });
     this.addressDetailsFormGroup = this._formBuilder.group({
-     
+
       address1: ['', Validators.required],
       address2: [''],
       city: ['', Validators.required],
@@ -90,5 +91,5 @@ export class AccountSettingsComponent implements OnInit {
 
   }
 
-  
+
 }

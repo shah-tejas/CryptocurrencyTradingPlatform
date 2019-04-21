@@ -6,6 +6,9 @@ import { WalletHistory } from 'src/app/models/wallet-history';
 import { FormControl, FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import {MatDialog, MatDialogRef} from '@angular/material';
+import { ConfirmationBoxComponent } from '../confirmation-box/confirmation-box.component';
+
 @Component({
   selector: 'app-withdraw-wallet',
   templateUrl: './withdraw-wallet.component.html',
@@ -18,7 +21,11 @@ export class WithdrawWalletComponent implements OnInit {
   walletTransaction: WalletHistory;
   user_id: string;
 
-  constructor(private walletService: WalletService, private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(private walletService: WalletService,
+              private formBuilder: FormBuilder,
+              private router: Router,
+              private authService: AuthService,
+              public dialog: MatDialog) {
 
     // build the user input form
     this.withdrawForm = this.formBuilder.group({
@@ -76,6 +83,15 @@ export class WithdrawWalletComponent implements OnInit {
   }
 
   updateUSDValue(){
+    for(const coin of this.coins){
+      if(coin.coin_name === this.withdrawForm.controls.coinName.value){
+        if(this.withdrawForm.controls.coinQty.value > coin.coin_qty){
+          this.withdrawForm.controls.coinQty.setValue(coin.coin_qty);
+          return;
+        }
+        break;
+      }
+    }
     this.withdrawForm.controls.totalUSDValue.setValue(this.withdrawForm.controls.coinQty.value * this.withdrawForm.controls.coinRate.value);
   }
 
@@ -87,9 +103,8 @@ export class WithdrawWalletComponent implements OnInit {
     this.walletTransaction.transaction_type = "wallet_unload";
     this.walletTransaction.user_id = this.user_id;
     this.walletTransaction.status = "Success";
-    this.walletService.createUserWalletTransaction(this.walletTransaction).subscribe(() => {
-      this.updateUserWallet();
-    });
+
+    this.openDialog(this.walletTransaction);
   }
 
   updateUserWallet(){
@@ -112,7 +127,27 @@ export class WithdrawWalletComponent implements OnInit {
       }
 
       // update user's wallet object
-      this.walletService.updateUserWallet(wallet[0]).subscribe();
+      this.walletService.updateUserWallet(wallet[0])
+          .subscribe(() => {
+        // redirect to the wallet page
+        this.router.navigateByUrl('/wallet');
+      });
+    });
+  }
+
+  openDialog(transaction: WalletHistory): void {
+    const dialogRef = this.dialog.open(ConfirmationBoxComponent, {
+      width: '450px',
+      data: {action: 'withdraw', walletTransaction: transaction}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== null){
+        // Save the transaction
+        this.walletService.createUserWalletTransaction(this.walletTransaction).subscribe(() => {
+          this.updateUserWallet();
+        });
+      }
     });
   }
 
