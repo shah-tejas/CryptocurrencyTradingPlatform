@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
     this.loginDetailsFormGroup = this._formBuilder.group({
       emailId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')]],
-      password: ['', [Validators.required,Validators.pattern('^\s{6,13}')]],
+      password: ['', [Validators.required,Validators.pattern('[^\s]{6,13}')]],
     });
   }
 
@@ -59,7 +59,6 @@ export class LoginComponent implements OnInit {
    */
   onSubmit(): void {
     console.log(this.login);
-    
     this.store.dispatch(new LogIn(this.login));
   }
 

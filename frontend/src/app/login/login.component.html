@@ -4,12 +4,13 @@
         <mat-label layout-xs="column" layout="row" layout-align="center center"><h1>LOGIN</h1></mat-label>
     </mat-card-header>
     <mat-card-content>
-        <div *ngIf="errorMessage">
-            <div class="alert alert-danger" role="alert">
-              {{errorMessage}}
-            </div>
-          </div>
+        
       <form class="example-form example-full-width" [formGroup]="loginDetailsFormGroup">
+        <mat-label>
+            <mat-error *ngIf="errorMessage" class="full-width error">
+                 <strong> {{errorMessage}} </strong>
+              </mat-error>
+        </mat-label> <br/><br/> 
         <mat-form-field class="full-width">
           <mat-label><b>Email</b></mat-label>
           <!-- 2 way interpolation-->
@@ -19,6 +20,7 @@
           </mat-error>
           <mat-error *ngIf="loginDetailsFormGroup.controls.emailId.hasError('pattern')">
             <strong>Enter a proper email address</strong>
+            </mat-error>
         </mat-form-field><br /><br/>
         <mat-form-field class="full-width">
           <mat-label><b>Password</b></mat-label>

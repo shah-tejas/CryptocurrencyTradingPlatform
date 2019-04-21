@@ -75,7 +75,7 @@ export class AccountSettingsComponent implements OnInit {
     });
     this.changePasswordFormGroup = this._formBuilder.group({
       emailId: [{ Value: '', disabled: true }],
-      password: ['', [Validators.required,Validators.pattern('^\s{6,13}')]],
+      password: ['', [Validators.required,Validators.pattern('[^\s]{6,13}')]],
       confirmpassword: ['', Validators.required]
     });
   }
