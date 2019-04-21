@@ -11,7 +11,7 @@
   <mat-step [stepControl]="generalDetailsFormGroup">
     <form [formGroup]="generalDetailsFormGroup">
       <ng-template matStepLabel>General Information</ng-template>
-      <mat-form-field class="full-width" [formGroup]="loginform">
+      <mat-form-field class="full-width">
         <input matInput placeholder="First name" formControlName="fname" [(ngModel)]="user.fname" required>
         <mat-error *ngIf="generalDetailsFormGroup.controls.fname.hasError('required')">
             First Name is <strong>required</strong>

@@ -5,6 +5,7 @@ import { AppState, selectAuthState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
 import { Register } from '../store/actions/user.actions';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,8 @@ export class RegisterComponent implements OnInit {
   errorMessage = '';
 
 
-  constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
+  constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router,
+    public snackbar: MatSnackBar) {
   }
 
   passwordValidator(form: FormGroup) {
@@ -54,7 +56,7 @@ export class RegisterComponent implements OnInit {
       fname: ['', Validators.required],
       lname: ['', Validators.required],
       emailId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')]],
-      Phno: ['', [Validators.required, Validators.pattern('[1-9]{1}[0-9]{9}')]],
+      Phno: ['', [Validators.required, Validators.pattern('[1-9]{1}[0-9]{9}')]]
     });
     this.addressDetailsFormGroup = this._formBuilder.group({
       address1: ['', Validators.required],
@@ -86,7 +88,10 @@ export class RegisterComponent implements OnInit {
     if (this.user.login.password === (this.confirmpassword)) {
       this.store.dispatch(new Register(this.user));
     } else {
-      alert("Please enter same password");
+      this.snackbar.open("Please enter same password", "OK",{
+        duration: 5000,
+      });
     }
   }
 }
+

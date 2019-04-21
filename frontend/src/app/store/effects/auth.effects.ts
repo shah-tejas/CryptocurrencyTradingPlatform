@@ -77,7 +77,7 @@ export class AuthEffects {
   RegisterSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.REGISTER_SUCCESS),
     tap((user) => {
-      alert("Registration Successful!!");
+      // alert("Registration Successful!!");
       this.router.navigateByUrl('/login');
     })
   );
