@@ -13,16 +13,34 @@
       <ng-template matStepLabel>General Information</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="First name" formControlName="fname" [(ngModel)]="user.fname" required>
+        <mat-error *ngIf="generalDetailsFormGroup.controls.fname.hasError('required')">
+            First Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Last name" formControlName="lname" [(ngModel)]="user.lname"  required>
+        <mat-error *ngIf="generalDetailsFormGroup.controls.lname.hasError('required')">
+            Last Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Email Address" formControlName="emailId"  [(ngModel)]="user.emailId" required>
+        <mat-error *ngIf="generalDetailsFormGroup.controls.emailId.hasError('required')">
+            Email Address is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="generalDetailsFormGroup.controls.emailId.hasError('pattern')">
+          <strong>Enter a proper email address</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Contact Number" formControlName="Phno" [(ngModel)]="user.Phno" required>
         <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="generalDetailsFormGroup.controls.Phno.hasError('required')">
+            Phone number<strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="generalDetailsFormGroup.controls.Phno.hasError('pattern')">
+              <strong>Enter a valid 10 digit contact number</strong>
+            </mat-error>
       </mat-form-field>
       <div class="full-width">
         <button mat-raised-button matStepperNext color="primary">Continue</button>
@@ -35,18 +53,33 @@
       <ng-template matStepLabel>Address Details</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="Address 1" formControlName="address1" [(ngModel)]="user.address.address1" required>
+        <mat-error *ngIf="addressDetailsFormGroup.controls.address1.hasError('required')">
+            Address details are <strong>required</strong>
+          </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Address 2" formControlName="address2" [(ngModel)]="user.address.address2">
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="City" formControlName="city" [(ngModel)]="user.address.city" required>
+        <mat-error *ngIf="addressDetailsFormGroup.controls.city.hasError('required')">
+            City is <strong>required</strong>
+          </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Country" formControlName="country" [(ngModel)]="user.address.country" required>
+        <mat-error *ngIf="addressDetailsFormGroup.controls.country.hasError('required')">
+            Country is <strong>required</strong>
+          </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="ZipCode" formControlName="zipcode" [(ngModel)]="user.address.zipcode" required>
+        <mat-error *ngIf="addressDetailsFormGroup.controls.zipcode.hasError('required')">
+            Zipcode is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="addressDetailsFormGroup.controls.zipcode.hasError('pattern')">
+             <strong>Enter a 5 digit zipcode</strong>
+            </mat-error>
       </mat-form-field>
       <div class="full-width">
         <button mat-raised-button matStepperPrevious color='primary'>Back</button>
@@ -60,21 +93,48 @@
       <ng-template matStepLabel>Payment Details</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="Card Number" formControlName="cardno" [(ngModel)]="user.payment.cardno" required>
+        <mat-error *ngIf="paymentDetailsFormGroup.controls.cardno.hasError('pattern')">
+            <strong>Enter a 16 digit card number</strong>
+          </mat-error>
+          <mat-error *ngIf="paymentDetailsFormGroup.controls.cardno.hasError('required')">
+              Card Number is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="CVV Number" type="password" formControlName="cvv" [(ngModel)]="user.payment.cvv"  required>
+        <mat-error *ngIf="paymentDetailsFormGroup.controls.cardno.hasError('pattern')">
+            <strong>Enter a 3 digit CVV number</strong>
+          </mat-error>
+          <mat-error *ngIf="paymentDetailsFormGroup.controls.cvv.hasError('required')">
+              CVV is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date"  formControlName="expire" [(ngModel)]="user.payment.expire">
+          <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date"  formControlName="expire" [(ngModel)]="user.payment.expire">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        <!-- <input matInput placeholder="Expiry" formControlName="expire" [(ngModel)]="user.payment.expire" required> -->
+          <mat-datepicker #picker></mat-datepicker> -->
+        <input matInput placeholder="Expiry(MM/YY)" formControlName="expire" [(ngModel)]="user.payment.expire" required>
+        <mat-error *ngIf="paymentDetailsFormGroup.controls.expire.hasError('pattern')">
+            <strong>Enter expiry in MM/YY format</strong>
+          </mat-error>
+          <mat-error *ngIf="paymentDetailsFormGroup.controls.expire.hasError('required')">
+              Expiry is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="CardHolder Name" formControlName="name" [(ngModel)]="user.payment.name" required>
+        <mat-error *ngIf="paymentDetailsFormGroup.controls.name.hasError('required')">
+            Name on Card is <strong>required</strong>
+          </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
           <input matInput placeholder="Zipcode" formControlName="zipcode" [(ngModel)]="user.payment.zipcode" required>
+          <mat-error *ngIf="paymentDetailsFormGroup.controls.zipcode.hasError('required')">
+              Zipcode is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="paymentDetailsFormGroup.controls.zipcode.hasError('pattern')">
+               <strong>Enter a 5 digit zipcode</strong>
+              </mat-error>
         </mat-form-field>
         <div class="full-width">
           <button mat-raised-button matStepperPrevious color='primary'>Back</button>
@@ -85,15 +145,21 @@
   <!-- 1st part of the form(loginDetailsFormGroup)-->
   <mat-step [stepControl]="loginDetailsFormGroup" class="marginLeft">
     <form [formGroup]="loginDetailsFormGroup">
-      <ng-template matStepLabel>Logn Credential Details</ng-template>
+      <ng-template matStepLabel>Login Credential Details</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="Username" formControlName="emailId"  [(ngModel)]="user.emailId" readonly>
       </mat-form-field><br/>
       <mat-form-field class="full-width">
         <input matInput placeholder="Password" type="password" formControlName="password" [(ngModel)]="user.login.password" required>
+        <mat-error *ngIf="loginDetailsFormGroup.controls.password.hasError('required')">
+            Password is <strong>required</strong>
+           </mat-error>
       </mat-form-field><br/>
       <mat-form-field class="full-width">
         <input matInput placeholder="Confirm Password"  type="password" formControlName="confirmpassword" [(ngModel)]="confirmpassword" required>
+        <mat-error *ngIf="loginDetailsFormGroup.controls.confirmpassword.hasError('required')">
+            Confirm Password is <strong>required</strong>
+           </mat-error>
       </mat-form-field><br/>
       <div class="full-width">
         <button mat-raised-button matStepperPrevious color='primary'>Back</button>

@@ -33,6 +33,11 @@ export class RegisterComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
   }
 
+  passwordValidator(form: FormGroup) {
+    const condition = form.get('password').value !== form.get('confirmpassword').value;
+    return condition ? {passwordsDoNotMatch: true} : null;
+  }
+
   ngOnInit() {
     /**
      * @desc the if loop checks if the user is logged  in or not ,
@@ -48,22 +53,22 @@ export class RegisterComponent implements OnInit {
     this.generalDetailsFormGroup = this._formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      emailId: ['', Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')],
-      Phno: ['', Validators.pattern('[1-9]{1}[0-9]{9}')],
+      emailId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')]],
+      Phno: ['', [Validators.required, Validators.pattern('[1-9]{1}[0-9]{9}')]],
     });
     this.addressDetailsFormGroup = this._formBuilder.group({
       address1: ['', Validators.required],
       address2: [''],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      zipcode: ['', Validators.pattern('[0-9]{5}')]
+      zipcode: ['', [Validators.required, Validators.pattern('[0-9]{5}')]]
     });
     this.paymentDetailsFormGroup = this._formBuilder.group({
-      cardno: ['', Validators.pattern('([0-9]{4}){4}')],
-      cvv: ['', Validators.pattern('[0-9]{3}')],
-      expire: ['', Validators.required],
+      cardno: ['', [Validators.required, Validators.pattern('([0-9]{4}){4}')]],
+      cvv: ['', [Validators.required, Validators.pattern('[0-9]{3}')]],
+      expire: ['', [Validators.required]],
       name: ['', Validators.required],
-      zipcode: ['', Validators.required]
+      zipcode: ['', [Validators.required,Validators.pattern('[0-9]{5}')]]
     });
     this.loginDetailsFormGroup = this._formBuilder.group({
       emailId: [{ Value: '', disabled: true }],
