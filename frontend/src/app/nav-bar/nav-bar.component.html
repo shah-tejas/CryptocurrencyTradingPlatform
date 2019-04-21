@@ -1,5 +1,5 @@
 <mat-drawer-container class="example-container">
-  <mat-drawer [@fadein]="display" mode="over" [opened]="isToggled" (mouseleave)="toggle()">
+  <mat-drawer [@fadein]="display" mode="over" [opened]="showMenu" (mouseleave)="showMenufunc()">
     <h2>Menu</h2>
     <ul>
       <li routerLinkActive="pressed" *ngFor="let tab of tabs; let i = index" >
@@ -9,13 +9,15 @@
     </ul>
   </mat-drawer>
   <mat-drawer-content>
-    <app-home-page (shownavbar)="toggle()" (logoutchild)="logedoutfunc()"></app-home-page>
-    <!-- <div>
-      <h2 style=" cursor: pointer; "(click)="toggle()">☰</h2>
-      <h2>Husky Coin</h2>
-    </div> -->
+    <mat-toolbar *ngIf="showPlainBar" color="primary">
+      <mat-toolbar-row>
+        <span>&emsp;WELCOME</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <app-home-page *ngIf="showToolBar" (showMenu)="showMenufunc()"></app-home-page>
     <div class="background">
-      <router-outlet></router-outlet>
+      <!-- <router-outlet (loggedin)="loggedInCheck($event)" ></router-outlet> -->
+      <router-outlet (activate)='onActivate($event)' ></router-outlet>
     </div>
   </mat-drawer-content>
 

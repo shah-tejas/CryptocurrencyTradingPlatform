@@ -12,7 +12,11 @@ export class OrderHistoryService {
   private url: String = "http://localhost:3000/orderhistory/";
 
   constructor( private http: HttpClient ) {
-    this.userId = JSON.parse(localStorage.getItem('user'))._id;
+    // this.userId = JSON.parse(localStorage.getItem('user'))._id;
+  }
+
+  setUserID(userId: String): void {
+    this.userId = userId;
   }
 
   public get = function(status): Observable<Order[]>{

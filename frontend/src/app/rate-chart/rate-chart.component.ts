@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
+import { Component, OnInit, OnChanges, EventEmitter, Output } from '@angular/core';
 import { RateListService } from '../services/rate-list.service';
 import { Rate } from '../models/rate';
 import { Router } from '@angular/router';
@@ -17,6 +17,23 @@ export class RateChartComponent implements OnInit {
   private LTC: any[];
   private EOS: any[];
   private display: boolean = true;
+
+  constructor(private rateService: RateListService, private router: Router) {
+    if (!localStorage.getItem('token')) {
+      this.router.navigateByUrl('/login');
+    }
+  }
+
+  ngOnInit(){
+    if (!localStorage.getItem('token')) {
+      this.router.navigateByUrl('/login');
+    }else{
+      // this.rateService.get("BTC").subscribe(this.BTCobserver);
+      this.rateService.get("ETH").subscribe(this.ETHobserver);
+      this.rateService.get("LTC").subscribe(this.LTCobserver);
+      this.rateService.get("EOS").subscribe(this.EOSobserver);
+    }
+  }
 
   // private BTCobserver: any = {
   //   next: data => {
@@ -46,21 +63,6 @@ export class RateChartComponent implements OnInit {
     },
     error: err => console.log(err)
   };
-
-  constructor(private rateService: RateListService, private router: Router) {
-  }
-
-  ngOnInit(){
-    if (!localStorage.getItem('token')) {
-      this.router.navigateByUrl('/login');
-    }else{
-      // this.rateService.get("BTC").subscribe(this.BTCobserver);
-      this.rateService.get("ETH").subscribe(this.ETHobserver);
-      this.rateService.get("LTC").subscribe(this.LTCobserver);
-      this.rateService.get("EOS").subscribe(this.EOSobserver);
-
-    }
-  }
 
   helper = function() {
     this.chart = new Chart('canvas', {

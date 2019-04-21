@@ -1,12 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <!--  <span>HOME</span> -->
-    <h2 style=" cursor: pointer; "(click)="toggle()">☰</h2>
+    <h2 style=" cursor: pointer; "(click)="showMenufunc()">☰</h2>
     <span>&emsp;HOME</span>
     <span class="spacer"></span>
     <div class="full-width">
       <button mat-raised-button mat-button (click)="settings()" routerLink="/accountsettings">Account Settings</button>&nbsp;&nbsp;
     </div>
-    <button mat-raised-button (click)="logOut()" mat-button routerLink="/login">Logout</button>
+    <button mat-raised-button (click)="logout()" mat-button routerLink="/login">Logout</button>
   </mat-toolbar-row>
 </mat-toolbar>
