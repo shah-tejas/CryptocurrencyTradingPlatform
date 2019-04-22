@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 })
 export class OrderHistoryComponent implements OnInit {
   orders: Array<Order>;
-  completedOrders: Array<Order>;
-  canceledOrders: Array<Order>;
 
   constructor(private orderhistory: OrderHistoryService, private router: Router) {
   }
@@ -21,33 +19,47 @@ export class OrderHistoryComponent implements OnInit {
       this.router.navigateByUrl('/login');
     }else{
       this.orderhistory.setUserID(JSON.parse(localStorage.getItem('user'))._id);
+      this.reloadPendingOrders();
     }
-    this.reload();
   }
 
-  reload = function(){
+  reloadPendingOrders(): void {
     this.orderhistory.get("pending")
     .subscribe({
       next: response => {
         this.orders = response["data"];
+        console.log(response["data"]);
       },
       error: err => console.log(err)
     });
+  }
 
+  reloadCompletedOrders(): void {
     this.orderhistory.get("completed")
     .subscribe({
       next: response => {
-        this.completedOrders = response["data"];
+        this.orders = response["data"];
+        console.log(response["data"]);
       },
       error: err => console.log(err)
     });
+  }
 
+  reloadCanceledOrders(): void {
     this.orderhistory.get("canceled")
     .subscribe({
       next: response => {
-        this.canceledOrders = response["data"];
+        this.orders = response["data"];
+        console.log(response["data"]);
       },
       error: err => console.log(err)
-    })
+    });
+  }
+
+  displayTable($event){
+    let tabIndex = $event.index;
+    if(tabIndex == 0) this.reloadPendingOrders();
+    else if(tabIndex == 1) this.reloadCompletedOrders();
+    else this.reloadCanceledOrders();
   }
 }
