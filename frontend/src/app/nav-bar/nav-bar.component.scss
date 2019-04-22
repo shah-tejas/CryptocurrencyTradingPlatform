@@ -10,7 +10,7 @@ ul {
   font-weight: bold;
 }
 mat-drawer{
-  background-color: #c6cbef;
+  background-color: white;
   text-align: center;
   min-width: 220px;
   h2{
@@ -21,10 +21,10 @@ mat-drawer{
     background-color: #3F51B5;
   }
   li{
-    border: 1px solid #c6cbef;
+    // border: 1px solid #c6cbef;
     margin: 0;
     padding: 15px 20px;
-    background-color: #c6cbef;
+    // background-color: #c6cbef;
     border-bottom: 1px solid #cbf1f5;
   }
   li:hover{
