@@ -9,6 +9,7 @@
 const userService = require('../services/user-service');
 const jwtService  = require('../services/jwt-service');
 const walletService = require('../services/wallet-services');
+const emailService = require('../services/email-service');
 /**
  * @desc Creates a new user with the request JSON and
  * @return returns user JSON object.
@@ -21,6 +22,9 @@ exports.post = function (request, response) {
     const resolve = (user) => {
         const userWallet = Object.assign({}, {user_id: user._id});
         walletService.createWallet(userWallet).then();
+        const message = "You have successfully registered to HuskyCoins!! Please login on the below link to use the application!!\n\n";
+        const url = "http://localhost:4200/";
+        emailService.sendemail(user.emailId, "Registration Successful",message+url);
         response.status(200);
         response.json(user);
     };

@@ -4,20 +4,33 @@
         <mat-label layout-xs="column" layout="row" layout-align="center center"><h1>LOGIN</h1></mat-label>
     </mat-card-header>
     <mat-card-content>
-        <div *ngIf="errorMessage">
-            <div class="alert alert-danger" role="alert">
-              {{errorMessage}}
-            </div>
-          </div>
-      <form class="example-form example-full-width">
+        
+      <form class="example-form example-full-width" [formGroup]="loginDetailsFormGroup">
+        <mat-label>
+            <mat-error *ngIf="errorMessage" class="full-width error">
+                 <strong> {{errorMessage}} </strong>
+              </mat-error>
+        </mat-label> <br/><br/> 
         <mat-form-field class="full-width">
           <mat-label><b>Email</b></mat-label>
           <!-- 2 way interpolation-->
-          <input matInput placeholder="Email" name="username" [(ngModel)]="login.username">
+          <input matInput placeholder="Email" name="username" [(ngModel)]="login.username" formControlName="emailId">
+          <mat-error *ngIf="loginDetailsFormGroup.controls.emailId.hasError('required')">
+              Email Address is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="loginDetailsFormGroup.controls.emailId.hasError('pattern')">
+            <strong>Enter a proper email address</strong>
+            </mat-error>
         </mat-form-field><br /><br/>
         <mat-form-field class="full-width">
           <mat-label><b>Password</b></mat-label>
-          <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="login.password">
+          <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="login.password" formControlName="password">
+          <mat-error *ngIf="loginDetailsFormGroup.controls.password.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="loginDetailsFormGroup.controls.password.hasError('pattern')">
+                <strong>Password length should be between 6 to 13 </strong>
+               </mat-error>
         </mat-form-field>
       </form>
     </mat-card-content>
