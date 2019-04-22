@@ -22,7 +22,7 @@ export class NavBarComponent {
   private showMenu: boolean = false;
   noOfPings: Number = 10;
   tabs: String[] = ["Charts", "Wallet", "Order History", "BUY / SELL", "Pings"];
-  urls: String[] = ["home", "wallet", "orderHistory", "buyOrsell", "pings"];
+  urls: String[] = ["home", "wallet", "orderHistory", "buysell", "pings"];
   private showToolBar: boolean;
   private showPlainBar: boolean;
 
@@ -40,11 +40,13 @@ export class NavBarComponent {
 
   onActivate($event): void{
     if(this.router.url === "/login" || this.router.url === "/register" || this.router.url === "/"){
-      console.log(this.showToolBar);
-      console.log(this.showPlainBar);
+      // if we are on login or registeration or / page
+      // then hide the tool bar and show the Plain Bar
       this.showToolBar = false;
       this.showPlainBar = true;
     }else{
+      // if we are on any page other than the ones mentioned above
+      // then show the tool bar and hide the Plain Bar
       this.showToolBar = true;
       this.showPlainBar = false;
     }

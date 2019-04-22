@@ -11,6 +11,7 @@ export class RateListService {
 
   constructor( private http: HttpClient ) { }
 
+  // to get the history of rates for a particular coin
   public get = function(coin): Observable<Rate[]>{
     return this.http.get(this.url+coin);
   }

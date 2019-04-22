@@ -2,7 +2,7 @@
   <mat-drawer [@fadein]="display" mode="over" [opened]="showMenu" (mouseleave)="showMenufunc()">
     <h2>Menu</h2>
     <ul>
-      <li routerLinkActive="pressed" *ngFor="let tab of tabs; let i = index" >
+      <li *ngFor="let tab of tabs; let i = index" >
         <a [routerLink]="urls[i]">{{tab}}</a>
         <span *ngIf="i===2" [matBadge]="noOfPings" matBadgeOverlap="false"></span>
       </li>
@@ -16,7 +16,7 @@
     </mat-toolbar>
     <app-home-page *ngIf="showToolBar" (showMenu)="showMenufunc()"></app-home-page>
     <div class="background">
-      <!-- <router-outlet (loggedin)="loggedInCheck($event)" ></router-outlet> -->
+      <!-- the (active) event is used to decide if the tool bar has to be displayed or not -->
       <router-outlet (activate)='onActivate($event)' ></router-outlet>
     </div>
   </mat-drawer-content>
