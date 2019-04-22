@@ -5,6 +5,7 @@ import { AppState, selectAuthState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
 import { Register } from '../store/actions/user.actions';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,13 @@ export class RegisterComponent implements OnInit {
   errorMessage = '';
 
 
-  constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
+  constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router,
+    public snackbar: MatSnackBar) {
+  }
+
+  passwordValidator(form: FormGroup) {
+    const condition = form.get('password').value !== form.get('confirmpassword').value;
+    return condition ? {passwordsDoNotMatch: true} : null;
   }
 
   ngOnInit() {
@@ -48,26 +55,26 @@ export class RegisterComponent implements OnInit {
     this.generalDetailsFormGroup = this._formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      emailId: ['', Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')],
-      Phno: ['', Validators.pattern('[1-9]{1}[0-9]{9}')],
+      emailId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')]],
+      Phno: ['', [Validators.required, Validators.pattern('[1-9]{1}[0-9]{9}')]]
     });
     this.addressDetailsFormGroup = this._formBuilder.group({
       address1: ['', Validators.required],
       address2: [''],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      zipcode: ['', Validators.pattern('[0-9]{5}')]
+      zipcode: ['', [Validators.required, Validators.pattern('[0-9]{5}')]]
     });
     this.paymentDetailsFormGroup = this._formBuilder.group({
-      cardno: ['', Validators.pattern('([0-9]{4}){4}')],
-      cvv: ['', Validators.pattern('[0-9]{3}')],
-      expire: ['', Validators.required],
+      cardno: ['', [Validators.required, Validators.pattern('([0-9]{4}){4}')]],
+      cvv: ['', [Validators.required, Validators.pattern('[0-9]{3}')]],
+      expire: ['', [Validators.required]],
       name: ['', Validators.required],
-      zipcode: ['', Validators.required]
+      zipcode: ['', [Validators.required,Validators.pattern('[0-9]{5}')]]
     });
     this.loginDetailsFormGroup = this._formBuilder.group({
       emailId: [{ Value: '', disabled: true }],
-      password: ['', Validators.required],
+      password: ['', [Validators.required,Validators.pattern('[^\s]{6,13}')]],
       confirmpassword: ['', Validators.required]
     });
   }
@@ -81,7 +88,10 @@ export class RegisterComponent implements OnInit {
     if (this.user.login.password === (this.confirmpassword)) {
       this.store.dispatch(new Register(this.user));
     } else {
-      alert("Please enter same password");
+      this.snackbar.open("Please enter same password", "OK",{
+        duration: 5000,
+      });
     }
   }
 }
+
