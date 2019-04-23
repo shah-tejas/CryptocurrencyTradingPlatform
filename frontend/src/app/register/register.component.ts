@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Register } from '../store/actions/user.actions';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -29,10 +30,11 @@ export class RegisterComponent implements OnInit {
   user: User = new User();
   confirmpassword: String;
   errorMessage = '';
-
+  getState: Observable<any>;
 
   constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router,
     public snackbar: MatSnackBar) {
+      this.getState = this.store.select(selectAuthState);
   }
 
   passwordValidator(form: FormGroup) {
@@ -41,14 +43,22 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+
     /**
      * @desc the if loop checks if the user is logged  in or not ,
      * if it is then it does not allow the user to got the register page, it routes you  back to the home page.
      */
     if (localStorage.getItem('token')) {
       this.router.navigateByUrl('/home');
-
     }
+
+     /**
+     * @desc subscribed the getstate observable to print the error message if there is invalid credentials
+     */
+    this.getState.subscribe((state) => {
+      this.errorMessage = state.errorMessage;
+    });
+
     /**
      * @desc  ._formBuilder.group is used to add validations for each field on the registration form
      */

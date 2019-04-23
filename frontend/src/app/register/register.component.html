@@ -144,6 +144,13 @@
   </mat-step>
   <!-- 1st part of the form(loginDetailsFormGroup)-->
   <mat-step [stepControl]="loginDetailsFormGroup" class="marginLeft">
+
+      <mat-label>
+          <mat-error *ngIf="errorMessage" class="full-width error">
+               <strong> {{errorMessage}} </strong>
+            </mat-error>
+      </mat-label> 
+
     <form [formGroup]="loginDetailsFormGroup">
       <ng-template matStepLabel>Login Credential Details</ng-template>
       <mat-form-field class="full-width">
