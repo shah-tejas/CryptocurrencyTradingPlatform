@@ -47,15 +47,19 @@
     return User.findById(id).exec();
   }
 
-  /**
-   * Updates and returns the sticky object.
-   *
-   * @param {Promise} params {User}
-   */
-  exports.updateUser = function (user) {
-    const promise = User.findOneAndUpdate({_id: user._id}, user).exec();
-    return promise;
-  };
+  exports.getUserById = function (id) {
+    return User.findById(id).exec();
+  }
+  
+/**
+ * Updates and returns the user object.
+ *
+ * @param {Object} sticky {User object}
+ */
+exports.updateUser = function (user) {
+  const promise = User.findOneAndUpdate({_id: user._id}, user).exec();
+  return promise;
+};
 
 
 

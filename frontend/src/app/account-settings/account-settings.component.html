@@ -1,7 +1,10 @@
 <!-- used stepper fromm angular material , it uses form group and  the registration is divided into  4 parts-->
 <!-- 2 way interpolation is  used-->
 <!-- linear attribute (intialised at the .ts file) : if set to isLinear then it does not allow you to go to  the second part of the form till you complete 1st part and so on-->
+
+<h2>Account Settings</h2>
 <mat-vertical-stepper [linear]="isLinear" #stepper>
+    
   <div *ngIf="errorMessage">
     <div class="alert alert-danger" role="alert">
       {{errorMessage}}
@@ -134,17 +137,14 @@
   <!-- 4th part of the form(loginDetailsFormGroup)-->
   <mat-step [stepControl]="changePasswordFormGroup" class="marginLeft">
     <form [formGroup]="changePasswordFormGroup">
-      <ng-template matStepLabel>Logn Credential Details</ng-template>
+      <ng-template matStepLabel>Login Credential Details</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="Password" type="password" formControlName="password"
-          [(ngModel)]="user.login.password" required>
-        <mat-error *ngIf="changePasswordFormGroup.controls.password.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
+          [(ngModel)]="password">
         <mat-error *ngIf="changePasswordFormGroup.controls.password.hasError('pattern')">
             <strong>Password length should be between 6 to 13 </strong>
            </mat-error>
-      </mat-form-field><br />
+      </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Confirm Password" type="password" formControlName="confirmpassword"
           [(ngModel)]="confirmpassword">
@@ -152,11 +152,14 @@
           Confirm Password is <strong>required</strong>
         </mat-error>
       </mat-form-field><br />
-      <div class="full-width">
-        <button mat-raised-button matStepperNext color='primary' type="submit" (click)="onSubmit()">Update</button>
-      </div>
+  
     </form>
   </mat-step>
-
-
+<mat-step>
+    <ng-template matStepLabel>Confirmation</ng-template>
+    <mat-label>Click on update  to update all the changes!!</mat-label><br/><br/>
+  <div>
+    <button mat-raised-button matStepperNext color='primary' type="submit" (click)="onSubmit()">Update</button>
+  </div>
+</mat-step>
 </mat-vertical-stepper>

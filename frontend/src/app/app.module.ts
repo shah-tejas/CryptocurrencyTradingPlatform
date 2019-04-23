@@ -92,5 +92,6 @@ import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation
   providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
     AuthService, AuthGuardService, OrderHistoryService, RateListService],
   bootstrap: [AppComponent]
-})
+}) 
 export class AppModule { }
+

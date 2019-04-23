@@ -37,6 +37,7 @@ export class AuthEffects {
           return new LogInSuccess({ user: result.User, token: result.token });
         })
         .catch((error) => {
+          console.log("Inside map of Effect1");
           console.log(error);
           return Observable.of(new LogInFailure({ error: error }));
         });
@@ -68,7 +69,6 @@ export class AuthEffects {
           return new RegisterSuccess({ User: user });
         })
         .catch((error) => {
-          alert("Email Address already exists");
           return Observable.of(new RegisterFailure({ error: error }));
         });
     });
@@ -77,13 +77,16 @@ export class AuthEffects {
   RegisterSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.REGISTER_SUCCESS),
     tap((user) => {
-      // alert("Registration Successful!!");
       this.router.navigateByUrl('/login');
     })
   );
+  
   @Effect({ dispatch: false })
   RegisterFailure: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.REGISTER_FAILURE)
+    ofType(AuthActionTypes.REGISTER_FAILURE),
+    tap(()=> {
+
+    })
   );
 
   //Add effect (to remove token from localStorage)
@@ -133,6 +136,7 @@ export class AuthEffects {
       this.router.navigateByUrl('/home');
     })
   );
+
   @Effect({ dispatch: false })
   UpdateUserFailure: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.UPDATEUSER_FAILURE)
