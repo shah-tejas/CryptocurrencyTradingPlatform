@@ -22,7 +22,7 @@ export class RateChartComponent implements OnInit {
   private displayLTC: boolean = false;
   private displayEOS: boolean = false;
   // id here represent which Coins rate chart to be displayed
-  private id: String = 'BTC';
+  private id: String = 'BitCoin';
   // color sets the color of the strock
   private color: String = "red";
 
@@ -39,7 +39,7 @@ export class RateChartComponent implements OnInit {
       this.router.navigateByUrl('/login');
     }else{
       // ajax call to get the rate list of BTC coin
-      this.rateService.get("BTC").subscribe(this.DATAobserver);
+      this.rateService.get(this.id).subscribe(this.DATAobserver);
     }
   }
 
@@ -114,12 +114,12 @@ export class RateChartComponent implements OnInit {
     // show the rate list of the BTC Coin
     if(coin == 0) {
       this.color="red";
-      this.id = "BTC";
+      this.id = "BitCoin";
       this.displayBTC = true;
     }
     // show the rate list of the ETH Coin
     else if(coin == 1) {
-      this.color="yellow";
+      this.color="pink";
       this.id = "ETH";
       this.displayETH = true;
     }

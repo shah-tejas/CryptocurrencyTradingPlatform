@@ -1,26 +1,29 @@
 <mat-tab-group (selectedTabChange)="displayTable($event)">
+  <!-- this is the tab to toggle to pending order table -->
   <mat-tab label="Pending Orders">
     <ng-template matTabContent>
       <h1>Pending Orders</h1>
+      <!-- display the table if there is at least one pending order -->
       <app-table  *ngIf="orders.length !== 0" [display]="true" [data]="orders"></app-table>
       <h3 *ngIf="orders.length == 0" >No Pending Orders</h3>
-      <mat-spinner *ngIf="orders.length == 0" ></mat-spinner>
     </ng-template>
   </mat-tab>
+  <!-- this is the tab to toggle to completed order table -->
   <mat-tab label="Completed Orders">
     <ng-template matTabContent>
       <h1>Completed Orders</h1>
+      <!-- display the table if there is at least one completed order -->
       <app-table *ngIf="orders.length !== 0" [display]="false" [data]="orders"></app-table>
       <h3 *ngIf="orders.length == 0" >No Completed Orders</h3>
-      <mat-spinner *ngIf="orders.length == 0" ></mat-spinner>
     </ng-template>
   </mat-tab>
+  <!-- this is the tab to toggle to canceled order table -->
   <mat-tab label="Canceled Orders">
     <ng-template matTabContent>
       <h1>Canceled Orders</h1>
+      <!-- display the table if there is at least one canceled order -->
       <app-table *ngIf="orders.length !== 0" [display]="false" [data]="orders"></app-table>
       <h3 *ngIf="orders.length == 0" >No Canceled Orders</h3>
-      <mat-spinner *ngIf="orders.length == 0" ></mat-spinner>
     </ng-template>
   </mat-tab>
 </mat-tab-group>

@@ -18,11 +18,20 @@ import { fadein } from '../animations/Fade';
   ]
 })
 export class NavBarComponent {
+  /**
+   *  @var dispaly variable is only for the fadein annimation efect
+   *  @var showMenu is to toogle back and forth between the show menu or not
+   *  @var tabs is just to display show intutive names for functionalities
+   *  @var urls containes the actiual routerLink value for each tab in the menu
+   *  @var showPlainBar is toogle weather to show plain toolbar when the user hasn't logged in yet
+   *  @var showToolBar is toogle to logged in toolbar with actuall functionalities
+   *  when the user clicks on ☰, as this component is used in the nav-bar component
+   */
   display: string = 'invisible';
   private showMenu: boolean = false;
   noOfPings: Number = 10;
-  tabs: String[] = ["Charts", "Wallet", "Order History", "BUY / SELL", "Pings"];
-  urls: String[] = ["home", "wallet", "orderHistory", "buysell", "pings"];
+  tabs: String[] = ["Charts", "Wallet", "Order History", "BUY / SELL", "A/c Settings"];
+  urls: String[] = ["home", "wallet", "orderHistory", "buysell", "accountsettings"];
   private showToolBar: boolean;
   private showPlainBar: boolean;
 
@@ -31,6 +40,9 @@ export class NavBarComponent {
     this.showPlainBar = true;
   }
 
+  /**
+  * @param {function(): void} param - this is function is used to set the animation into paly when menu is displayed
+  */
   showMenufunc=function(){
     // to toggle between fadein or not when the menu bar is displayed
     this.display = (this.display === 'invisible' ? 'visible' : 'invisible');
@@ -38,6 +50,10 @@ export class NavBarComponent {
     this.showMenu = !this.showMenu;
   }
 
+  /**
+  * @param {function(): void} param - this is function is used to check which url is active if its login, register, ""
+  * if so then show the PlainBar else show the ToolBar
+  */
   onActivate($event): void{
     if(this.router.url === "/login" || this.router.url === "/register" || this.router.url === "/"){
       // if we are on login or registeration or / page

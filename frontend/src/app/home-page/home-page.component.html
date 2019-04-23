@@ -1,11 +1,12 @@
+<!-- ToolBar on the top to show menu and to logout -->
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <h2 style=" cursor: pointer; "(click)="showMenufunc()">☰</h2>
-    <span>&emsp;HOME</span>
+    <!-- clicking on this element will fadein a side nav bar -->
+    <h2 (click)="showMenufunc()">☰</h2>
+    <span>&emsp;HUSKY COIN</span>
+    <!-- spacer -->
     <span class="spacer"></span>
-    <div class="full-width">
-      <button mat-raised-button mat-button (click)="settings()" routerLink="/accountsettings">Account Settings</button>&nbsp;&nbsp;
-    </div>
+    <!-- button to logout -->
     <button mat-raised-button (click)="logout()" mat-button routerLink="/login">Logout</button>
   </mat-toolbar-row>
 </mat-toolbar>

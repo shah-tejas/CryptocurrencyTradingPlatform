@@ -1,19 +1,22 @@
 <mat-drawer-container class="example-container">
+  <!-- @fadein is used to create the fade in annimation -->
+  <!-- the left strip that fadesin when the user clicked on ☰ in home-page component -->
   <mat-drawer [@fadein]="display" mode="over" [opened]="showMenu" (mouseleave)="showMenufunc()">
     <h2>Menu</h2>
     <ul>
       <li *ngFor="let tab of tabs; let i = index" >
         <a [routerLink]="urls[i]">{{tab}}</a>
-        <span *ngIf="i===4" [matBadge]="noOfPings" matBadgeOverlap="false"></span>
       </li>
     </ul>
   </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar *ngIf="showPlainBar" color="primary">
       <mat-toolbar-row>
-        <span>&emsp;WELCOME</span>
+        <span>&emsp;HUSKY COIN</span>
       </mat-toolbar-row>
     </mat-toolbar>
+    <!-- (showMenu)="showMenufunc()" showMenu is a member variable of
+      home-page component this line bubbles event to this parent component -->
     <app-home-page *ngIf="showToolBar" (showMenu)="showMenufunc()"></app-home-page>
     <div class="background">
       <!-- the (active) event is used to decide if the tool bar has to be displayed or not -->

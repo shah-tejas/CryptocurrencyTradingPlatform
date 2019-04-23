@@ -9,12 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./order-history.component.scss']
 })
 export class OrderHistoryComponent implements OnInit {
-  // holds pending or completed or canceled orders
+  /**
+   *  @var holds pending or completed or canceled orders
+   */
   orders: Array<Order>;
 
   constructor(private orderhistory: OrderHistoryService, private router: Router) {
   }
 
+  /**
+  * @param {function(): void} param - this is function is called when is loaded in component life cycle
+  */
   ngOnInit() {
     // if user tries to directly login to this page without loging in then he is redirecteed to the login page
     if (!localStorage.getItem('token')) {
