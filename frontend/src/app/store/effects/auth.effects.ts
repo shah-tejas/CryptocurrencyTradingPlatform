@@ -25,24 +25,27 @@ export class AuthEffects {
     private router: Router,
   ) { }
 
+  /**
+   * @desc Effect to listen to Login Action and perform accordingly
+   */
   @Effect()
   LogIn: Observable<any> = this.actions
     .ofType(AuthActionTypes.LOGIN)
     .map((action: LogIn) => action.payload)
     .switchMap(payload => {
-      console.log("Inside Effect");
       return this.authService.logIn(payload.username, payload.password)
         .map((result) => {
-          console.log("Inside map of Effect", result);
           return new LogInSuccess({ user: result.User, token: result.token });
         })
         .catch((error) => {
-          console.log("Inside map of Effect1");
-          console.log(error);
           return Observable.of(new LogInFailure({ error: error }));
         });
     });
 
+
+  /**
+   *  @desc Effect to listen to Login Success Action and perform accordingly
+   */
   @Effect({ dispatch: false })
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
@@ -53,11 +56,17 @@ export class AuthEffects {
     })
   );
 
+  /**
+   * @desc Effect to listen to Login Failure Action and perform accordingly
+   */
   @Effect({ dispatch: false })
   LogInFailure: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_FAILURE)
   );
 
+  /**
+   * @desc Effect to listen to Register Action and perform accordingly
+   */
   @Effect()
   Register: Observable<any> = this.actions
     .ofType(AuthActionTypes.REGISTER)
@@ -65,7 +74,6 @@ export class AuthEffects {
     .switchMap(payload => {
       return this.authService.register(payload)
         .map((user) => {
-          console.log(user);
           return new RegisterSuccess({ User: user });
         })
         .catch((error) => {
@@ -73,6 +81,10 @@ export class AuthEffects {
         });
     });
 
+
+    /**
+     * @desc Effect to listen to Registration Success Action and perform accordingly
+     */
   @Effect({ dispatch: false })
   RegisterSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.REGISTER_SUCCESS),
@@ -81,6 +93,9 @@ export class AuthEffects {
     })
   );
   
+  /**
+   * @desc Effect to listen to Registration Failure Action and perform accordingly
+   */
   @Effect({ dispatch: false })
   RegisterFailure: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.REGISTER_FAILURE),
@@ -89,7 +104,9 @@ export class AuthEffects {
     })
   );
 
-  //Add effect (to remove token from localStorage)
+  /**
+   * @desc Effect to listen to Logout Action and perform accordingly
+   */
   @Effect({ dispatch: false })
   public LogOut: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGOUT),
@@ -99,7 +116,9 @@ export class AuthEffects {
     })
   );
 
-
+/**
+ * @desc Effect to listen to Update User Action and perform accordingly
+ */
   @Effect({ dispatch: false })
   AccountSettings: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.ACCOUNTSETTINGS),
@@ -109,6 +128,9 @@ export class AuthEffects {
   );
 
 
+  /**
+   * @desc Effect to listen to Update Success Action and perform accordingly
+   */
   @Effect({ dispatch: false })
   updateUser: Observable<any> = this.actions
     .ofType(AuthActionTypes.UPDATEUSER)
@@ -116,27 +138,30 @@ export class AuthEffects {
     .switchMap(payload => {
       return this.authService.updateUser(payload)
         .map((user) => {
-          console.log("Hello User");
           localStorage.setItem("user",JSON.stringify(user));
-          alert("Update Profile Successful!!");
           this.router.navigateByUrl('/home');
           return new UpdateUserSuccess({ User: user });
         })
         .catch((error) => {
-          console.log(error);
           return Observable.of(new UpdateUserFailure({ error: error }));
         });
     });
 
+
+    /**
+     * @desc Effect to listen to Update User Success Action and perform accordingly
+     */
   @Effect({ dispatch: false })
   UpdateUserSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.UPDATEUSER_SUCCESS),
     tap((user) => {
-      alert("Update Profile Successful!!");
       this.router.navigateByUrl('/home');
     })
   );
 
+  /**
+   * @desc Effect to listen to Update User Failure Action and perform accordingly
+   */
   @Effect({ dispatch: false })
   UpdateUserFailure: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.UPDATEUSER_FAILURE)
