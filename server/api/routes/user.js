@@ -11,7 +11,7 @@ module.exports = function (app) {
    * @desc User Routes for get, update and delete.
    */
   app.route('/users/:userId')
-  .get(UserController.getOne)
+    .get(UserController.getOne)
     .put(loginController.put)
     .delete(UserController.delete);
 

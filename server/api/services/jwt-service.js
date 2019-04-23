@@ -12,7 +12,7 @@ exports.generateToken = (user) =>{
                   {user},
                   secretKey.secretkey,
                   {expiresIn: parseInt(expiry.getTime() / 1000)}
-                 ); // DO NOT KEEP YOUR SECRET IN THE CODE!
+                 ); 
               };
 /**
  * @desc Check to make sure header is not undefined, if so, return Forbidden (403)
@@ -21,7 +21,6 @@ exports.generateToken = (user) =>{
  * @param {*} res
  * @param {*} next
  */
-
 const checkToken = (req, res, next) => {
     const header = req.headers['authorization'];
 
