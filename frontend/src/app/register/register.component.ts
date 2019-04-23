@@ -37,11 +37,6 @@ export class RegisterComponent implements OnInit {
       this.getState = this.store.select(selectAuthState);
   }
 
-  passwordValidator(form: FormGroup) {
-    const condition = form.get('password').value !== form.get('confirmpassword').value;
-    return condition ? {passwordsDoNotMatch: true} : null;
-  }
-
   ngOnInit() {
 
     /**

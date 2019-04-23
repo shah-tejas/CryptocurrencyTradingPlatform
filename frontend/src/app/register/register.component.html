@@ -47,7 +47,7 @@
       </div>
     </form>
   </mat-step>
-    <!-- 1st part of the form(addressDetailsFormGroup)-->
+    <!-- 2nd part of the form(addressDetailsFormGroup)-->
   <mat-step [stepControl]="addressDetailsFormGroup">
     <form [formGroup]="addressDetailsFormGroup">
       <ng-template matStepLabel>Address Details</ng-template>
@@ -87,7 +87,7 @@
       </div>
     </form>
   </mat-step>
-  <!-- 1st part of the form(paymentDetailsFormGroup)-->
+  <!-- 3rd part of the form(paymentDetailsFormGroup)-->
   <mat-step [stepControl]="paymentDetailsFormGroup">
     <form [formGroup]="paymentDetailsFormGroup">
       <ng-template matStepLabel>Payment Details</ng-template>
@@ -142,15 +142,13 @@
         </div>
     </form>
   </mat-step>
-  <!-- 1st part of the form(loginDetailsFormGroup)-->
+  <!-- 4th part of the form(loginDetailsFormGroup)-->
   <mat-step [stepControl]="loginDetailsFormGroup" class="marginLeft">
-
       <mat-label>
           <mat-error *ngIf="errorMessage" class="full-width error">
                <strong> {{errorMessage}} </strong>
             </mat-error>
       </mat-label> 
-
     <form [formGroup]="loginDetailsFormGroup">
       <ng-template matStepLabel>Login Credential Details</ng-template>
       <mat-form-field class="full-width">
@@ -177,6 +175,4 @@
       </div>
   </form>
   </mat-step>
-
-
 </mat-horizontal-stepper>

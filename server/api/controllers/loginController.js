@@ -32,6 +32,9 @@ exports.post = function (request, response) {
         response.json(user);
     };
 
+    /**
+     * @desc encrypting password using bcrypt
+     */
     newUser.login.password = bcrypt.hashSync(newUser.login.password, salt);
 
     userService.save(newUser)
@@ -67,8 +70,6 @@ exports.getUser = function (request, response) {
             response.status(404);
             response.json("User not found");
         }
-
-
     };
     userService.search(JSON.parse("{\"login.username\":\"" + request.body.username + "\"}"))
         .then(resolve)
@@ -76,7 +77,7 @@ exports.getUser = function (request, response) {
 };
 
 /**
- * Updates and returns a sticky object in JSON.
+ * Updates and returns a user object in JSON.
  *
  * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}
@@ -109,7 +110,6 @@ exports.put = function (request, response) {
 let renderErrorResponse = (response) => {
     const errorCallback = (error) => {
         if (error) {
-            //console.log(error);
             response.status(500);
             response.json({
                 message: error.message
