@@ -13,11 +13,17 @@ import { Token } from 'src/app/models/token';
   * @var errorMessage should be string or null
   */
 export interface State {
-  // is a user authenticated?
+  /**
+   * @param {boolean} isAuthenticated is a user authenticated?
+   */ 
   isAuthenticated: boolean;
-  // if authenticated, there should be a user object
+  /**
+   * @param {Token} result if authenticated, there should be a user object
+   */ 
   result: Token | null;
-  // error message
+  /**
+   * @param {string} errorMessage to store any error messages
+   */
   errorMessage: string | null;
 }
 
