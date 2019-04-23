@@ -5,6 +5,9 @@ import { Wallet } from '../models/wallet';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+
 import { formatDate } from '@angular/common';
 
 import { User } from '../models/user';
@@ -59,6 +62,23 @@ export class WalletComponent implements OnInit {
 
   formatMyDate(date: Date): string{
     return formatDate(date, 'MMM d, y', 'en-us');
+  }
+
+  downloadAsPdf(){
+    const data = document.getElementById('UserWalletTransactions');
+    html2canvas(data).then(canvas => {
+      // Few necessary setting options
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 10;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('WalletTransactions.pdf'); // Generated PDF
+    });
   }
 
 }

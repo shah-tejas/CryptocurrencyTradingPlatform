@@ -5,61 +5,63 @@
 </mat-card>
 
 <mat-card *ngIf="userWallet">
-    <mat-card-header>
-        <mat-card-title>Your Wallet Details:</mat-card-title>
+  <mat-card-header>
+    <mat-card-title>Your Wallet Details:</mat-card-title>
   </mat-card-header>
 
   <mat-card>
-      <mat-card-title>USD Value: ${{ Math.round(userWallet.usd_value *100) / 100 }}</mat-card-title>
+    <mat-card-title>USD Value: ${{ Math.round(userWallet.usd_value *100) / 100 }}</mat-card-title>
   </mat-card>
 
-  <br/>
+  <br />
 
   <mat-card *ngIf="userWallet.coins">
-      <mat-card-header>
-        <mat-card-title> Cryptocurrencies: </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-
-        <mat-table [dataSource]="userWallet.coins">
-
-          <ng-container matColumnDef="coin_name">
-            <mat-header-cell *matHeaderCellDef> Coin Name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.coin_name}} </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="coin_qty">
-            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.coin_qty}} </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="coin_rate">
-            <mat-header-cell *matHeaderCellDef> Coin Rate (USD) </mat-header-cell>
-            <mat-cell *matCellDef="let element"> ${{element.coin_rate}} </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="coin_total_rate">
-            <mat-header-cell *matHeaderCellDef> Total USD </mat-header-cell>
-            <mat-cell *matCellDef="let element"> ${{ Math.round(element.coin_qty * element.coin_rate * 100) / 100 }} </mat-cell>
-          </ng-container>
-
-          <mat-header-row *matHeaderRowDef="coinBalanceColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: coinBalanceColumns;"></mat-row>
-
-        </mat-table>
-
-      </mat-card-content>
-    </mat-card>
-
-    <br/>
-
-  <mat-card *ngIf="userWallet.walletTransactions">
     <mat-card-header>
-      <mat-card-title>Wallet Transactions</mat-card-title>
+      <mat-card-title> Cryptocurrencies: </mat-card-title>
     </mat-card-header>
     <mat-card-content>
 
-      <mat-table [dataSource]="userWallet.walletTransactions">
+      <mat-table [dataSource]="userWallet.coins">
+
+        <ng-container matColumnDef="coin_name">
+          <mat-header-cell *matHeaderCellDef> Coin Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.coin_name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_qty">
+          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.coin_qty}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_rate">
+          <mat-header-cell *matHeaderCellDef> Coin Rate (USD) </mat-header-cell>
+          <mat-cell *matCellDef="let element"> ${{element.coin_rate}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_total_rate">
+          <mat-header-cell *matHeaderCellDef> Total USD </mat-header-cell>
+          <mat-cell *matCellDef="let element"> ${{ Math.round(element.coin_qty * element.coin_rate * 100) / 100 }}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="coinBalanceColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: coinBalanceColumns;"></mat-row>
+
+      </mat-table>
+
+    </mat-card-content>
+  </mat-card>
+
+  <br />
+
+  <mat-card *ngIf="userWallet.walletTransactions">
+    <mat-card-header>
+      <mat-card-title>Wallet Transactions <app-save-file-icon (click)="downloadAsPdf()"></app-save-file-icon>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-table [dataSource]="userWallet.walletTransactions" id="UserWalletTransactions">
 
         <ng-container matColumnDef="created_date">
           <mat-header-cell *matHeaderCellDef> Transaction Date </mat-header-cell>
