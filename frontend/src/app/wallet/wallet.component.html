@@ -1,20 +1,26 @@
+<!-- Container for the buttons -->
 <mat-card class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+  <!-- The Load Wallet button -->
   <a mat-button mat-raised-button color="primary" routerLink="/loadWallet">Load Wallet</a>
   &nbsp;&nbsp;
+  <!-- The Withdraw Wallet button -->
   <a mat-button mat-raised-button color="primary" routerLink="/withdrawWallet">Withdraw from Wallet</a>
 </mat-card>
 
+<!-- Display the user's wallet if available -->
 <mat-card *ngIf="userWallet">
   <mat-card-header>
     <mat-card-title>Your Wallet Details:</mat-card-title>
   </mat-card-header>
 
+  <!-- Display the user wallet's current USD Valuation -->
   <mat-card>
     <mat-card-title>USD Value: ${{ Math.round(userWallet.usd_value *100) / 100 }}</mat-card-title>
   </mat-card>
 
   <br />
 
+  <!-- Display the cryptocurrencies in user's wallet -->
   <mat-card *ngIf="userWallet.coins">
     <mat-card-header>
       <mat-card-title> Cryptocurrencies: </mat-card-title>
@@ -54,6 +60,7 @@
 
   <br />
 
+  <!-- Display the Transactions performed to Load / Withdraw from  Wallet -->
   <mat-card *ngIf="userWallet.walletTransactions">
     <mat-card-header>
       <mat-card-title>Wallet Transactions <app-save-file-icon (click)="downloadAsPdf()"></app-save-file-icon>

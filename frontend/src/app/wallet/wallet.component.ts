@@ -35,13 +35,16 @@ export class WalletComponent implements OnInit {
       this.user_id = this.authService.getUserId();
     }
 
+    /**
+     * Fetch the User's wallet from server
+     */
     const userWalletObservable$: Observable<Wallet> = this.walletService.getUserWallet(this.user_id);
     userWalletObservable$.subscribe(wallet => {
       this.userWallet = wallet[0];
       this.userWallet.usd_value = 0;
 
       // get current rates of all coins in the wallet
-      for(const coin of this.userWallet.coins){
+      for (const coin of this.userWallet.coins) {
         this.walletService.getCoinRate(coin.coin_name).subscribe(coinRate => {
           coin.coin_rate = Math.round(coinRate[0].usdvalue * 100) / 100;
           this.userWallet.usd_value += Math.round(coin.coin_rate * coin.coin_qty * 100) / 100;
@@ -52,19 +55,25 @@ export class WalletComponent implements OnInit {
 
       // get user wallet's transactions
       this.walletService.getUserWalletTransactions(this.userWallet.user_id)
-          .subscribe(walletTransactions => {
-              this.userWallet.walletTransactions = walletTransactions;
-          });
+        .subscribe(walletTransactions => {
+          this.userWallet.walletTransactions = walletTransactions;
+        });
 
     });
 
   }
 
-  formatMyDate(date: Date): string{
+  /**
+   * Structure the display date in suitable format for UI
+   */
+  formatMyDate(date: Date): string {
     return formatDate(date, 'MMM d, y', 'en-us');
   }
 
-  downloadAsPdf(){
+  /**
+   * method to create pdf
+   */
+  downloadAsPdf() {
     const data = document.getElementById('UserWalletTransactions');
     html2canvas(data).then(canvas => {
       // Few necessary setting options
