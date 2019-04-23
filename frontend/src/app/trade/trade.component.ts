@@ -1,3 +1,4 @@
+// Imports for the component
 import { Coin } from "src/app/models/coin";
 import { WalletService } from "./../services/wallet.service";
 import { AuthService } from "./../services/auth.service";
@@ -21,6 +22,7 @@ import { OrderService } from "../services/order.service";
 import { Router } from "@angular/router";
 import { JsonPipe } from "@angular/common";
 
+// TRADE Component
 @Component({
   selector: "app-trade",
   templateUrl: "./trade.component.html",
@@ -31,7 +33,7 @@ export class TradeComponent implements OnInit {
   // User-Id
   userId: string;
 
-  //BUY-SELL Section
+  //BUY-SELL Section : Tables
   displayedColumns: string[] = [
     "buy_or_sell",
     "from_coin",
@@ -43,11 +45,17 @@ export class TradeComponent implements OnInit {
   ];
   buyDataSource = new MatTableDataSource(this.buyDataSource);
   sellDataSource = new MatTableDataSource(this.sellDataSource);
+  noBuyDataMsg: string = "No pending SELL Orders exist!";
+  noSellDataMsg: string = "No pending BUY Orders exist!";
 
   //PLACE-ORDER Section
   placeOrderForm: FormGroup;
   submitted: boolean = false;
   success: boolean = false;
+  error: boolean = false;
+  errorMsg: string = "";
+  orderMatchedMsg: string = "";
+  insufficientFundsMsg: string = "";
   orderTypes: string[] = ["BUY", "SELL"];
   coins: string[] = []; // = ['BTC', 'EOS', 'ETH', 'LTC'];
   coinsArr: Array<CoinOrder>;
@@ -55,12 +63,13 @@ export class TradeComponent implements OnInit {
   //Wallet variable declaration
   matchingUserId: string = "";
 
-  //Bind childs to tables in Buy-Sell Sections
+  //Bind children to tables in BUY-SELL Sections
   @ViewChild("buySort") public buySort: MatSort;
   @ViewChild("sellSort") public sellSort: MatSort;
   @ViewChild("buyPaginator") buyPaginator: MatPaginator;
   @ViewChild("sellPaginator") sellPaginator: MatPaginator;
 
+  // Constructor
   constructor(
     private store: Store<AppState>,
     private authService: AuthService,
@@ -87,6 +96,7 @@ export class TradeComponent implements OnInit {
     });
   }
 
+  // Initialization Method
   ngOnInit() {
     // Allow access only if user is authenticated
     if (!localStorage.getItem("token")) {
@@ -97,25 +107,21 @@ export class TradeComponent implements OnInit {
       this.loadSellTable();
       // Fetch latest rates for all coins
       this.orderService.getCoinRate().subscribe(result => {
-        console.log(result);
         this.coinsArr = result as Array<CoinOrder>;
         for (let coinVar of this.coinsArr) {
-          console.log("coin-name :" + coinVar.coinname);
           this.coins.push(coinVar.coinname);
         }
       });
     }
   }
 
+  // Method to update the USD(From) Value in PLACE-ORDER Section
   updateFromValue() {
     let coinName = this.placeOrderForm.get("fromCoin").value;
     let qty = this.placeOrderForm.get("fromQty").value;
-    console.log("Coin-Name" + coinName);
-    console.log("Coin-Qty" + qty);
     if (coinName.length > 0 && qty.length > 0) {
       for (let coin of this.coinsArr) {
         if (coin.coinname == coinName) {
-          console.log("USD Value :" + coin.usdvalue);
           let val = (coin.usdvalue * qty).toFixed(2);
           if (Number.isNaN(+val) || +val < 0) {
             this.placeOrderForm.get("fromValue").setValue("-");
@@ -127,15 +133,13 @@ export class TradeComponent implements OnInit {
     }
   }
 
+  // Method to update the USD(To) Value in PLACE-ORDER Section
   updateToValue() {
     let coinName = this.placeOrderForm.get("toCoin").value;
     let qty = this.placeOrderForm.get("toQty").value;
-    console.log("Coin-Name" + coinName);
-    console.log("Coin-Qty" + qty);
     if (coinName.length > 0 && qty.length > 0) {
       for (let coin of this.coinsArr) {
         if (coin.coinname == coinName) {
-          console.log("USD Value :" + coin.usdvalue);
           let val = (coin.usdvalue * qty).toFixed(2);
           if (Number.isNaN(+val) || +val < 0) {
             this.placeOrderForm.get("toValue").setValue("-");
@@ -147,17 +151,23 @@ export class TradeComponent implements OnInit {
     }
   }
 
+  // Method to submit order-details on the PLACE-ORDER Section
   onSubmit() {
     this.submitted = true;
+    this.errorMsg = "";
+    this.error = false;
     // Check if Form-Validations failed
     if (this.placeOrderForm.invalid) {
       return;
     }
+
+    // Check if FROM and TO coins are same
     if (
       this.placeOrderForm.get("fromCoin").value ==
       this.placeOrderForm.get("toCoin").value
     ) {
-      alert("FROM and TO coins cannot be same!");
+      this.errorMsg = "FROM and TO coins cannot be same!";
+      this.error = true;
       return;
     }
 
@@ -172,51 +182,68 @@ export class TradeComponent implements OnInit {
     order.to_value = this.placeOrderForm.get("toValue").value;
     order.user_id = this.userId;
 
-    console.log(order);
-    console.log(JSON.stringify(order));
-
-    // Call to Add-Pending-Order REST-API
-    this.orderService.addOrder(order).subscribe(order => {
-      console.log(order["createdUser"]);
-      this.success = true;
-      this.loadBuyTable();
-      this.loadSellTable();
+    // Check if the logged-in user can make the trade
+    this.walletService.getUserWallet(this.userId).subscribe(wallet => {
+      let coinAvail = false;
+      // Check coins in logged-In user's wallet
+      for (const coin of wallet[0].coins) {
+        if (coin.coin_name === order.from_coin) {
+          if (coin.coin_qty >= order.from_qty) {
+            coinAvail = true;
+            break;
+          }
+        }
+      }
+      if (!coinAvail) {
+        this.errorMsg = "Insufficient Funds for the Order!";
+        this.error = true;
+        return;
+      } else {
+        // Call to Add-Pending-Order REST-API
+        this.orderService.addOrder(order).subscribe(order => {
+          this.success = true;
+          this.loadBuyTable();
+          this.loadSellTable();
+        });
+      }
     });
   }
 
-  //Method to load data for pending orders for 'BUY'
+  // Method to load data for pending orders for 'BUY' Section
   loadBuyTable() {
     let buyOrders$: Observable<
       Array<Order>
     > = this.orderService.getPendingSellOrders();
     buyOrders$.subscribe(result => {
       this.buyDataSource = new MatTableDataSource(result["data"]);
-      console.log(this.buyDataSource);
       if (result["data"].length > 0) {
         this.buyDataSource.paginator = this.buyPaginator;
         this.buyDataSource.sort = this.buySort;
+        this.noBuyDataMsg = "";
       } else {
-        alert("No Pending-Orders exist");
+        this.noBuyDataMsg = "No pending SELL Orders exist!";
       }
     });
   }
 
+  // Method to load data for pending orders for 'SELL' Section
   loadSellTable() {
     let sellOrders$: Observable<
       Array<Order>
     > = this.orderService.getPendingBuyOrders();
     sellOrders$.subscribe(result => {
       this.sellDataSource = new MatTableDataSource(result["data"]);
-      console.log(this.sellDataSource);
       if (result["data"].length > 0) {
         this.sellDataSource.paginator = this.sellPaginator;
         this.sellDataSource.sort = this.sellSort;
+        this.noSellDataMsg = "";
       } else {
-        alert("No Pending-Orders exist");
+        this.noSellDataMsg = "No pending BUY Orders exist!";
       }
     });
   }
 
+  // Method to filter Orders in BUY Section
   applyFilterBuy(filterValue: string) {
     this.buyDataSource.filter = filterValue.trim().toLowerCase();
     if (this.buyDataSource.paginator) {
@@ -224,6 +251,7 @@ export class TradeComponent implements OnInit {
     }
   }
 
+  // Method to filter Orders in SELL Section
   applyFilterSell(filterValue: string) {
     this.sellDataSource.filter = filterValue.trim().toLowerCase();
     if (this.sellDataSource.paginator) {
@@ -231,10 +259,12 @@ export class TradeComponent implements OnInit {
     }
   }
 
+  // Method to logout from the application
   logOut(): void {
     this.store.dispatch(new LogOut());
   }
 
+  // Method to open the Confirm-Order Dialog Box from BUY and SELL Sections
   openDialog(row: Order) {
     this.matchingUserId = row["user_id"];
     const dialogRef = this.dialog.open(ConfirmOrderDialogComponent, {
@@ -258,11 +288,9 @@ export class TradeComponent implements OnInit {
       if (result != undefined && result != null) {
         // Map Form-Control values to Order object
         let order = result as Order;
-        console.log(order);
 
         // Check if the logged-in user can make the trade
         this.walletService.getUserWallet(this.userId).subscribe(wallet => {
-          console.log(wallet);
           let existingFrom = false;
           let existingTo = false;
           // Debit coins from the logged-In user's wallet
@@ -274,10 +302,8 @@ export class TradeComponent implements OnInit {
             }
           }
 
-          console.log("FROM: User-Coins: " + JSON.stringify(wallet[0].coins));
-
           if (!existingFrom) {
-            alert("Insufficient Funds for the Order!!!!!");
+            this.insufficientFundsMsg = "Insufficient Funds for the Order!!!!!";
             return;
           } else {
             // Add coins to loggedIn User's wallet
@@ -292,7 +318,6 @@ export class TradeComponent implements OnInit {
             if (!existingTo) {
               wallet[0].coins.push(new Coin(order.to_coin, order.to_qty));
             }
-            console.log("TO: User-Coins: " + JSON.stringify(wallet[0].coins));
 
             // Check matched-user's wallet for the transaction
             console.log(this.matchingUserId);
@@ -311,13 +336,8 @@ export class TradeComponent implements OnInit {
                   }
                 }
 
-                console.log(
-                  "FROM: matched-Coins: " +
-                    JSON.stringify(walletMatched[0].coins)
-                );
-
                 if (!existingFrom) {
-                  alert("Insufficient Funds for the matched-user Order!!!!!");
+                  this.insufficientFundsMsg = "Insufficient Funds for the matched-user Order!";
                   return;
                 } else {
                   // Add coins to loggedIn User's wallet
@@ -334,25 +354,19 @@ export class TradeComponent implements OnInit {
                       new Coin(order.from_coin, order.from_qty)
                     );
                   }
-                  console.log(
-                    "TO: matched-Coins: " +
-                      JSON.stringify(walletMatched[0].coins)
-                  );
                   this.walletService
                     .updateUserWallet(walletMatched[0])
                     .subscribe();
-                  console.log("updated matched-user wallet");
                 }
               });
 
             // Update the logged-in-user's wallet with the transaction
             this.walletService.updateUserWallet(wallet[0]).subscribe();
-            console.log("updated logged-user wallet");
 
             // Call to Add-Pending-Order REST-API
             this.orderService.matchOrder(order).subscribe(result => {
               console.log(result);
-              alert("order matched successfully!");
+              this.orderMatchedMsg = "Order Matched successfully!";
 
               // reload the order-tables
               this.loadBuyTable();
@@ -360,8 +374,6 @@ export class TradeComponent implements OnInit {
             });
           }
         });
-      } else {
-        alert("Pop up cancelled");
       }
     });
   }
