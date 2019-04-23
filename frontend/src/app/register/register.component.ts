@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
     this.paymentDetailsFormGroup = this._formBuilder.group({
       cardno: ['', [Validators.required, Validators.pattern('([0-9]{4}){4}')]],
       cvv: ['', [Validators.required, Validators.pattern('[0-9]{3}')]],
-      expire: ['', [Validators.required, Validators.pattern('(1[0-2]|0[1-9]|\d)\/([0-9]\d)')]],
+      expire: ['', [Validators.required, Validators.pattern('(1[0-2]|0[1-9]|[0-9])\/[1-9][0-9]')]],
       name: ['', Validators.required],
       zipcode: ['', [Validators.required,Validators.pattern('[0-9]{5}')]]
     });
@@ -87,9 +87,7 @@ export class RegisterComponent implements OnInit {
     this.user.login.username = this.user.emailId;
     if (this.user.login.password === (this.confirmpassword)) {
       this.store.dispatch(new Register(this.user));
-      this.snackbar.open("Email Address already present!!", "OK",{
-        duration: 5000,
-      });
+      
     } else {
       this.snackbar.open("Please enter same password", "OK",{
         duration: 5000,

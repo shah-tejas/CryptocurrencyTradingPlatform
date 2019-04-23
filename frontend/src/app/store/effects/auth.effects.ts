@@ -37,6 +37,7 @@ export class AuthEffects {
           return new LogInSuccess({ user: result.User, token: result.token });
         })
         .catch((error) => {
+          console.log("Inside map of Effect1");
           console.log(error);
           return Observable.of(new LogInFailure({ error: error }));
         });
