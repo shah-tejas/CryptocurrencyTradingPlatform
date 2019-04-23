@@ -17,7 +17,7 @@ const emailService = require('../services/email-service');
  * @param {response} {HTTP response object}
  */
 exports.post = function (request, response) {
-    // const user1 = null;
+
     const newUser = Object.assign({}, request.body);
     const resolve = (user) => {
         const userWallet = Object.assign({}, {user_id: user._id});
@@ -43,7 +43,6 @@ exports.post = function (request, response) {
 exports.getUser = function (request, response) {
     let pwd = request.body.password;
     const resolve = (user) => {
-        console.log(user);
         if (user.length > 0) {
             if (user[0].login.password == pwd) {
                 response.status(200);
@@ -64,7 +63,6 @@ exports.getUser = function (request, response) {
 
 
     };
-    console.log(request.body);
     userService.search(JSON.parse("{\"login.username\":\"" + request.body.username + "\"}"))
         .then(resolve)
         .catch(renderErrorResponse(response));
