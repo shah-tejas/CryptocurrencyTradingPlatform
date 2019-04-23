@@ -25,6 +25,10 @@
     return User.findById(id).exec();
   }
 
+  exports.getUserById = function (id) {
+    return User.findById(id).exec();
+  }
+  
 /**
  * Updates and returns the sticky object.
  *

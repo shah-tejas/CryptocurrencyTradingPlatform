@@ -26,7 +26,7 @@ export class AccountSettingsComponent implements OnInit {
   changePasswordFormGroup: FormGroup;
   user: User;
   confirmpassword: String;
-  initialPassword: String = "";
+  password: String = "";
   //changePassword: boolean = false;
   errorMessage = '';
 
@@ -46,7 +46,7 @@ export class AccountSettingsComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.router.navigateByUrl('/accountsettings');
       this.user = JSON.parse((localStorage.getItem("user")))
-      this.initialPassword = this.user.login.password;
+      // this.password = this.user.login.password;
     } else {
       this.router.navigateByUrl('/login');
     }
@@ -69,7 +69,7 @@ export class AccountSettingsComponent implements OnInit {
     this.paymentDetailsFormGroup = this._formBuilder.group({
       cardno: ['', [Validators.required, Validators.pattern('([0-9]{4}){4}')]],
       cvv: ['', [Validators.required, Validators.pattern('[0-9]{3}')]],
-      expire: ['', [Validators.required]],
+      expire: ['', [Validators.required, Validators.pattern('(1[0-2]|0[1-9]|[0-9])\/[1-9][0-9]')]],
       name: ['', Validators.required],
       zipcode: ['', [Validators.required, Validators.pattern('[0-9]{5}')]]
     });
@@ -80,11 +80,12 @@ export class AccountSettingsComponent implements OnInit {
     });
   }
   onSubmit() {
-    if (this.user.login.password == this.initialPassword) {
+    if (this.password == "") {
       this.confirmpassword = "";
       this.store.dispatch(new UpdateUser(this.user));
     } else {
-      if (this.user.login.password == this.confirmpassword) {
+      if (this.password == this.confirmpassword) {
+        this.user.login.password = this.password;
         this.store.dispatch(new UpdateUser(this.user));
       } else {
         alert("Password and Confirm Password must Match");

@@ -88,6 +88,13 @@ exports.put = function (request, response) {
         response.json(user);
     };
     user._id = request.params.userId;
+    
+    if(user.login.password != null || user.login.password != ""){
+        user.login.password = bcrypt.hashSync(user.login.password, salt);
+    }else{
+        const newUser = userService.getUserById(user._id);
+        user.login.password = newUser.login.password;
+    }
     userService.updateUser(user)
         .then(resolve)
         .catch(renderErrorResponse(response));

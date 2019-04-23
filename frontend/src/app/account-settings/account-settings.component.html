@@ -137,10 +137,7 @@
       <ng-template matStepLabel>Logn Credential Details</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="Password" type="password" formControlName="password"
-          [(ngModel)]="user.login.password" required>
-        <mat-error *ngIf="changePasswordFormGroup.controls.password.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
+          [(ngModel)]="password">
         <mat-error *ngIf="changePasswordFormGroup.controls.password.hasError('pattern')">
             <strong>Password length should be between 6 to 13 </strong>
            </mat-error>
