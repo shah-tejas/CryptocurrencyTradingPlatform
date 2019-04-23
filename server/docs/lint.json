@@ -1,1 +1,212 @@
-[]
+[
+  {
+    "name": "post",
+    "filePath": "api/controllers/loginController.js",
+    "lines": [
+      {
+        "lineNumber": 16,
+        "line": "exports.post = function (request, response) {"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getUser",
+    "filePath": "api/controllers/loginController.js",
+    "lines": [
+      {
+        "lineNumber": 33,
+        "line": "exports.getUser = function (request, response) {"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "renderErrorRes",
+    "filePath": "api/controllers/rateList-controller.js",
+    "lines": [
+      {
+        "lineNumber": 89,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 90,
+        "line": " * @desc Throws error if error object is present.\r"
+      },
+      {
+        "lineNumber": 91,
+        "line": " * @param {Response} response The response object\r"
+      },
+      {
+        "lineNumber": 92,
+        "line": " * @return {Function} The error handler function.\r"
+      },
+      {
+        "lineNumber": 93,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 94,
+        "line": "let renderErrorRes = (res) => {\r"
+      }
+    ],
+    "codeParams": [
+      "res"
+    ],
+    "docParams": [
+      "response"
+    ]
+  },
+  {
+    "name": "getUserWallet",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 14,
+        "line": "exports.getUserWallet = function (request, response) {"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "updateUserWallet",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 30,
+        "line": "exports.updateUserWallet = function (request, response) {"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getWalletHistory",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 48,
+        "line": "exports.getWalletHistory = function (request, response) {"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "createWalletTransaction",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 65,
+        "line": "exports.createWalletTransaction = function (request, response) {"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "createWallet",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 83,
+        "line": "exports.createWallet = function (request, response) {"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "update",
+    "filePath": "api/services/wallet-services.js",
+    "lines": [
+      {
+        "lineNumber": 25,
+        "line": "exports.update = function (wallet) {"
+      }
+    ],
+    "codeParams": [
+      "wallet"
+    ],
+    "docParams": [
+      "Wallet"
+    ]
+  },
+  {
+    "name": "createWalletHistory",
+    "filePath": "api/services/wallet-services.js",
+    "lines": [
+      {
+        "lineNumber": 49,
+        "line": "exports.createWalletHistory = function (walletHistory) {"
+      }
+    ],
+    "codeParams": [
+      "walletHistory"
+    ],
+    "docParams": [
+      "WalletHistory"
+    ]
+  },
+  {
+    "name": "createWallet",
+    "filePath": "api/services/wallet-services.js",
+    "lines": [
+      {
+        "lineNumber": 60,
+        "line": "exports.createWallet = function (wallet) {"
+      }
+    ],
+    "codeParams": [
+      "wallet"
+    ],
+    "docParams": [
+      "Wallet"
+    ]
+  }
+]

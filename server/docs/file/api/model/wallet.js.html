@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">api/app.js | husky_coin_server</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">api/model/wallet.js | husky_coin_server</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -33,23 +33,61 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">api/app.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">api/model/wallet.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
-module.exports = function (app) {
-    //Initialize models
-    let walletModel = require(&apos;./model/wallet&apos;);
-    let walletHistoryModel = require(&apos;./model/wallet-history&apos;);
-    let userModel = require(&apos;./model/users&apos;);
-    const rateModel = require(&apos;./model/RateList&apos;);
+const mongoose = require(&apos;mongoose&apos;);
+const Schema = mongoose.Schema;
 
-    //Initialize routes
-    let walletRoutes = require(&apos;./routes/wallet-route&apos;);
-    walletRoutes(app);
-    let userRoutes = require(&apos;./routes/user&apos;);
-    userRoutes(app);
-    const rateRoutes = require(&apos;./routes/rateList-route&apos;);
-    rateRoutes(app);
-};</code></pre>
+/**
+ * Mongoose schema for wallet object.
+ * This schema is present for each User
+ * This schema represents the wallet for each user
+ * It contains all the coins the user has alongwith the balance
+ */
+let WalletSchema = new Schema({
+
+    /**
+     * user_id of the User the Wallet belongs to.
+     */
+    user_id: {
+        type: String,
+        required: &quot;user_id is required&quot;
+    },
+    /**
+     * USD Value of the wallet.
+     */
+    usd_value: {
+        type: Number
+    },
+    /** 
+     * Map of various crypto coins with their existing quantities
+     * key of map =&gt; Coin Name
+     * value of map =&gt; Coin Quantity
+     */
+    coins: {
+        type: Map,
+        of: Number
+    },
+    /**
+     * Wallet created date.
+     */
+    created_date: {
+        type: Date,
+        default: Date.now
+    },
+    /**
+     * Last modified date.
+     */
+    modified_date: {
+        type: Date,
+        default: Date.now
+    }
+}, {
+    versionKey: false
+});
+
+module.exports = mongoose.model(&apos;wallet&apos;, WalletSchema);
+</code></pre>
 
 </div>
 

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">api/app.js | husky_coin_server</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">api/commons/app-constant.js | husky_coin_server</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -33,23 +33,8 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">api/app.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
-module.exports = function (app) {
-    //Initialize models
-    let walletModel = require(&apos;./model/wallet&apos;);
-    let walletHistoryModel = require(&apos;./model/wallet-history&apos;);
-    let userModel = require(&apos;./model/users&apos;);
-    const rateModel = require(&apos;./model/RateList&apos;);
-
-    //Initialize routes
-    let walletRoutes = require(&apos;./routes/wallet-route&apos;);
-    walletRoutes(app);
-    let userRoutes = require(&apos;./routes/user&apos;);
-    userRoutes(app);
-    const rateRoutes = require(&apos;./routes/rateList-route&apos;);
-    rateRoutes(app);
-};</code></pre>
+<div class="content" data-ice="content"><h1 data-ice="title">api/commons/app-constant.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">exports.secretkey = &quot;huskyminers&quot;</code></pre>
 
 </div>
 
