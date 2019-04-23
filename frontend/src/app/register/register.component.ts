@@ -97,7 +97,6 @@ export class RegisterComponent implements OnInit {
     this.user.login.username = this.user.emailId;
     if (this.user.login.password === (this.confirmpassword)) {
       this.store.dispatch(new Register(this.user));
-      
     } else {
       this.snackbar.open("Please enter same password", "OK",{
         duration: 5000,
@@ -106,3 +105,4 @@ export class RegisterComponent implements OnInit {
   }
 
 }
+
