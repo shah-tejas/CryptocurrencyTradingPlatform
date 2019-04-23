@@ -1,13 +1,171 @@
 {
-  "coverage": "0%",
-  "expectCount": 1,
-  "actualCount": 0,
+  "coverage": "64.89%",
+  "expectCount": 94,
+  "actualCount": 61,
   "files": {
     "api/app.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
+        3
+      ]
+    },
+    "api/controllers/loginController.js": {
+      "expectCount": 10,
+      "actualCount": 5,
+      "undocumentLines": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    "api/controllers/order-controller.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "api/controllers/order-history-controller.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/controllers/rateList-controller.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        63
+      ]
+    },
+    "api/controllers/user-controller.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "api/controllers/walletController.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "api/model/orders.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "api/model/RateList.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3,
+        6
+      ]
+    },
+    "api/model/users.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "api/model/wallet-history.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        2,
+        3
+      ]
+    },
+    "api/model/wallet.js": {
+      "expectCount": 4,
+      "actualCount": 2,
+      "undocumentLines": [
+        2,
+        3
+      ]
+    },
+    "api/routes/order-history.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "api/routes/order.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "api/routes/user.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "api/routes/wallet-route.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "api/services/email-service.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        3,
+        11
+      ]
+    },
+    "api/services/jwt-service.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "api/services/order-history-service.js": {
+      "expectCount": 6,
+      "actualCount": 4,
+      "undocumentLines": [
+        1,
         2
+      ]
+    },
+    "api/services/order-service.js": {
+      "expectCount": 8,
+      "actualCount": 6,
+      "undocumentLines": [
+        1,
+        2
+      ]
+    },
+    "api/services/rateList-service.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "api/services/user-service.js": {
+      "expectCount": 13,
+      "actualCount": 9,
+      "undocumentLines": [
+        8,
+        11,
+        50,
+        77
+      ]
+    },
+    "api/services/wallet-services.js": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        6
       ]
     }
   }

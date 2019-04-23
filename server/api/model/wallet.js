@@ -2,6 +2,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/**
+ * Mongoose schema for Coin object.
+ * A Collection of Coin objects is present
+ * in each user's wallet
+ */
+
 let coinSchema = new Schema({
 
     /* Coin Name */

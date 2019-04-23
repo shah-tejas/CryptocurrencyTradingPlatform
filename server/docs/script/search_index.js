@@ -288,27 +288,147 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "api/commons/app-constant.js",
+    "file/api/commons/app-constant.js.html",
+    "api/commons/app-constant.js",
+    "file"
+  ],
+  [
     "api/controllers/logincontroller.js",
     "file/api/controllers/loginController.js.html",
     "api/controllers/loginController.js",
     "file"
   ],
   [
-    "api/model/user.js",
-    "file/api/model/user.js.html",
-    "api/model/user.js",
+    "api/controllers/order-controller.js",
+    "file/api/controllers/order-controller.js.html",
+    "api/controllers/order-controller.js",
     "file"
   ],
   [
-    "api/routes/login-route.js",
-    "file/api/routes/login-route.js.html",
-    "api/routes/login-route.js",
+    "api/controllers/order-history-controller.js",
+    "file/api/controllers/order-history-controller.js.html",
+    "api/controllers/order-history-controller.js",
     "file"
   ],
   [
-    "api/services/login-service.js",
-    "file/api/services/login-service.js.html",
-    "api/services/login-service.js",
+    "api/controllers/ratelist-controller.js",
+    "file/api/controllers/rateList-controller.js.html",
+    "api/controllers/rateList-controller.js",
+    "file"
+  ],
+  [
+    "api/controllers/user-controller.js",
+    "file/api/controllers/user-controller.js.html",
+    "api/controllers/user-controller.js",
+    "file"
+  ],
+  [
+    "api/controllers/walletcontroller.js",
+    "file/api/controllers/walletController.js.html",
+    "api/controllers/walletController.js",
+    "file"
+  ],
+  [
+    "api/model/ratelist.js",
+    "file/api/model/RateList.js.html",
+    "api/model/RateList.js",
+    "file"
+  ],
+  [
+    "api/model/orders.js",
+    "file/api/model/orders.js.html",
+    "api/model/orders.js",
+    "file"
+  ],
+  [
+    "api/model/users.js",
+    "file/api/model/users.js.html",
+    "api/model/users.js",
+    "file"
+  ],
+  [
+    "api/model/wallet-history.js",
+    "file/api/model/wallet-history.js.html",
+    "api/model/wallet-history.js",
+    "file"
+  ],
+  [
+    "api/model/wallet.js",
+    "file/api/model/wallet.js.html",
+    "api/model/wallet.js",
+    "file"
+  ],
+  [
+    "api/routes/order-history.js",
+    "file/api/routes/order-history.js.html",
+    "api/routes/order-history.js",
+    "file"
+  ],
+  [
+    "api/routes/order.js",
+    "file/api/routes/order.js.html",
+    "api/routes/order.js",
+    "file"
+  ],
+  [
+    "api/routes/ratelist-route.js",
+    "file/api/routes/rateList-route.js.html",
+    "api/routes/rateList-route.js",
+    "file"
+  ],
+  [
+    "api/routes/user.js",
+    "file/api/routes/user.js.html",
+    "api/routes/user.js",
+    "file"
+  ],
+  [
+    "api/routes/wallet-route.js",
+    "file/api/routes/wallet-route.js.html",
+    "api/routes/wallet-route.js",
+    "file"
+  ],
+  [
+    "api/services/email-service.js",
+    "file/api/services/email-service.js.html",
+    "api/services/email-service.js",
+    "file"
+  ],
+  [
+    "api/services/jwt-service.js",
+    "file/api/services/jwt-service.js.html",
+    "api/services/jwt-service.js",
+    "file"
+  ],
+  [
+    "api/services/order-history-service.js",
+    "file/api/services/order-history-service.js.html",
+    "api/services/order-history-service.js",
+    "file"
+  ],
+  [
+    "api/services/order-service.js",
+    "file/api/services/order-service.js.html",
+    "api/services/order-service.js",
+    "file"
+  ],
+  [
+    "api/services/ratelist-service.js",
+    "file/api/services/rateList-service.js.html",
+    "api/services/rateList-service.js",
+    "file"
+  ],
+  [
+    "api/services/user-service.js",
+    "file/api/services/user-service.js.html",
+    "api/services/user-service.js",
+    "file"
+  ],
+  [
+    "api/services/wallet-services.js",
+    "file/api/services/wallet-services.js.html",
+    "api/services/wallet-services.js",
     "file"
   ]
 ]

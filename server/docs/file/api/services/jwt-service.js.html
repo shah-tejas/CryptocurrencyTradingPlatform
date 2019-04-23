@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">api/app.js | husky_coin_server</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">api/services/jwt-service.js | husky_coin_server</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -33,29 +33,43 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">api/app.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">  &apos;use strict&apos;;
-  /* The main app configuration to bootstrap the server from */
-  module.exports = function (app) {
-      //Initialize models
-      let walletModel = require(&apos;./model/wallet&apos;);
-      let walletHistoryModel = require(&apos;./model/wallet-history&apos;);
-      let userModel = require(&apos;./model/users&apos;);
-      const rateModel = require(&apos;./model/RateList&apos;);
-      let orderModel = require(&apos;./model/orders&apos;);
-      //Initialize routes
-      let walletRoutes = require(&apos;./routes/wallet-route&apos;);
-      walletRoutes(app);
-      let userRoutes = require(&apos;./routes/user&apos;);
-      userRoutes(app);
-      const rateRoutes = require(&apos;./routes/rateList-route&apos;);
-      rateRoutes(app);
-      let orderRoutes = require(&apos;./routes/order&apos;);
-      orderRoutes(app);
-      let orderHistoryRoutes = require(&apos;./routes/order-history&apos;);
-      orderHistoryRoutes(app);
-  };
+<div class="content" data-ice="content"><h1 data-ice="title">api/services/jwt-service.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const jwt = require(&apos;jsonwebtoken&apos;);
 
+/**
+ * @desc to generate java web token whenever a user login&apos;s
+ */
+const secretKey  = require(&apos;../commons/app-constant&apos;)
+exports.generateToken = (user) =&gt;{
+                var expiry = new Date();
+                expiry.setDate(expiry.getDate() + 7);
+                return jwt.sign(
+
+                  {user},
+                  secretKey.secretkey,
+                  {expiresIn: parseInt(expiry.getTime() / 1000)}
+                 ); // DO NOT KEEP YOUR SECRET IN THE CODE!
+              };
+/**
+ * @desc Check to make sure header is not undefined, if so, return Forbidden (403)
+ * update needed for this , this is not the final method
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+
+const checkToken = (req, res, next) =&gt; {
+    const header = req.headers[&apos;authorization&apos;];
+
+    if(typeof header !== &apos;undefined&apos;) {
+
+        const bearer = header.split(&apos; &apos;);
+        const token = bearer[1];
+
+        req.token = token;
+
+      }
+    }
 </code></pre>
 
 </div>
