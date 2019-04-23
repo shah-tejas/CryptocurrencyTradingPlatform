@@ -1,28 +1,23 @@
 <mat-drawer-container class="example-container">
-  <mat-drawer [@fadein]="display" mode="over" [opened]="isToggled" (mouseleave)="toggle()">
+  <mat-drawer [@fadein]="display" mode="over" [opened]="showMenu" (mouseleave)="showMenufunc()">
     <h2>Menu</h2>
     <ul>
-      <li routerLinkActive="pressed" *ngFor="let tab of tabs; let i = index" >
+      <li *ngFor="let tab of tabs; let i = index" >
         <a [routerLink]="urls[i]">{{tab}}</a>
         <span *ngIf="i===4" [matBadge]="noOfPings" matBadgeOverlap="false"></span>
       </li>
     </ul>
   </mat-drawer>
   <mat-drawer-content>
-    <!-- <mat-toolbar-row>
-      <span>HOME</span>
-      <span class="spacer"></span>
-      <div>
-        <h2 style=" cursor: pointer; "(click)="toggle()">☰</h2>
-        <h2>Husky Coin</h2>
-      </div>
-    </mat-toolbar-row> -->
-    <div>
-      <h2 style=" cursor: pointer; "(click)="toggle()">☰</h2>
-      <h2>Husky Coin</h2>
-    </div>
+    <mat-toolbar *ngIf="showPlainBar" color="primary">
+      <mat-toolbar-row>
+        <span>&emsp;WELCOME</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <app-home-page *ngIf="showToolBar" (showMenu)="showMenufunc()"></app-home-page>
     <div class="background">
-      <router-outlet></router-outlet>
+      <!-- the (active) event is used to decide if the tool bar has to be displayed or not -->
+      <router-outlet (activate)='onActivate($event)' ></router-outlet>
     </div>
   </mat-drawer-content>
 

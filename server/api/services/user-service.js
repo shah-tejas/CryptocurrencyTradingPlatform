@@ -1,5 +1,12 @@
+  /**
+  * Services for User operations.
+  */
+  /**
+   * @desc import UserSchema.
+   */
   const User = require('../model/users');
   const mongoose = require('mongoose');
+
 
   exports.compare = function compare(a, b) {
     if (a.fname > b.fname) return 1;
@@ -11,15 +18,30 @@
     }
   }
 
+  /**
+   * Returns an Array of User Object
+   *
+   * @param {Promise} params {}
+   */
   exports.getAllUsers = function () {
     return User.find().exec();
   }
 
+  /**
+   * Returns an Created User Object
+   *
+   * @param {Promise} params {req}
+   */
   exports.createNewUser = function(req) {
     const newuser = new User(req.body);
     return newuser.save();
   }
 
+  /**
+   * Returns an one User Object based on the userId passed
+   *
+   * @param {Promise} params {req}
+   */
   exports.getOneUser = function (req) {
     const id = req.params.userId;
     return User.findById(id).exec();
@@ -30,9 +52,9 @@
   }
   
 /**
- * Updates and returns the sticky object.
+ * Updates and returns the user object.
  *
- * @param {Object} sticky {Sticky object}
+ * @param {Object} sticky {User object}
  */
 exports.updateUser = function (user) {
   const promise = User.findOneAndUpdate({_id: user._id}, user).exec();
@@ -57,6 +79,11 @@ exports.search = function (params) {
     return User.findOneAndDelete({ _id: id }).exec();
   }
 
+  /**
+   * Dealing with request Error
+   *
+   * @param {Object} params {err, res}
+   */
   exports.inspectError = function (err, res) {
     res.status(500).json({
       error: err
@@ -79,5 +106,5 @@ exports.search = function (params) {
     const newUser = new User(user);
         const promise = newUser.save();
         return promise;
-        
+
   };

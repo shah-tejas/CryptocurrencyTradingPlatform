@@ -25,15 +25,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { TradeComponent, ConfirmOrderDialogComponent } from './trade/trade.component';
 
-// services
+// order and chart services
 import { OrderHistoryService } from './services/order-history.service';
 import { RateListService } from './services/rate-list.service';
-// Order components
+// Order and Chart Components
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { RateChartComponent } from './rate-chart/rate-chart.component';
 import { TableComponent } from './order-history/table/table.component';
-import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
+import { RateChartComponent } from './rate-chart/rate-chart.component';
 // Wallet components
 import { WalletComponent } from './wallet/wallet.component';
 import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
@@ -53,7 +52,6 @@ import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation
     OrderHistoryComponent,
     NavBarComponent,
     TableComponent,
-    jqxChartComponent,
     RateChartComponent,
     WalletComponent,
     LoadWalletComponent,
@@ -79,11 +77,10 @@ import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation
      * @desc RouterOutlet directive to tell Angular where to insert each of our HTML templates.
      */
     RouterModule.forRoot([
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
       { path: '', component: LoginComponent },
-      { path: 'home', component: HomePageComponent},
-      {path: 'charts', component: RateChartComponent},
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent},
+      { path: 'home', component: RateChartComponent},
       {path: 'orderHistory', component: OrderHistoryComponent},
       // {path: ,component:ForgotPassword}
       { path: 'accountsettings', component: AccountSettingsComponent}

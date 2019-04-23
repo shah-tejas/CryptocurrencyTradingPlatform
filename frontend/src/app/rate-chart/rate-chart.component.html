@@ -1,14 +1,24 @@
-<jqxChart #myChart
-    [width]="getWidth()" [height]="500"
-    [title]="'Currency Rate'"
-    [description]="'fluctuating currency rates'"
-    [showLegend]="true" [enableAnimations]="true" [padding]="padding"
-    [titlePadding]="titlePadding" [source]="days" [xAxis]="xAxis"
-    [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme02'">
-</jqxChart>
-
-{{ days[0].Day }}
-{{ BTC[0] }}
-{{ ETH }}
-{{ LTC }}
-{{ EOS }}
+<div class="contain">
+  <mat-tab-group (selectedTabChange)="getChart($event)">
+    <mat-tab label="BTC">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayBTC" id="BTC" height="40vh" width="80vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="ETH">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayETH" id="ETH" height="40vh" width="80vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="LTC">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayLTC" id="LTC" height="40vh" width="80vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="EOS">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayEOS" id="EOS" height="40vh" width="80vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>
