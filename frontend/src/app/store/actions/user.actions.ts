@@ -19,7 +19,7 @@ export enum AuthActionTypes {
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Login
  */
 export class LogIn implements Action {
   readonly type = AuthActionTypes.LOGIN;
@@ -28,7 +28,7 @@ export class LogIn implements Action {
   }
 }
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Login Success
  */
 export class LogInSuccess implements Action {
   readonly type = AuthActionTypes.LOGIN_SUCCESS;
@@ -36,7 +36,7 @@ export class LogInSuccess implements Action {
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Login Failure
  */
 export class LogInFailure implements Action {
   readonly type = AuthActionTypes.LOGIN_FAILURE;
@@ -44,7 +44,7 @@ export class LogInFailure implements Action {
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Registration
  */
 export class Register implements Action {
   readonly type = AuthActionTypes.REGISTER;
@@ -52,7 +52,7 @@ export class Register implements Action {
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Registration Success
  */
 export class RegisterSuccess implements Action {
   readonly type = AuthActionTypes.REGISTER_SUCCESS;
@@ -60,7 +60,7 @@ export class RegisterSuccess implements Action {
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Registration Failure
  */
 export class RegisterFailure implements Action {
   readonly type = AuthActionTypes.REGISTER_FAILURE;
@@ -68,28 +68,28 @@ export class RegisterFailure implements Action {
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Logout
  */
 export class LogOut implements Action {
   readonly type = AuthActionTypes.LOGOUT;
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Account Settings
  */
 export class AccountSettings implements Action {
   readonly type = AuthActionTypes.ACCOUNTSETTINGS;
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for update user
  */
 export class UpdateUser implements Action {
   readonly type = AuthActionTypes.UPDATEUSER;
   constructor(public payload: any) { }
 }
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Update Success
  */
 export class UpdateUserSuccess implements Action {
   readonly type = AuthActionTypes.UPDATEUSER_SUCCESS;
@@ -97,12 +97,13 @@ export class UpdateUserSuccess implements Action {
 }
 
 /**
- * @desc implementation of Action
+ * @desc implementation of Action for Update Failure
  */
 export class UpdateUserFailure implements Action {
   readonly type = AuthActionTypes.UPDATEUSER_FAILURE;
   constructor(public payload: any) { }
 }
+
 export type All =
   | LogIn
   | LogInSuccess

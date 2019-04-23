@@ -1,5 +1,11 @@
+/**
+ * @desc Email service to send emails as per needs
+ */
 var nodemailer = require('nodemailer');
 
+/**
+ * @desc Basic Configuration for sending emails
+ */
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -8,7 +14,11 @@ var transporter = nodemailer.createTransport({
     }
   });
   
- exports.sendemail = function(mailTo, subjectLine, emailText){ 
+
+  /**
+   * @desc function responsible to actually send emails
+   */
+  exports.sendemail = function(mailTo, subjectLine, emailText){ 
      
     var mailOptions = {
         from: 'no-reply@huskycoin.com',

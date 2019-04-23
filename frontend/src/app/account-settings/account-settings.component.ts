@@ -5,14 +5,14 @@ import { AppState, selectAuthState } from '../store/state/app.states';
 import { Store } from '@ngrx/store';
 import { UpdateUser } from '../store/actions/user.actions';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
   styleUrls: ['./account-settings.component.scss']
 })
 export class AccountSettingsComponent implements OnInit {
-
-  /**
+/**
  * @var isLinear boolean value. checks if the form should be allowed to the  secon part or not
  * @var generalDetailsFormGroup FormGroup
  * @var addressDetailsFormGroup FormGroup
@@ -27,17 +27,11 @@ export class AccountSettingsComponent implements OnInit {
   user: User;
   confirmpassword: String;
   password: String = "";
-  //changePassword: boolean = false;
   errorMessage = '';
 
-  constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router) {
-    // this.user = localStorage.getItem("result.user") ;
+  constructor(private _formBuilder: FormBuilder, private store: Store<AppState>, private router: Router, public snackbar: MatSnackBar) {
   }
 
-  passwordValidator(form: FormGroup) {
-    const condition = form.get('password').value !== form.get('confirmpassword').value;
-    return condition ? {passwordsDoNotMatch: true} : null;
-  }
   ngOnInit() {
     /**
      * @desc the if loop checks if the user is logged  in or not ,
@@ -46,7 +40,6 @@ export class AccountSettingsComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.router.navigateByUrl('/accountsettings');
       this.user = JSON.parse((localStorage.getItem("user")))
-      // this.password = this.user.login.password;
     } else {
       this.router.navigateByUrl('/login');
     }
@@ -79,6 +72,10 @@ export class AccountSettingsComponent implements OnInit {
       confirmpassword: ['']
     });
   }
+
+  /**
+   * @desc Action to be performed on submit button click
+   */
   onSubmit() {
     if (this.password == "") {
       this.confirmpassword = "";
@@ -88,7 +85,9 @@ export class AccountSettingsComponent implements OnInit {
         this.user.login.password = this.password;
         this.store.dispatch(new UpdateUser(this.user));
       } else {
-        alert("Password and Confirm Password must Match");
+        this.snackbar.open("Password and Confirm Password must Match", "OK",{
+          duration: 5000,
+        });
       }
     }
 
