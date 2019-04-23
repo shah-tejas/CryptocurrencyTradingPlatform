@@ -1,11 +1,26 @@
-<div>
-  <h1>Pending Orders</h1>
-  <app-table (notifyparent)="reload()" [display]="true" [data]="orders"></app-table>
-  <br>
-  <h1>Completed Orders</h1>
-  <app-table [display]="false" [data]="completedOrders"></app-table>
-  <br>
-  <h1>Canceled Orders</h1>
-  <app-table [display]="false" [data]="canceledOrders"></app-table>
-  <br>
-</div>
+<mat-tab-group (selectedTabChange)="displayTable($event)">
+  <mat-tab label="Pending Orders">
+    <ng-template matTabContent>
+      <h1>Pending Orders</h1>
+      <app-table  *ngIf="orders.length !== 0" [display]="true" [data]="orders"></app-table>
+      <h3 *ngIf="orders.length == 0" >No Pending Orders</h3>
+      <mat-spinner *ngIf="orders.length == 0" ></mat-spinner>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Completed Orders">
+    <ng-template matTabContent>
+      <h1>Completed Orders</h1>
+      <app-table *ngIf="orders.length !== 0" [display]="false" [data]="orders"></app-table>
+      <h3 *ngIf="orders.length == 0" >No Completed Orders</h3>
+      <mat-spinner *ngIf="orders.length == 0" ></mat-spinner>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Canceled Orders">
+    <ng-template matTabContent>
+      <h1>Canceled Orders</h1>
+      <app-table *ngIf="orders.length !== 0" [display]="false" [data]="orders"></app-table>
+      <h3 *ngIf="orders.length == 0" >No Canceled Orders</h3>
+      <mat-spinner *ngIf="orders.length == 0" ></mat-spinner>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

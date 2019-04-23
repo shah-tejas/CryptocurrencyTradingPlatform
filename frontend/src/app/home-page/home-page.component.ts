@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '../store/state/app.states';
@@ -12,27 +12,24 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
+  @Output() showMenu: EventEmitter<String> = new EventEmitter<String>();
+
   constructor(private store: Store<AppState>, private router: Router)
   {
-
-   }
+  }
 
   ngOnInit() {
-    // Allow access only if user is authenticated
-    if (!localStorage.getItem('token')) {
-      this.router.navigateByUrl('/login');
-    }
   }
-  logOut(): void {
-    console.log("------hhiii--");
- console.log( JSON.parse((localStorage.getItem("user"))));
-
+  logout(): void {
     this.store.dispatch(new LogOut);
   }
 
   settings(): void {
-  console.log( JSON.parse((localStorage.getItem("user"))));
   this.store.dispatch(new AccountSettings() );
+  }
+
+  showMenufunc(): void {
+    this.showMenu.emit("Show-Menu");
   }
 
 }
