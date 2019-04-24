@@ -40,11 +40,19 @@
  * @desc to generate java web token whenever a user login&apos;s
  */
 const secretKey  = require(&apos;../commons/app-constant&apos;)
+<<<<<<< HEAD
 exports.generateToken = (user) =&gt;{   
                 var expiry = new Date();
                 expiry.setDate(expiry.getDate() + 7);
                 return jwt.sign(
                 
+=======
+exports.generateToken = (user) =&gt;{
+                var expiry = new Date();
+                expiry.setDate(expiry.getDate() + 7);
+                return jwt.sign(
+
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                   {user},
                   secretKey.secretkey,
                   {expiresIn: parseInt(expiry.getTime() / 1000)}
@@ -53,9 +61,15 @@ exports.generateToken = (user) =&gt;{
 /**
  * @desc Check to make sure header is not undefined, if so, return Forbidden (403)
  * update needed for this , this is not the final method
+<<<<<<< HEAD
  * @param {*} req 
  * @param {*} res 
  * @param {*} next 
+=======
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
  */
 
 const checkToken = (req, res, next) =&gt; {
@@ -69,7 +83,12 @@ const checkToken = (req, res, next) =&gt; {
         req.token = token;
 
       }
+<<<<<<< HEAD
     }</code></pre>
+=======
+    }
+</code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 

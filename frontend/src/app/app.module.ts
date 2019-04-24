@@ -11,7 +11,7 @@ import { MyMaterialModule } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// Store 
+// Store
 import { StoreModule } from '@ngrx/store';
 import { environment } from '.././environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -38,6 +38,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import { LoadWalletComponent } from './wallet/load-wallet/load-wallet.component';
 import { WithdrawWalletComponent } from './wallet/withdraw-wallet/withdraw-wallet.component';
 import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation-box.component';
+import { SaveFileIconComponent } from './components/save-file-icon/save-file-icon.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation
     RateChartComponent,
     WalletComponent,
     LoadWalletComponent,
-    WithdrawWalletComponent
+    WithdrawWalletComponent,
+    SaveFileIconComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +94,7 @@ import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation
   providers: [{provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
     AuthService, AuthGuardService, OrderHistoryService, RateListService],
   bootstrap: [AppComponent]
-}) 
+})
 export class AppModule { }
 
  

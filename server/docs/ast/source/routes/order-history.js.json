@@ -1,0 +1,2373 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 538,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 16,
+      "column": 0
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 538,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 16,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start": 2,
+        "end": 536,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 2
+          },
+          "end": {
+            "line": 15,
+            "column": 4
+          }
+        },
+        "expression": {
+          "type": "AssignmentExpression",
+          "start": 2,
+          "end": 535,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 2
+            },
+            "end": {
+              "line": 15,
+              "column": 3
+            }
+          },
+          "operator": "=",
+          "left": {
+            "type": "MemberExpression",
+            "start": 2,
+            "end": 16,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 2
+              },
+              "end": {
+                "line": 1,
+                "column": 16
+              }
+            },
+            "object": {
+              "type": "Identifier",
+              "start": 2,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 2
+                },
+                "end": {
+                  "line": 1,
+                  "column": 8
+                },
+                "identifierName": "module"
+              },
+              "name": "module"
+            },
+            "property": {
+              "type": "Identifier",
+              "start": 9,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 9
+                },
+                "end": {
+                  "line": 1,
+                  "column": 16
+                },
+                "identifierName": "exports"
+              },
+              "name": "exports"
+            },
+            "computed": false
+          },
+          "right": {
+            "type": "FunctionExpression",
+            "start": 19,
+            "end": 535,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 19
+              },
+              "end": {
+                "line": 15,
+                "column": 3
+              }
+            },
+            "id": {
+              "type": "Identifier",
+              "start": 9,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 9
+                },
+                "end": {
+                  "line": 1,
+                  "column": 16
+                },
+                "identifierName": "exports"
+              },
+              "name": "exports"
+            },
+            "generator": false,
+            "expression": false,
+            "async": false,
+            "params": [
+              {
+                "type": "Identifier",
+                "start": 29,
+                "end": 32,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 29
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 32
+                  },
+                  "identifierName": "app"
+                },
+                "name": "app"
+              }
+            ],
+            "body": {
+              "type": "BlockStatement",
+              "start": 34,
+              "end": 535,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 34
+                },
+                "end": {
+                  "line": 15,
+                  "column": 3
+                }
+              },
+              "body": [
+                {
+                  "type": "VariableDeclaration",
+                  "start": 41,
+                  "end": 123,
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 86
+                    }
+                  },
+                  "declarations": [
+                    {
+                      "type": "VariableDeclarator",
+                      "start": 47,
+                      "end": 122,
+                      "loc": {
+                        "start": {
+                          "line": 2,
+                          "column": 10
+                        },
+                        "end": {
+                          "line": 2,
+                          "column": 85
+                        }
+                      },
+                      "id": {
+                        "type": "Identifier",
+                        "start": 47,
+                        "end": 69,
+                        "loc": {
+                          "start": {
+                            "line": 2,
+                            "column": 10
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 32
+                          },
+                          "identifierName": "OrderHistoryController"
+                        },
+                        "name": "OrderHistoryController"
+                      },
+                      "init": {
+                        "type": "CallExpression",
+                        "start": 72,
+                        "end": 122,
+                        "loc": {
+                          "start": {
+                            "line": 2,
+                            "column": 35
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 85
+                          }
+                        },
+                        "callee": {
+                          "type": "Identifier",
+                          "start": 72,
+                          "end": 79,
+                          "loc": {
+                            "start": {
+                              "line": 2,
+                              "column": 35
+                            },
+                            "end": {
+                              "line": 2,
+                              "column": 42
+                            },
+                            "identifierName": "require"
+                          },
+                          "name": "require"
+                        },
+                        "arguments": [
+                          {
+                            "type": "StringLiteral",
+                            "start": 80,
+                            "end": 121,
+                            "loc": {
+                              "start": {
+                                "line": 2,
+                                "column": 43
+                              },
+                              "end": {
+                                "line": 2,
+                                "column": 84
+                              }
+                            },
+                            "extra": {
+                              "rawValue": "../controllers/order-history-controller",
+                              "raw": "'../controllers/order-history-controller'"
+                            },
+                            "value": "../controllers/order-history-controller"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "kind": "const",
+                  "trailingComments": [
+                    {
+                      "type": "CommentBlock",
+                      "value": "*\r\n    * @desc orderHistory Routes to Update Based on orderId, Delete Based on orderId.\r\n    ",
+                      "start": 129,
+                      "end": 226,
+                      "loc": {
+                        "start": {
+                          "line": 3,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 5,
+                          "column": 6
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "ExpressionStatement",
+                  "start": 232,
+                  "end": 354,
+                  "loc": {
+                    "start": {
+                      "line": 6,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 8,
+                      "column": 45
+                    }
+                  },
+                  "expression": {
+                    "type": "CallExpression",
+                    "start": 232,
+                    "end": 353,
+                    "loc": {
+                      "start": {
+                        "line": 6,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 44
+                      }
+                    },
+                    "callee": {
+                      "type": "MemberExpression",
+                      "start": 232,
+                      "end": 322,
+                      "loc": {
+                        "start": {
+                          "line": 6,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 8,
+                          "column": 13
+                        }
+                      },
+                      "object": {
+                        "type": "CallExpression",
+                        "start": 232,
+                        "end": 307,
+                        "loc": {
+                          "start": {
+                            "line": 6,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 38
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 232,
+                          "end": 279,
+                          "loc": {
+                            "start": {
+                              "line": 6,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 7,
+                              "column": 10
+                            }
+                          },
+                          "object": {
+                            "type": "CallExpression",
+                            "start": 232,
+                            "end": 267,
+                            "loc": {
+                              "start": {
+                                "line": 6,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 6,
+                                "column": 39
+                              }
+                            },
+                            "callee": {
+                              "type": "MemberExpression",
+                              "start": 232,
+                              "end": 241,
+                              "loc": {
+                                "start": {
+                                  "line": 6,
+                                  "column": 4
+                                },
+                                "end": {
+                                  "line": 6,
+                                  "column": 13
+                                }
+                              },
+                              "object": {
+                                "type": "Identifier",
+                                "start": 232,
+                                "end": 235,
+                                "loc": {
+                                  "start": {
+                                    "line": 6,
+                                    "column": 4
+                                  },
+                                  "end": {
+                                    "line": 6,
+                                    "column": 7
+                                  },
+                                  "identifierName": "app"
+                                },
+                                "name": "app",
+                                "leadingComments": null
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 236,
+                                "end": 241,
+                                "loc": {
+                                  "start": {
+                                    "line": 6,
+                                    "column": 8
+                                  },
+                                  "end": {
+                                    "line": 6,
+                                    "column": 13
+                                  },
+                                  "identifierName": "route"
+                                },
+                                "name": "route"
+                              },
+                              "computed": false,
+                              "leadingComments": null
+                            },
+                            "arguments": [
+                              {
+                                "type": "StringLiteral",
+                                "start": 242,
+                                "end": 266,
+                                "loc": {
+                                  "start": {
+                                    "line": 6,
+                                    "column": 14
+                                  },
+                                  "end": {
+                                    "line": 6,
+                                    "column": 38
+                                  }
+                                },
+                                "extra": {
+                                  "rawValue": "/orderhistory/:orderId",
+                                  "raw": "'/orderhistory/:orderId'"
+                                },
+                                "value": "/orderhistory/:orderId"
+                              }
+                            ],
+                            "leadingComments": null
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 276,
+                            "end": 279,
+                            "loc": {
+                              "start": {
+                                "line": 7,
+                                "column": 7
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 10
+                              },
+                              "identifierName": "put"
+                            },
+                            "name": "put"
+                          },
+                          "computed": false,
+                          "leadingComments": null
+                        },
+                        "arguments": [
+                          {
+                            "type": "MemberExpression",
+                            "start": 280,
+                            "end": 306,
+                            "loc": {
+                              "start": {
+                                "line": 7,
+                                "column": 11
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 37
+                              }
+                            },
+                            "object": {
+                              "type": "Identifier",
+                              "start": 280,
+                              "end": 302,
+                              "loc": {
+                                "start": {
+                                  "line": 7,
+                                  "column": 11
+                                },
+                                "end": {
+                                  "line": 7,
+                                  "column": 33
+                                },
+                                "identifierName": "OrderHistoryController"
+                              },
+                              "name": "OrderHistoryController"
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 303,
+                              "end": 306,
+                              "loc": {
+                                "start": {
+                                  "line": 7,
+                                  "column": 34
+                                },
+                                "end": {
+                                  "line": 7,
+                                  "column": 37
+                                },
+                                "identifierName": "put"
+                              },
+                              "name": "put"
+                            },
+                            "computed": false
+                          }
+                        ],
+                        "leadingComments": null
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 316,
+                        "end": 322,
+                        "loc": {
+                          "start": {
+                            "line": 8,
+                            "column": 7
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 13
+                          },
+                          "identifierName": "delete"
+                        },
+                        "name": "delete"
+                      },
+                      "computed": false,
+                      "leadingComments": null
+                    },
+                    "arguments": [
+                      {
+                        "type": "MemberExpression",
+                        "start": 323,
+                        "end": 352,
+                        "loc": {
+                          "start": {
+                            "line": 8,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 43
+                          }
+                        },
+                        "object": {
+                          "type": "Identifier",
+                          "start": 323,
+                          "end": 345,
+                          "loc": {
+                            "start": {
+                              "line": 8,
+                              "column": 14
+                            },
+                            "end": {
+                              "line": 8,
+                              "column": 36
+                            },
+                            "identifierName": "OrderHistoryController"
+                          },
+                          "name": "OrderHistoryController"
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "start": 346,
+                          "end": 352,
+                          "loc": {
+                            "start": {
+                              "line": 8,
+                              "column": 37
+                            },
+                            "end": {
+                              "line": 8,
+                              "column": 43
+                            },
+                            "identifierName": "delete"
+                          },
+                          "name": "delete"
+                        },
+                        "computed": false
+                      }
+                    ],
+                    "leadingComments": null
+                  },
+                  "leadingComments": [
+                    {
+                      "type": "CommentBlock",
+                      "value": "*\r\n    * @desc orderHistory Routes to Update Based on orderId, Delete Based on orderId.\r\n    ",
+                      "start": 129,
+                      "end": 226,
+                      "loc": {
+                        "start": {
+                          "line": 3,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 5,
+                          "column": 6
+                        }
+                      }
+                    }
+                  ],
+                  "trailingComments": [
+                    {
+                      "type": "CommentBlock",
+                      "value": "*\r\n    * @desc orderHistory Routes to search based on userId and status.\r\n    ",
+                      "start": 362,
+                      "end": 444,
+                      "loc": {
+                        "start": {
+                          "line": 10,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 12,
+                          "column": 6
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "ExpressionStatement",
+                  "start": 450,
+                  "end": 528,
+                  "loc": {
+                    "start": {
+                      "line": 13,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 82
+                    }
+                  },
+                  "expression": {
+                    "type": "CallExpression",
+                    "start": 450,
+                    "end": 527,
+                    "loc": {
+                      "start": {
+                        "line": 13,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 81
+                      }
+                    },
+                    "callee": {
+                      "type": "MemberExpression",
+                      "start": 450,
+                      "end": 496,
+                      "loc": {
+                        "start": {
+                          "line": 13,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 13,
+                          "column": 50
+                        }
+                      },
+                      "object": {
+                        "type": "CallExpression",
+                        "start": 450,
+                        "end": 492,
+                        "loc": {
+                          "start": {
+                            "line": 13,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 46
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 450,
+                          "end": 459,
+                          "loc": {
+                            "start": {
+                              "line": 13,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 13,
+                              "column": 13
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 450,
+                            "end": 453,
+                            "loc": {
+                              "start": {
+                                "line": 13,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 13,
+                                "column": 7
+                              },
+                              "identifierName": "app"
+                            },
+                            "name": "app",
+                            "leadingComments": null
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 454,
+                            "end": 459,
+                            "loc": {
+                              "start": {
+                                "line": 13,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 13,
+                                "column": 13
+                              },
+                              "identifierName": "route"
+                            },
+                            "name": "route"
+                          },
+                          "computed": false,
+                          "leadingComments": null
+                        },
+                        "arguments": [
+                          {
+                            "type": "StringLiteral",
+                            "start": 460,
+                            "end": 491,
+                            "loc": {
+                              "start": {
+                                "line": 13,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 13,
+                                "column": 45
+                              }
+                            },
+                            "extra": {
+                              "rawValue": "/orderhistory/:userId/:status",
+                              "raw": "'/orderhistory/:userId/:status'"
+                            },
+                            "value": "/orderhistory/:userId/:status"
+                          }
+                        ],
+                        "leadingComments": null
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 493,
+                        "end": 496,
+                        "loc": {
+                          "start": {
+                            "line": 13,
+                            "column": 47
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 50
+                          },
+                          "identifierName": "get"
+                        },
+                        "name": "get"
+                      },
+                      "computed": false,
+                      "leadingComments": null
+                    },
+                    "arguments": [
+                      {
+                        "type": "MemberExpression",
+                        "start": 497,
+                        "end": 526,
+                        "loc": {
+                          "start": {
+                            "line": 13,
+                            "column": 51
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 80
+                          }
+                        },
+                        "object": {
+                          "type": "Identifier",
+                          "start": 497,
+                          "end": 519,
+                          "loc": {
+                            "start": {
+                              "line": 13,
+                              "column": 51
+                            },
+                            "end": {
+                              "line": 13,
+                              "column": 73
+                            },
+                            "identifierName": "OrderHistoryController"
+                          },
+                          "name": "OrderHistoryController"
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "start": 520,
+                          "end": 526,
+                          "loc": {
+                            "start": {
+                              "line": 13,
+                              "column": 74
+                            },
+                            "end": {
+                              "line": 13,
+                              "column": 80
+                            },
+                            "identifierName": "getAll"
+                          },
+                          "name": "getAll"
+                        },
+                        "computed": false
+                      }
+                    ],
+                    "leadingComments": null
+                  },
+                  "leadingComments": [
+                    {
+                      "type": "CommentBlock",
+                      "value": "*\r\n    * @desc orderHistory Routes to search based on userId and status.\r\n    ",
+                      "start": 362,
+                      "end": 444,
+                      "loc": {
+                        "start": {
+                          "line": 10,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 12,
+                          "column": 6
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "directives": []
+            }
+          }
+        }
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n    * @desc orderHistory Routes to Update Based on orderId, Delete Based on orderId.\r\n    ",
+      "start": 129,
+      "end": 226,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 4
+        },
+        "end": {
+          "line": 5,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n    * @desc orderHistory Routes to search based on userId and status.\r\n    ",
+      "start": 362,
+      "end": 444,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 4
+        },
+        "end": {
+          "line": 12,
+          "column": 6
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "module",
+      "start": 2,
+      "end": 8,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 2
+        },
+        "end": {
+          "line": 1,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 8,
+      "end": 9,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 8
+        },
+        "end": {
+          "line": 1,
+          "column": 9
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "exports",
+      "start": 9,
+      "end": 16,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 9
+        },
+        "end": {
+          "line": 1,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 17,
+      "end": 18,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 17
+        },
+        "end": {
+          "line": 1,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "function",
+        "keyword": "function",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "function",
+      "start": 19,
+      "end": 27,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 19
+        },
+        "end": {
+          "line": 1,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 28,
+      "end": 29,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 28
+        },
+        "end": {
+          "line": 1,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "app",
+      "start": 29,
+      "end": 32,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 29
+        },
+        "end": {
+          "line": 1,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 32,
+      "end": 33,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 32
+        },
+        "end": {
+          "line": 1,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 34,
+      "end": 35,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 34
+        },
+        "end": {
+          "line": 1,
+          "column": 35
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "const",
+        "keyword": "const",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "const",
+      "start": 41,
+      "end": 46,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 4
+        },
+        "end": {
+          "line": 2,
+          "column": 9
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "OrderHistoryController",
+      "start": 47,
+      "end": 69,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 10
+        },
+        "end": {
+          "line": 2,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 70,
+      "end": 71,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 33
+        },
+        "end": {
+          "line": 2,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "require",
+      "start": 72,
+      "end": 79,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 35
+        },
+        "end": {
+          "line": 2,
+          "column": 42
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 79,
+      "end": 80,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 42
+        },
+        "end": {
+          "line": 2,
+          "column": 43
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "../controllers/order-history-controller",
+      "start": 80,
+      "end": 121,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 43
+        },
+        "end": {
+          "line": 2,
+          "column": 84
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 121,
+      "end": 122,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 84
+        },
+        "end": {
+          "line": 2,
+          "column": 85
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 122,
+      "end": 123,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 85
+        },
+        "end": {
+          "line": 2,
+          "column": 86
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n    * @desc orderHistory Routes to Update Based on orderId, Delete Based on orderId.\r\n    ",
+      "start": 129,
+      "end": 226,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 4
+        },
+        "end": {
+          "line": 5,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "app",
+      "start": 232,
+      "end": 235,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 4
+        },
+        "end": {
+          "line": 6,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 235,
+      "end": 236,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 7
+        },
+        "end": {
+          "line": 6,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "route",
+      "start": 236,
+      "end": 241,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 8
+        },
+        "end": {
+          "line": 6,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 241,
+      "end": 242,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 13
+        },
+        "end": {
+          "line": 6,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "/orderhistory/:orderId",
+      "start": 242,
+      "end": 266,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 14
+        },
+        "end": {
+          "line": 6,
+          "column": 38
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 266,
+      "end": 267,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 38
+        },
+        "end": {
+          "line": 6,
+          "column": 39
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 275,
+      "end": 276,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 6
+        },
+        "end": {
+          "line": 7,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "put",
+      "start": 276,
+      "end": 279,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 7
+        },
+        "end": {
+          "line": 7,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 279,
+      "end": 280,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 10
+        },
+        "end": {
+          "line": 7,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "OrderHistoryController",
+      "start": 280,
+      "end": 302,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 11
+        },
+        "end": {
+          "line": 7,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 302,
+      "end": 303,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 33
+        },
+        "end": {
+          "line": 7,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "put",
+      "start": 303,
+      "end": 306,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 34
+        },
+        "end": {
+          "line": 7,
+          "column": 37
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 306,
+      "end": 307,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 37
+        },
+        "end": {
+          "line": 7,
+          "column": 38
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 315,
+      "end": 316,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 6
+        },
+        "end": {
+          "line": 8,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "delete",
+        "keyword": "delete",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": true,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "delete",
+      "start": 316,
+      "end": 322,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 7
+        },
+        "end": {
+          "line": 8,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 322,
+      "end": 323,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 13
+        },
+        "end": {
+          "line": 8,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "OrderHistoryController",
+      "start": 323,
+      "end": 345,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 14
+        },
+        "end": {
+          "line": 8,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 345,
+      "end": 346,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 36
+        },
+        "end": {
+          "line": 8,
+          "column": 37
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "delete",
+        "keyword": "delete",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": true,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "delete",
+      "start": 346,
+      "end": 352,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 37
+        },
+        "end": {
+          "line": 8,
+          "column": 43
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 352,
+      "end": 353,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 43
+        },
+        "end": {
+          "line": 8,
+          "column": 44
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 353,
+      "end": 354,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 44
+        },
+        "end": {
+          "line": 8,
+          "column": 45
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n    * @desc orderHistory Routes to search based on userId and status.\r\n    ",
+      "start": 362,
+      "end": 444,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 4
+        },
+        "end": {
+          "line": 12,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "app",
+      "start": 450,
+      "end": 453,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 4
+        },
+        "end": {
+          "line": 13,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 453,
+      "end": 454,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 7
+        },
+        "end": {
+          "line": 13,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "route",
+      "start": 454,
+      "end": 459,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 8
+        },
+        "end": {
+          "line": 13,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 459,
+      "end": 460,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "/orderhistory/:userId/:status",
+      "start": 460,
+      "end": 491,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 14
+        },
+        "end": {
+          "line": 13,
+          "column": 45
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 491,
+      "end": 492,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 45
+        },
+        "end": {
+          "line": 13,
+          "column": 46
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 492,
+      "end": 493,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 46
+        },
+        "end": {
+          "line": 13,
+          "column": 47
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "get",
+      "start": 493,
+      "end": 496,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 47
+        },
+        "end": {
+          "line": 13,
+          "column": 50
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 496,
+      "end": 497,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 50
+        },
+        "end": {
+          "line": 13,
+          "column": 51
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "OrderHistoryController",
+      "start": 497,
+      "end": 519,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 51
+        },
+        "end": {
+          "line": 13,
+          "column": 73
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 519,
+      "end": 520,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 73
+        },
+        "end": {
+          "line": 13,
+          "column": 74
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "getAll",
+      "start": 520,
+      "end": 526,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 74
+        },
+        "end": {
+          "line": 13,
+          "column": 80
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 526,
+      "end": 527,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 80
+        },
+        "end": {
+          "line": 13,
+          "column": 81
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 527,
+      "end": 528,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 81
+        },
+        "end": {
+          "line": 13,
+          "column": 82
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 534,
+      "end": 535,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 535,
+      "end": 536,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 3
+        },
+        "end": {
+          "line": 15,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 538,
+      "end": 538,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 16,
+          "column": 0
+        }
+      }
+    }
+  ]
+}

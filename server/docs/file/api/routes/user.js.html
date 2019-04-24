@@ -36,6 +36,10 @@
 <div class="content" data-ice="content"><h1 data-ice="title">api/routes/user.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">module.exports = function (app) {
   const UserController = require(&apos;../controllers/user-controller&apos;);
+<<<<<<< HEAD
+=======
+  const loginController = require(&apos;../controllers/loginController&apos;);
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
   /**
    * @desc User Routes for search and create.
     */
@@ -45,16 +49,30 @@
   /**
    * @desc User Routes for get, update and delete.
    */
+<<<<<<< HEAD
   app.route(&apos;/users/:userId&apos;).get(UserController.getOne)
     .put(UserController.put)
     .delete(UserController.delete);
 
   const loginController = require(&apos;../controllers/loginController&apos;);
+=======
+  app.route(&apos;/users/:userId&apos;)
+  .get(UserController.getOne)
+    .put(loginController.put)
+    .delete(UserController.delete);
+
+ 
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
   /** 
    * @desc userlogin Routes for search and create
    */
   app.route(&apos;/login&apos;)
+<<<<<<< HEAD
     .get(loginController.getUser)
+=======
+    .post(loginController.getUser)
+ 
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
   /**
    * @desc userlogin Routes for get, update and delete

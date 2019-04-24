@@ -43,6 +43,7 @@ module.exports = function (app) {
     // defining the controller
     const walletController = require(&apos;../controllers/walletController&apos;);
     // Wallet routes to get and update wallet
+<<<<<<< HEAD
     app.route(&apos;/wallet/:id&apos;)
         .get(walletController.getUserWallet)
         .put(walletController.updateUserWallet);
@@ -51,6 +52,16 @@ module.exports = function (app) {
 
     // Wallet History routes to get and create wallet history transactions
     app.route(&apos;/wallethistory/:id&apos;)
+=======
+    app.route(&apos;/wallet/:user_id&apos;) 
+        .put(walletController.updateUserWallet);
+    app.route(&apos;/wallet&apos;)
+        .get(walletController.getUserWallet)
+        .post(walletController.createWallet);
+
+    // Wallet History routes to get and create wallet history transactions
+    app.route(&apos;/wallethistory/:user_id&apos;)
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         .get(walletController.getWalletHistory);
     app.route(&apos;/wallethistory&apos;)
         .post(walletController.createWalletTransaction);

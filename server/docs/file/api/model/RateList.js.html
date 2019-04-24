@@ -34,6 +34,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/model/RateList.js</h1>
+<<<<<<< HEAD
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * @desc Model for coin-rates endpoints
  */
@@ -97,6 +98,46 @@ let RateSchema = new Schema({
 });
 
 module.exports = mongoose.model(&apos;RateList&apos;, RateSchema);</code></pre>
+=======
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+const mongoose = require(&apos;mongoose&apos;);
+const Schema = mongoose.Schema;
+
+//Rate Schema for Mongoose
+let RateSchema = new Schema({
+    //Atributes and their constraints
+    //Coin-Name
+    coinname: {
+        type: String,
+        required: &quot;Coin-Name is required&quot;
+    },
+    //USD-Value
+    usdvalue: {
+        type: Number,
+        required: &quot;USD-Value is required&quot;
+    },
+    //Active
+   active: {
+       type: String,
+       default: &quot;A&quot; 
+   },
+    //Date-Of-Creation
+    insert_date: {
+        type: Date,
+        default: Date.now
+    },
+    //Date-Of-Creation
+    modified_date: {
+        type: Date,
+        default: Date.now
+    }
+}, {
+    versionKey: false
+});
+
+module.exports = mongoose.model(&apos;RateList&apos;, RateSchema);
+</code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 

@@ -39,6 +39,29 @@ const mongoose = require(&apos;mongoose&apos;);
 const Schema = mongoose.Schema;
 
 /**
+<<<<<<< HEAD
+=======
+ * Mongoose schema for Coin object.
+ * A Collection of Coin objects is present
+ * in each user&apos;s wallet
+ */
+
+let coinSchema = new Schema({
+
+    /* Coin Name */
+    coin_name: {
+        type: String
+    },
+    /* Coin quantity in user&apos;s wallet */
+    coin_qty: {
+        type: Number
+    }
+}, {
+    versionKey: false
+});
+
+/**
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
  * Mongoose schema for wallet object.
  * This schema is present for each User
  * This schema represents the wallet for each user
@@ -60,6 +83,7 @@ let WalletSchema = new Schema({
         type: Number
     },
     /** 
+<<<<<<< HEAD
      * Map of various crypto coins with their existing quantities
      * key of map =&gt; Coin Name
      * value of map =&gt; Coin Quantity
@@ -67,6 +91,12 @@ let WalletSchema = new Schema({
     coins: {
         type: Map,
         of: Number
+=======
+     * Array of various crypto coins with their existing quantities
+     */
+    coins: {
+        type: [coinSchema]
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     },
     /**
      * Wallet created date.
@@ -86,8 +116,14 @@ let WalletSchema = new Schema({
     versionKey: false
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model(&apos;wallet&apos;, WalletSchema);
 </code></pre>
+=======
+
+
+module.exports = mongoose.model(&apos;wallet&apos;, WalletSchema);</code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 

@@ -38,7 +38,7 @@ exports.update = function (wallet) {
  * @param {Object} params {id}
  */
 exports.searchWalletTransactionById = function (user_id) {
-  const promise = WalletHistory.find({user_id: user_id}).sort({created_date: -1}).exec();
+  const promise = WalletHistory.find({ user_id: user_id }).sort({ created_date: -1 }).exec();
   return promise;
 };
 

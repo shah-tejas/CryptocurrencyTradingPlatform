@@ -1,7 +1,11 @@
 {
   "type": "File",
   "start": 0,
+<<<<<<< HEAD
   "end": 691,
+=======
+  "end": 722,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +19,11 @@
   "program": {
     "type": "Program",
     "start": 0,
+<<<<<<< HEAD
     "end": 691,
+=======
+    "end": 722,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "loc": {
       "start": {
         "line": 1,
@@ -30,8 +38,13 @@
     "body": [
       {
         "type": "ExpressionStatement",
+<<<<<<< HEAD
         "start": 61,
         "end": 691,
+=======
+        "start": 66,
+        "end": 722,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "loc": {
           "start": {
             "line": 6,
@@ -44,8 +57,13 @@
         },
         "expression": {
           "type": "AssignmentExpression",
+<<<<<<< HEAD
           "start": 61,
           "end": 690,
+=======
+          "start": 66,
+          "end": 721,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
           "loc": {
             "start": {
               "line": 6,
@@ -59,8 +77,13 @@
           "operator": "=",
           "left": {
             "type": "MemberExpression",
+<<<<<<< HEAD
             "start": 61,
             "end": 75,
+=======
+            "start": 66,
+            "end": 80,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
             "loc": {
               "start": {
                 "line": 6,
@@ -73,8 +96,13 @@
             },
             "object": {
               "type": "Identifier",
+<<<<<<< HEAD
               "start": 61,
               "end": 67,
+=======
+              "start": 66,
+              "end": 72,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
               "loc": {
                 "start": {
                   "line": 6,
@@ -90,8 +118,13 @@
             },
             "property": {
               "type": "Identifier",
+<<<<<<< HEAD
               "start": 68,
               "end": 75,
+=======
+              "start": 73,
+              "end": 80,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
               "loc": {
                 "start": {
                   "line": 6,
@@ -109,8 +142,13 @@
           },
           "right": {
             "type": "FunctionExpression",
+<<<<<<< HEAD
             "start": 78,
             "end": 690,
+=======
+            "start": 83,
+            "end": 721,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
             "loc": {
               "start": {
                 "line": 6,
@@ -123,8 +161,13 @@
             },
             "id": {
               "type": "Identifier",
+<<<<<<< HEAD
               "start": 68,
               "end": 75,
+=======
+              "start": 73,
+              "end": 80,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
               "loc": {
                 "start": {
                   "line": 6,
@@ -144,8 +187,13 @@
             "params": [
               {
                 "type": "Identifier",
+<<<<<<< HEAD
                 "start": 88,
                 "end": 91,
+=======
+                "start": 93,
+                "end": 96,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                 "loc": {
                   "start": {
                     "line": 6,
@@ -162,8 +210,13 @@
             ],
             "body": {
               "type": "BlockStatement",
+<<<<<<< HEAD
               "start": 93,
               "end": 690,
+=======
+              "start": 98,
+              "end": 721,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
               "loc": {
                 "start": {
                   "line": 6,
@@ -177,8 +230,13 @@
               "body": [
                 {
                   "type": "VariableDeclaration",
+<<<<<<< HEAD
                   "start": 130,
                   "end": 198,
+=======
+                  "start": 137,
+                  "end": 205,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                   "loc": {
                     "start": {
                       "line": 8,
@@ -192,8 +250,13 @@
                   "declarations": [
                     {
                       "type": "VariableDeclarator",
+<<<<<<< HEAD
                       "start": 136,
                       "end": 197,
+=======
+                      "start": 143,
+                      "end": 204,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 8,
@@ -206,8 +269,13 @@
                       },
                       "id": {
                         "type": "Identifier",
+<<<<<<< HEAD
                         "start": 136,
                         "end": 152,
+=======
+                        "start": 143,
+                        "end": 159,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 8,
@@ -224,8 +292,13 @@
                       },
                       "init": {
                         "type": "CallExpression",
+<<<<<<< HEAD
                         "start": 155,
                         "end": 197,
+=======
+                        "start": 162,
+                        "end": 204,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 8,
@@ -238,8 +311,13 @@
                         },
                         "callee": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 155,
                           "end": 162,
+=======
+                          "start": 162,
+                          "end": 169,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 8,
@@ -256,8 +334,13 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
+<<<<<<< HEAD
                             "start": 163,
                             "end": 196,
+=======
+                            "start": 170,
+                            "end": 203,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 8,
@@ -284,8 +367,13 @@
                     {
                       "type": "CommentLine",
                       "value": " defining the controller",
+<<<<<<< HEAD
                       "start": 99,
                       "end": 125,
+=======
+                      "start": 105,
+                      "end": 131,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 7,
@@ -302,8 +390,13 @@
                     {
                       "type": "CommentLine",
                       "value": " Wallet routes to get and update wallet",
+<<<<<<< HEAD
                       "start": 203,
                       "end": 244,
+=======
+                      "start": 211,
+                      "end": 252,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 9,
@@ -319,70 +412,113 @@
                 },
                 {
                   "type": "ExpressionStatement",
+<<<<<<< HEAD
                   "start": 249,
                   "end": 367,
+=======
+                  "start": 258,
+                  "end": 338,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                   "loc": {
                     "start": {
                       "line": 10,
                       "column": 4
                     },
                     "end": {
+<<<<<<< HEAD
                       "line": 12,
+=======
+                      "line": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "column": 48
                     }
                   },
                   "expression": {
                     "type": "CallExpression",
+<<<<<<< HEAD
                     "start": 249,
                     "end": 366,
+=======
+                    "start": 258,
+                    "end": 337,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                     "loc": {
                       "start": {
                         "line": 10,
                         "column": 4
                       },
                       "end": {
+<<<<<<< HEAD
                         "line": 12,
+=======
+                        "line": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "column": 47
                       }
                     },
                     "callee": {
                       "type": "MemberExpression",
+<<<<<<< HEAD
                       "start": 249,
                       "end": 331,
+=======
+                      "start": 258,
+                      "end": 302,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 10,
                           "column": 4
                         },
                         "end": {
+<<<<<<< HEAD
                           "line": 12,
+=======
+                          "line": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "column": 12
                         }
                       },
                       "object": {
                         "type": "CallExpression",
+<<<<<<< HEAD
                         "start": 249,
                         "end": 318,
+=======
+                        "start": 258,
+                        "end": 287,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 10,
                             "column": 4
                           },
                           "end": {
+<<<<<<< HEAD
                             "line": 11,
                             "column": 44
+=======
+                            "line": 10,
+                            "column": 33
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
+<<<<<<< HEAD
                           "start": 249,
                           "end": 286,
+=======
+                          "start": 258,
+                          "end": 267,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 10,
                               "column": 4
                             },
                             "end": {
+<<<<<<< HEAD
                               "line": 11,
                               "column": 12
                             }
@@ -391,6 +527,16 @@
                             "type": "CallExpression",
                             "start": 249,
                             "end": 273,
+=======
+                              "line": 10,
+                              "column": 13
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 258,
+                            "end": 261,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 10,
@@ -398,6 +544,7 @@
                               },
                               "end": {
                                 "line": 10,
+<<<<<<< HEAD
                                 "column": 28
                               }
                             },
@@ -475,10 +622,18 @@
                                 "value": "/wallet/:id"
                               }
                             ],
+=======
+                                "column": 7
+                              },
+                              "identifierName": "app"
+                            },
+                            "name": "app",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "leadingComments": null
                           },
                           "property": {
                             "type": "Identifier",
+<<<<<<< HEAD
                             "start": 283,
                             "end": 286,
                             "loc": {
@@ -493,12 +648,29 @@
                               "identifierName": "get"
                             },
                             "name": "get"
+=======
+                            "start": 262,
+                            "end": 267,
+                            "loc": {
+                              "start": {
+                                "line": 10,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 13
+                              },
+                              "identifierName": "route"
+                            },
+                            "name": "route"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           },
                           "computed": false,
                           "leadingComments": null
                         },
                         "arguments": [
                           {
+<<<<<<< HEAD
                             "type": "MemberExpression",
                             "start": 287,
                             "end": 317,
@@ -547,12 +719,33 @@
                               "name": "getUserWallet"
                             },
                             "computed": false
+=======
+                            "type": "StringLiteral",
+                            "start": 268,
+                            "end": 286,
+                            "loc": {
+                              "start": {
+                                "line": 10,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 32
+                              }
+                            },
+                            "extra": {
+                              "rawValue": "/wallet/:user_id",
+                              "raw": "'/wallet/:user_id'"
+                            },
+                            "value": "/wallet/:user_id"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           }
                         ],
                         "leadingComments": null
                       },
                       "property": {
                         "type": "Identifier",
+<<<<<<< HEAD
                         "start": 328,
                         "end": 331,
                         "loc": {
@@ -562,6 +755,17 @@
                           },
                           "end": {
                             "line": 12,
+=======
+                        "start": 299,
+                        "end": 302,
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "column": 12
                           },
                           "identifierName": "put"
@@ -574,6 +778,7 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
+<<<<<<< HEAD
                         "start": 332,
                         "end": 365,
                         "loc": {
@@ -583,11 +788,23 @@
                           },
                           "end": {
                             "line": 12,
+=======
+                        "start": 303,
+                        "end": 336,
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 13
+                          },
+                          "end": {
+                            "line": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "column": 46
                           }
                         },
                         "object": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 332,
                           "end": 348,
                           "loc": {
@@ -597,6 +814,17 @@
                             },
                             "end": {
                               "line": 12,
+=======
+                          "start": 303,
+                          "end": 319,
+                          "loc": {
+                            "start": {
+                              "line": 11,
+                              "column": 13
+                            },
+                            "end": {
+                              "line": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                               "column": 29
                             },
                             "identifierName": "walletController"
@@ -605,6 +833,7 @@
                         },
                         "property": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 349,
                           "end": 365,
                           "loc": {
@@ -614,6 +843,17 @@
                             },
                             "end": {
                               "line": 12,
+=======
+                          "start": 320,
+                          "end": 336,
+                          "loc": {
+                            "start": {
+                              "line": 11,
+                              "column": 30
+                            },
+                            "end": {
+                              "line": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                               "column": 46
                             },
                             "identifierName": "updateUserWallet"
@@ -629,8 +869,13 @@
                     {
                       "type": "CommentLine",
                       "value": " Wallet routes to get and update wallet",
+<<<<<<< HEAD
                       "start": 203,
                       "end": 244,
+=======
+                      "start": 211,
+                      "end": 252,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 9,
@@ -646,11 +891,19 @@
                 },
                 {
                   "type": "ExpressionStatement",
+<<<<<<< HEAD
                   "start": 372,
                   "end": 438,
                   "loc": {
                     "start": {
                       "line": 13,
+=======
+                  "start": 344,
+                  "end": 457,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "column": 4
                     },
                     "end": {
@@ -660,11 +913,19 @@
                   },
                   "expression": {
                     "type": "CallExpression",
+<<<<<<< HEAD
                     "start": 372,
                     "end": 437,
                     "loc": {
                       "start": {
                         "line": 13,
+=======
+                    "start": 344,
+                    "end": 456,
+                    "loc": {
+                      "start": {
+                        "line": 12,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "column": 4
                       },
                       "end": {
@@ -674,11 +935,19 @@
                     },
                     "callee": {
                       "type": "MemberExpression",
+<<<<<<< HEAD
                       "start": 372,
                       "end": 406,
                       "loc": {
                         "start": {
                           "line": 13,
+=======
+                      "start": 344,
+                      "end": 425,
+                      "loc": {
+                        "start": {
+                          "line": 12,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "column": 4
                         },
                         "end": {
@@ -688,29 +957,50 @@
                       },
                       "object": {
                         "type": "CallExpression",
+<<<<<<< HEAD
                         "start": 372,
                         "end": 392,
                         "loc": {
                           "start": {
                             "line": 13,
+=======
+                        "start": 344,
+                        "end": 410,
+                        "loc": {
+                          "start": {
+                            "line": 12,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "column": 4
                           },
                           "end": {
                             "line": 13,
+<<<<<<< HEAD
                             "column": 24
+=======
+                            "column": 44
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
+<<<<<<< HEAD
                           "start": 372,
                           "end": 381,
                           "loc": {
                             "start": {
                               "line": 13,
+=======
+                          "start": 344,
+                          "end": 378,
+                          "loc": {
+                            "start": {
+                              "line": 12,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                               "column": 4
                             },
                             "end": {
                               "line": 13,
+<<<<<<< HEAD
                               "column": 13
                             }
                           },
@@ -747,11 +1037,120 @@
                               "identifierName": "route"
                             },
                             "name": "route"
+=======
+                              "column": 12
+                            }
+                          },
+                          "object": {
+                            "type": "CallExpression",
+                            "start": 344,
+                            "end": 364,
+                            "loc": {
+                              "start": {
+                                "line": 12,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 24
+                              }
+                            },
+                            "callee": {
+                              "type": "MemberExpression",
+                              "start": 344,
+                              "end": 353,
+                              "loc": {
+                                "start": {
+                                  "line": 12,
+                                  "column": 4
+                                },
+                                "end": {
+                                  "line": 12,
+                                  "column": 13
+                                }
+                              },
+                              "object": {
+                                "type": "Identifier",
+                                "start": 344,
+                                "end": 347,
+                                "loc": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 4
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 7
+                                  },
+                                  "identifierName": "app"
+                                },
+                                "name": "app"
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 348,
+                                "end": 353,
+                                "loc": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 8
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 13
+                                  },
+                                  "identifierName": "route"
+                                },
+                                "name": "route"
+                              },
+                              "computed": false
+                            },
+                            "arguments": [
+                              {
+                                "type": "StringLiteral",
+                                "start": 354,
+                                "end": 363,
+                                "loc": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 14
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 23
+                                  }
+                                },
+                                "extra": {
+                                  "rawValue": "/wallet",
+                                  "raw": "'/wallet'"
+                                },
+                                "value": "/wallet"
+                              }
+                            ]
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 375,
+                            "end": 378,
+                            "loc": {
+                              "start": {
+                                "line": 13,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 13,
+                                "column": 12
+                              },
+                              "identifierName": "get"
+                            },
+                            "name": "get"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           },
                           "computed": false
                         },
                         "arguments": [
                           {
+<<<<<<< HEAD
                             "type": "StringLiteral",
                             "start": 382,
                             "end": 391,
@@ -770,13 +1169,68 @@
                               "raw": "'/wallet'"
                             },
                             "value": "/wallet"
+=======
+                            "type": "MemberExpression",
+                            "start": 379,
+                            "end": 409,
+                            "loc": {
+                              "start": {
+                                "line": 13,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 13,
+                                "column": 43
+                              }
+                            },
+                            "object": {
+                              "type": "Identifier",
+                              "start": 379,
+                              "end": 395,
+                              "loc": {
+                                "start": {
+                                  "line": 13,
+                                  "column": 13
+                                },
+                                "end": {
+                                  "line": 13,
+                                  "column": 29
+                                },
+                                "identifierName": "walletController"
+                              },
+                              "name": "walletController"
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 396,
+                              "end": 409,
+                              "loc": {
+                                "start": {
+                                  "line": 13,
+                                  "column": 30
+                                },
+                                "end": {
+                                  "line": 13,
+                                  "column": 43
+                                },
+                                "identifierName": "getUserWallet"
+                              },
+                              "name": "getUserWallet"
+                            },
+                            "computed": false
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           }
                         ]
                       },
                       "property": {
                         "type": "Identifier",
+<<<<<<< HEAD
                         "start": 402,
                         "end": 406,
+=======
+                        "start": 421,
+                        "end": 425,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 14,
@@ -795,8 +1249,13 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
+<<<<<<< HEAD
                         "start": 407,
                         "end": 436,
+=======
+                        "start": 426,
+                        "end": 455,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 14,
@@ -809,8 +1268,13 @@
                         },
                         "object": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 407,
                           "end": 423,
+=======
+                          "start": 426,
+                          "end": 442,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 14,
@@ -826,8 +1290,13 @@
                         },
                         "property": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 424,
                           "end": 436,
+=======
+                          "start": 443,
+                          "end": 455,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 14,
@@ -849,8 +1318,13 @@
                     {
                       "type": "CommentLine",
                       "value": " Wallet History routes to get and create wallet history transactions",
+<<<<<<< HEAD
                       "start": 444,
                       "end": 514,
+=======
+                      "start": 465,
+                      "end": 535,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 16,
@@ -866,8 +1340,13 @@
                 },
                 {
                   "type": "ExpressionStatement",
+<<<<<<< HEAD
                   "start": 519,
                   "end": 599,
+=======
+                  "start": 541,
+                  "end": 627,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                   "loc": {
                     "start": {
                       "line": 17,
@@ -880,8 +1359,13 @@
                   },
                   "expression": {
                     "type": "CallExpression",
+<<<<<<< HEAD
                     "start": 519,
                     "end": 598,
+=======
+                    "start": 541,
+                    "end": 626,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                     "loc": {
                       "start": {
                         "line": 17,
@@ -894,8 +1378,13 @@
                     },
                     "callee": {
                       "type": "MemberExpression",
+<<<<<<< HEAD
                       "start": 519,
                       "end": 563,
+=======
+                      "start": 541,
+                      "end": 591,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 17,
@@ -908,8 +1397,13 @@
                       },
                       "object": {
                         "type": "CallExpression",
+<<<<<<< HEAD
                         "start": 519,
                         "end": 550,
+=======
+                        "start": 541,
+                        "end": 577,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 17,
@@ -917,13 +1411,22 @@
                           },
                           "end": {
                             "line": 17,
+<<<<<<< HEAD
                             "column": 35
+=======
+                            "column": 40
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
+<<<<<<< HEAD
                           "start": 519,
                           "end": 528,
+=======
+                          "start": 541,
+                          "end": 550,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 17,
@@ -936,8 +1439,13 @@
                           },
                           "object": {
                             "type": "Identifier",
+<<<<<<< HEAD
                             "start": 519,
                             "end": 522,
+=======
+                            "start": 541,
+                            "end": 544,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 17,
@@ -954,8 +1462,13 @@
                           },
                           "property": {
                             "type": "Identifier",
+<<<<<<< HEAD
                             "start": 523,
                             "end": 528,
+=======
+                            "start": 545,
+                            "end": 550,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 17,
@@ -975,8 +1488,13 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
+<<<<<<< HEAD
                             "start": 529,
                             "end": 549,
+=======
+                            "start": 551,
+                            "end": 576,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 17,
@@ -984,6 +1502,7 @@
                               },
                               "end": {
                                 "line": 17,
+<<<<<<< HEAD
                                 "column": 34
                               }
                             },
@@ -992,14 +1511,29 @@
                               "raw": "'/wallethistory/:id'"
                             },
                             "value": "/wallethistory/:id"
+=======
+                                "column": 39
+                              }
+                            },
+                            "extra": {
+                              "rawValue": "/wallethistory/:user_id",
+                              "raw": "'/wallethistory/:user_id'"
+                            },
+                            "value": "/wallethistory/:user_id"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           }
                         ],
                         "leadingComments": null
                       },
                       "property": {
                         "type": "Identifier",
+<<<<<<< HEAD
                         "start": 560,
                         "end": 563,
+=======
+                        "start": 588,
+                        "end": 591,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 18,
@@ -1019,8 +1553,13 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
+<<<<<<< HEAD
                         "start": 564,
                         "end": 597,
+=======
+                        "start": 592,
+                        "end": 625,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 18,
@@ -1033,8 +1572,13 @@
                         },
                         "object": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 564,
                           "end": 580,
+=======
+                          "start": 592,
+                          "end": 608,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 18,
@@ -1050,8 +1594,13 @@
                         },
                         "property": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 581,
                           "end": 597,
+=======
+                          "start": 609,
+                          "end": 625,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 18,
@@ -1074,8 +1623,13 @@
                     {
                       "type": "CommentLine",
                       "value": " Wallet History routes to get and create wallet history transactions",
+<<<<<<< HEAD
                       "start": 444,
                       "end": 514,
+=======
+                      "start": 465,
+                      "end": 535,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 16,
@@ -1091,8 +1645,13 @@
                 },
                 {
                   "type": "ExpressionStatement",
+<<<<<<< HEAD
                   "start": 604,
                   "end": 688,
+=======
+                  "start": 633,
+                  "end": 718,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                   "loc": {
                     "start": {
                       "line": 19,
@@ -1105,8 +1664,13 @@
                   },
                   "expression": {
                     "type": "CallExpression",
+<<<<<<< HEAD
                     "start": 604,
                     "end": 687,
+=======
+                    "start": 633,
+                    "end": 717,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                     "loc": {
                       "start": {
                         "line": 19,
@@ -1119,8 +1683,13 @@
                     },
                     "callee": {
                       "type": "MemberExpression",
+<<<<<<< HEAD
                       "start": 604,
                       "end": 645,
+=======
+                      "start": 633,
+                      "end": 675,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                       "loc": {
                         "start": {
                           "line": 19,
@@ -1133,8 +1702,13 @@
                       },
                       "object": {
                         "type": "CallExpression",
+<<<<<<< HEAD
                         "start": 604,
                         "end": 631,
+=======
+                        "start": 633,
+                        "end": 660,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 19,
@@ -1147,8 +1721,13 @@
                         },
                         "callee": {
                           "type": "MemberExpression",
+<<<<<<< HEAD
                           "start": 604,
                           "end": 613,
+=======
+                          "start": 633,
+                          "end": 642,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 19,
@@ -1161,8 +1740,13 @@
                           },
                           "object": {
                             "type": "Identifier",
+<<<<<<< HEAD
                             "start": 604,
                             "end": 607,
+=======
+                            "start": 633,
+                            "end": 636,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 19,
@@ -1178,8 +1762,13 @@
                           },
                           "property": {
                             "type": "Identifier",
+<<<<<<< HEAD
                             "start": 608,
                             "end": 613,
+=======
+                            "start": 637,
+                            "end": 642,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 19,
@@ -1198,8 +1787,13 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
+<<<<<<< HEAD
                             "start": 614,
                             "end": 630,
+=======
+                            "start": 643,
+                            "end": 659,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                             "loc": {
                               "start": {
                                 "line": 19,
@@ -1220,8 +1814,13 @@
                       },
                       "property": {
                         "type": "Identifier",
+<<<<<<< HEAD
                         "start": 641,
                         "end": 645,
+=======
+                        "start": 671,
+                        "end": 675,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 20,
@@ -1240,8 +1839,13 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
+<<<<<<< HEAD
                         "start": 646,
                         "end": 686,
+=======
+                        "start": 676,
+                        "end": 716,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                         "loc": {
                           "start": {
                             "line": 20,
@@ -1254,8 +1858,13 @@
                         },
                         "object": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 646,
                           "end": 662,
+=======
+                          "start": 676,
+                          "end": 692,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 20,
@@ -1271,8 +1880,13 @@
                         },
                         "property": {
                           "type": "Identifier",
+<<<<<<< HEAD
                           "start": 663,
                           "end": 686,
+=======
+                          "start": 693,
+                          "end": 716,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
                           "loc": {
                             "start": {
                               "line": 20,
@@ -1301,8 +1915,13 @@
     "directives": [
       {
         "type": "Directive",
+<<<<<<< HEAD
         "start": 47,
         "end": 60,
+=======
+        "start": 51,
+        "end": 64,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "loc": {
           "start": {
             "line": 5,
@@ -1315,8 +1934,13 @@
         },
         "value": {
           "type": "DirectiveLiteral",
+<<<<<<< HEAD
           "start": 47,
           "end": 59,
+=======
+          "start": 51,
+          "end": 63,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
           "loc": {
             "start": {
               "line": 5,
@@ -1337,9 +1961,15 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
+<<<<<<< HEAD
             "value": "*\n * Wallet endpoint route definitions.\n ",
             "start": 0,
             "end": 45,
+=======
+            "value": "*\r\n * Wallet endpoint route definitions.\r\n ",
+            "start": 0,
+            "end": 47,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
             "loc": {
               "start": {
                 "line": 1,
@@ -1358,9 +1988,15 @@
   "comments": [
     {
       "type": "CommentBlock",
+<<<<<<< HEAD
       "value": "*\n * Wallet endpoint route definitions.\n ",
       "start": 0,
       "end": 45,
+=======
+      "value": "*\r\n * Wallet endpoint route definitions.\r\n ",
+      "start": 0,
+      "end": 47,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 1,
@@ -1375,8 +2011,13 @@
     {
       "type": "CommentLine",
       "value": " defining the controller",
+<<<<<<< HEAD
       "start": 99,
       "end": 125,
+=======
+      "start": 105,
+      "end": 131,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 7,
@@ -1391,8 +2032,13 @@
     {
       "type": "CommentLine",
       "value": " Wallet routes to get and update wallet",
+<<<<<<< HEAD
       "start": 203,
       "end": 244,
+=======
+      "start": 211,
+      "end": 252,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 9,
@@ -1407,8 +2053,13 @@
     {
       "type": "CommentLine",
       "value": " Wallet History routes to get and create wallet history transactions",
+<<<<<<< HEAD
       "start": 444,
       "end": 514,
+=======
+      "start": 465,
+      "end": 535,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 16,
@@ -1424,9 +2075,15 @@
   "tokens": [
     {
       "type": "CommentBlock",
+<<<<<<< HEAD
       "value": "*\n * Wallet endpoint route definitions.\n ",
       "start": 0,
       "end": 45,
+=======
+      "value": "*\r\n * Wallet endpoint route definitions.\r\n ",
+      "start": 0,
+      "end": 47,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 1,
@@ -1452,8 +2109,13 @@
         "updateContext": null
       },
       "value": "use strict",
+<<<<<<< HEAD
       "start": 47,
       "end": 59,
+=======
+      "start": 51,
+      "end": 63,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 5,
@@ -1478,8 +2140,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 59,
       "end": 60,
+=======
+      "start": 63,
+      "end": 64,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 5,
@@ -1504,8 +2171,13 @@
         "binop": null
       },
       "value": "module",
+<<<<<<< HEAD
       "start": 61,
       "end": 67,
+=======
+      "start": 66,
+      "end": 72,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1530,8 +2202,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 67,
       "end": 68,
+=======
+      "start": 72,
+      "end": 73,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1556,8 +2233,13 @@
         "binop": null
       },
       "value": "exports",
+<<<<<<< HEAD
       "start": 68,
       "end": 75,
+=======
+      "start": 73,
+      "end": 80,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1583,8 +2265,13 @@
         "updateContext": null
       },
       "value": "=",
+<<<<<<< HEAD
       "start": 76,
       "end": 77,
+=======
+      "start": 81,
+      "end": 82,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1610,8 +2297,13 @@
         "binop": null
       },
       "value": "function",
+<<<<<<< HEAD
       "start": 78,
       "end": 86,
+=======
+      "start": 83,
+      "end": 91,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1635,8 +2327,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 87,
       "end": 88,
+=======
+      "start": 92,
+      "end": 93,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1661,8 +2358,13 @@
         "binop": null
       },
       "value": "app",
+<<<<<<< HEAD
       "start": 88,
       "end": 91,
+=======
+      "start": 93,
+      "end": 96,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1686,8 +2388,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 91,
       "end": 92,
+=======
+      "start": 96,
+      "end": 97,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1711,8 +2418,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 93,
       "end": 94,
+=======
+      "start": 98,
+      "end": 99,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 6,
@@ -1727,8 +2439,13 @@
     {
       "type": "CommentLine",
       "value": " defining the controller",
+<<<<<<< HEAD
       "start": 99,
       "end": 125,
+=======
+      "start": 105,
+      "end": 131,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 7,
@@ -1755,8 +2472,13 @@
         "updateContext": null
       },
       "value": "const",
+<<<<<<< HEAD
       "start": 130,
       "end": 135,
+=======
+      "start": 137,
+      "end": 142,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1781,8 +2503,13 @@
         "binop": null
       },
       "value": "walletController",
+<<<<<<< HEAD
       "start": 136,
       "end": 152,
+=======
+      "start": 143,
+      "end": 159,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1808,8 +2535,13 @@
         "updateContext": null
       },
       "value": "=",
+<<<<<<< HEAD
       "start": 153,
       "end": 154,
+=======
+      "start": 160,
+      "end": 161,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1834,8 +2566,13 @@
         "binop": null
       },
       "value": "require",
+<<<<<<< HEAD
       "start": 155,
       "end": 162,
+=======
+      "start": 162,
+      "end": 169,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1859,8 +2596,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 162,
       "end": 163,
+=======
+      "start": 169,
+      "end": 170,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1886,8 +2628,13 @@
         "updateContext": null
       },
       "value": "../controllers/walletController",
+<<<<<<< HEAD
       "start": 163,
       "end": 196,
+=======
+      "start": 170,
+      "end": 203,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1911,8 +2658,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 196,
       "end": 197,
+=======
+      "start": 203,
+      "end": 204,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1937,8 +2689,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 197,
       "end": 198,
+=======
+      "start": 204,
+      "end": 205,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 8,
@@ -1953,8 +2710,13 @@
     {
       "type": "CommentLine",
       "value": " Wallet routes to get and update wallet",
+<<<<<<< HEAD
       "start": 203,
       "end": 244,
+=======
+      "start": 211,
+      "end": 252,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 9,
@@ -1979,8 +2741,13 @@
         "binop": null
       },
       "value": "app",
+<<<<<<< HEAD
       "start": 249,
       "end": 252,
+=======
+      "start": 258,
+      "end": 261,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 10,
@@ -2005,8 +2772,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 252,
       "end": 253,
+=======
+      "start": 261,
+      "end": 262,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 10,
@@ -2031,8 +2803,13 @@
         "binop": null
       },
       "value": "route",
+<<<<<<< HEAD
       "start": 253,
       "end": 258,
+=======
+      "start": 262,
+      "end": 267,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 10,
@@ -2056,8 +2833,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 258,
       "end": 259,
+=======
+      "start": 267,
+      "end": 268,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 10,
@@ -2082,9 +2864,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "/wallet/:id",
       "start": 259,
       "end": 272,
+=======
+      "value": "/wallet/:user_id",
+      "start": 268,
+      "end": 286,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 10,
@@ -2092,7 +2880,11 @@
         },
         "end": {
           "line": 10,
+<<<<<<< HEAD
           "column": 27
+=======
+          "column": 32
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2108,6 +2900,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 272,
       "end": 273,
       "loc": {
@@ -2118,6 +2911,18 @@
         "end": {
           "line": 10,
           "column": 28
+=======
+      "start": 286,
+      "end": 287,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 32
+        },
+        "end": {
+          "line": 10,
+          "column": 33
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2134,8 +2939,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 282,
       "end": 283,
+=======
+      "start": 298,
+      "end": 299,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 11,
@@ -2159,9 +2969,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "get",
       "start": 283,
       "end": 286,
+=======
+      "value": "put",
+      "start": 299,
+      "end": 302,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 11,
@@ -2185,8 +3001,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 286,
       "end": 287,
+=======
+      "start": 302,
+      "end": 303,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 11,
@@ -2211,8 +3032,13 @@
         "binop": null
       },
       "value": "walletController",
+<<<<<<< HEAD
       "start": 287,
       "end": 303,
+=======
+      "start": 303,
+      "end": 319,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 11,
@@ -2237,8 +3063,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 303,
       "end": 304,
+=======
+      "start": 319,
+      "end": 320,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 11,
@@ -2262,9 +3093,15 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "getUserWallet",
       "start": 304,
       "end": 317,
+=======
+      "value": "updateUserWallet",
+      "start": 320,
+      "end": 336,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 11,
@@ -2272,7 +3109,11 @@
         },
         "end": {
           "line": 11,
+<<<<<<< HEAD
           "column": 43
+=======
+          "column": 46
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2288,6 +3129,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 317,
       "end": 318,
       "loc": {
@@ -2298,13 +3140,30 @@
         "end": {
           "line": 11,
           "column": 44
+=======
+      "start": 336,
+      "end": 337,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 46
+        },
+        "end": {
+          "line": 11,
+          "column": 47
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": ".",
         "beforeExpr": false,
+=======
+        "label": ";",
+        "beforeExpr": true,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
@@ -2314,6 +3173,7 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 327,
       "end": 328,
       "loc": {
@@ -2324,6 +3184,18 @@
         "end": {
           "line": 12,
           "column": 9
+=======
+      "start": 337,
+      "end": 338,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 47
+        },
+        "end": {
+          "line": 11,
+          "column": 48
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2339,6 +3211,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "put",
       "start": 328,
       "end": 331,
@@ -2350,19 +3223,39 @@
         "end": {
           "line": 12,
           "column": 12
+=======
+      "value": "app",
+      "start": 344,
+      "end": 347,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 4
+        },
+        "end": {
+          "line": 12,
+          "column": 7
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": "(",
         "beforeExpr": true,
         "startsExpr": true,
+=======
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
         "prefix": false,
         "postfix": false,
+<<<<<<< HEAD
         "binop": null
       },
       "start": 331,
@@ -2375,6 +3268,21 @@
         "end": {
           "line": 12,
           "column": 13
+=======
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 347,
+      "end": 348,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 7
+        },
+        "end": {
+          "line": 12,
+          "column": 8
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2390,6 +3298,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "walletController",
       "start": 332,
       "end": 348,
@@ -2401,19 +3310,39 @@
         "end": {
           "line": 12,
           "column": 29
+=======
+      "value": "route",
+      "start": 348,
+      "end": 353,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 8
+        },
+        "end": {
+          "line": 12,
+          "column": 13
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": ".",
         "beforeExpr": false,
         "startsExpr": false,
+=======
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
         "prefix": false,
         "postfix": false,
+<<<<<<< HEAD
         "binop": null,
         "updateContext": null
       },
@@ -2427,12 +3356,30 @@
         "end": {
           "line": 12,
           "column": 30
+=======
+        "binop": null
+      },
+      "start": 353,
+      "end": 354,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 13
+        },
+        "end": {
+          "line": 12,
+          "column": 14
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": "name",
+=======
+        "label": "string",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "beforeExpr": false,
         "startsExpr": true,
         "rightAssociative": false,
@@ -2440,6 +3387,7 @@
         "isAssign": false,
         "prefix": false,
         "postfix": false,
+<<<<<<< HEAD
         "binop": null
       },
       "value": "updateUserWallet",
@@ -2453,6 +3401,22 @@
         "end": {
           "line": 12,
           "column": 46
+=======
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "/wallet",
+      "start": 354,
+      "end": 363,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 14
+        },
+        "end": {
+          "line": 12,
+          "column": 23
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2468,6 +3432,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 365,
       "end": 366,
       "loc": {
@@ -2478,13 +3443,30 @@
         "end": {
           "line": 12,
           "column": 47
+=======
+      "start": 363,
+      "end": 364,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 23
+        },
+        "end": {
+          "line": 12,
+          "column": 24
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": ";",
         "beforeExpr": true,
+=======
+        "label": ".",
+        "beforeExpr": false,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
@@ -2494,6 +3476,7 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 366,
       "end": 367,
       "loc": {
@@ -2504,6 +3487,18 @@
         "end": {
           "line": 12,
           "column": 48
+=======
+      "start": 374,
+      "end": 375,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 8
+        },
+        "end": {
+          "line": 13,
+          "column": 9
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2519,6 +3514,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "app",
       "start": 372,
       "end": 375,
@@ -2530,19 +3526,39 @@
         "end": {
           "line": 13,
           "column": 7
+=======
+      "value": "get",
+      "start": 375,
+      "end": 378,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 9
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": ".",
         "beforeExpr": false,
         "startsExpr": false,
+=======
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
         "prefix": false,
         "postfix": false,
+<<<<<<< HEAD
         "binop": null,
         "updateContext": null
       },
@@ -2556,6 +3572,20 @@
         "end": {
           "line": 13,
           "column": 8
+=======
+        "binop": null
+      },
+      "start": 378,
+      "end": 379,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 12
+        },
+        "end": {
+          "line": 13,
+          "column": 13
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2571,6 +3601,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "value": "route",
       "start": 376,
       "end": 381,
@@ -2582,19 +3613,39 @@
         "end": {
           "line": 13,
           "column": 13
+=======
+      "value": "walletController",
+      "start": 379,
+      "end": 395,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 29
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": "(",
         "beforeExpr": true,
         "startsExpr": true,
+=======
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
         "prefix": false,
         "postfix": false,
+<<<<<<< HEAD
         "binop": null
       },
       "start": 381,
@@ -2607,12 +3658,31 @@
         "end": {
           "line": 13,
           "column": 14
+=======
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 395,
+      "end": 396,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 29
+        },
+        "end": {
+          "line": 13,
+          "column": 30
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
     {
       "type": {
+<<<<<<< HEAD
         "label": "string",
+=======
+        "label": "name",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         "beforeExpr": false,
         "startsExpr": true,
         "rightAssociative": false,
@@ -2620,6 +3690,7 @@
         "isAssign": false,
         "prefix": false,
         "postfix": false,
+<<<<<<< HEAD
         "binop": null,
         "updateContext": null
       },
@@ -2634,6 +3705,21 @@
         "end": {
           "line": 13,
           "column": 23
+=======
+        "binop": null
+      },
+      "value": "getUserWallet",
+      "start": 396,
+      "end": 409,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 30
+        },
+        "end": {
+          "line": 13,
+          "column": 43
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2649,6 +3735,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 391,
       "end": 392,
       "loc": {
@@ -2659,6 +3746,18 @@
         "end": {
           "line": 13,
           "column": 24
+=======
+      "start": 409,
+      "end": 410,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 43
+        },
+        "end": {
+          "line": 13,
+          "column": 44
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -2675,8 +3774,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 401,
       "end": 402,
+=======
+      "start": 420,
+      "end": 421,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2701,8 +3805,13 @@
         "binop": null
       },
       "value": "post",
+<<<<<<< HEAD
       "start": 402,
       "end": 406,
+=======
+      "start": 421,
+      "end": 425,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2726,8 +3835,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 406,
       "end": 407,
+=======
+      "start": 425,
+      "end": 426,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2752,8 +3866,13 @@
         "binop": null
       },
       "value": "walletController",
+<<<<<<< HEAD
       "start": 407,
       "end": 423,
+=======
+      "start": 426,
+      "end": 442,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2778,8 +3897,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 423,
       "end": 424,
+=======
+      "start": 442,
+      "end": 443,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2804,8 +3928,13 @@
         "binop": null
       },
       "value": "createWallet",
+<<<<<<< HEAD
       "start": 424,
       "end": 436,
+=======
+      "start": 443,
+      "end": 455,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2829,8 +3958,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 436,
       "end": 437,
+=======
+      "start": 455,
+      "end": 456,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2855,8 +3989,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 437,
       "end": 438,
+=======
+      "start": 456,
+      "end": 457,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 14,
@@ -2871,8 +4010,13 @@
     {
       "type": "CommentLine",
       "value": " Wallet History routes to get and create wallet history transactions",
+<<<<<<< HEAD
       "start": 444,
       "end": 514,
+=======
+      "start": 465,
+      "end": 535,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 16,
@@ -2897,8 +4041,13 @@
         "binop": null
       },
       "value": "app",
+<<<<<<< HEAD
       "start": 519,
       "end": 522,
+=======
+      "start": 541,
+      "end": 544,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 17,
@@ -2923,8 +4072,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 522,
       "end": 523,
+=======
+      "start": 544,
+      "end": 545,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 17,
@@ -2949,8 +4103,13 @@
         "binop": null
       },
       "value": "route",
+<<<<<<< HEAD
       "start": 523,
       "end": 528,
+=======
+      "start": 545,
+      "end": 550,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 17,
@@ -2974,8 +4133,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 528,
       "end": 529,
+=======
+      "start": 550,
+      "end": 551,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 17,
@@ -3000,9 +4164,15 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "value": "/wallethistory/:id",
       "start": 529,
       "end": 549,
+=======
+      "value": "/wallethistory/:user_id",
+      "start": 551,
+      "end": 576,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 17,
@@ -3010,7 +4180,11 @@
         },
         "end": {
           "line": 17,
+<<<<<<< HEAD
           "column": 34
+=======
+          "column": 39
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -3026,6 +4200,7 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 549,
       "end": 550,
       "loc": {
@@ -3036,6 +4211,18 @@
         "end": {
           "line": 17,
           "column": 35
+=======
+      "start": 576,
+      "end": 577,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 39
+        },
+        "end": {
+          "line": 17,
+          "column": 40
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
         }
       }
     },
@@ -3052,8 +4239,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 559,
       "end": 560,
+=======
+      "start": 587,
+      "end": 588,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3078,8 +4270,13 @@
         "binop": null
       },
       "value": "get",
+<<<<<<< HEAD
       "start": 560,
       "end": 563,
+=======
+      "start": 588,
+      "end": 591,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3103,8 +4300,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 563,
       "end": 564,
+=======
+      "start": 591,
+      "end": 592,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3129,8 +4331,13 @@
         "binop": null
       },
       "value": "walletController",
+<<<<<<< HEAD
       "start": 564,
       "end": 580,
+=======
+      "start": 592,
+      "end": 608,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3155,8 +4362,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 580,
       "end": 581,
+=======
+      "start": 608,
+      "end": 609,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3181,8 +4393,13 @@
         "binop": null
       },
       "value": "getWalletHistory",
+<<<<<<< HEAD
       "start": 581,
       "end": 597,
+=======
+      "start": 609,
+      "end": 625,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3206,8 +4423,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 597,
       "end": 598,
+=======
+      "start": 625,
+      "end": 626,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3232,8 +4454,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 598,
       "end": 599,
+=======
+      "start": 626,
+      "end": 627,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 18,
@@ -3258,8 +4485,13 @@
         "binop": null
       },
       "value": "app",
+<<<<<<< HEAD
       "start": 604,
       "end": 607,
+=======
+      "start": 633,
+      "end": 636,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 19,
@@ -3284,8 +4516,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 607,
       "end": 608,
+=======
+      "start": 636,
+      "end": 637,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 19,
@@ -3310,8 +4547,13 @@
         "binop": null
       },
       "value": "route",
+<<<<<<< HEAD
       "start": 608,
       "end": 613,
+=======
+      "start": 637,
+      "end": 642,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 19,
@@ -3335,8 +4577,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 613,
       "end": 614,
+=======
+      "start": 642,
+      "end": 643,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 19,
@@ -3362,8 +4609,13 @@
         "updateContext": null
       },
       "value": "/wallethistory",
+<<<<<<< HEAD
       "start": 614,
       "end": 630,
+=======
+      "start": 643,
+      "end": 659,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 19,
@@ -3387,8 +4639,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 630,
       "end": 631,
+=======
+      "start": 659,
+      "end": 660,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 19,
@@ -3413,8 +4670,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 640,
       "end": 641,
+=======
+      "start": 670,
+      "end": 671,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3439,8 +4701,13 @@
         "binop": null
       },
       "value": "post",
+<<<<<<< HEAD
       "start": 641,
       "end": 645,
+=======
+      "start": 671,
+      "end": 675,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3464,8 +4731,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 645,
       "end": 646,
+=======
+      "start": 675,
+      "end": 676,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3490,8 +4762,13 @@
         "binop": null
       },
       "value": "walletController",
+<<<<<<< HEAD
       "start": 646,
       "end": 662,
+=======
+      "start": 676,
+      "end": 692,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3516,8 +4793,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 662,
       "end": 663,
+=======
+      "start": 692,
+      "end": 693,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3542,8 +4824,13 @@
         "binop": null
       },
       "value": "createWalletTransaction",
+<<<<<<< HEAD
       "start": 663,
       "end": 686,
+=======
+      "start": 693,
+      "end": 716,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3567,8 +4854,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 686,
       "end": 687,
+=======
+      "start": 716,
+      "end": 717,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3593,8 +4885,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 687,
       "end": 688,
+=======
+      "start": 717,
+      "end": 718,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 20,
@@ -3618,8 +4915,13 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 689,
       "end": 690,
+=======
+      "start": 720,
+      "end": 721,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 21,
@@ -3644,8 +4946,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 690,
       "end": 691,
+=======
+      "start": 721,
+      "end": 722,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 21,
@@ -3670,8 +4977,13 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 691,
       "end": 691,
+=======
+      "start": 722,
+      "end": 722,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       "loc": {
         "start": {
           "line": 21,

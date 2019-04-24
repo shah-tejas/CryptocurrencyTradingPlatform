@@ -3,7 +3,9 @@
  */
 
 'use strict';
-//import wallet service.
+/**
+ *  import wallet service.
+ */
 const walletService = require('../services/wallet-services');
 
 /**

@@ -34,9 +34,31 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/controllers/user-controller.js</h1>
+<<<<<<< HEAD
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">  const UserService = require(&apos;../services/user-service&apos;);
 
   exports.getAll=function(req,res,next){
+=======
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">  /**
+   * @desc Controller for User endpoints.
+   */
+  /**
+  * @desc import UserService.
+  */
+  const UserService = require(&apos;../services/user-service&apos;);
+
+
+  /**
+   * @desc get all Users.
+   * @return returns User[] JSON object.
+   * @param {request} {HTTP request object}
+   * @param {response} {HTTP response object}
+   */
+  exports.getAll=function(req,res,next){
+    /**
+     * @desc calling the service to perform get.
+     */
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     let User = UserService.getAllUsers();
     User.then(data=&gt;{
       data.sort(UserService.compare);
@@ -46,8 +68,21 @@
     .catch(err=&gt;UserService.inspectError(err,res));
   }
 
+<<<<<<< HEAD
 
   exports.post=function(req,res,next){
+=======
+  /**
+   * @desc create an User based on the object passed in the request body.
+   * @return returns User JSON object.
+   * @param {request} {HTTP request object}
+   * @param {response} {HTTP response object}
+   */
+  exports.post=function(req,res,next){
+    /**
+     * @desc calling the service to perform post.
+     */
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     let User = UserService.createNewUser(req);
     User.then(result=&gt;{
       res.status(201).json({
@@ -59,7 +94,20 @@
   }
 
 
+<<<<<<< HEAD
   exports.getOne=function(req,res,next){
+=======
+  /**
+   * @desc get one User based on userId.
+   * @return returns User JSON object.
+   * @param {request} {HTTP request object}
+   * @param {response} {HTTP response object}
+   */
+  exports.getOne=function(req,res,next){
+    /**
+     * @desc calling the service to perform get by userId.
+     */
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     let User = UserService.getOneUser(req);
     User.then(data=&gt;{
       if(data){ res.status(200).json(data); }
@@ -68,8 +116,21 @@
     .catch(err=&gt;UserService.inspectError(err,res));
   }
 
+<<<<<<< HEAD
 
   exports.put=function(req,res,next){
+=======
+  /**
+   * @desc update User with userId passed in request url.
+   * @return returns String JSON object.
+   * @param {request} {HTTP request object}
+   * @param {response} {HTTP response object}
+   */
+  exports.put=function(req,res,next){
+    /**
+     * @desc calling the service to perform update.
+     */
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     let User = UserService.updateUser(req);
     User.then(result=&gt;{
       res.status(200).json({
@@ -79,8 +140,21 @@
     .catch(err=&gt;UserService.inspectError(err,res));
   }
 
+<<<<<<< HEAD
 
   exports.delete=function(req,res,next){
+=======
+  /**
+   * @desc delete a user with userId passed with the request url.
+   * @return returns String JSON object.
+   * @param {request} {HTTP request object}
+   * @param {response} {HTTP response object}
+   */
+  exports.delete=function(req,res,next){
+    /**
+     * @desc calling the service to perform delete.
+     */
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     let User = UserService.deleteUser(req);
     User.then(result=&gt;{
       res.status(200).json({
