@@ -4,7 +4,7 @@
     <ng-template matTabContent>
       <h1>Pending Orders <app-save-file-icon (click)="downloadPendingOrders()"></app-save-file-icon></h1>
       <!-- display the table if there is at least one pending order -->
-      <app-table  *ngIf="displayPendingOrders" [display]="true" [data]="orders"></app-table>
+      <app-table  *ngIf="displayPendingOrders" [display]="true" [data]="orders" id="pendingOrderData"></app-table>
       <h3 *ngIf="!displayPendingOrders" >No Pending Orders</h3>
     </ng-template>
   </mat-tab>
@@ -13,7 +13,7 @@
     <ng-template matTabContent>
       <h1>Completed Orders <app-save-file-icon (click)="downloadCompletedOrders()"></app-save-file-icon></h1>
       <!-- display the table if there is at least one completed order -->
-      <app-table *ngIf="displayCompletedOrders" [display]="false" [data]="orders"></app-table>
+      <app-table *ngIf="displayCompletedOrders" [display]="false" [data]="orders" id="completedOrderData"></app-table>
       <h3 *ngIf="!displayCompletedOrders" >No Completed Orders</h3>
     </ng-template>
   </mat-tab>
@@ -22,7 +22,7 @@
     <ng-template matTabContent>
       <h1>Canceled Orders <app-save-file-icon (click)="downloadCancelledOrders()"></app-save-file-icon></h1>
       <!-- display the table if there is at least one canceled order -->
-      <app-table *ngIf="displayCanceledOrders" [display]="false" [data]="orders"></app-table>
+      <app-table *ngIf="displayCanceledOrders" [display]="false" [data]="orders" id="cancelledOrderData"></app-table>
       <h3 *ngIf="!displayCanceledOrders" >No Canceled Orders</h3>
     </ng-template>
   </mat-tab>
