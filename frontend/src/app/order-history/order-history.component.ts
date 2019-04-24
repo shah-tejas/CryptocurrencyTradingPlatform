@@ -3,6 +3,10 @@ import { OrderHistoryService } from '../services/order-history.service';
 import { Order } from '../models/order';
 import { Router } from '@angular/router';
 
+
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+
 @Component({
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
@@ -80,4 +84,57 @@ export class OrderHistoryComponent implements OnInit {
     // if the user clicks on the pending orders tab then reload the list of canceled orders
     else this.reloadCanceledOrders();
   }
+
+
+  downloadCancelledOrders(){
+    const data = document.getElementById('cancelledOrderData');
+    html2canvas(data).then(canvas => {
+      // Few necessary setting options
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 10;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('CancelledOrders.pdf'); // Generated PDF
+    });
+  }
+
+  downloadCompletedOrders(){
+    const data = document.getElementById('completedOrderData');
+    html2canvas(data).then(canvas => {
+      // Few necessary setting options
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 10;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('CompletedOrders.pdf'); // Generated PDF
+    });
+  }
+
+  downloadPendingOrders(){
+    const data = document.getElementById('pendingOrderData');
+    html2canvas(data).then(canvas => {
+      // Few necessary setting options
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 10;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('PendingOrders.pdf'); // Generated PDF
+    });
+  }
+
 }

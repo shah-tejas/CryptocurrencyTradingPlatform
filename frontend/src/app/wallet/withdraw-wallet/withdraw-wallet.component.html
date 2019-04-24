@@ -5,10 +5,9 @@
         <mat-card-title>Withdraw Funds from Wallet</mat-card-title>
       </mat-grid-tile>
     </mat-card-header>
+    <!-- Display the form if user has any coins too withdraw -->
     <mat-card-content *ngIf="coins">
       <form [formGroup]="withdrawForm" (ngSubmit)="submitWithdrawForm()" *ngIf="coins.length > 0">
-
-
         <mat-grid-tile>
           <mat-label>Coin Name:</mat-label>
         </mat-grid-tile>
@@ -25,7 +24,8 @@
           <mat-label>Coin Qty: </mat-label>
         </mat-grid-tile>
         <mat-grid-tile>
-          <input matInput type="number" formControlName="coinQty" min="1" (keypress)="updateUSDValue()" (change)="updateUSDValue()" />
+          <input matInput type="number" formControlName="coinQty" min="1" (keypress)="updateUSDValue()"
+            (change)="updateUSDValue()" />
         </mat-grid-tile>
 
         <mat-grid-tile>

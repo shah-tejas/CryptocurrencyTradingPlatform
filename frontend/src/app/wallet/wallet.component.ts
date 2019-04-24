@@ -5,6 +5,9 @@ import { Wallet } from '../models/wallet';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+
 import { formatDate } from '@angular/common';
 
 import { User } from '../models/user';
@@ -32,13 +35,16 @@ export class WalletComponent implements OnInit {
       this.user_id = this.authService.getUserId();
     }
 
+    /**
+     * Fetch the User's wallet from server
+     */
     const userWalletObservable$: Observable<Wallet> = this.walletService.getUserWallet(this.user_id);
     userWalletObservable$.subscribe(wallet => {
       this.userWallet = wallet[0];
       this.userWallet.usd_value = 0;
 
       // get current rates of all coins in the wallet
-      for(const coin of this.userWallet.coins){
+      for (const coin of this.userWallet.coins) {
         this.walletService.getCoinRate(coin.coin_name).subscribe(coinRate => {
           coin.coin_rate = Math.round(coinRate[0].usdvalue * 100) / 100;
           this.userWallet.usd_value += Math.round(coin.coin_rate * coin.coin_qty * 100) / 100;
@@ -49,16 +55,39 @@ export class WalletComponent implements OnInit {
 
       // get user wallet's transactions
       this.walletService.getUserWalletTransactions(this.userWallet.user_id)
-          .subscribe(walletTransactions => {
-              this.userWallet.walletTransactions = walletTransactions;
-          });
+        .subscribe(walletTransactions => {
+          this.userWallet.walletTransactions = walletTransactions;
+        });
 
     });
 
   }
 
-  formatMyDate(date: Date): string{
+  /**
+   * Structure the display date in suitable format for UI
+   */
+  formatMyDate(date: Date): string {
     return formatDate(date, 'MMM d, y', 'en-us');
+  }
+
+  /**
+   * method to create pdf
+   */
+  downloadAsPdf() {
+    const data = document.getElementById('UserWalletTransactions');
+    html2canvas(data).then(canvas => {
+      // Few necessary setting options
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 10;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('WalletTransactions.pdf'); // Generated PDF
+    });
   }
 
 }
