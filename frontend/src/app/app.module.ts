@@ -82,7 +82,6 @@ import { ConfirmationBoxComponent } from './wallet/confirmation-box/confirmation
       { path: 'register', component: RegisterComponent},
       { path: 'home', component: RateChartComponent},
       {path: 'orderHistory', component: OrderHistoryComponent},
-      // {path: ,component:ForgotPassword}
       { path: 'accountsettings', component: AccountSettingsComponent}
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

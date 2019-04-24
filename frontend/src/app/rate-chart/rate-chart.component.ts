@@ -17,10 +17,11 @@ export class RateChartComponent implements OnInit {
   // array of currency rate
   private data: any[];
   // flags to indicate which chart to display, load the page with BTC chart
-  private displayBTC: boolean = true;
-  private displayETH: boolean = false;
-  private displayLTC: boolean = false;
-  private displayEOS: boolean = false;
+  private displayBitCoin: boolean = true;
+  private displayEthereum: boolean = false;
+  private displayLiteCoin: boolean = false;
+  private displayHuskyCoin: boolean = false;
+  private displayDashCoin: boolean = false;
   // id here represent which Coins rate chart to be displayed
   private id: String = 'BitCoin';
   // color sets the color of the strock
@@ -99,7 +100,6 @@ export class RateChartComponent implements OnInit {
   getChart($event): void{
     // get the index of the tab clicked
     let tabIndex = $event.index;
-    console.log(tabIndex);
     this.helper2(tabIndex);
     // ajax call to get the list of rates based on the which tab was clicked
     this.rateService.get(this.id).subscribe(this.DATAobserver);
@@ -107,33 +107,39 @@ export class RateChartComponent implements OnInit {
 
   // helper function to decide which chart to be created based on the clients input on the tab selected
   helper2(coin): void{
-    this.displayBTC = false;
-    this.displayETH = false;
-    this.displayLTC = false;
-    this.displayEOS = false;
+    this.displayBitCoin = false;
+    this.displayEthereum = false;
+    this.displayLiteCoin = false;
+    this.displayHuskyCoin = false;
+    this.displayDashCoin = false;
     // show the rate list of the BTC Coin
     if(coin == 0) {
       this.color="red";
       this.id = "BitCoin";
-      this.displayBTC = true;
+      this.displayBitCoin = true;
     }
     // show the rate list of the ETH Coin
     else if(coin == 1) {
       this.color="pink";
-      this.id = "ETH";
-      this.displayETH = true;
+      this.id = "Ethereum";
+      this.displayEthereum = true;
     }
     // show the rate list of the LTC Coin
     else if(coin == 2) {
       this.color="green";
-      this.id = "LTC";
-      this.displayLTC = true;
+      this.id = "LiteCoin";
+      this.displayLiteCoin = true;
     }
     // show the rate list of the EOS Coin
-    else {
+    else if(coin == 3){
       this.color="blue";
-      this.id = "EOS";
-      this.displayEOS = true;
+      this.id = "HuskyCoin";
+      this.displayHuskyCoin = true;
+    }
+    else {
+      this.color="yellow";
+      this.id = "DashCoin";
+      this.displayDashCoin = true;
     }
   }
 }

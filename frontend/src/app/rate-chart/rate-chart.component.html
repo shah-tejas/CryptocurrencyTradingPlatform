@@ -1,24 +1,28 @@
 <div class="contain">
   <mat-tab-group (selectedTabChange)="getChart($event)">
-    <!--  -->
     <mat-tab label="BitCoin">
       <ng-template matTabContent>
-        <canvas *ngIf="displayBTC" id="BTC" height="35vh" width="75vw">{{ chart }}</canvas>
+        <canvas *ngIf="displayBitCoin" id="BitCoin" height="35vh" width="75vw">{{ chart }}</canvas>
       </ng-template>
     </mat-tab>
-    <mat-tab label="ETH">
+    <mat-tab label="Ethereum">
       <ng-template matTabContent>
-        <canvas *ngIf="displayETH" id="ETH" height="35vh" width="75vw">{{ chart }}</canvas>
+        <canvas *ngIf="displayEthereum" id="Ethereum" height="35vh" width="75vw">{{ chart }}</canvas>
       </ng-template>
     </mat-tab>
-    <mat-tab label="LTC">
+    <mat-tab label="LiteCoin">
       <ng-template matTabContent>
-        <canvas *ngIf="displayLTC" id="LTC" height="35vh" width="75vw">{{ chart }}</canvas>
+        <canvas *ngIf="displayLiteCoin" id="LiteCoin" height="35vh" width="75vw">{{ chart }}</canvas>
       </ng-template>
     </mat-tab>
-    <mat-tab label="EOS">
+    <mat-tab label="HuskyCoin">
       <ng-template matTabContent>
-        <canvas *ngIf="displayEOS" id="EOS" height="35vh" width="75vw">{{ chart }}</canvas>
+        <canvas *ngIf="displayHuskyCoin" id="HuskyCoin" height="35vh" width="75vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="DashCoin">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayDashCoin" id="DashCoin" height="35vh" width="75vw">{{ chart }}</canvas>
       </ng-template>
     </mat-tab>
   </mat-tab-group>

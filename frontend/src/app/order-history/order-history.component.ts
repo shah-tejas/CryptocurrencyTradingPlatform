@@ -39,7 +39,6 @@ export class OrderHistoryComponent implements OnInit {
     .subscribe({
       next: response => {
         this.orders = response["data"];
-        console.log(response["data"]);
       },
       error: err => console.log(err)
     });
@@ -53,7 +52,6 @@ export class OrderHistoryComponent implements OnInit {
     .subscribe({
       next: response => {
         this.orders = response["data"];
-        console.log(response["data"]);
       },
       error: err => console.log(err)
     });
@@ -67,7 +65,6 @@ export class OrderHistoryComponent implements OnInit {
     .subscribe({
       next: response => {
         this.orders = response["data"];
-        console.log(response["data"]);
       },
       error: err => console.log(err)
     });
