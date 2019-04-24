@@ -1,4 +1,4 @@
-# Blood Supply Chain Management System  :
+#  CRYPTOCURRENCY TRADING PLATFORM
 
 ## Description : 
 * Cryptocurrency  is a digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, operating independently of a central bank. The Cryptocurrency Trading Portal helps users in trading in different cryptocurrencies and manage their accounts in a simple and convenient way
