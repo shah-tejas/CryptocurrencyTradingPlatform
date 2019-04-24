@@ -1,0 +1,12 @@
+<!-- ToolBar on the top to show menu and to logout -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!-- clicking on this element will fadein a side nav bar -->
+    <h2 (click)="showMenufunc()">☰</h2>
+    <span>&emsp;HUSKY COIN</span>
+    <!-- spacer -->
+    <span class="spacer"></span>
+    <!-- button to logout -->
+    <button mat-raised-button (click)="logout()" mat-button routerLink="/login">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>

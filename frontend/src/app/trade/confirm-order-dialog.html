@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Confirm-Order</h1>
+<div mat-dialog-content>
+    <mat-grid-list cols="3" rowHeight="100px">
+        <mat-grid-tile >
+           <mat-form-field >
+            <mat-label>Type of Order</mat-label>
+            <input readonly matInput [(ngModel)]="data.buy_or_sell" #buy_or_sell="ngModel" name="buy_or_sell" type="text" [contentEditable]=false>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]=2 ></mat-grid-tile>
+
+        <mat-grid-tile >
+            <mat-form-field>
+                <mat-label>From-Coin</mat-label>
+                <input readonly matInput [(ngModel)]="data.from_coin" #from_coin="ngModel" name="from_coin" type="text" >
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile >
+            <mat-form-field>
+                <mat-label>From-Quantity</mat-label>
+                <input readonly matInput [(ngModel)]="data.from_qty" #from_qty="ngModel" name="from_qty" type="text" >
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile >
+            <mat-form-field>
+                <mat-label>From-Value</mat-label>
+                <span matPrefix>&nbsp;&nbsp;&nbsp;&nbsp; $ &nbsp;</span>
+                <input readonly matInput [(ngModel)]="data.from_value" #from_value="ngModel" name="from_value" type="text" class="fromValueClass">
+              </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile >
+            <mat-form-field >
+                <mat-label>To-Coin</mat-label>
+                <input readonly matInput [(ngModel)]="data.to_coin" #to_coin="ngModel" name="to_coin" type="text" >
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile >
+            <mat-form-field >
+                <mat-label>To-Quantity</mat-label>
+                <input readonly matInput [(ngModel)]="data.to_qty" #from_qty="ngModel" name="to_qty" type="text" >
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile >
+            <mat-form-field >
+                <mat-label>To-Value</mat-label>
+                <span matPrefix>&nbsp;&nbsp;&nbsp;$ &nbsp;</span>
+                <input matInput [(ngModel)]="data.to_value" #to_value="ngModel" name="to_value" type="text" >
+              </mat-form-field>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-raised-button color="warn" (click)="cancelClick()">Cancel</button>
+  <button mat-button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Confirm</button>
+</div>

@@ -3,7 +3,9 @@
  */
 
 'use strict';
-//import wallet service.
+/**
+ *  import wallet service.
+ */
 const walletService = require('../services/wallet-services');
 
 /**
@@ -17,7 +19,8 @@ exports.getUserWallet = function (request, response) {
         response.status(200);
         response.json(wallet);
     };
-    walletService.searchById(request.params.id)
+    const user_id = request.query.user_id;
+    walletService.searchByUserId({"user_id": user_id})
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
@@ -34,7 +37,7 @@ exports.updateUserWallet = function (request, response) {
         response.status(200);
         response.json(wallet);
     };
-    wallet._id = request.params.id;
+    wallet.user_id = request.params.user_id;
     walletService.update(wallet)
         .then(resolve)
         .catch(renderErrorResponse(response));
@@ -51,7 +54,7 @@ exports.getWalletHistory = function (request, response) {
         response.status(200);
         response.json(walletHistory);
     };
-    walletService.searchWalletTransactionById(request.params.id)
+    walletService.searchWalletTransactionById(request.params.user_id)
         .then(resolve)
         .catch(renderErrorResponse(response));
 };

@@ -567,9 +567,13 @@
     "__docId__": 48,
     "kind": "file",
     "name": "api/app.js",
-    "content": "'use strict';\r\nmodule.exports = function (app) {\r\n    //Initialize models\r\n    //TO-DO\r\n    // let contactModel = require('./model/');\r\n\r\n    //Initialize routes\r\n    //TO-DO\r\n    // let contactRoutes = require('./routes/');\r\n    // contactRoutes(app);\r\n};",
+<<<<<<< HEAD
+    "content": "'use strict';\nmodule.exports = function (app) {\n    //Initialize models\n    let walletModel = require('./model/wallet');\n    let walletHistoryModel = require('./model/wallet-history');\n    let userModel = require('./model/users');\n    const rateModel = require('./model/RateList');\n\n    //Initialize routes\n    let walletRoutes = require('./routes/wallet-route');\n    walletRoutes(app);\n    let userRoutes = require('./routes/user');\n    userRoutes(app);\n    const rateRoutes = require('./routes/rateList-route');\n    rateRoutes(app);\n};",
+=======
+    "content": "  'use strict';\r\n  /* The main app configuration to bootstrap the server from */\r\n  module.exports = function (app) {\r\n      //Initialize models\r\n      let walletModel = require('./model/wallet');\r\n      let walletHistoryModel = require('./model/wallet-history');\r\n      let userModel = require('./model/users');\r\n      const rateModel = require('./model/RateList');\r\n      let orderModel = require('./model/orders');\r\n      //Initialize routes\r\n      let walletRoutes = require('./routes/wallet-route');\r\n      walletRoutes(app);\r\n      let userRoutes = require('./routes/user');\r\n      userRoutes(app);\r\n      const rateRoutes = require('./routes/rateList-route');\r\n      rateRoutes(app);\r\n      let orderRoutes = require('./routes/order');\r\n      orderRoutes(app);\r\n      let orderHistoryRoutes = require('./routes/order-history');\r\n      orderHistoryRoutes(app);\r\n  };\r\n\r\n",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "static": true,
-    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/app.js",
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/app.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -588,7 +592,7 @@
     "importPath": "husky_coin_server/api/app.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 2,
+    "lineNumber": 3,
     "undocument": true,
     "params": [
       {
@@ -604,10 +608,14 @@
   {
     "__docId__": 50,
     "kind": "file",
-    "name": "api/controllers/loginController.js",
-    "content": "",
+    "name": "api/commons/app-constant.js",
+    "content": "exports.secretkey = \"huskyminers\"",
     "static": true,
-    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/controllers/loginController.js",
+<<<<<<< HEAD
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/commons/app-constant.js",
+=======
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/commons/app-constant.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -615,48 +623,4213 @@
   {
     "__docId__": 51,
     "kind": "file",
-    "name": "api/model/user.js",
-    "content": "",
+    "name": "api/controllers/loginController.js",
+<<<<<<< HEAD
+    "content": "/**\n * @desc Controller for login endpoints.\n */\n\n'use strict';\n/**\n * @desc import user service.\n */\nconst userService = require('../services/user-service');\nconst jwtService  = require('../services/jwt-service');\n/**\n * @desc Creates a new user with the request JSON and\n * @return returns user JSON object.\n * @param {request} {HTTP request object}\n * @param {response} {HTTP response object}\n */\nexports.post = function (request, response) {\n    const newUser = Object.assign({}, request.body);\n    const resolve = (user) => {\n        response.status(200);\n        response.json(user);\n    };\n    userService.save(newUser)\n        .then(resolve)\n        .catch(renderErrorResponse(response));\n};\n\n\n/**\n * @param {request} {HTTP request object}\n * @param {response} {HTTP response object}\n * @return Returns a user object in JSON.\n */\nexports.getUser = function (request, response) {\n    let pwd = request.body.password;\n    const resolve = (user) => {\n        if(user[0].login.password == pwd){\n            response.status(200);\n            response.json({\n                success: true,\n                message: 'Authentication successful!',\n                token: jwtService.generateToken(user[0]),\n                User:user[0]\n        });\n            \n        }else{\n        response.status(401);\n        \n        response.json(\"user credentials invalid!!!\")\n        }\n    };\n    console.log(request.body );\n    userService.search(JSON.parse(\"{\\\"login.username\\\":\\\"\"+ request.body.username +\"\\\"}\"))\n        .then(resolve)\n        .catch(renderErrorResponse(response));\n};\n\n\n\n/**\n * @desc Throws error if error object is present.\n * @param {Response} response The response object\n * @return {Function} The error handler function.\n */\nlet renderErrorResponse = (response) => {\n    const errorCallback = (error) => {\n        if (error) {\n            response.status(500);\n            response.json({\n                message: error.message\n            });\n        }\n    }\n    return errorCallback; \n};",
     "static": true,
-    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/model/user.js",
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/controllers/loginController.js",
+=======
+    "content": "/**\r\n * @desc Controller for login endpoints.\r\n */\r\n\r\n'use strict';\r\n/**\r\n * @desc import user service.\r\n */\r\nconst userService = require('../services/user-service');\r\nconst jwtService = require('../services/jwt-service');\r\nconst walletService = require('../services/wallet-services');\r\nconst emailService = require('../services/email-service');\r\nconst bcrypt = require('bcrypt');\r\nconst salt = bcrypt.genSaltSync(10);\r\n\r\n/**\r\n * @desc Creates a new user with the request JSON and\r\n * @return returns user JSON object.\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.post = function (request, response) {\r\n\r\n    const newUser = Object.assign({}, request.body);\r\n    const resolve = (user) => {\r\n        const userWallet = Object.assign({}, { user_id: user._id });\r\n        walletService.createWallet(userWallet).then();\r\n        const message = \"You have successfully registered to HuskyCoins!! Please login on the below link to use the application!!\\n\\n\";\r\n        const url = \"http://localhost:4200/\";\r\n        emailService.sendemail(user.emailId, \"Registration Successful\", message + url);\r\n        response.status(200);\r\n        response.json(user);\r\n    };\r\n\r\n    newUser.login.password = bcrypt.hashSync(newUser.login.password, salt);\r\n\r\n    userService.save(newUser)\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n\r\n};\r\n\r\n\r\n/**\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n * @return Returns a user object in JSON.\r\n */\r\nexports.getUser = function (request, response) {\r\n    let pwd = request.body.password;\r\n    const resolve = (user) => {\r\n        if (user.length > 0) {\r\n            if (bcrypt.hashSync(pwd, salt) === user[0].login.password) {\r\n                response.status(200);\r\n                response.json({\r\n                    success: true,\r\n                    message: 'Authentication successful!',\r\n                    token: jwtService.generateToken(user[0]),\r\n                    User: user[0]\r\n                });\r\n            }\r\n            else {\r\n                response.status(401);\r\n                response.json(\"user credentials invalid!!!\")\r\n            }\r\n        } else {\r\n            response.status(404);\r\n            response.json(\"User not found\");\r\n        }\r\n\r\n\r\n    };\r\n    userService.search(JSON.parse(\"{\\\"login.username\\\":\\\"\" + request.body.username + \"\\\"}\"))\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n};\r\n\r\n/**\r\n * Updates and returns a sticky object in JSON.\r\n *\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.put = function (request, response) {\r\n    const user = Object.assign({}, request.body);\r\n    const resolve = () => {\r\n        response.status(200);\r\n        response.json(user);\r\n    };\r\n    user._id = request.params.userId;\r\n    \r\n    if(user.login.password != null || user.login.password != \"\"){\r\n        user.login.password = bcrypt.hashSync(user.login.password, salt);\r\n    }else{\r\n        const newUser = userService.getUserById(user._id);\r\n        user.login.password = newUser.login.password;\r\n    }\r\n    userService.updateUser(user)\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n};\r\n\r\n\r\n/**\r\n * @desc Throws error if error object is present.\r\n * @param {Response} response The response object\r\n * @return {Function} The error handler function.\r\n */\r\nlet renderErrorResponse = (response) => {\r\n    const errorCallback = (error) => {\r\n        if (error) {\r\n            //console.log(error);\r\n            response.status(500);\r\n            response.json({\r\n                message: error.message\r\n            });\r\n        }\r\n    }\r\n    return errorCallback;\r\n};\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/controllers/loginController.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "access": "public",
     "description": null,
     "lineNumber": 1
   },
   {
     "__docId__": 52,
-    "kind": "file",
-    "name": "api/routes/login-route.js",
-    "content": "",
+    "kind": "variable",
+    "name": "userService",
+    "memberof": "api/controllers/loginController.js",
     "static": true,
-    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/routes/login-route.js",
+    "longname": "api/controllers/loginController.js~userService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": "import user service.",
+    "lineNumber": 9,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "variable",
+    "name": "jwtService",
+    "memberof": "api/controllers/loginController.js",
+    "static": true,
+    "longname": "api/controllers/loginController.js~jwtService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 54,
+<<<<<<< HEAD
+=======
+    "kind": "variable",
+    "name": "walletService",
+    "memberof": "api/controllers/loginController.js",
+    "static": true,
+    "longname": "api/controllers/loginController.js~walletService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "variable",
+    "name": "emailService",
+    "memberof": "api/controllers/loginController.js",
+    "static": true,
+    "longname": "api/controllers/loginController.js~emailService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "variable",
+    "name": "bcrypt",
+    "memberof": "api/controllers/loginController.js",
+    "static": true,
+    "longname": "api/controllers/loginController.js~bcrypt",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "variable",
+    "name": "salt",
+    "memberof": "api/controllers/loginController.js",
+    "static": true,
+    "longname": "api/controllers/loginController.js~salt",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 58,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "post",
+    "memberof": "api/controllers/loginController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/loginController.js~post",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": "Creates a new user with the request JSON and",
+<<<<<<< HEAD
+    "lineNumber": 17,
+=======
+    "lineNumber": 22,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns user JSON object."
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 55,
+=======
+    "__docId__": 59,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "getUser",
+    "memberof": "api/controllers/loginController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/loginController.js~getUser",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": "",
+<<<<<<< HEAD
+    "lineNumber": 34,
+=======
+    "lineNumber": 49,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "Returns a user object in JSON."
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 56,
+=======
+    "__docId__": 60,
+    "kind": "function",
+    "name": "put",
+    "memberof": "api/controllers/loginController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/loginController.js~put",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": "Updates and returns a sticky object in JSON.",
+    "lineNumber": 84,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 61,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "renderErrorResponse",
+    "memberof": "api/controllers/loginController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/loginController.js~renderErrorResponse",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/loginController.js",
+    "importStyle": null,
+    "description": "Throws error if error object is present.",
+<<<<<<< HEAD
+    "lineNumber": 65,
+=======
+    "lineNumber": 109,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "response",
+        "description": "The response object"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Function"
+      ],
+      "spread": false,
+      "description": "The error handler function."
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 57,
+    "kind": "file",
+    "name": "api/controllers/rateList-controller.js",
+    "content": "/**\r\n * @desc Controller for coin-rates endpoints\r\n */\r\n'use strict';\r\n/**\r\n * @desc import (coin-)rate service.\r\n */\r\nconst rateService = require('../services/rateList-service');\r\n/**\r\n * @desc Fetches current-rates for all the coins and returns the response as JSON\r\n * @return returns a JSON object containing an array of RateList objects\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.allCurrentRates = ((req, res) => {\r\n    const resolve = (currentRates) => {\r\n        res.status(200);\r\n        res.json(currentRates);\r\n    };\r\n    rateService.getAllCurrentRates({})\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n/**\r\n * @desc Creates a new coin-rate object with the request JSON\r\n * @return returns coin-rate JSON object.\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.addNewCurrentRate = ((req, res) => {\r\n    const newrate = Object.assign({}, req.body);\r\n    const resolve = (rate) => {\r\n        res.status(200);\r\n        res.json(rate);\r\n    };\r\n    rateService.voidPreviousRates(newrate)\r\n        .then(() => {rateService.save(newrate).then(resolve)})\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n/**\r\n * @desc Fetches a new coin-rate object with the request JSON\r\n * @return returns coin-rate JSON object.\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.getCoinCurrentRate = ((req, res) => {\r\n    const resolve = (rate) => {\r\n        res.status(200);\r\n        res.json(rate);\r\n    };\r\n    rateService.getCoinCurrentRate(req.params.coinname)\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n/**\r\n * @desc Fetches all the rates for coins with the request JSON\r\n * @return returns a JSON object as array of RateList objects for each coin\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.allRateHistory = ((req, res) => {\r\n    const resolve = (currentRates) => {\r\n        res.status(200);\r\n        res.json(currentRates);\r\n    };\r\n    rateService.getAllRates({})\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n/**\r\n * @desc Fetches all the rates for a coin with the request JSON\r\n * @return returns a JSON object as array of RateList objects for queried coin\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.allRateHistoryCoin = ((req, res) => {\r\n    const resolve = (rate) => {\r\n        res.status(200);\r\n        res.json(rate);\r\n    };\r\n    rateService.getAllRatesCoin(req.params.coinname)\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n/**\r\n * @desc Throws error if error object is present.\r\n * @param {Response} response The response object\r\n * @return {Function} The error handler function.\r\n */\r\nlet renderErrorRes = (res) => {\r\n    const errorCallback = (error) => {\r\n        if (error) {\r\n            res.status(500);\r\n            res.json({\r\n                message: error.message\r\n            });\r\n        }\r\n    }\r\n    return errorCallback;\r\n};",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/controllers/rateList-controller.js",
+=======
+    "__docId__": 62,
+    "kind": "file",
+    "name": "api/controllers/order-controller.js",
+    "content": "  /**\r\n   * @desc Controller for Order endpoints.\r\n   */\r\n /**\r\n  * @desc import OrderService.\r\n  */\r\n  const OrderService = require('../services/order-service');\r\n\r\n  /**\r\n   * @desc get all Orders depending on the type and status mentioned in the request\r\n   * @return returns Order[] JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.getAll=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform get.\r\n     */\r\n    let Order = OrderService.getAllOrders(req);\r\n    Order.then(data=>{\r\n      if(data){ res.status(200).json({message: \"Handling GET request\", data: data }); }\r\n      else{ res.status(404).json(null); }\r\n    })\r\n    .catch(err=>OrderService.inspectError(err,res));\r\n  }\r\n\r\n\r\n  /**\r\n   * @desc creates an Order passed in request object.\r\n   * @return returns Order JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.post=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform save.\r\n     */\r\n    let Order = OrderService.createNewOrder(req);\r\n    Order.then(result=>{\r\n      res.status(201).json({\r\n        messge: \"Handling POST request\",\r\n        createdUser: result\r\n      });\r\n    })\r\n    .catch(err=>OrderService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc gets one Order based on OrderID passed along with request body.\r\n   * @return returns Order JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.getOne=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to get by orderId.\r\n     */\r\n    let Order = OrderService.getOneOrder(req);\r\n    Order.then(data=>{\r\n      if(data){ res.status(200).json(data); }\r\n      else{ res.status(404).json(null); }\r\n    })\r\n    .catch(err=>OrderService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc Updates one Order based on OrderID and a new Order object with fields to be updated are mentioned in request body.\r\n   * @return returns String JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.put=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to update on Order with orderId.\r\n     */\r\n    let Order = OrderService.updateOrder(req);\r\n    Order.then(result=>{\r\n      res.status(200).json({\r\n        message: \"Handling PUT request\",\r\n      });\r\n    })\r\n    .catch(err=>OrderService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc Deletes one Order based on OrderID.\r\n   * @return returns String JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.delete=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to delete an Order with orderId.\r\n     */\r\n    let Order = OrderService.deleteOrder(req);\r\n    Order.then(result=>{\r\n      res.status(200).json({\r\n        message: \"Handling DELETE request\",\r\n      });\r\n    })\r\n    .catch(err=>OrderService.inspectError(err,res));\r\n  }\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/controllers/order-controller.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "access": "public",
     "description": null,
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
-    "kind": "file",
-    "name": "api/services/login-service.js",
-    "content": "",
+<<<<<<< HEAD
+    "__docId__": 58,
+    "kind": "variable",
+    "name": "rateService",
+    "memberof": "api/controllers/rateList-controller.js",
     "static": true,
-    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/login-service.js",
+    "longname": "api/controllers/rateList-controller.js~rateService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/rateList-controller.js",
+    "importStyle": null,
+    "description": "import (coin-)rate service.",
+    "lineNumber": 8,
+=======
+    "__docId__": 63,
+    "kind": "variable",
+    "name": "OrderService",
+    "memberof": "api/controllers/order-controller.js",
+    "static": true,
+    "longname": "api/controllers/order-controller.js~OrderService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-controller.js",
+    "importStyle": null,
+    "description": "import OrderService.",
+    "lineNumber": 7,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 59,
+    "kind": "function",
+    "name": "renderErrorRes",
+    "memberof": "api/controllers/rateList-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/rateList-controller.js~renderErrorRes",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/rateList-controller.js",
+    "importStyle": null,
+    "description": "Throws error if error object is present.",
+    "lineNumber": 95,
+=======
+    "__docId__": 64,
+    "kind": "function",
+    "name": "getAll",
+    "memberof": "api/controllers/order-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-controller.js~getAll",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-controller.js",
+    "importStyle": null,
+    "description": "get all Orders depending on the type and status mentioned in the request",
+    "lineNumber": 15,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+<<<<<<< HEAD
+          "Response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "response",
+        "description": "The response object"
+=======
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns Order[] JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "function",
+    "name": "post",
+    "memberof": "api/controllers/order-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-controller.js~post",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-controller.js",
+    "importStyle": null,
+    "description": "creates an Order passed in request object.",
+    "lineNumber": 34,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+<<<<<<< HEAD
+        "Function"
+      ],
+      "spread": false,
+      "description": "The error handler function."
+=======
+        "*"
+      ],
+      "spread": false,
+      "description": "returns Order JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
+    "name": "getOne",
+    "memberof": "api/controllers/order-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-controller.js~getOne",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-controller.js",
+    "importStyle": null,
+    "description": "gets one Order based on OrderID passed along with request body.",
+    "lineNumber": 54,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns Order JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "function",
+    "name": "put",
+    "memberof": "api/controllers/order-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-controller.js~put",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-controller.js",
+    "importStyle": null,
+    "description": "Updates one Order based on OrderID and a new Order object with fields to be updated are mentioned in request body.",
+    "lineNumber": 72,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns String JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "function",
+    "name": "delete",
+    "memberof": "api/controllers/order-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-controller.js~delete",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-controller.js",
+    "importStyle": null,
+    "description": "Deletes one Order based on OrderID.",
+    "lineNumber": 91,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns String JSON object."
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 60,
+    "kind": "file",
+    "name": "api/controllers/user-controller.js",
+    "content": "  const UserService = require('../services/user-service');\n\n  exports.getAll=function(req,res,next){\n    let User = UserService.getAllUsers();\n    User.then(data=>{\n      data.sort(UserService.compare);\n      if(data){ res.status(200).json({message: \"Handling GET request\", data: data }); }\n      else{ res.status(404).json(null); }\n    })\n    .catch(err=>UserService.inspectError(err,res));\n  }\n\n\n  exports.post=function(req,res,next){\n    let User = UserService.createNewUser(req);\n    User.then(result=>{\n      res.status(201).json({\n        messge: \"Handling POST request\",\n        createdUser: result\n      });\n    })\n    .catch(err=>UserService.inspectError(err,res));\n  }\n\n\n  exports.getOne=function(req,res,next){\n    let User = UserService.getOneUser(req);\n    User.then(data=>{\n      if(data){ res.status(200).json(data); }\n      else{ res.status(404).json(null); }\n    })\n    .catch(err=>UserService.inspectError(err,res));\n  }\n\n\n  exports.put=function(req,res,next){\n    let User = UserService.updateUser(req);\n    User.then(result=>{\n      res.status(200).json({\n        message: \"Handling PATCH request\",\n      });\n    })\n    .catch(err=>UserService.inspectError(err,res));\n  }\n\n\n  exports.delete=function(req,res,next){\n    let User = UserService.deleteUser(req);\n    User.then(result=>{\n      res.status(200).json({\n        message: \"Handling DELETE request\",\n      });\n    })\n    .catch(err=>UserService.inspectError(err,res));\n  }\n",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/controllers/user-controller.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
+  },
+  {
+    "__docId__": 61,
+    "kind": "variable",
+    "name": "UserService",
+    "memberof": "api/controllers/user-controller.js",
+    "static": true,
+    "longname": "api/controllers/user-controller.js~UserService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "function",
+    "name": "getAll",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~getAll",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "next",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "function",
+    "name": "post",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~post",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "next",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
+    "name": "getOne",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~getOne",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "next",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "function",
+    "name": "put",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~put",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "next",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
+    "name": "delete",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~delete",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 47,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "next",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "file",
+    "name": "api/controllers/walletController.js",
+    "content": "/**\n * Controller for Wallet endpoints.\n */\n\n'use strict';\n//import wallet service.\nconst walletService = require('../services/wallet-services');\n\n/**\n * Returns a the user wallet in JSON.\n *\n * @param {request} {HTTP request object}\n * @param {response} {HTTP response object}\n */\nexports.getUserWallet = function (request, response) {\n    const resolve = (wallet) => {\n        response.status(200);\n        response.json(wallet);\n    };\n    walletService.searchById(request.params.id)\n        .then(resolve)\n        .catch(renderErrorResponse(response));\n};\n\n/**\n * Updates and returns a wallet object in JSON.\n *\n * @param {request} {HTTP request object}\n * @param {response} {HTTP response object}\n */\nexports.updateUserWallet = function (request, response) {\n    const wallet = Object.assign({}, request.body);\n    const resolve = (wallet) => {\n        response.status(200);\n        response.json(wallet);\n    };\n    wallet._id = request.params.id;\n    walletService.update(wallet)\n        .then(resolve)\n        .catch(renderErrorResponse(response));\n};\n\n/**\n * Returns a wallet transaction in JSON.\n *\n * @param {request} {HTTP request object}\n * @param {response} {HTTP response object}\n */\nexports.getWalletHistory = function (request, response) {\n    const resolve = (walletHistory) => {\n        response.status(200);\n        response.json(walletHistory);\n    };\n    walletService.searchWalletTransactionById(request.params.id)\n        .then(resolve)\n        .catch(renderErrorResponse(response));\n};\n\n/**\n * Creates a new wallet transaction with the request JSON and\n * returns wallter history JSON object.\n *\n * @param {request} {HTTP request object}\n * @param {response} {HTTP response object}\n */\nexports.createWalletTransaction = function (request, response) {\n    const newWalletHistory = Object.assign({}, request.body);\n    const resolve = (walletHistory) => {\n        response.status(200);\n        response.json(walletHistory);\n    };\n    walletService.createWalletHistory(newWalletHistory)\n        .then(resolve)\n        .catch(renderErrorResponse(response));\n};\n\n/**\n * Creates a new wallet with the request JSON and\n * returns wallter JSON object.\n *\n * @param {request} {HTTP request object}\n * @param {response} {HTTP response object}\n */\nexports.createWallet = function (request, response) {\n    const newWallet = Object.assign({}, request.body);\n    const resolve = (newWallet) => {\n        response.status(200);\n        response.json(newWallet);\n    };\n    walletService.createWallet(newWallet)\n        .then(resolve)\n        .catch(renderErrorResponse(response));\n};\n\n/**\n * Throws error if error object is present.\n *\n * @param {Response} response The response object\n * @return {Function} The error handler function.\n */\nlet renderErrorResponse = (response) => {\n    const errorCallback = (error) => {\n        if (error) {\n            response.status(500);\n            response.json({\n                message: error.message\n            });\n        }\n    }\n    return errorCallback;\n};",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/controllers/walletController.js",
+=======
+    "__docId__": 69,
+    "kind": "file",
+    "name": "api/controllers/order-history-controller.js",
+    "content": "  /**\r\n  * @desc Controller for Order-History endpoints.\r\n  */\r\n  /**\r\n  * @desc import OrderhistoryService.\r\n  */\r\n  const OrderHistoryService = require('../services/order-history-service');\r\n\r\n\r\n  /**\r\n  // * @desc get all Orders of a particular user with userId and status passed along with the url.\r\n  * @return returns Order[] JSON object.\r\n  * @param {request} {HTTP request object}\r\n  * @param {response} {HTTP response object}\r\n  */\r\n  exports.getAll=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform get.\r\n     */\r\n    let Order = OrderHistoryService.getAllOrderHistory(req);\r\n    Order.then(data=>{\r\n      if(data){ res.status(200).json({message: \"Handling GET request\", data: data }); }\r\n      else{\r\n        res.status(404).json(null);\r\n      }\r\n    })\r\n    .catch(err=>OrderHistoryService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc get update Order with given orderId.\r\n   * @return returns Order JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.put=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform update.\r\n     */\r\n    let Order = OrderHistoryService.updateOrder(req);\r\n    Order.then(result=>{\r\n      res.status(200).json({\r\n        message: \"Handling PUT request\",\r\n        data: result\r\n      });\r\n    })\r\n    .catch(err=>OrderHistoryService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc get delete Order with given orderId.\r\n   * @return returns Order JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.delete=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform delete.\r\n     */\r\n    let Order = OrderHistoryService.deleteOrder(req);\r\n    Order.then(result=>{\r\n      res.status(200).json({\r\n        message: \"Handling DELETE request\",\r\n      });\r\n    })\r\n    .catch(err=>OrderHistoryService.inspectError(err,res));\r\n  }\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/controllers/order-history-controller.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 68,
+    "kind": "variable",
+    "name": "walletService",
+    "memberof": "api/controllers/walletController.js",
+    "static": true,
+    "longname": "api/controllers/walletController.js~walletService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+=======
+    "__docId__": 70,
+    "kind": "variable",
+    "name": "OrderHistoryService",
+    "memberof": "api/controllers/order-history-controller.js",
+    "static": true,
+    "longname": "api/controllers/order-history-controller.js~OrderHistoryService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-history-controller.js",
+    "importStyle": null,
+    "description": "import OrderhistoryService.",
+    "lineNumber": 7,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 69,
+    "kind": "function",
+    "name": "getUserWallet",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~getUserWallet",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Returns a the user wallet in JSON.",
+    "lineNumber": 15,
+=======
+    "__docId__": 71,
+    "kind": "function",
+    "name": "getAll",
+    "memberof": "api/controllers/order-history-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-history-controller.js~getAll",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-history-controller.js",
+    "importStyle": null,
+    "description": "// * @desc get all Orders of a particular user with userId and status passed along with the url.",
+    "lineNumber": 16,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+<<<<<<< HEAD
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "function",
+    "name": "updateUserWallet",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~updateUserWallet",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Updates and returns a wallet object in JSON.",
+    "lineNumber": 31,
+=======
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns Order[] JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "function",
+    "name": "put",
+    "memberof": "api/controllers/order-history-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-history-controller.js~put",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-history-controller.js",
+    "importStyle": null,
+    "description": "get update Order with given orderId.",
+    "lineNumber": 36,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+<<<<<<< HEAD
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "function",
+    "name": "getWalletHistory",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~getWalletHistory",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Returns a wallet transaction in JSON.",
+    "lineNumber": 49,
+=======
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns Order JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "delete",
+    "memberof": "api/controllers/order-history-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/order-history-controller.js~delete",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/order-history-controller.js",
+    "importStyle": null,
+    "description": "get delete Order with given orderId.",
+    "lineNumber": 56,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+<<<<<<< HEAD
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "function",
+    "name": "createWalletTransaction",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~createWalletTransaction",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Creates a new wallet transaction with the request JSON and\nreturns wallter history JSON object.",
+    "lineNumber": 66,
+=======
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns Order JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "file",
+    "name": "api/controllers/rateList-controller.js",
+    "content": "//Setting up Controller for the API\r\n'use strict';\r\n//Import service for the API\r\nconst rateService = require('../services/rateList-service');\r\n//Method to retrieve all current-rates from DB\r\nexports.allCurrentRates = ((req, res) => {\r\n    const resolve = (currentRates) => {\r\n        res.status(200);\r\n        res.json(currentRates);\r\n    };\r\n    rateService.getAllCurrentRates({})\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n//Method to add new-current-rate to DB\r\nexports.addNewCurrentRate = ((req, res) => {\r\n    const newrate = Object.assign({}, req.body);\r\n    const resolve = (rate) => {\r\n        res.status(200);\r\n        res.json(rate);\r\n    };\r\n    rateService.voidPreviousRates(newrate)\r\n        .then(() => {rateService.save(newrate).then(resolve)})\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n//Method to retreive current-rate based on coin-name\r\nexports.getCoinCurrentRate = ((req, res) => {\r\n    const resolve = (rate) => {\r\n        res.status(200);\r\n        res.json(rate);\r\n    };\r\n    rateService.getCoinCurrentRate(req.params.coinname)\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n//Method to retrieve all rates from DB\r\nexports.allRateHistory = ((req, res) => {\r\n    const resolve = (currentRates) => {\r\n        res.status(200);\r\n        res.json(currentRates);\r\n    };\r\n    rateService.getAllRates({})\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n//\r\n//Method to retrieve all-rate based on coin-name\r\nexports.allRateHistoryCoin = ((req, res) => {\r\n    const resolve = (rate) => {\r\n        res.status(200);\r\n        res.json(rate);\r\n    };\r\n    rateService.getAllRatesCoin(req.params.coinname)\r\n        .then(resolve)\r\n        .catch(renderErrorRes(res));\r\n});\r\n\r\n//Method to throw error to the calling function\r\nlet renderErrorRes = (res) => {\r\n    const errorCallback = (error) => {\r\n        if (error) {\r\n            res.status(500);\r\n            res.json({\r\n                message: error.message\r\n            });\r\n        }\r\n    }\r\n    return errorCallback;\r\n};\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/controllers/rateList-controller.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 75,
+    "kind": "variable",
+    "name": "rateService",
+    "memberof": "api/controllers/rateList-controller.js",
+    "static": true,
+    "longname": "api/controllers/rateList-controller.js~rateService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/rateList-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "function",
+    "name": "renderErrorRes",
+    "memberof": "api/controllers/rateList-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/rateList-controller.js~renderErrorRes",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/rateList-controller.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 63,
+    "undocument": true,
+    "params": [
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "file",
+    "name": "api/controllers/user-controller.js",
+    "content": "  /**\r\n   * @desc Controller for User endpoints.\r\n   */\r\n  /**\r\n  * @desc import UserService.\r\n  */\r\n  const UserService = require('../services/user-service');\r\n\r\n\r\n  /**\r\n   * @desc get all Users.\r\n   * @return returns User[] JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.getAll=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform get.\r\n     */\r\n    let User = UserService.getAllUsers();\r\n    User.then(data=>{\r\n      data.sort(UserService.compare);\r\n      if(data){ res.status(200).json({message: \"Handling GET request\", data: data }); }\r\n      else{ res.status(404).json(null); }\r\n    })\r\n    .catch(err=>UserService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc create an User based on the object passed in the request body.\r\n   * @return returns User JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.post=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform post.\r\n     */\r\n    let User = UserService.createNewUser(req);\r\n    User.then(result=>{\r\n      res.status(201).json({\r\n        messge: \"Handling POST request\",\r\n        createdUser: result\r\n      });\r\n    })\r\n    .catch(err=>UserService.inspectError(err,res));\r\n  }\r\n\r\n\r\n  /**\r\n   * @desc get one User based on userId.\r\n   * @return returns User JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.getOne=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform get by userId.\r\n     */\r\n    let User = UserService.getOneUser(req);\r\n    User.then(data=>{\r\n      if(data){ res.status(200).json(data); }\r\n      else{ res.status(404).json(null); }\r\n    })\r\n    .catch(err=>UserService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc update User with userId passed in request url.\r\n   * @return returns String JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.put=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform update.\r\n     */\r\n    let User = UserService.updateUser(req);\r\n    User.then(result=>{\r\n      res.status(200).json({\r\n        message: \"Handling PATCH request\",\r\n      });\r\n    })\r\n    .catch(err=>UserService.inspectError(err,res));\r\n  }\r\n\r\n  /**\r\n   * @desc delete a user with userId passed with the request url.\r\n   * @return returns String JSON object.\r\n   * @param {request} {HTTP request object}\r\n   * @param {response} {HTTP response object}\r\n   */\r\n  exports.delete=function(req,res,next){\r\n    /**\r\n     * @desc calling the service to perform delete.\r\n     */\r\n    let User = UserService.deleteUser(req);\r\n    User.then(result=>{\r\n      res.status(200).json({\r\n        message: \"Handling DELETE request\",\r\n      });\r\n    })\r\n    .catch(err=>UserService.inspectError(err,res));\r\n  }\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/controllers/user-controller.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 78,
+    "kind": "variable",
+    "name": "UserService",
+    "memberof": "api/controllers/user-controller.js",
+    "static": true,
+    "longname": "api/controllers/user-controller.js~UserService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": "import UserService.",
+    "lineNumber": 7,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "function",
+    "name": "getAll",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~getAll",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": "get all Users.",
+    "lineNumber": 16,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+<<<<<<< HEAD
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "createWallet",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~createWallet",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Creates a new wallet with the request JSON and\nreturns wallter JSON object.",
+    "lineNumber": 84,
+=======
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns User[] JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "function",
+    "name": "post",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~post",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": "create an User based on the object passed in the request body.",
+    "lineNumber": 35,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+<<<<<<< HEAD
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "function",
+    "name": "renderErrorResponse",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~renderErrorResponse",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Throws error if error object is present.",
+    "lineNumber": 101,
+=======
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns User JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "function",
+    "name": "getOne",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~getOne",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": "get one User based on userId.",
+    "lineNumber": 56,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+<<<<<<< HEAD
+          "Response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "response",
+        "description": "The response object"
+=======
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+<<<<<<< HEAD
+        "Function"
+      ],
+      "spread": false,
+      "description": "The error handler function."
+=======
+        "*"
+      ],
+      "spread": false,
+      "description": "returns User JSON object."
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 75,
+    "kind": "file",
+    "name": "api/model/RateList.js",
+    "content": "/**\r\n * @desc Model for coin-rates endpoints\r\n */\r\n'use strict';\r\n/**\r\n* @desc variable for mongoose library\r\n*/\r\nconst mongoose = require('mongoose');\r\n/**\r\n* @desc variable for Schema for mongoose\r\n*/\r\nconst Schema = mongoose.Schema;\r\n\r\n/**\r\n * Mongoose schema for storing rates of all coins.\r\n * This schema represents each transaction conducted on wallet\r\n */\r\nlet RateSchema = new Schema({\r\n    /**\r\n     * coinname of the coin the rate pertains to\r\n     * @type {String}\r\n     */\r\n    coinname: {\r\n        type: String,\r\n        required: \"Coin-Name is required\"\r\n    },\r\n    /**\r\n     * usdvalue of the coin the rate pertains to\r\n     * @type {Number}\r\n     */\r\n    usdvalue: {\r\n        type: Number,\r\n        required: \"USD-Value is required\"\r\n    },\r\n    /**\r\n     * active denotes if the rate is the current rate of the coin the rate pertains to\r\n     * @type {String}\r\n     */\r\n   active: {\r\n       type: String,\r\n       default: \"A\" \r\n   },\r\n    /**\r\n     * insert_date denotes the date the rate was inserted in the schema\r\n     * @type {Date}\r\n     */\r\n    insert_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    },\r\n    /**\r\n     * modified_date denotes the date the rate was last modified in the schema\r\n     * @type {Date}\r\n     */\r\n    modified_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    }\r\n}, {\r\n    versionKey: false\r\n});\r\n\r\nmodule.exports = mongoose.model('RateList', RateSchema);",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/model/RateList.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 76,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/RateList.js",
+    "static": true,
+    "longname": "api/model/RateList.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/RateList.js",
+    "importStyle": null,
+    "description": "variable for mongoose library",
+    "lineNumber": 8,
+    "type": {
+      "types": [
+        "*"
+      ]
+=======
+    "__docId__": 82,
+    "kind": "function",
+    "name": "put",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~put",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": "update User with userId passed in request url.",
+    "lineNumber": 74,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns String JSON object."
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 77,
+    "kind": "variable",
+    "name": "Schema",
+    "memberof": "api/model/RateList.js",
+    "static": true,
+    "longname": "api/model/RateList.js~Schema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/RateList.js",
+    "importStyle": null,
+    "description": "variable for Schema for mongoose",
+    "lineNumber": 12,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "variable",
+    "name": "RateSchema",
+    "memberof": "api/model/RateList.js",
+    "static": true,
+    "longname": "api/model/RateList.js~RateSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/RateList.js",
+    "importStyle": null,
+    "description": "Mongoose schema for storing rates of all coins.\nThis schema represents each transaction conducted on wallet",
+    "lineNumber": 18,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "name": "api/model/users.js",
+    "content": "\n  const mongoose = require('mongoose');\n\n  const UserSchema = new mongoose.Schema({\n    fname: String,\n    lname: String,\n    emailId: { type: String, unique: true, required: true},\n    Phno:  { type: Number, unique: true},\n    address: {\n      address1: String,\n      address2: String,\n      city: String,\n      country: String,\n      zipcode: Number,\n    },\n    payment: {\n      cardno: { type: Number, unique: true, required: true},\n      cvv: { type: Number, unique: true, required: true},\n      expire: String,\n      name: String,\n      zipcode: Number\n    },\n    login: {\n      username: { type: String, unique: true, required: true},\n      password: String\n    }\n  });\n\n  module.exports = mongoose.model('User',UserSchema);\n",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/model/users.js",
+=======
+    "__docId__": 83,
+    "kind": "function",
+    "name": "delete",
+    "memberof": "api/controllers/user-controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/user-controller.js~delete",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/user-controller.js",
+    "importStyle": null,
+    "description": "delete a user with userId passed with the request url.",
+    "lineNumber": 93,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "returns String JSON object."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "file",
+    "name": "api/controllers/walletController.js",
+    "content": "/**\r\n * Controller for Wallet endpoints.\r\n */\r\n\r\n'use strict';\r\n/**\r\n *  import wallet service.\r\n */\r\nconst walletService = require('../services/wallet-services');\r\n\r\n/**\r\n * Returns a the user wallet in JSON.\r\n *\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.getUserWallet = function (request, response) {\r\n    const resolve = (wallet) => {\r\n        response.status(200);\r\n        response.json(wallet);\r\n    };\r\n    const user_id = request.query.user_id;\r\n    walletService.searchByUserId({\"user_id\": user_id})\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n};\r\n\r\n/**\r\n * Updates and returns a wallet object in JSON.\r\n *\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.updateUserWallet = function (request, response) {\r\n    const wallet = Object.assign({}, request.body);\r\n    const resolve = (wallet) => {\r\n        response.status(200);\r\n        response.json(wallet);\r\n    };\r\n    wallet.user_id = request.params.user_id;\r\n    walletService.update(wallet)\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n};\r\n\r\n/**\r\n * Returns a wallet transaction in JSON.\r\n *\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.getWalletHistory = function (request, response) {\r\n    const resolve = (walletHistory) => {\r\n        response.status(200);\r\n        response.json(walletHistory);\r\n    };\r\n    walletService.searchWalletTransactionById(request.params.user_id)\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n};\r\n\r\n/**\r\n * Creates a new wallet transaction with the request JSON and\r\n * returns wallter history JSON object.\r\n *\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.createWalletTransaction = function (request, response) {\r\n    const newWalletHistory = Object.assign({}, request.body);\r\n    const resolve = (walletHistory) => {\r\n        response.status(200);\r\n        response.json(walletHistory);\r\n    };\r\n    walletService.createWalletHistory(newWalletHistory)\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n};\r\n\r\n/**\r\n * Creates a new wallet with the request JSON and\r\n * returns wallter JSON object.\r\n *\r\n * @param {request} {HTTP request object}\r\n * @param {response} {HTTP response object}\r\n */\r\nexports.createWallet = function (request, response) {\r\n    const newWallet = Object.assign({}, request.body);\r\n    const resolve = (newWallet) => {\r\n        response.status(200);\r\n        response.json(newWallet);\r\n    };\r\n    walletService.createWallet(newWallet)\r\n        .then(resolve)\r\n        .catch(renderErrorResponse(response));\r\n};\r\n\r\n/**\r\n * Throws error if error object is present.\r\n *\r\n * @param {Response} response The response object\r\n * @return {Function} The error handler function.\r\n */\r\nlet renderErrorResponse = (response) => {\r\n    const errorCallback = (error) => {\r\n        if (error) {\r\n            response.status(500);\r\n            response.json({\r\n                message: error.message\r\n            });\r\n        }\r\n    }\r\n    return errorCallback;\r\n};",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/controllers/walletController.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 85,
+    "kind": "variable",
+    "name": "walletService",
+    "memberof": "api/controllers/walletController.js",
+    "static": true,
+    "longname": "api/controllers/walletController.js~walletService",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": " import wallet service.",
+    "lineNumber": 9,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "function",
+    "name": "getUserWallet",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~getUserWallet",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Returns a the user wallet in JSON.",
+    "lineNumber": 17,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "function",
+    "name": "updateUserWallet",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~updateUserWallet",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Updates and returns a wallet object in JSON.",
+    "lineNumber": 34,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "function",
+    "name": "getWalletHistory",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~getWalletHistory",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Returns a wallet transaction in JSON.",
+    "lineNumber": 52,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "function",
+    "name": "createWalletTransaction",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~createWalletTransaction",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Creates a new wallet transaction with the request JSON and\nreturns wallter history JSON object.",
+    "lineNumber": 69,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "function",
+    "name": "createWallet",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~createWallet",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Creates a new wallet with the request JSON and\nreturns wallter JSON object.",
+    "lineNumber": 87,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "request"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "request object}"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{HTTP",
+        "description": "response object}"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "function",
+    "name": "renderErrorResponse",
+    "memberof": "api/controllers/walletController.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/controllers/walletController.js~renderErrorResponse",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/controllers/walletController.js",
+    "importStyle": null,
+    "description": "Throws error if error object is present.",
+    "lineNumber": 104,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Response"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "response",
+        "description": "The response object"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Function"
+      ],
+      "spread": false,
+      "description": "The error handler function."
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "file",
+    "name": "api/model/orders.js",
+    "content": "  /**\r\n  * @desc import mongoose Object.\r\n  */\r\n  const mongoose = require('mongoose');\r\n  /**\r\n   * Mongoose schema for Order object.\r\n   * This schema represents each transaction conducted on Order\r\n   */\r\n  const OrderSchema = new mongoose.Schema({\r\n    /**\r\n     * user_id of the User that creates this Order Object.\r\n     */\r\n    user_id: {type: String, required: true},\r\n    /**\r\n     * status of this Order\r\n     */\r\n    status: {type: String, default: \"pending\"},\r\n    /**\r\n     * OrderID of the Matched Order which is the exact opposite of the this order,\r\n     * as in if this is BUY Order then the matched order would be a sell order,\r\n     * and the from_qty,from_coin, from_value of this order will be the\r\n     * to_qty, to_coin, to_value of the Mathhed Order\r\n     */\r\n    matched_order_id: {type: String, default: \"\"},\r\n    /**\r\n     * Type of order this will be BUY OR SELL\r\n     */\r\n    buy_or_sell: String,\r\n    /**\r\n     * Coin being sold or bought\r\n     */\r\n    from_coin: {type: String, required: true},\r\n    /**\r\n     * Quantity of Coin being sold or bought\r\n     */\r\n    from_qty: {type: Number, required: true},\r\n    /**\r\n     * Value of Coin being sold or bought\r\n     */\r\n    from_value: {type: Number, required: true},\r\n    /**\r\n     * Coin used to fulfill the transaction\r\n     */\r\n    to_coin: {type: String, required: true},\r\n    /**\r\n     * Quantity of Coin used to fulfill the transaction\r\n     */\r\n    to_qty: {type: Number, required: true},\r\n    /**\r\n     * Running value of Coin used to fulfill the transaction\r\n     */\r\n    to_value: {type: Number, required: true},\r\n    /**\r\n     * Order Created date\r\n     */\r\n    created_date: {type: Date, default: Date.now},\r\n    /**\r\n     * Order fulfilled date\r\n     */\r\n    completion_date: {type: Date, default: Date.now}\r\n  });\r\n\r\n\r\n  /**\r\n  * @desc export the schema\r\n  */\r\n  module.exports = mongoose.model('Order', OrderSchema);\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/model/orders.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 93,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/orders.js",
+    "static": true,
+    "longname": "api/model/orders.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/orders.js",
+    "importStyle": null,
+    "description": "import mongoose Object.",
+    "lineNumber": 4,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "variable",
+    "name": "OrderSchema",
+    "memberof": "api/model/orders.js",
+    "static": true,
+    "longname": "api/model/orders.js~OrderSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/orders.js",
+    "importStyle": null,
+    "description": "Mongoose schema for Order object.\nThis schema represents each transaction conducted on Order",
+    "lineNumber": 9,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "file",
+    "name": "api/model/RateList.js",
+    "content": "'use strict';\r\nconst mongoose = require('mongoose');\r\nconst Schema = mongoose.Schema;\r\n\r\n//Rate Schema for Mongoose\r\nlet RateSchema = new Schema({\r\n    //Atributes and their constraints\r\n    //Coin-Name\r\n    coinname: {\r\n        type: String,\r\n        required: \"Coin-Name is required\"\r\n    },\r\n    //USD-Value\r\n    usdvalue: {\r\n        type: Number,\r\n        required: \"USD-Value is required\"\r\n    },\r\n    //Active\r\n   active: {\r\n       type: String,\r\n       default: \"A\" \r\n   },\r\n    //Date-Of-Creation\r\n    insert_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    },\r\n    //Date-Of-Creation\r\n    modified_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    }\r\n}, {\r\n    versionKey: false\r\n});\r\n\r\nmodule.exports = mongoose.model('RateList', RateSchema);\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/model/RateList.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 96,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/RateList.js",
+    "static": true,
+    "longname": "api/model/RateList.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/RateList.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 97,
+    "kind": "variable",
+    "name": "Schema",
+    "memberof": "api/model/RateList.js",
+    "static": true,
+    "longname": "api/model/RateList.js~Schema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/RateList.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "variable",
+    "name": "RateSchema",
+    "memberof": "api/model/RateList.js",
+    "static": true,
+    "longname": "api/model/RateList.js~RateSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/RateList.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "file",
+    "name": "api/model/users.js",
+    "content": "  /**\r\n  * @desc import mongoose Object.\r\n  */\r\n  const mongoose = require('mongoose');\r\n  /**\r\n   * Mongoose schema for User object.\r\n   * This schema represents each transaction conducted on Order\r\n   */\r\n  const UserSchema = new mongoose.Schema({\r\n    /**\r\n     * First Nmae of the User.\r\n     */\r\n    fname: String,\r\n    /**\r\n     * Last Nmae of the User.\r\n     */\r\n    lname: String,\r\n    /**\r\n     * EmailId of the User.\r\n     */\r\n    emailId: { type: String, unique: true, required: true},\r\n    /**\r\n     * Phno of the User.\r\n     */\r\n    Phno:  { type: Number},\r\n    /**\r\n     * Address Object associated with User.\r\n     */\r\n    address: {\r\n      address1: String,\r\n      address2: String,\r\n      city: String,\r\n      country: String,\r\n      zipcode: Number,\r\n    },\r\n    /**\r\n     * Payment Details Accociated with User.\r\n     */\r\n    payment: {\r\n      cardno: { type: Number, required: true},\r\n      cvv: { type: Number, required: true},\r\n      expire: String,\r\n      name: String,\r\n      zipcode: Number\r\n    },\r\n    /**\r\n     * Login Details of the  User, this is used to login.\r\n     */\r\n    login: {\r\n      username: { type: String, unique: true, required: true},\r\n      password: String\r\n    }\r\n  });\r\n\r\n  module.exports = mongoose.model('User',UserSchema);\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/model/users.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 100,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/users.js",
+    "static": true,
+    "longname": "api/model/users.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/users.js",
+    "importStyle": null,
+    "description": "import mongoose Object.",
+    "lineNumber": 4,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 101,
+    "kind": "variable",
+    "name": "UserSchema",
+    "memberof": "api/model/users.js",
+    "static": true,
+    "longname": "api/model/users.js~UserSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/users.js",
+    "importStyle": null,
+    "description": "Mongoose schema for User object.\nThis schema represents each transaction conducted on Order",
+    "lineNumber": 9,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 102,
+    "kind": "file",
+    "name": "api/model/wallet-history.js",
+    "content": "'use strict';\r\nconst mongoose = require('mongoose');\r\nconst Schema = mongoose.Schema;\r\n\r\n/**\r\n * Mongoose schema for wallet history object.\r\n * This schema represents each transaction conducted on wallet\r\n */\r\nlet WalletHistorySchema = new Schema({\r\n\r\n    /**\r\n     * user_id of the User the Wallet belongs to.\r\n     */\r\n    user_id: {\r\n        type: String,\r\n        required: \"user_id is required\"\r\n    },\r\n    /**\r\n     * USD Value of the transaction.\r\n     */\r\n    usd_value: {\r\n        type: Number\r\n    },\r\n    /** \r\n     * Name of the crypto coin\r\n     */\r\n    coin_name: {\r\n        type: String\r\n    },\r\n    /**\r\n     * Quantity of coins.\r\n     */\r\n    coin_qty: {\r\n        type: Number\r\n    },\r\n    /** \r\n     * Status of the transaction\r\n     * whether failure or success\r\n     */\r\n    status: {\r\n        type: String\r\n    },\r\n    /**\r\n     * Transaction type\r\n     * eg. Cash Out\r\n     */\r\n    transaction_type: {\r\n        type: String\r\n    },\r\n    /**\r\n     * Transaction date\r\n     */\r\n    created_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    },\r\n    /**\r\n     * Last modified date.\r\n     */\r\n    modified_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    }\r\n}, {\r\n    versionKey: false\r\n});\r\n\r\nmodule.exports = mongoose.model('walletHistory', WalletHistorySchema);\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/model/wallet-history.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 103,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/wallet-history.js",
+    "static": true,
+    "longname": "api/model/wallet-history.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet-history.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 104,
+    "kind": "variable",
+    "name": "Schema",
+    "memberof": "api/model/wallet-history.js",
+    "static": true,
+    "longname": "api/model/wallet-history.js~Schema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet-history.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 105,
+    "kind": "variable",
+    "name": "WalletHistorySchema",
+    "memberof": "api/model/wallet-history.js",
+    "static": true,
+    "longname": "api/model/wallet-history.js~WalletHistorySchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet-history.js",
+    "importStyle": null,
+    "description": "Mongoose schema for wallet history object.\nThis schema represents each transaction conducted on wallet",
+    "lineNumber": 9,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 106,
+    "kind": "file",
+    "name": "api/model/wallet.js",
+    "content": "'use strict';\r\nconst mongoose = require('mongoose');\r\nconst Schema = mongoose.Schema;\r\n\r\n/**\r\n * Mongoose schema for Coin object.\r\n * A Collection of Coin objects is present\r\n * in each user's wallet\r\n */\r\n\r\nlet coinSchema = new Schema({\r\n\r\n    /* Coin Name */\r\n    coin_name: {\r\n        type: String\r\n    },\r\n    /* Coin quantity in user's wallet */\r\n    coin_qty: {\r\n        type: Number\r\n    }\r\n}, {\r\n    versionKey: false\r\n});\r\n\r\n/**\r\n * Mongoose schema for wallet object.\r\n * This schema is present for each User\r\n * This schema represents the wallet for each user\r\n * It contains all the coins the user has alongwith the balance\r\n */\r\nlet WalletSchema = new Schema({\r\n\r\n    /**\r\n     * user_id of the User the Wallet belongs to.\r\n     */\r\n    user_id: {\r\n        type: String,\r\n        required: \"user_id is required\"\r\n    },\r\n    /**\r\n     * USD Value of the wallet.\r\n     */\r\n    usd_value: {\r\n        type: Number\r\n    },\r\n    /** \r\n     * Array of various crypto coins with their existing quantities\r\n     */\r\n    coins: {\r\n        type: [coinSchema]\r\n    },\r\n    /**\r\n     * Wallet created date.\r\n     */\r\n    created_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    },\r\n    /**\r\n     * Last modified date.\r\n     */\r\n    modified_date: {\r\n        type: Date,\r\n        default: Date.now\r\n    }\r\n}, {\r\n    versionKey: false\r\n});\r\n\r\n\r\n\r\nmodule.exports = mongoose.model('wallet', WalletSchema);",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/model/wallet.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 107,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/wallet.js",
+    "static": true,
+    "longname": "api/model/wallet.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 108,
+    "kind": "variable",
+    "name": "Schema",
+    "memberof": "api/model/wallet.js",
+    "static": true,
+    "longname": "api/model/wallet.js~Schema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 109,
+    "kind": "variable",
+    "name": "coinSchema",
+    "memberof": "api/model/wallet.js",
+    "static": true,
+    "longname": "api/model/wallet.js~coinSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet.js",
+    "importStyle": null,
+    "description": "Mongoose schema for Coin object.\nA Collection of Coin objects is present\nin each user's wallet",
+    "lineNumber": 11,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 110,
+    "kind": "variable",
+    "name": "WalletSchema",
+    "memberof": "api/model/wallet.js",
+    "static": true,
+    "longname": "api/model/wallet.js~WalletSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet.js",
+    "importStyle": null,
+    "description": "Mongoose schema for wallet object.\nThis schema is present for each User\nThis schema represents the wallet for each user\nIt contains all the coins the user has alongwith the balance",
+    "lineNumber": 31,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 111,
+    "kind": "file",
+    "name": "api/routes/order-history.js",
+    "content": "  module.exports = function (app) {\r\n    const OrderHistoryController = require('../controllers/order-history-controller');\r\n    /**\r\n    * @desc orderHistory Routes to Update Based on orderId, Delete Based on orderId.\r\n    */\r\n    app.route('/orderhistory/:orderId')\r\n      .put(OrderHistoryController.put)\r\n      .delete(OrderHistoryController.delete);\r\n\r\n    /**\r\n    * @desc orderHistory Routes to search based on userId and status.\r\n    */\r\n    app.route('/orderhistory/:userId/:status').get(OrderHistoryController.getAll);\r\n\r\n  };\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/routes/order-history.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 112,
+    "kind": "function",
+    "name": "exports",
+    "memberof": "api/routes/order-history.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/routes/order-history.js~exports",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/routes/order-history.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "app",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 113,
+    "kind": "file",
+    "name": "api/routes/order.js",
+    "content": "  module.exports = function (app) {\r\n      const OrderController = require('../controllers/order-controller');\r\n      /**\r\n       * @desc Order Routes to search based orderType and create.\r\n        */\r\n      app.route('/orders').get(OrderController.getAll)\r\n      .post(OrderController.post);\r\n\r\n      /**\r\n       * @desc Order Routes to search based orderId, Update based on orderId and Delete based on orderId.\r\n        */\r\n      app.route('/orders/:orderId').get(OrderController.getOne)\r\n      .put(OrderController.put)\r\n      .delete(OrderController.delete);\r\n  };\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/routes/order.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 114,
+    "kind": "function",
+    "name": "exports",
+    "memberof": "api/routes/order.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/routes/order.js~exports",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/routes/order.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "app",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 115,
+    "kind": "file",
+    "name": "api/routes/rateList-route.js",
+    "content": "//Setting routes for the API\r\n'use strict';\r\nmodule.exports = ((app) => {\r\n    const rateController = require('../controllers/rateList-controller');\r\n    //Routes to add and retrieve coin-rates\r\n    app.route('/currentRate')\r\n        .get(rateController.allCurrentRates) //retrieve all current-rates from DB\r\n        .post(rateController.addNewCurrentRate);//add new current-rate to DB\r\n\r\n    //Route to retrieve a particular coin-rate from DB based on coin-name\r\n    app.route('/currentRate/:coinname')\r\n        .get(rateController.getCoinCurrentRate);\r\n\r\n     //Routes to fetch rate-history of all coins\r\n     app.route('/rateHistory')\r\n     .get(rateController.allRateHistory);\r\n\r\n    //Route to fetch rate-history of a particular coin based on coin-name\r\n    app.route('/rateHistory/:coinname')\r\n        .get(rateController.allRateHistoryCoin);\r\n \r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/routes/rateList-route.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 116,
+    "kind": "file",
+    "name": "api/routes/user.js",
+    "content": "module.exports = function (app) {\r\n  const UserController = require('../controllers/user-controller');\r\n  const loginController = require('../controllers/loginController');\r\n  /**\r\n   * @desc User Routes for search and create.\r\n    */\r\n  app.route('/users').get(UserController.getAll)\r\n    .post(UserController.post);\r\n\r\n  /**\r\n   * @desc User Routes for get, update and delete.\r\n   */\r\n  app.route('/users/:userId')\r\n  .get(UserController.getOne)\r\n    .put(loginController.put)\r\n    .delete(UserController.delete);\r\n\r\n \r\n  /** \r\n   * @desc userlogin Routes for search and create\r\n   */\r\n  app.route('/login')\r\n    .post(loginController.getUser)\r\n \r\n\r\n  /**\r\n   * @desc userlogin Routes for get, update and delete\r\n   */\r\n  app.route('/register')\r\n    .post(loginController.post)\r\n};\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/routes/user.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 117,
+    "kind": "function",
+    "name": "exports",
+    "memberof": "api/routes/user.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/routes/user.js~exports",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/routes/user.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "app",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 118,
+    "kind": "file",
+    "name": "api/routes/wallet-route.js",
+    "content": "/**\r\n * Wallet endpoint route definitions.\r\n */\r\n\r\n'use strict';\r\nmodule.exports = function (app) {\r\n    // defining the controller\r\n    const walletController = require('../controllers/walletController');\r\n    // Wallet routes to get and update wallet\r\n    app.route('/wallet/:user_id') \r\n        .put(walletController.updateUserWallet);\r\n    app.route('/wallet')\r\n        .get(walletController.getUserWallet)\r\n        .post(walletController.createWallet);\r\n\r\n    // Wallet History routes to get and create wallet history transactions\r\n    app.route('/wallethistory/:user_id')\r\n        .get(walletController.getWalletHistory);\r\n    app.route('/wallethistory')\r\n        .post(walletController.createWalletTransaction);\r\n};",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/routes/wallet-route.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 119,
+    "kind": "function",
+    "name": "exports",
+    "memberof": "api/routes/wallet-route.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/routes/wallet-route.js~exports",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/routes/wallet-route.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "app",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 120,
+    "kind": "file",
+    "name": "api/services/email-service.js",
+    "content": "var nodemailer = require('nodemailer');\r\n\r\nvar transporter = nodemailer.createTransport({\r\n    service: 'gmail',\r\n    auth: {\r\n      user: 'wt.musicstore@gmail.com',\r\n      pass: 'wt-mstr@123'\r\n    }\r\n  });\r\n  \r\n exports.sendemail = function(mailTo, subjectLine, emailText){ \r\n     \r\n    var mailOptions = {\r\n        from: 'no-reply@huskycoin.com',\r\n        to: mailTo,\r\n        subject: subjectLine,\r\n        text: emailText\r\n      };\r\n\r\n    transporter.sendMail(mailOptions, function(error, info){\r\n    if (error) {\r\n      console.log(error);\r\n    } else {\r\n      console.log('Email sent: ' + info.response);\r\n    }\r\n  });\r\n\r\n}",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/email-service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 121,
+    "kind": "variable",
+    "name": "nodemailer",
+    "memberof": "api/services/email-service.js",
+    "static": true,
+    "longname": "api/services/email-service.js~nodemailer",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/email-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 122,
+    "kind": "variable",
+    "name": "transporter",
+    "memberof": "api/services/email-service.js",
+    "static": true,
+    "longname": "api/services/email-service.js~transporter",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/email-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 123,
+    "kind": "function",
+    "name": "sendemail",
+    "memberof": "api/services/email-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/email-service.js~sendemail",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/email-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "mailTo",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "subjectLine",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "emailText",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 124,
+    "kind": "file",
+    "name": "api/services/jwt-service.js",
+    "content": "const jwt = require('jsonwebtoken');\r\n\r\n/**\r\n * @desc to generate java web token whenever a user login's\r\n */\r\nconst secretKey  = require('../commons/app-constant')\r\nexports.generateToken = (user) =>{\r\n                var expiry = new Date();\r\n                expiry.setDate(expiry.getDate() + 7);\r\n                return jwt.sign(\r\n\r\n                  {user},\r\n                  secretKey.secretkey,\r\n                  {expiresIn: parseInt(expiry.getTime() / 1000)}\r\n                 ); // DO NOT KEEP YOUR SECRET IN THE CODE!\r\n              };\r\n/**\r\n * @desc Check to make sure header is not undefined, if so, return Forbidden (403)\r\n * update needed for this , this is not the final method\r\n * @param {*} req\r\n * @param {*} res\r\n * @param {*} next\r\n */\r\n\r\nconst checkToken = (req, res, next) => {\r\n    const header = req.headers['authorization'];\r\n\r\n    if(typeof header !== 'undefined') {\r\n\r\n        const bearer = header.split(' ');\r\n        const token = bearer[1];\r\n\r\n        req.token = token;\r\n\r\n      }\r\n    }\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/jwt-service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 125,
+    "kind": "variable",
+    "name": "jwt",
+    "memberof": "api/services/jwt-service.js",
+    "static": true,
+    "longname": "api/services/jwt-service.js~jwt",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/jwt-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "variable",
+    "name": "secretKey",
+    "memberof": "api/services/jwt-service.js",
+    "static": true,
+    "longname": "api/services/jwt-service.js~secretKey",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/jwt-service.js",
+    "importStyle": null,
+    "description": "to generate java web token whenever a user login's",
+    "lineNumber": 6,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 127,
+    "kind": "function",
+    "name": "checkToken",
+    "memberof": "api/services/jwt-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/jwt-service.js~checkToken",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/jwt-service.js",
+    "importStyle": null,
+    "description": "Check to make sure header is not undefined, if so, return Forbidden (403)\nupdate needed for this , this is not the final method",
+    "lineNumber": 25,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "req",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "res",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "next",
+        "description": ""
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 128,
+    "kind": "file",
+    "name": "api/services/order-history-service.js",
+    "content": " const Order = require('../model/orders');\r\nconst mongoose = require('mongoose');\r\n\r\n\r\n/**\r\n * gets an array of Order Objects with a given userId and order-status\r\n *\r\n * @param {Promise} params {req}\r\n */\r\nexports.getAllOrderHistory=function(req){\r\n  let user_id = req.params.userId;\r\n  let status = req.params.status;\r\n  console.log(status);\r\n  return Order.find({user_id: user_id, status: status}).sort( { created_date: -1 } ).exec();\r\n}\r\n\r\n/**\r\n * Performs a update of a users Order with given orderId,\r\n * the update is done by the Client side sent Order Object\r\n * and the manually changing the copletion date to todays date also the status to canceled\r\n *\r\n * @param {Promise} params {req}\r\n */\r\nexports.updateOrder=function(req){\r\n  const order = Object.assign({}, req.body);\r\n  const id = req.params.orderId;\r\n  order[\"completion_date\"] = Date.now();\r\n  order.status = \"canceled\"\r\n  return Order.findOneAndUpdate({_id: id}, order).exec();\r\n}\r\n\r\n/**\r\n * Performs a delete of a users Order with given orderId\r\n *\r\n * @param {Promise} params {req}\r\n */\r\nexports.deleteOrder=function(req){\r\n  const id = req.params.orderId;\r\n  return Order.findOneAndDelete({_id: id, status: \"pending\"}).exec();\r\n}\r\n\r\n/**\r\n * Dealing with request Error\r\n *\r\n * @param {Object} params {err, res}\r\n */\r\nexports.inspectError=function(err,res){\r\n  res.status(500).json({\r\n    error: err\r\n  });\r\n}\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/order-history-service.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 80,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/users.js",
+    "static": true,
+    "longname": "api/model/users.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/users.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+=======
+    "__docId__": 129,
+    "kind": "variable",
+    "name": "Order",
+    "memberof": "api/services/order-history-service.js",
+    "static": true,
+    "longname": "api/services/order-history-service.js~Order",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-history-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 81,
+    "kind": "variable",
+    "name": "UserSchema",
+    "memberof": "api/model/users.js",
+    "static": true,
+    "longname": "api/model/users.js~UserSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/users.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+=======
+    "__docId__": 130,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/services/order-history-service.js",
+    "static": true,
+    "longname": "api/services/order-history-service.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-history-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 82,
+    "kind": "file",
+    "name": "api/model/wallet-history.js",
+    "content": "'use strict';\nconst mongoose = require('mongoose');\nconst Schema = mongoose.Schema;\n\n/**\n * Mongoose schema for wallet history object.\n * This schema represents each transaction conducted on wallet\n */\nlet WalletHistorySchema = new Schema({\n\n    /**\n     * user_id of the User the Wallet belongs to.\n     */\n    user_id: {\n        type: String,\n        required: \"user_id is required\"\n    },\n    /**\n     * USD Value of the transaction.\n     */\n    usd_value: {\n        type: Number\n    },\n    /** \n     * Name of the crypto coin\n     */\n    coin_name: {\n        type: String\n    },\n    /**\n     * Quantity of coins.\n     */\n    coin_qty: {\n        type: Number\n    },\n    /** \n     * Status of the transaction\n     * whether failure or success\n     */\n    status: {\n        type: String\n    },\n    /**\n     * Transaction type\n     * eg. Cash Out\n     */\n    transaction_type: {\n        type: String\n    },\n    /**\n     * Transaction date\n     */\n    created_date: {\n        type: Date,\n        default: Date.now\n    },\n    /**\n     * Last modified date.\n     */\n    modified_date: {\n        type: Date,\n        default: Date.now\n    }\n}, {\n    versionKey: false\n});\n\nmodule.exports = mongoose.model('walletHistory', WalletHistorySchema);\n",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/model/wallet-history.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 83,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/wallet-history.js",
+    "static": true,
+    "longname": "api/model/wallet-history.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet-history.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+=======
+    "__docId__": 131,
+    "kind": "function",
+    "name": "getAllOrderHistory",
+    "memberof": "api/services/order-history-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-history-service.js~getAllOrderHistory",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-history-service.js",
+    "importStyle": null,
+    "description": "gets an array of Order Objects with a given userId and order-status",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 84,
+    "kind": "variable",
+    "name": "Schema",
+    "memberof": "api/model/wallet-history.js",
+    "static": true,
+    "longname": "api/model/wallet-history.js~Schema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet-history.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+=======
+    "__docId__": 132,
+    "kind": "function",
+    "name": "updateOrder",
+    "memberof": "api/services/order-history-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-history-service.js~updateOrder",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-history-service.js",
+    "importStyle": null,
+    "description": "Performs a update of a users Order with given orderId,\nthe update is done by the Client side sent Order Object\nand the manually changing the copletion date to todays date also the status to canceled",
+    "lineNumber": 24,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 85,
+    "kind": "variable",
+    "name": "WalletHistorySchema",
+    "memberof": "api/model/wallet-history.js",
+    "static": true,
+    "longname": "api/model/wallet-history.js~WalletHistorySchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet-history.js",
+    "importStyle": null,
+    "description": "Mongoose schema for wallet history object.\nThis schema represents each transaction conducted on wallet",
+    "lineNumber": 9,
+    "type": {
+=======
+    "__docId__": 133,
+    "kind": "function",
+    "name": "deleteOrder",
+    "memberof": "api/services/order-history-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-history-service.js~deleteOrder",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-history-service.js",
+    "importStyle": null,
+    "description": "Performs a delete of a users Order with given orderId",
+    "lineNumber": 37,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 86,
+    "kind": "file",
+    "name": "api/model/wallet.js",
+    "content": "'use strict';\nconst mongoose = require('mongoose');\nconst Schema = mongoose.Schema;\n\n/**\n * Mongoose schema for wallet object.\n * This schema is present for each User\n * This schema represents the wallet for each user\n * It contains all the coins the user has alongwith the balance\n */\nlet WalletSchema = new Schema({\n\n    /**\n     * user_id of the User the Wallet belongs to.\n     */\n    user_id: {\n        type: String,\n        required: \"user_id is required\"\n    },\n    /**\n     * USD Value of the wallet.\n     */\n    usd_value: {\n        type: Number\n    },\n    /** \n     * Map of various crypto coins with their existing quantities\n     * key of map => Coin Name\n     * value of map => Coin Quantity\n     */\n    coins: {\n        type: Map,\n        of: Number\n    },\n    /**\n     * Wallet created date.\n     */\n    created_date: {\n        type: Date,\n        default: Date.now\n    },\n    /**\n     * Last modified date.\n     */\n    modified_date: {\n        type: Date,\n        default: Date.now\n    }\n}, {\n    versionKey: false\n});\n\nmodule.exports = mongoose.model('wallet', WalletSchema);\n",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/model/wallet.js",
+=======
+    "__docId__": 134,
+    "kind": "function",
+    "name": "inspectError",
+    "memberof": "api/services/order-history-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-history-service.js~inspectError",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-history-service.js",
+    "importStyle": null,
+    "description": "Dealing with request Error",
+    "lineNumber": 47,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{err, res}"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 135,
+    "kind": "file",
+    "name": "api/services/order-service.js",
+    "content": "  const Order = require('../model/orders');\r\n  const mongoose = require('mongoose');\r\n\r\n  /**\r\n   * gets an array of Order Objects with a given orderType(BUY/SELL) and order-status\r\n   *\r\n   * @param {Promise} params {req}\r\n   */\r\n  exports.getAllOrders=function(req){\r\n    let queryParams= req.query;\r\n    let orderType = queryParams['orderType'];\r\n    let status = queryParams['status'];\r\n    return Order.find({buy_or_sell: orderType, status: status}).sort( { created_date: 1 } ).exec();\r\n  }\r\n\r\n  /**\r\n   * saves a new Order Object\r\n   *\r\n   * @param {Promise} params {req}\r\n   */\r\n  exports.createNewOrder=function(req){\r\n    let neworder = new Order(req.body);\r\n    return neworder.save();\r\n  }\r\n\r\n  /**\r\n   * get One Order based on the orderId\r\n   *\r\n   * @param {Promise} params {req}\r\n   */\r\n  exports.getOneOrder=function(req){\r\n    const id = req.params.orderId;\r\n    return Order.find({_id: id}).exec();\r\n  }\r\n\r\n  /** this is the service that matches two Order\r\n   * gets a new Order to be persisted and also the OrderId to which this Order has to matched and viso-vesa\r\n   * mathces this order with exact oposite of this order, changes\r\n   *\r\n   * @param {Promise} params {req}\r\n   */\r\n  exports.updateOrder=function(req){\r\n    console.log(\"Im Here\");\r\n    let id = req.params.orderId;\r\n    let neworder = Object.assign({}, req.body);\r\n    neworder[\"completion_date\"] = Date.now();\r\n    neworder[\"status\"] = \"completed\";\r\n\r\n    // setting the Matched_order_id of the new Order with the OrderId the user clicked on\r\n    // the matching orderId is sent via the url, while the new Order to be created in the request body.\r\n    neworder[\"matched_order_id\"] = id;\r\n    const persistOrder = new Order(neworder);\r\n    return persistOrder.save()\r\n    .then(data => {\r\n      const oldorder = {\r\n        // the persisted Order's Id is set as the matched_order_id of the Alredy present OrderId\r\n        // to which the User Order Id matched or selected\r\n        matched_order_id: data._id,\r\n        status: \"completed\",\r\n        completion_date: Date.now()\r\n      }\r\n      Order.findOneAndUpdate(\r\n        {_id: data.matched_order_id},\r\n        {$set: oldorder}\r\n      ).exec();\r\n    })\r\n    .catch(err => console.log(err));\r\n  }\r\n\r\n  /**\r\n   * get One Order to be Deleted based on orderId.\r\n   *\r\n   * @param {Promise} params {req}\r\n   */\r\n  exports.deleteOrder=function(req){\r\n    const id = req.params.orderId;\r\n    return Order.findOneAndDelete({_id: id}).exec();\r\n  }\r\n\r\n  /**\r\n   * Dealing with request Error\r\n   *\r\n   * @param {Object} params {err, res}\r\n   */\r\n  exports.inspectError=function(err,res){\r\n    res.status(500).json({\r\n      error: err\r\n    });\r\n  }\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/order-service.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 87,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/model/wallet.js",
+    "static": true,
+    "longname": "api/model/wallet.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+=======
+    "__docId__": 136,
+    "kind": "variable",
+    "name": "Order",
+    "memberof": "api/services/order-service.js",
+    "static": true,
+    "longname": "api/services/order-service.js~Order",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 88,
+    "kind": "variable",
+    "name": "Schema",
+    "memberof": "api/model/wallet.js",
+    "static": true,
+    "longname": "api/model/wallet.js~Schema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+=======
+    "__docId__": 137,
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/services/order-service.js",
+    "static": true,
+    "longname": "api/services/order-service.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 89,
+    "kind": "variable",
+    "name": "WalletSchema",
+    "memberof": "api/model/wallet.js",
+    "static": true,
+    "longname": "api/model/wallet.js~WalletSchema",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/model/wallet.js",
+    "importStyle": null,
+    "description": "Mongoose schema for wallet object.\nThis schema is present for each User\nThis schema represents the wallet for each user\nIt contains all the coins the user has alongwith the balance",
+    "lineNumber": 11,
+    "type": {
+=======
+    "__docId__": 138,
+    "kind": "function",
+    "name": "getAllOrders",
+    "memberof": "api/services/order-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-service.js~getAllOrders",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": "gets an array of Order Objects with a given orderType(BUY/SELL) and order-status",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 90,
+    "kind": "file",
+    "name": "api/routes/rateList-route.js",
+    "content": "/**\r\n   * @desc Routes for fetching and creating rates for different coins\r\n    */\r\n'use strict';\r\nmodule.exports = ((app) => {\r\n    const rateController = require('../controllers/rateList-controller');\r\n/**\r\n   * @desc Rate Routes to fetch and create rate for coins\r\n    */\r\n    app.route('/currentRate')\r\n        .get(rateController.allCurrentRates) \r\n        .post(rateController.addNewCurrentRate);\r\n\r\n/**\r\n   * @desc Rate Route to fetch current rate for respective coin\r\n    */\r\n    app.route('/currentRate/:coinname')\r\n        .get(rateController.getCoinCurrentRate);\r\n\r\n/**\r\n   * @desc Rate Route to fetch all rates for all coins\r\n    */\r\n     app.route('/rateHistory')\r\n     .get(rateController.allRateHistory);\r\n\r\n/**\r\n   * @desc Rate Route to fetch all rates for specific coin\r\n    */\r\n    app.route('/rateHistory/:coinname')\r\n        .get(rateController.allRateHistoryCoin);\r\n \r\n});",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/routes/rateList-route.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 91,
+    "kind": "file",
+    "name": "api/routes/user.js",
+    "content": "module.exports = function (app) {\n  const UserController = require('../controllers/user-controller');\n  /**\n   * @desc User Routes for search and create.\n    */\n  app.route('/users').get(UserController.getAll)\n    .post(UserController.post);\n\n  /**\n   * @desc User Routes for get, update and delete.\n   */\n  app.route('/users/:userId').get(UserController.getOne)\n    .put(UserController.put)\n    .delete(UserController.delete);\n\n  const loginController = require('../controllers/loginController');\n  /** \n   * @desc userlogin Routes for search and create\n   */\n  app.route('/login')\n    .get(loginController.getUser)\n\n  /**\n   * @desc userlogin Routes for get, update and delete\n   */\n  app.route('/register')\n    .post(loginController.post)\n};\n",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/routes/user.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 92,
+    "kind": "function",
+    "name": "exports",
+    "memberof": "api/routes/user.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/routes/user.js~exports",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/routes/user.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "app",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "file",
+    "name": "api/routes/wallet-route.js",
+    "content": "/**\n * Wallet endpoint route definitions.\n */\n\n'use strict';\nmodule.exports = function (app) {\n    // defining the controller\n    const walletController = require('../controllers/walletController');\n    // Wallet routes to get and update wallet\n    app.route('/wallet/:id')\n        .get(walletController.getUserWallet)\n        .put(walletController.updateUserWallet);\n    app.route('/wallet')\n        .post(walletController.createWallet);\n\n    // Wallet History routes to get and create wallet history transactions\n    app.route('/wallethistory/:id')\n        .get(walletController.getWalletHistory);\n    app.route('/wallethistory')\n        .post(walletController.createWalletTransaction);\n};",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/routes/wallet-route.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 94,
+    "kind": "function",
+    "name": "exports",
+    "memberof": "api/routes/wallet-route.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/routes/wallet-route.js~exports",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/routes/wallet-route.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "app",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "file",
+    "name": "api/services/jwt-service.js",
+    "content": "const jwt = require('jsonwebtoken');\n\n/**\n * @desc to generate java web token whenever a user login's\n */\nconst secretKey  = require('../commons/app-constant')\nexports.generateToken = (user) =>{   \n                var expiry = new Date();\n                expiry.setDate(expiry.getDate() + 7);\n                return jwt.sign(\n                \n                  {user},\n                  secretKey.secretkey,\n                  {expiresIn: parseInt(expiry.getTime() / 1000)}\n                 ); // DO NOT KEEP YOUR SECRET IN THE CODE!\n              };\n/**\n * @desc Check to make sure header is not undefined, if so, return Forbidden (403)\n * update needed for this , this is not the final method\n * @param {*} req \n * @param {*} res \n * @param {*} next \n */\n\nconst checkToken = (req, res, next) => {\n    const header = req.headers['authorization'];\n\n    if(typeof header !== 'undefined') {\n\n        const bearer = header.split(' ');\n        const token = bearer[1];\n\n        req.token = token;\n\n      }\n    }",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/services/jwt-service.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 96,
+    "kind": "variable",
+    "name": "jwt",
+    "memberof": "api/services/jwt-service.js",
+    "static": true,
+    "longname": "api/services/jwt-service.js~jwt",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/jwt-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+=======
+    "__docId__": 139,
+    "kind": "function",
+    "name": "createNewOrder",
+    "memberof": "api/services/order-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-service.js~createNewOrder",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": "saves a new Order Object",
+    "lineNumber": 21,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 140,
+    "kind": "function",
+    "name": "getOneOrder",
+    "memberof": "api/services/order-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-service.js~getOneOrder",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": "get One Order based on the orderId",
+    "lineNumber": 31,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 141,
+    "kind": "function",
+    "name": "updateOrder",
+    "memberof": "api/services/order-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-service.js~updateOrder",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": "this is the service that matches two Order\ngets a new Order to be persisted and also the OrderId to which this Order has to matched and viso-vesa\nmathces this order with exact oposite of this order, changes",
+    "lineNumber": 42,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 97,
+    "kind": "variable",
+    "name": "secretKey",
+    "memberof": "api/services/jwt-service.js",
+    "static": true,
+    "longname": "api/services/jwt-service.js~secretKey",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/jwt-service.js",
+    "importStyle": null,
+    "description": "to generate java web token whenever a user login's",
+    "lineNumber": 6,
+    "type": {
+=======
+    "__docId__": 142,
+    "kind": "function",
+    "name": "deleteOrder",
+    "memberof": "api/services/order-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-service.js~deleteOrder",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": "get One Order to be Deleted based on orderId.",
+    "lineNumber": 75,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 98,
+    "kind": "function",
+    "name": "checkToken",
+    "memberof": "api/services/jwt-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/jwt-service.js~checkToken",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/jwt-service.js",
+    "importStyle": null,
+    "description": "Check to make sure header is not undefined, if so, return Forbidden (403)\nupdate needed for this , this is not the final method",
+    "lineNumber": 25,
+=======
+    "__docId__": 143,
+    "kind": "function",
+    "name": "inspectError",
+    "memberof": "api/services/order-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/order-service.js~inspectError",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/order-service.js",
+    "importStyle": null,
+    "description": "Dealing with request Error",
+    "lineNumber": 85,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+<<<<<<< HEAD
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "req",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "res",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "next",
+        "description": ""
+=======
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{err, res}"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 99,
+    "kind": "file",
+    "name": "api/services/rateList-service.js",
+    "content": "/**\r\n* @desc Services for fetching and adding rates for coins\r\n*/\r\n'use strict';\r\n/**\r\n* @desc variable for mongoose library\r\n*/\r\nconst mongoose = require('mongoose'),\r\n/**\r\n* @desc variable for Rate-List model\r\n*/\r\nRateList = mongoose.model('RateList');\r\n\r\n/**\r\n   * @desc Service to retrieve current-rates of all coins from DB\r\n    */\r\nexports.getAllCurrentRates = (() => {\r\n    const promise = RateList.find({'active': \"A\"}).exec();\r\n    return promise;\r\n});\r\n\r\n/**\r\n   * @desc Service to mark all previous-rates as obsolete to DB\r\n    */\r\nexports.voidPreviousRates = ((rate) => {\r\n    const promise = RateList.updateMany({'coinname': rate.coinname}, { 'active': 'I'}).exec();\r\n    return promise;\r\n});\r\n\r\n/**\r\n   * @desc Service to add current-rate of a coin to DB\r\n    */\r\nexports.save = ((rate) => {\r\n    const newCurrentRate = new RateList(rate);\r\n    const promise = newCurrentRate.save();\r\n    return promise;\r\n});\r\n\r\n/**\r\n   * @desc Service to fetch current-rate of single coin from DB using coin-name\r\n    */\r\nexports.getCoinCurrentRate = ((coinname) => {\r\n    const promise = RateList.find({coinname: coinname , active: \"A\" }).exec();\r\n    return promise\r\n});\r\n\r\n/**\r\n   * @desc Service to retrieve all-rates of all coins from DB\r\n    */\r\nexports.getAllRates = (() => {\r\n    const promise = RateList.find().exec();\r\n    return promise;\r\n});\r\n\r\n/**\r\n   * @desc Service to fetch all-rates of single coin from DB using coin-name\r\n    */\r\nexports.getAllRatesCoin = ((coinname) => {\r\n    const promise = RateList.find({coinname: coinname }).exec();\r\n    return promise\r\n});",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/services/rateList-service.js",
+=======
+    "__docId__": 144,
+    "kind": "file",
+    "name": "api/services/rateList-service.js",
+    "content": "//Setting up Service for API to interact with DB\r\n'use strict';\r\nconst mongoose = require('mongoose'),\r\nRateList = mongoose.model('RateList');\r\n\r\n//Service to retrieve current-rates of all coins from DB\r\nexports.getAllCurrentRates = (() => {\r\n    const promise = RateList.find({'active': \"A\"}).exec();\r\n    return promise;\r\n});\r\n\r\n//Service to mark all previous-rates as obsolete to DB\r\nexports.voidPreviousRates = ((rate) => {\r\n    const promise = RateList.updateMany({'coinname': rate.coinname}, { 'active': 'I'}).exec();\r\n    return promise;\r\n});\r\n\r\n//Service to add current-rate of a coin to DB\r\nexports.save = ((rate) => {\r\n    const newCurrentRate = new RateList(rate);\r\n    const promise = newCurrentRate.save();\r\n    return promise;\r\n});\r\n\r\n//Service to fetch current-rate of single coin from DB using coin-name\r\nexports.getCoinCurrentRate = ((coinname) => {\r\n    const promise = RateList.find({coinname: coinname , active: \"A\" }).exec();\r\n    return promise\r\n});\r\n\r\n//Service to retrieve all-rates of all coins from DB\r\nexports.getAllRates = (() => {\r\n    const promise = RateList.find().exec();\r\n    return promise;\r\n});\r\n\r\n//Service to fetch all-rates of single coin from DB using coin-name\r\nexports.getAllRatesCoin = ((coinname) => {\r\n    const promise = RateList.find({coinname: coinname }).exec();\r\n    return promise\r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/rateList-service.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 100,
+=======
+    "__docId__": 145,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/services/rateList-service.js",
+    "static": true,
+    "longname": "api/services/rateList-service.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/rateList-service.js",
+    "importStyle": null,
+<<<<<<< HEAD
+    "description": "variable for mongoose library",
+    "lineNumber": 8,
+=======
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 101,
+    "kind": "file",
+    "name": "api/services/user-service.js",
+    "content": "const User = require('../model/users');\nconst mongoose = require('mongoose');\n\nexports.compare = function compare(a, b) {\n  if (a.fname > b.fname) return 1;\n  else if (b.fname > a.fname) return -1;\n  else {\n    if (a.lname > b.lname) return 1;\n    else if (b.lname > a.lname) return -1;\n    return 0;\n  }\n}\n\nexports.getAllUsers = function () {\n  return User.find().exec();\n}\n\nexports.createNewUser = function (req) {\n  const newuser = new User(req.body.user);\n  return newuser.save();\n}\n\nexports.getOneUser = function (req) {\n  const id = req.params.userId;\n  return User.findById(id).exec();\n}\n\nexports.updateUser = function (req) {\n  const id = req.params.userId;\n  const user = {};\n  for (const temp of req.body) {\n    user[temp.field] = temp.value;\n  }\n  return User.findOneAndUpdate({ _id: id }, { $set: user }).exec();\n}\n\nexports.deleteUser = function (req) {\n  const id = req.params.userId;\n  return User.findOneAndDelete({ _id: id }).exec();\n}\n\nexports.inspectError = function (err, res) {\n  res.status(500).json({\n    error: err\n  });\n}\n\n/**\n * @desc to search a particular user using emailId\n */\nexports.search = function (params) {\n  const promise = User.find(params).exec();\n  return promise;\n};\n\n/**\n * @param {Object} user {User object}-Saves and returns the new Contact object.\n */\nexports.save = function (user) {\n  const newUser = new User(user);\n      const promise = newUser.save();\n      return promise;\n\n};\n",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/services/user-service.js",
+=======
+    "__docId__": 146,
+    "kind": "file",
+    "name": "api/services/user-service.js",
+    "content": "  /**\r\n  * Services for User operations.\r\n  */\r\n  /**\r\n   * @desc import UserSchema.\r\n   */\r\n  const User = require('../model/users');\r\n  const mongoose = require('mongoose');\r\n\r\n\r\n  exports.compare = function compare(a, b) {\r\n    if (a.fname > b.fname) return 1;\r\n    else if (b.fname > a.fname) return -1;\r\n    else {\r\n      if (a.lname > b.lname) return 1;\r\n      else if (b.lname > a.lname) return -1;\r\n      return 0;\r\n    }\r\n  }\r\n\r\n  /**\r\n   * Returns an Array of User Object\r\n   *\r\n   * @param {Promise} params {}\r\n   */\r\n  exports.getAllUsers = function () {\r\n    return User.find().exec();\r\n  }\r\n\r\n  /**\r\n   * Returns an Created User Object\r\n   *\r\n   * @param {Promise} params {req}\r\n   */\r\n  exports.createNewUser = function(req) {\r\n    const newuser = new User(req.body);\r\n    return newuser.save();\r\n  }\r\n\r\n  /**\r\n   * Returns an one User Object based on the userId passed\r\n   *\r\n   * @param {Promise} params {req}\r\n   */\r\n  exports.getOneUser = function (req) {\r\n    const id = req.params.userId;\r\n    return User.findById(id).exec();\r\n  }\r\n\r\n  exports.getUserById = function (id) {\r\n    return User.findById(id).exec();\r\n  }\r\n  \r\n/**\r\n * Updates and returns the user object.\r\n *\r\n * @param {Object} sticky {User object}\r\n */\r\nexports.updateUser = function (user) {\r\n  const promise = User.findOneAndUpdate({_id: user._id}, user).exec();\r\n  return promise;\r\n};\r\n\r\n\r\n\r\n\r\n/**\r\n * @desc to search a particular user using emailId\r\n */\r\nexports.search = function (params) {\r\n  console.log(params);\r\n  const promise = User.find(params).exec();\r\n  return promise;\r\n};\r\n\r\n\r\n  exports.deleteUser = function (req) {\r\n    const id = req.params.userId;\r\n    return User.findOneAndDelete({ _id: id }).exec();\r\n  }\r\n\r\n  /**\r\n   * Dealing with request Error\r\n   *\r\n   * @param {Object} params {err, res}\r\n   */\r\n  exports.inspectError = function (err, res) {\r\n    res.status(500).json({\r\n      error: err\r\n    });\r\n  }\r\n\r\n  /**\r\n   * @desc to search a particular user using emailId\r\n   */\r\n  exports.search = function (params) {\r\n    console.log(params);\r\n    const promise = User.find(params).exec();\r\n    return promise;\r\n  };\r\n\r\n  /**\r\n   * @param {Object} user {User object}-Saves and returns the new Contact object.\r\n   */\r\n  exports.save = function (user) {\r\n    const newUser = new User(user);\r\n        const promise = newUser.save();\r\n        return promise;\r\n\r\n  };\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/user-service.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 102,
+=======
+    "__docId__": 147,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "variable",
+    "name": "User",
+    "memberof": "api/services/user-service.js",
+    "static": true,
+    "longname": "api/services/user-service.js~User",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+<<<<<<< HEAD
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+=======
+    "description": "import UserSchema.",
+    "lineNumber": 7,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 103,
+=======
+    "__docId__": 148,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/services/user-service.js",
+    "static": true,
+    "longname": "api/services/user-service.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+    "description": null,
+<<<<<<< HEAD
+    "lineNumber": 2,
+=======
+    "lineNumber": 8,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 104,
+=======
+    "__docId__": 149,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "compare",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~compare",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+    "description": null,
+<<<<<<< HEAD
+    "lineNumber": 4,
+=======
+    "lineNumber": 11,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "undocument": true,
+    "params": [
+      {
+        "name": "a",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "b",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 105,
+=======
+    "__docId__": 150,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "getAllUsers",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~getAllUsers",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+<<<<<<< HEAD
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+=======
+    "description": "Returns an Array of User Object",
+    "lineNumber": 26,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{}"
+      }
+    ],
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 106,
+=======
+    "__docId__": 151,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "createNewUser",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~createNewUser",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+<<<<<<< HEAD
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+=======
+    "description": "Returns an Created User Object",
+    "lineNumber": 35,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 107,
+=======
+    "__docId__": 152,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "getOneUser",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~getOneUser",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+<<<<<<< HEAD
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+=======
+    "description": "Returns an one User Object based on the userId passed",
+    "lineNumber": 45,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Promise"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{req}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 153,
+    "kind": "function",
+    "name": "getUserById",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~getUserById",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 50,
+    "undocument": true,
+    "params": [
+      {
+        "name": "id",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 108,
+=======
+    "__docId__": 154,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "updateUser",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~updateUser",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+<<<<<<< HEAD
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+=======
+    "description": "Updates and returns the user object.",
+    "lineNumber": 59,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sticky",
+        "description": "{User object}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 155,
+    "kind": "function",
+    "name": "search",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~search",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+    "description": "to search a particular user using emailId",
+    "lineNumber": 70,
+    "params": [
+      {
+        "name": "params",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 109,
+=======
+    "__docId__": 156,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "deleteUser",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~deleteUser",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+    "description": null,
+<<<<<<< HEAD
+    "lineNumber": 37,
+=======
+    "lineNumber": 77,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "undocument": true,
+    "params": [
+      {
+        "name": "req",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 110,
+=======
+    "__docId__": 157,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "inspectError",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~inspectError",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+<<<<<<< HEAD
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "params": [
+      {
+        "name": "err",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "res",
+        "types": [
+          "*"
+        ]
+=======
+    "description": "Dealing with request Error",
+    "lineNumber": 87,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{err, res}"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 111,
+=======
+    "__docId__": 158,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "search",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~search",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+    "description": "to search a particular user using emailId",
+<<<<<<< HEAD
+    "lineNumber": 51,
+=======
+    "lineNumber": 96,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 112,
+=======
+    "__docId__": 159,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "save",
+    "memberof": "api/services/user-service.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/user-service.js~save",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/user-service.js",
+    "importStyle": null,
+    "description": "",
+<<<<<<< HEAD
+    "lineNumber": 59,
+=======
+    "lineNumber": 105,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "user",
+        "description": "{User object}-Saves and returns the new Contact object."
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 113,
+    "kind": "file",
+    "name": "api/services/wallet-services.js",
+    "content": "/**\n * Service for wallet operations.\n */\n\n\"use strict\";\nconst mongoose = require(\"mongoose\"),\n  Wallet = mongoose.model(\"wallet\"),\n  WalletHistory = mongoose.model(\"walletHistory\");\n\n\n/**\n * Returns a wallet object matching the id.\n *\n * @param {Object} params {id}\n */\nexports.searchById = function (params) {\n  const promise = Wallet.findById(params).exec();\n  return promise;\n};\n\n/**\n * Updates and returns the wallet object.\n *\n * @param {Object} Wallet {Wallet object}\n */\nexports.update = function (wallet) {\n  wallet.modified_date = new Date();\n  const promise = Wallet.findOneAndUpdate(\n    { _id: wallet._id },\n    wallet\n  ).exec();\n  return promise;\n};\n\n/**\n * Returns a wallet history object matching the id.\n *\n * @param {Object} params {id}\n */\nexports.searchWalletTransactionById = function (params) {\n  const promise = WalletHistory.findById(params).exec();\n  return promise;\n};\n\n/**\n * Saves and returns the new WalletHistory object.\n *\n * @param {Object} WalletHistory {WalletHistory object}\n */\nexports.createWalletHistory = function (walletHistory) {\n  const newWalletHistory = new WalletHistory(walletHistory);\n  const promise = newWalletHistory.save();\n  return promise;\n};\n\n/**\n * Saves and returns the new Wallet object.\n *\n * @param {Object} Wallet {Wallet object}\n */\nexports.createWallet = function (wallet) {\n  const newWallet = new Wallet(wallet);\n  const promise = newWallet.save();\n  return promise;\n};",
+    "static": true,
+    "longname": "C:/UX_Workspace/Workspace/Project/Master/final-project-husky-miners/server/api/services/wallet-services.js",
+=======
+    "__docId__": 160,
+    "kind": "file",
+    "name": "api/services/wallet-services.js",
+    "content": "/**\r\n * Service for wallet operations.\r\n */\r\n\r\n\"use strict\";\r\nconst mongoose = require(\"mongoose\"),\r\n  Wallet = mongoose.model(\"wallet\"),\r\n  WalletHistory = mongoose.model(\"walletHistory\");\r\n\r\n\r\n/**\r\n * Returns a wallet object matching the id.\r\n *\r\n * @param {Object} params {id}\r\n */\r\nexports.searchByUserId = function (params) {\r\n  const promise = Wallet.find(params).exec();\r\n  return promise;\r\n};\r\n\r\n/**\r\n * Updates and returns the wallet object.\r\n *\r\n * @param {Object} Wallet {Wallet object}\r\n */\r\nexports.update = function (wallet) {\r\n  wallet.modified_date = new Date();\r\n  const promise = Wallet.findOneAndUpdate(\r\n    { user_id: wallet.user_id },\r\n    wallet\r\n  ).exec();\r\n  return promise;\r\n};\r\n\r\n/**\r\n * Returns a wallet history object matching the id.\r\n *\r\n * @param {Object} params {id}\r\n */\r\nexports.searchWalletTransactionById = function (user_id) {\r\n  const promise = WalletHistory.find({ user_id: user_id }).sort({ created_date: -1 }).exec();\r\n  return promise;\r\n};\r\n\r\n/**\r\n * Saves and returns the new WalletHistory object.\r\n *\r\n * @param {Object} WalletHistory {WalletHistory object}\r\n */\r\nexports.createWalletHistory = function (walletHistory) {\r\n  const newWalletHistory = new WalletHistory(walletHistory);\r\n  const promise = newWalletHistory.save();\r\n  return promise;\r\n};\r\n\r\n/**\r\n * Saves and returns the new Wallet object.\r\n *\r\n * @param {Object} Wallet {Wallet object}\r\n */\r\nexports.createWallet = function (wallet) {\r\n  const newWallet = new Wallet(wallet);\r\n  const promise = newWallet.save();\r\n  return promise;\r\n};\r\n",
+    "static": true,
+    "longname": "C:/Users/tejas/git/WDAssignments/final-project-husky-miners/server/api/services/wallet-services.js",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 114,
+=======
+    "__docId__": 161,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "variable",
+    "name": "mongoose",
+    "memberof": "api/services/wallet-services.js",
+    "static": true,
+    "longname": "api/services/wallet-services.js~mongoose",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/wallet-services.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 115,
+    "kind": "function",
+    "name": "searchById",
+=======
+    "__docId__": 162,
+    "kind": "function",
+    "name": "searchByUserId",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "memberof": "api/services/wallet-services.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+<<<<<<< HEAD
+    "longname": "api/services/wallet-services.js~searchById",
+=======
+    "longname": "api/services/wallet-services.js~searchByUserId",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/wallet-services.js",
+    "importStyle": null,
+    "description": "Returns a wallet object matching the id.",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{id}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 116,
+=======
+    "__docId__": 163,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "update",
+    "memberof": "api/services/wallet-services.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/wallet-services.js~update",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/wallet-services.js",
+    "importStyle": null,
+    "description": "Updates and returns the wallet object.",
+    "lineNumber": 26,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "Wallet",
+        "description": "{Wallet object}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 117,
+=======
+    "__docId__": 164,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "searchWalletTransactionById",
+    "memberof": "api/services/wallet-services.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/wallet-services.js~searchWalletTransactionById",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/wallet-services.js",
+    "importStyle": null,
+    "description": "Returns a wallet history object matching the id.",
+    "lineNumber": 40,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "{id}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 118,
+=======
+    "__docId__": 165,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "createWalletHistory",
+    "memberof": "api/services/wallet-services.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/wallet-services.js~createWalletHistory",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/wallet-services.js",
+    "importStyle": null,
+    "description": "Saves and returns the new WalletHistory object.",
+    "lineNumber": 50,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "WalletHistory",
+        "description": "{WalletHistory object}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+<<<<<<< HEAD
+    "__docId__": 119,
+=======
+    "__docId__": 166,
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
+    "kind": "function",
+    "name": "createWallet",
+    "memberof": "api/services/wallet-services.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "api/services/wallet-services.js~createWallet",
+    "access": "public",
+    "export": false,
+    "importPath": "husky_coin_server/api/services/wallet-services.js",
+    "importStyle": null,
+    "description": "Saves and returns the new Wallet object.",
+    "lineNumber": 61,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "Wallet",
+        "description": "{Wallet object}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
   },
   {
     "kind": "index",
     "content": "",
-    "longname": "C:\\Users\\tejas\\git\\WDAssignments\\final-project-husky-miners\\server\\README.md",
+    "longname": "C:\\UX_Workspace\\Workspace\\Project\\Master\\final-project-husky-miners\\server\\README.md",
     "name": "./README.md",
     "static": true,
     "access": "public"
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"husky_coin_server\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Final project for Husky Miners\",\n  \"main\": \"server.js\",\n  \"scripts\": {\n    \"start\": \"node server.js\",\n    \"lint\": \"eslint app\",\n    \"doc\": \"esdoc -c esdoc.json\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners.git\"\n  },\n  \"author\": \"Husky Miners\",\n  \"license\": \"ISC\",\n  \"dependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"express\": \"^4.16.2\",\n    \"mongoose\": \"^4.13.3\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners/issues\"\n  },\n  \"homepage\": \"https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners#readme\"\n}\n",
+<<<<<<< HEAD
+    "content": "{\n  \"name\": \"husky_coin_server\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Final project for Husky Miners\",\n  \"main\": \"server.js\",\n  \"scripts\": {\n    \"start\": \"node server.js\",\n    \"lint\": \"eslint app\",\n    \"doc\": \"esdoc -c esdoc.json\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners.git\"\n  },\n  \"author\": \"Husky Miners\",\n  \"license\": \"ISC\",\n  \"dependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"express\": \"^4.16.4\",\n    \"jsonwebtoken\": \"^8.5.1\",\n    \"mongoose\": \"^5.5.0\",\n    \"morgan\": \"^1.9.1\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners/issues\"\n  },\n  \"homepage\": \"https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners#readme\"\n}\n",
+    "longname": "C:\\UX_Workspace\\Workspace\\Project\\Master\\final-project-husky-miners\\server\\package.json",
+=======
+    "content": "{\r\n  \"name\": \"husky_coin_server\",\r\n  \"version\": \"1.0.0\",\r\n  \"description\": \"Final project for Husky Miners\",\r\n  \"main\": \"server.js\",\r\n  \"scripts\": {\r\n    \"start\": \"node server.js\",\r\n    \"lint\": \"eslint app\",\r\n    \"doc\": \"esdoc -c esdoc.json\"\r\n  },\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"git+https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners.git\"\r\n  },\r\n  \"author\": \"Husky Miners\",\r\n  \"license\": \"ISC\",\r\n  \"dependencies\": {\r\n    \"bcrypt\": \"^3.0.6\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"express\": \"^4.16.4\",\r\n    \"jsonwebtoken\": \"^8.5.1\",\r\n    \"mongoose\": \"^5.5.0\",\r\n    \"morgan\": \"^1.9.1\",\r\n    \"nodemailer\": \"^6.1.1\"\r\n  },\r\n  \"bugs\": {\r\n    \"url\": \"https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners/issues\"\r\n  },\r\n  \"homepage\": \"https://github.com/neu-mis-info6150-spring-2019/final-project-husky-miners#readme\"\r\n}\r\n",
     "longname": "C:\\Users\\tejas\\git\\WDAssignments\\final-project-husky-miners\\server\\package.json",
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "name": "package.json",
     "static": true,
     "access": "public"

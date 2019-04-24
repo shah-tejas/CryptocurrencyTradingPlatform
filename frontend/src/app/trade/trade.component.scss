@@ -1,0 +1,93 @@
+/* Style for Trade-Component */
+/* Style for spacing button */
+.spacer{
+  flex: 1 1 auto;
+}
+
+/* Style for the Buy & Sell Tables */
+.mat-table{
+  width: 95%;
+  margin: 2%;
+}
+
+/* Style for the table-header when sorted */
+th.mat-header-sorted{
+  color:#000000;
+}
+
+/* Style for the fixing table-header on top */
+.mat-table-sticky{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Style for table-row when it is hovered */
+.mat-row:hover, .mat-header-row :hover{
+  background: #bbd1e6d3;
+}
+
+/* Style for table-row when it is active */
+.mat-row:active, .mat-header-row :active{
+  background: grey;
+}
+
+/* Style for Form-Fields on PLACE-ORDER section */
+.mat-form-field {
+  font-size: 14px;
+  margin: auto;
+  padding-left: 30px;
+}
+
+/* Style for PLACE-ORDER form */
+.placeOrder-form {
+  min-width: 150px;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Style for Order-Type label on PLACE-ORDER Section */
+.requiredSpan{
+  color: red;
+}
+
+/* Style for USD-Value (From) on PLACE-ORDER Section */
+.fromValueClass{
+  color: red;
+}
+
+/* Style for USD-Value (To) on PLACE-ORDER Section */
+.toValueClass{
+  color: green;
+}
+
+/* Style for the Success-Message on PLACE-ORDER Section */
+.success {
+  margin-top: 20px;
+  color: green;
+  padding: .5em;
+  display: block;
+  font-size: 1em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+/* Style for the Error-Message on PLACE-ORDER Section */
+.error {
+  color: red;
+  padding: .5em;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* Style for Radio-Button on PLACE-ORDER Section */
+.radio-button{
+  margin-right: 5px;
+}
+
+
+/* Style for Drop-Down on PLACE-ORDER Section */
+.dropdownClass{
+  padding-left: 100px;
+}

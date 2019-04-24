@@ -1,0 +1,112 @@
+<!-- Container for the buttons -->
+<mat-card class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+  <!-- The Load Wallet button -->
+  <a mat-button mat-raised-button color="primary" routerLink="/loadWallet">Load Wallet</a>
+  &nbsp;&nbsp;
+  <!-- The Withdraw Wallet button -->
+  <a mat-button mat-raised-button color="primary" routerLink="/withdrawWallet">Withdraw from Wallet</a>
+</mat-card>
+
+<!-- Display the user's wallet if available -->
+<mat-card *ngIf="userWallet">
+  <mat-card-header>
+    <mat-card-title>Your Wallet Details:</mat-card-title>
+  </mat-card-header>
+
+  <!-- Display the user wallet's current USD Valuation -->
+  <mat-card>
+    <mat-card-title>USD Value: ${{ Math.round(userWallet.usd_value *100) / 100 }}</mat-card-title>
+  </mat-card>
+
+  <br />
+
+  <!-- Display the cryptocurrencies in user's wallet -->
+  <mat-card *ngIf="userWallet.coins">
+    <mat-card-header>
+      <mat-card-title> Cryptocurrencies: </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-table [dataSource]="userWallet.coins">
+
+        <ng-container matColumnDef="coin_name">
+          <mat-header-cell *matHeaderCellDef> Coin Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.coin_name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_qty">
+          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.coin_qty}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_rate">
+          <mat-header-cell *matHeaderCellDef> Coin Rate (USD) </mat-header-cell>
+          <mat-cell *matCellDef="let element"> ${{element.coin_rate}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_total_rate">
+          <mat-header-cell *matHeaderCellDef> Total USD </mat-header-cell>
+          <mat-cell *matCellDef="let element"> ${{ Math.round(element.coin_qty * element.coin_rate * 100) / 100 }}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="coinBalanceColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: coinBalanceColumns;"></mat-row>
+
+      </mat-table>
+
+    </mat-card-content>
+  </mat-card>
+
+  <br />
+
+  <!-- Display the Transactions performed to Load / Withdraw from  Wallet -->
+  <mat-card *ngIf="userWallet.walletTransactions">
+    <mat-card-header>
+      <mat-card-title>Wallet Transactions <app-save-file-icon (click)="downloadAsPdf()"></app-save-file-icon>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-table [dataSource]="userWallet.walletTransactions" id="UserWalletTransactions">
+
+        <ng-container matColumnDef="created_date">
+          <mat-header-cell *matHeaderCellDef> Transaction Date </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ formatMyDate(element.created_date) }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="transaction_type">
+          <mat-header-cell *matHeaderCellDef> Transaction Type </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.transaction_type}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_name">
+          <mat-header-cell *matHeaderCellDef> Cryptocurrency </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.coin_name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coin_qty">
+          <mat-header-cell *matHeaderCellDef> Coin Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.coin_qty}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="usd_value">
+          <mat-header-cell *matHeaderCellDef> Value in USD </mat-header-cell>
+          <mat-cell *matCellDef="let element"> ${{ Math.round(element.usd_value * 100) / 100 }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> Transaction Status </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="walletTransactionsColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: walletTransactionsColumns;"></mat-row>
+
+      </mat-table>
+
+    </mat-card-content>
+  </mat-card>
+
+
+</mat-card>

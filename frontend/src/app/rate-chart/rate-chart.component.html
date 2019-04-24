@@ -1,0 +1,29 @@
+<div class="contain">
+  <mat-tab-group (selectedTabChange)="getChart($event)">
+    <mat-tab label="BitCoin">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayBitCoin" id="BitCoin" height="35vh" width="75vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Ethereum">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayEthereum" id="Ethereum" height="35vh" width="75vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="LiteCoin">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayLiteCoin" id="LiteCoin" height="35vh" width="75vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="HuskyCoin">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayHuskyCoin" id="HuskyCoin" height="35vh" width="75vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="DashCoin">
+      <ng-template matTabContent>
+        <canvas *ngIf="displayDashCoin" id="DashCoin" height="35vh" width="75vw">{{ chart }}</canvas>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>
