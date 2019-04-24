@@ -1,6 +1,8 @@
 <h1 mat-dialog-title>Confirmation</h1>
+<!-- Confirmation message -->
 <div mat-dialog-content>
-  Are you sure you want to {{ confirmationData.action }} <strong>{{ walletTransaction.coin_qty }}</strong> {{ walletTransaction.coin_name }}s
+  Are you sure you want to {{ confirmationData.action }} <strong>{{ walletTransaction.coin_qty }}</strong>
+  {{ walletTransaction.coin_name }}s
   @ $<strong>{{ Math.round(walletTransaction.usd_value * 100) / 100 }}</strong>?
 </div>
 <div mat-dialog-actions>

@@ -34,17 +34,29 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/app.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
-module.exports = function (app) {
-    //Initialize models
-    //TO-DO
-    // let contactModel = require(&apos;./model/&apos;);
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">  &apos;use strict&apos;;
+  /* The main app configuration to bootstrap the server from */
+  module.exports = function (app) {
+      //Initialize models
+      let walletModel = require(&apos;./model/wallet&apos;);
+      let walletHistoryModel = require(&apos;./model/wallet-history&apos;);
+      let userModel = require(&apos;./model/users&apos;);
+      const rateModel = require(&apos;./model/RateList&apos;);
+      let orderModel = require(&apos;./model/orders&apos;);
+      //Initialize routes
+      let walletRoutes = require(&apos;./routes/wallet-route&apos;);
+      walletRoutes(app);
+      let userRoutes = require(&apos;./routes/user&apos;);
+      userRoutes(app);
+      const rateRoutes = require(&apos;./routes/rateList-route&apos;);
+      rateRoutes(app);
+      let orderRoutes = require(&apos;./routes/order&apos;);
+      orderRoutes(app);
+      let orderHistoryRoutes = require(&apos;./routes/order-history&apos;);
+      orderHistoryRoutes(app);
+  };
 
-    //Initialize routes
-    //TO-DO
-    // let contactRoutes = require(&apos;./routes/&apos;);
-    // contactRoutes(app);
-};</code></pre>
+</code></pre>
 
 </div>
 

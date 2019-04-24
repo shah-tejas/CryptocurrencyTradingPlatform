@@ -1,4 +1,5 @@
   'use strict';
+  /* The main app configuration to bootstrap the server from */
   module.exports = function (app) {
       //Initialize models
       let walletModel = require('./model/wallet');

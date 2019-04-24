@@ -1,1 +1,698 @@
-[]
+[
+  {
+    "name": "post",
+    "filePath": "api/controllers/loginController.js",
+    "lines": [
+      {
+        "lineNumber": 21,
+        "line": "exports.post = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getUser",
+    "filePath": "api/controllers/loginController.js",
+    "lines": [
+      {
+        "lineNumber": 48,
+        "line": "exports.getUser = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "put",
+    "filePath": "api/controllers/loginController.js",
+    "lines": [
+      {
+        "lineNumber": 83,
+        "line": "exports.put = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getAll",
+    "filePath": "api/controllers/order-controller.js",
+    "lines": [
+      {
+        "lineNumber": 14,
+        "line": "  exports.getAll=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "post",
+    "filePath": "api/controllers/order-controller.js",
+    "lines": [
+      {
+        "lineNumber": 33,
+        "line": "  exports.post=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getOne",
+    "filePath": "api/controllers/order-controller.js",
+    "lines": [
+      {
+        "lineNumber": 53,
+        "line": "  exports.getOne=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "put",
+    "filePath": "api/controllers/order-controller.js",
+    "lines": [
+      {
+        "lineNumber": 71,
+        "line": "  exports.put=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "delete",
+    "filePath": "api/controllers/order-controller.js",
+    "lines": [
+      {
+        "lineNumber": 90,
+        "line": "  exports.delete=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getAll",
+    "filePath": "api/controllers/order-history-controller.js",
+    "lines": [
+      {
+        "lineNumber": 15,
+        "line": "  exports.getAll=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "put",
+    "filePath": "api/controllers/order-history-controller.js",
+    "lines": [
+      {
+        "lineNumber": 35,
+        "line": "  exports.put=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "delete",
+    "filePath": "api/controllers/order-history-controller.js",
+    "lines": [
+      {
+        "lineNumber": 55,
+        "line": "  exports.delete=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getAll",
+    "filePath": "api/controllers/user-controller.js",
+    "lines": [
+      {
+        "lineNumber": 15,
+        "line": "  exports.getAll=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "post",
+    "filePath": "api/controllers/user-controller.js",
+    "lines": [
+      {
+        "lineNumber": 34,
+        "line": "  exports.post=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getOne",
+    "filePath": "api/controllers/user-controller.js",
+    "lines": [
+      {
+        "lineNumber": 55,
+        "line": "  exports.getOne=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "put",
+    "filePath": "api/controllers/user-controller.js",
+    "lines": [
+      {
+        "lineNumber": 73,
+        "line": "  exports.put=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "delete",
+    "filePath": "api/controllers/user-controller.js",
+    "lines": [
+      {
+        "lineNumber": 92,
+        "line": "  exports.delete=function(req,res,next){\r"
+      }
+    ],
+    "codeParams": [
+      "req",
+      "res",
+      "next"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getUserWallet",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 16,
+        "line": "exports.getUserWallet = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "updateUserWallet",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 33,
+        "line": "exports.updateUserWallet = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getWalletHistory",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 51,
+        "line": "exports.getWalletHistory = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "createWalletTransaction",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 68,
+        "line": "exports.createWalletTransaction = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "createWallet",
+    "filePath": "api/controllers/walletController.js",
+    "lines": [
+      {
+        "lineNumber": 86,
+        "line": "exports.createWallet = function (request, response) {\r"
+      }
+    ],
+    "codeParams": [
+      "request",
+      "response"
+    ],
+    "docParams": [
+      "{HTTP",
+      "{HTTP"
+    ]
+  },
+  {
+    "name": "getAllOrderHistory",
+    "filePath": "api/services/order-history-service.js",
+    "lines": [
+      {
+        "lineNumber": 9,
+        "line": "exports.getAllOrderHistory=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "updateOrder",
+    "filePath": "api/services/order-history-service.js",
+    "lines": [
+      {
+        "lineNumber": 23,
+        "line": "exports.updateOrder=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "deleteOrder",
+    "filePath": "api/services/order-history-service.js",
+    "lines": [
+      {
+        "lineNumber": 36,
+        "line": "exports.deleteOrder=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "inspectError",
+    "filePath": "api/services/order-history-service.js",
+    "lines": [
+      {
+        "lineNumber": 46,
+        "line": "exports.inspectError=function(err,res){\r"
+      }
+    ],
+    "codeParams": [
+      "err",
+      "res"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "getAllOrders",
+    "filePath": "api/services/order-service.js",
+    "lines": [
+      {
+        "lineNumber": 8,
+        "line": "  exports.getAllOrders=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "createNewOrder",
+    "filePath": "api/services/order-service.js",
+    "lines": [
+      {
+        "lineNumber": 20,
+        "line": "  exports.createNewOrder=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "getOneOrder",
+    "filePath": "api/services/order-service.js",
+    "lines": [
+      {
+        "lineNumber": 30,
+        "line": "  exports.getOneOrder=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "updateOrder",
+    "filePath": "api/services/order-service.js",
+    "lines": [
+      {
+        "lineNumber": 41,
+        "line": "  exports.updateOrder=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "deleteOrder",
+    "filePath": "api/services/order-service.js",
+    "lines": [
+      {
+        "lineNumber": 74,
+        "line": "  exports.deleteOrder=function(req){\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "inspectError",
+    "filePath": "api/services/order-service.js",
+    "lines": [
+      {
+        "lineNumber": 84,
+        "line": "  exports.inspectError=function(err,res){\r"
+      }
+    ],
+    "codeParams": [
+      "err",
+      "res"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "getAllUsers",
+    "filePath": "api/services/user-service.js",
+    "lines": [
+      {
+        "lineNumber": 25,
+        "line": "  exports.getAllUsers = function () {\r"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "createNewUser",
+    "filePath": "api/services/user-service.js",
+    "lines": [
+      {
+        "lineNumber": 34,
+        "line": "  exports.createNewUser = function(req) {\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "getOneUser",
+    "filePath": "api/services/user-service.js",
+    "lines": [
+      {
+        "lineNumber": 44,
+        "line": "  exports.getOneUser = function (req) {\r"
+      }
+    ],
+    "codeParams": [
+      "req"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "updateUser",
+    "filePath": "api/services/user-service.js",
+    "lines": [
+      {
+        "lineNumber": 58,
+        "line": "exports.updateUser = function (user) {\r"
+      }
+    ],
+    "codeParams": [
+      "user"
+    ],
+    "docParams": [
+      "sticky"
+    ]
+  },
+  {
+    "name": "inspectError",
+    "filePath": "api/services/user-service.js",
+    "lines": [
+      {
+        "lineNumber": 86,
+        "line": "  exports.inspectError = function (err, res) {\r"
+      }
+    ],
+    "codeParams": [
+      "err",
+      "res"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "update",
+    "filePath": "api/services/wallet-services.js",
+    "lines": [
+      {
+        "lineNumber": 25,
+        "line": "exports.update = function (wallet) {\r"
+      }
+    ],
+    "codeParams": [
+      "wallet"
+    ],
+    "docParams": [
+      "Wallet"
+    ]
+  },
+  {
+    "name": "searchWalletTransactionById",
+    "filePath": "api/services/wallet-services.js",
+    "lines": [
+      {
+        "lineNumber": 39,
+        "line": "exports.searchWalletTransactionById = function (user_id) {\r"
+      }
+    ],
+    "codeParams": [
+      "user_id"
+    ],
+    "docParams": [
+      "params"
+    ]
+  },
+  {
+    "name": "createWalletHistory",
+    "filePath": "api/services/wallet-services.js",
+    "lines": [
+      {
+        "lineNumber": 49,
+        "line": "exports.createWalletHistory = function (walletHistory) {\r"
+      }
+    ],
+    "codeParams": [
+      "walletHistory"
+    ],
+    "docParams": [
+      "WalletHistory"
+    ]
+  },
+  {
+    "name": "createWallet",
+    "filePath": "api/services/wallet-services.js",
+    "lines": [
+      {
+        "lineNumber": 60,
+        "line": "exports.createWallet = function (wallet) {\r"
+      }
+    ],
+    "codeParams": [
+      "wallet"
+    ],
+    "docParams": [
+      "Wallet"
+    ]
+  }
+]

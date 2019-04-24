@@ -5,6 +5,7 @@
         <mat-card-title>Load Wallet</mat-card-title>
       </mat-grid-tile>
     </mat-card-header>
+    <!-- Dispaly the form to load wallet -->
     <mat-card-content>
       <form (ngSubmit)="loadWallet()">
 
@@ -37,7 +38,8 @@
           <mat-label>Quantity: </mat-label>
         </mat-grid-tile>
         <mat-grid-tile>
-          <input matInput type="number" [(ngModel)]="walletTransaction.coin_qty" min="1" name="coin_qty" (change)="updateUSDValue()" (keyup)="updateUSDValue()" />
+          <input matInput type="number" [(ngModel)]="walletTransaction.coin_qty" min="1" name="coin_qty"
+            (change)="updateUSDValue()" (keyup)="updateUSDValue()" />
         </mat-grid-tile>
 
         <mat-grid-tile>
@@ -48,7 +50,8 @@
         </mat-grid-tile>
 
         <mat-grid-tile colspan="2">
-          <button mat-button mat-raised-button color="primary" type="submit" [disabled]="isDisabled">Load Wallet</button>
+          <button mat-button mat-raised-button color="primary" type="submit" [disabled]="isDisabled">Load
+            Wallet</button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <a mat-button mat-raised-button color="warn" routerLink="/wallet">Cancel</a>
         </mat-grid-tile>
