@@ -18,7 +18,6 @@
 
 1. Browse application to IDE
 1. Install angularcli,and then npm install
-1. Install nodemon and nodemailder under node-rest-BSCMS
 1. Run command npm start under server
 1. Run command ng serve -o under frontend
 
