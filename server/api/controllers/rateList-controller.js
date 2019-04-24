@@ -1,8 +1,17 @@
-//Setting up Controller for the API
+/**
+ * @desc Controller for coin-rates endpoints
+ */
 'use strict';
-//Import service for the API
+/**
+ * @desc import (coin-)rate service.
+ */
 const rateService = require('../services/rateList-service');
-//Method to retrieve all current-rates from DB
+/**
+ * @desc Fetches current-rates for all the coins and returns the response as JSON
+ * @return returns a JSON object containing an array of RateList objects
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.allCurrentRates = ((req, res) => {
     const resolve = (currentRates) => {
         res.status(200);
@@ -13,7 +22,12 @@ exports.allCurrentRates = ((req, res) => {
         .catch(renderErrorRes(res));
 });
 
-//Method to add new-current-rate to DB
+/**
+ * @desc Creates a new coin-rate object with the request JSON
+ * @return returns coin-rate JSON object.
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.addNewCurrentRate = ((req, res) => {
     const newrate = Object.assign({}, req.body);
     const resolve = (rate) => {
@@ -25,7 +39,12 @@ exports.addNewCurrentRate = ((req, res) => {
         .catch(renderErrorRes(res));
 });
 
-//Method to retreive current-rate based on coin-name
+/**
+ * @desc Fetches a new coin-rate object with the request JSON
+ * @return returns coin-rate JSON object.
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.getCoinCurrentRate = ((req, res) => {
     const resolve = (rate) => {
         res.status(200);
@@ -36,7 +55,12 @@ exports.getCoinCurrentRate = ((req, res) => {
         .catch(renderErrorRes(res));
 });
 
-//Method to retrieve all rates from DB
+/**
+ * @desc Fetches all the rates for coins with the request JSON
+ * @return returns a JSON object as array of RateList objects for each coin
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.allRateHistory = ((req, res) => {
     const resolve = (currentRates) => {
         res.status(200);
@@ -47,8 +71,12 @@ exports.allRateHistory = ((req, res) => {
         .catch(renderErrorRes(res));
 });
 
-//
-//Method to retrieve all-rate based on coin-name
+/**
+ * @desc Fetches all the rates for a coin with the request JSON
+ * @return returns a JSON object as array of RateList objects for queried coin
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.allRateHistoryCoin = ((req, res) => {
     const resolve = (rate) => {
         res.status(200);
@@ -59,7 +87,11 @@ exports.allRateHistoryCoin = ((req, res) => {
         .catch(renderErrorRes(res));
 });
 
-//Method to throw error to the calling function
+/**
+ * @desc Throws error if error object is present.
+ * @param {Response} response The response object
+ * @return {Function} The error handler function.
+ */
 let renderErrorRes = (res) => {
     const errorCallback = (error) => {
         if (error) {

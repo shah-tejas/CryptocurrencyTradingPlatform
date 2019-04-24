@@ -1,31 +1,57 @@
+/**
+ * @desc Model for coin-rates endpoints
+ */
 'use strict';
+/**
+* @desc variable for mongoose library
+*/
 const mongoose = require('mongoose');
+/**
+* @desc variable for Schema for mongoose
+*/
 const Schema = mongoose.Schema;
 
-//Rate Schema for Mongoose
+/**
+ * Mongoose schema for storing rates of all coins.
+ * This schema represents each transaction conducted on wallet
+ */
 let RateSchema = new Schema({
-    //Atributes and their constraints
-    //Coin-Name
+    /**
+     * coinname of the coin the rate pertains to
+     * @type {String}
+     */
     coinname: {
         type: String,
         required: "Coin-Name is required"
     },
-    //USD-Value
+    /**
+     * usdvalue of the coin the rate pertains to
+     * @type {Number}
+     */
     usdvalue: {
         type: Number,
         required: "USD-Value is required"
     },
-    //Active
+    /**
+     * active denotes if the rate is the current rate of the coin the rate pertains to
+     * @type {String}
+     */
    active: {
        type: String,
        default: "A" 
    },
-    //Date-Of-Creation
+    /**
+     * insert_date denotes the date the rate was inserted in the schema
+     * @type {Date}
+     */
     insert_date: {
         type: Date,
         default: Date.now
     },
-    //Date-Of-Creation
+    /**
+     * modified_date denotes the date the rate was last modified in the schema
+     * @type {Date}
+     */
     modified_date: {
         type: Date,
         default: Date.now

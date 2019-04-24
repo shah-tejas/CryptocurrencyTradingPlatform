@@ -34,6 +34,16 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/model/users.js</h1>
+<<<<<<< HEAD
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+  const mongoose = require(&apos;mongoose&apos;);
+
+  const UserSchema = new mongoose.Schema({
+    fname: String,
+    lname: String,
+    emailId: { type: String, unique: true, required: true},
+    Phno:  { type: Number, unique: true},
+=======
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">  /**
   * @desc import mongoose Object.
   */
@@ -62,6 +72,7 @@
     /**
      * Address Object associated with User.
      */
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     address: {
       address1: String,
       address2: String,
@@ -69,19 +80,28 @@
       country: String,
       zipcode: Number,
     },
+<<<<<<< HEAD
+    payment: {
+      cardno: { type: Number, unique: true, required: true},
+      cvv: { type: Number, unique: true, required: true},
+=======
     /**
      * Payment Details Accociated with User.
      */
     payment: {
       cardno: { type: Number, required: true},
       cvv: { type: Number, required: true},
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       expire: String,
       name: String,
       zipcode: Number
     },
+<<<<<<< HEAD
+=======
     /**
      * Login Details of the  User, this is used to login.
      */
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     login: {
       username: { type: String, unique: true, required: true},
       password: String

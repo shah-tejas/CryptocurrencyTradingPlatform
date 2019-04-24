@@ -300,6 +300,8 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+<<<<<<< HEAD
+=======
     "api/controllers/order-controller.js",
     "file/api/controllers/order-controller.js.html",
     "api/controllers/order-controller.js",
@@ -312,6 +314,7 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "api/controllers/ratelist-controller.js",
     "file/api/controllers/rateList-controller.js.html",
     "api/controllers/rateList-controller.js",
@@ -336,12 +339,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+<<<<<<< HEAD
+=======
     "api/model/orders.js",
     "file/api/model/orders.js.html",
     "api/model/orders.js",
     "file"
   ],
   [
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "api/model/users.js",
     "file/api/model/users.js.html",
     "api/model/users.js",
@@ -360,6 +366,8 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+<<<<<<< HEAD
+=======
     "api/routes/order-history.js",
     "file/api/routes/order-history.js.html",
     "api/routes/order-history.js",
@@ -372,6 +380,7 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "api/routes/ratelist-route.js",
     "file/api/routes/rateList-route.js.html",
     "api/routes/rateList-route.js",
@@ -390,18 +399,23 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+<<<<<<< HEAD
+=======
     "api/services/email-service.js",
     "file/api/services/email-service.js.html",
     "api/services/email-service.js",
     "file"
   ],
   [
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "api/services/jwt-service.js",
     "file/api/services/jwt-service.js.html",
     "api/services/jwt-service.js",
     "file"
   ],
   [
+<<<<<<< HEAD
+=======
     "api/services/order-history-service.js",
     "file/api/services/order-history-service.js.html",
     "api/services/order-history-service.js",
@@ -414,6 +428,7 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "api/services/ratelist-service.js",
     "file/api/services/rateList-service.js.html",
     "api/services/rateList-service.js",

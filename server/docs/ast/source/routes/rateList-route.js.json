@@ -1,87 +1,87 @@
 {
   "type": "File",
   "start": 0,
-  "end": 858,
+  "end": 893,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 23,
-      "column": 0
+      "line": 32,
+      "column": 3
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 858,
+    "end": 893,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 23,
-        "column": 0
+        "line": 32,
+        "column": 3
       }
     },
     "sourceType": "module",
     "body": [
       {
         "type": "ExpressionStatement",
-        "start": 45,
-        "end": 856,
+        "start": 99,
+        "end": 893,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 5,
             "column": 0
           },
           "end": {
-            "line": 22,
+            "line": 32,
             "column": 3
           }
         },
         "expression": {
           "type": "AssignmentExpression",
-          "start": 45,
-          "end": 855,
+          "start": 99,
+          "end": 892,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 5,
               "column": 0
             },
             "end": {
-              "line": 22,
+              "line": 32,
               "column": 2
             }
           },
           "operator": "=",
           "left": {
             "type": "MemberExpression",
-            "start": 45,
-            "end": 59,
+            "start": 99,
+            "end": 113,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 5,
                 "column": 0
               },
               "end": {
-                "line": 3,
+                "line": 5,
                 "column": 14
               }
             },
             "object": {
               "type": "Identifier",
-              "start": 45,
-              "end": 51,
+              "start": 99,
+              "end": 105,
               "loc": {
                 "start": {
-                  "line": 3,
+                  "line": 5,
                   "column": 0
                 },
                 "end": {
-                  "line": 3,
+                  "line": 5,
                   "column": 6
                 },
                 "identifierName": "module"
@@ -90,15 +90,15 @@
             },
             "property": {
               "type": "Identifier",
-              "start": 52,
-              "end": 59,
+              "start": 106,
+              "end": 113,
               "loc": {
                 "start": {
-                  "line": 3,
+                  "line": 5,
                   "column": 7
                 },
                 "end": {
-                  "line": 3,
+                  "line": 5,
                   "column": 14
                 },
                 "identifierName": "exports"
@@ -109,15 +109,15 @@
           },
           "right": {
             "type": "ArrowFunctionExpression",
-            "start": 63,
-            "end": 854,
+            "start": 117,
+            "end": 891,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 5,
                 "column": 18
               },
               "end": {
-                "line": 22,
+                "line": 32,
                 "column": 1
               }
             },
@@ -128,15 +128,15 @@
             "params": [
               {
                 "type": "Identifier",
-                "start": 64,
-                "end": 67,
+                "start": 118,
+                "end": 121,
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 5,
                     "column": 19
                   },
                   "end": {
-                    "line": 3,
+                    "line": 5,
                     "column": 22
                   },
                   "identifierName": "app"
@@ -146,59 +146,59 @@
             ],
             "body": {
               "type": "BlockStatement",
-              "start": 72,
-              "end": 854,
+              "start": 126,
+              "end": 891,
               "loc": {
                 "start": {
-                  "line": 3,
+                  "line": 5,
                   "column": 27
                 },
                 "end": {
-                  "line": 22,
+                  "line": 32,
                   "column": 1
                 }
               },
               "body": [
                 {
                   "type": "VariableDeclaration",
-                  "start": 79,
-                  "end": 148,
+                  "start": 133,
+                  "end": 202,
                   "loc": {
                     "start": {
-                      "line": 4,
+                      "line": 6,
                       "column": 4
                     },
                     "end": {
-                      "line": 4,
+                      "line": 6,
                       "column": 73
                     }
                   },
                   "declarations": [
                     {
                       "type": "VariableDeclarator",
-                      "start": 85,
-                      "end": 147,
+                      "start": 139,
+                      "end": 201,
                       "loc": {
                         "start": {
-                          "line": 4,
+                          "line": 6,
                           "column": 10
                         },
                         "end": {
-                          "line": 4,
+                          "line": 6,
                           "column": 72
                         }
                       },
                       "id": {
                         "type": "Identifier",
-                        "start": 85,
-                        "end": 99,
+                        "start": 139,
+                        "end": 153,
                         "loc": {
                           "start": {
-                            "line": 4,
+                            "line": 6,
                             "column": 10
                           },
                           "end": {
-                            "line": 4,
+                            "line": 6,
                             "column": 24
                           },
                           "identifierName": "rateController"
@@ -207,29 +207,29 @@
                       },
                       "init": {
                         "type": "CallExpression",
-                        "start": 102,
-                        "end": 147,
+                        "start": 156,
+                        "end": 201,
                         "loc": {
                           "start": {
-                            "line": 4,
+                            "line": 6,
                             "column": 27
                           },
                           "end": {
-                            "line": 4,
+                            "line": 6,
                             "column": 72
                           }
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 102,
-                          "end": 109,
+                          "start": 156,
+                          "end": 163,
                           "loc": {
                             "start": {
-                              "line": 4,
+                              "line": 6,
                               "column": 27
                             },
                             "end": {
-                              "line": 4,
+                              "line": 6,
                               "column": 34
                             },
                             "identifierName": "require"
@@ -239,15 +239,15 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 110,
-                            "end": 146,
+                            "start": 164,
+                            "end": 200,
                             "loc": {
                               "start": {
-                                "line": 4,
+                                "line": 6,
                                 "column": 35
                               },
                               "end": {
-                                "line": 4,
+                                "line": 6,
                                 "column": 71
                               }
                             },
@@ -264,18 +264,18 @@
                   "kind": "const",
                   "trailingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "Routes to add and retrieve coin-rates",
-                      "start": 154,
-                      "end": 193,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Routes to fetch and create rate for coins\r\n    ",
+                      "start": 204,
+                      "end": 274,
                       "loc": {
                         "start": {
-                          "line": 5,
-                          "column": 4
+                          "line": 7,
+                          "column": 0
                         },
                         "end": {
-                          "line": 5,
-                          "column": 43
+                          "line": 9,
+                          "column": 6
                         }
                       }
                     }
@@ -283,113 +283,113 @@
                 },
                 {
                   "type": "ExpressionStatement",
-                  "start": 199,
-                  "end": 357,
+                  "start": 280,
+                  "end": 402,
                   "loc": {
                     "start": {
-                      "line": 6,
+                      "line": 10,
                       "column": 4
                     },
                     "end": {
-                      "line": 8,
+                      "line": 12,
                       "column": 48
                     }
                   },
                   "expression": {
                     "type": "CallExpression",
-                    "start": 199,
-                    "end": 356,
+                    "start": 280,
+                    "end": 401,
                     "loc": {
                       "start": {
-                        "line": 6,
+                        "line": 10,
                         "column": 4
                       },
                       "end": {
-                        "line": 8,
+                        "line": 12,
                         "column": 47
                       }
                     },
                     "callee": {
                       "type": "MemberExpression",
-                      "start": 199,
-                      "end": 322,
+                      "start": 280,
+                      "end": 367,
                       "loc": {
                         "start": {
-                          "line": 6,
+                          "line": 10,
                           "column": 4
                         },
                         "end": {
-                          "line": 8,
+                          "line": 12,
                           "column": 13
                         }
                       },
                       "object": {
                         "type": "CallExpression",
-                        "start": 199,
-                        "end": 270,
+                        "start": 280,
+                        "end": 351,
                         "loc": {
                           "start": {
-                            "line": 6,
+                            "line": 10,
                             "column": 4
                           },
                           "end": {
-                            "line": 7,
+                            "line": 11,
                             "column": 44
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
-                          "start": 199,
-                          "end": 238,
+                          "start": 280,
+                          "end": 319,
                           "loc": {
                             "start": {
-                              "line": 6,
+                              "line": 10,
                               "column": 4
                             },
                             "end": {
-                              "line": 7,
+                              "line": 11,
                               "column": 12
                             }
                           },
                           "object": {
                             "type": "CallExpression",
-                            "start": 199,
-                            "end": 224,
+                            "start": 280,
+                            "end": 305,
                             "loc": {
                               "start": {
-                                "line": 6,
+                                "line": 10,
                                 "column": 4
                               },
                               "end": {
-                                "line": 6,
+                                "line": 10,
                                 "column": 29
                               }
                             },
                             "callee": {
                               "type": "MemberExpression",
-                              "start": 199,
-                              "end": 208,
+                              "start": 280,
+                              "end": 289,
                               "loc": {
                                 "start": {
-                                  "line": 6,
+                                  "line": 10,
                                   "column": 4
                                 },
                                 "end": {
-                                  "line": 6,
+                                  "line": 10,
                                   "column": 13
                                 }
                               },
                               "object": {
                                 "type": "Identifier",
-                                "start": 199,
-                                "end": 202,
+                                "start": 280,
+                                "end": 283,
                                 "loc": {
                                   "start": {
-                                    "line": 6,
+                                    "line": 10,
                                     "column": 4
                                   },
                                   "end": {
-                                    "line": 6,
+                                    "line": 10,
                                     "column": 7
                                   },
                                   "identifierName": "app"
@@ -399,15 +399,15 @@
                               },
                               "property": {
                                 "type": "Identifier",
-                                "start": 203,
-                                "end": 208,
+                                "start": 284,
+                                "end": 289,
                                 "loc": {
                                   "start": {
-                                    "line": 6,
+                                    "line": 10,
                                     "column": 8
                                   },
                                   "end": {
-                                    "line": 6,
+                                    "line": 10,
                                     "column": 13
                                   },
                                   "identifierName": "route"
@@ -420,15 +420,15 @@
                             "arguments": [
                               {
                                 "type": "StringLiteral",
-                                "start": 209,
-                                "end": 223,
+                                "start": 290,
+                                "end": 304,
                                 "loc": {
                                   "start": {
-                                    "line": 6,
+                                    "line": 10,
                                     "column": 14
                                   },
                                   "end": {
-                                    "line": 6,
+                                    "line": 10,
                                     "column": 28
                                   }
                                 },
@@ -443,15 +443,15 @@
                           },
                           "property": {
                             "type": "Identifier",
-                            "start": 235,
-                            "end": 238,
+                            "start": 316,
+                            "end": 319,
                             "loc": {
                               "start": {
-                                "line": 7,
+                                "line": 11,
                                 "column": 9
                               },
                               "end": {
-                                "line": 7,
+                                "line": 11,
                                 "column": 12
                               },
                               "identifierName": "get"
@@ -464,29 +464,29 @@
                         "arguments": [
                           {
                             "type": "MemberExpression",
-                            "start": 239,
-                            "end": 269,
+                            "start": 320,
+                            "end": 350,
                             "loc": {
                               "start": {
-                                "line": 7,
+                                "line": 11,
                                 "column": 13
                               },
                               "end": {
-                                "line": 7,
+                                "line": 11,
                                 "column": 43
                               }
                             },
                             "object": {
                               "type": "Identifier",
-                              "start": 239,
-                              "end": 253,
+                              "start": 320,
+                              "end": 334,
                               "loc": {
                                 "start": {
-                                  "line": 7,
+                                  "line": 11,
                                   "column": 13
                                 },
                                 "end": {
-                                  "line": 7,
+                                  "line": 11,
                                   "column": 27
                                 },
                                 "identifierName": "rateController"
@@ -495,15 +495,15 @@
                             },
                             "property": {
                               "type": "Identifier",
-                              "start": 254,
-                              "end": 269,
+                              "start": 335,
+                              "end": 350,
                               "loc": {
                                 "start": {
-                                  "line": 7,
+                                  "line": 11,
                                   "column": 28
                                 },
                                 "end": {
-                                  "line": 7,
+                                  "line": 11,
                                   "column": 43
                                 },
                                 "identifierName": "allCurrentRates"
@@ -513,60 +513,24 @@
                             "computed": false
                           }
                         ],
-                        "leadingComments": null,
-                        "trailingComments": [
-                          {
-                            "type": "CommentLine",
-                            "value": "retrieve all current-rates from DB",
-                            "start": 271,
-                            "end": 307,
-                            "loc": {
-                              "start": {
-                                "line": 7,
-                                "column": 45
-                              },
-                              "end": {
-                                "line": 7,
-                                "column": 81
-                              }
-                            }
-                          }
-                        ]
+                        "leadingComments": null
                       },
                       "property": {
                         "type": "Identifier",
-                        "start": 318,
-                        "end": 322,
+                        "start": 363,
+                        "end": 367,
                         "loc": {
                           "start": {
-                            "line": 8,
+                            "line": 12,
                             "column": 9
                           },
                           "end": {
-                            "line": 8,
+                            "line": 12,
                             "column": 13
                           },
                           "identifierName": "post"
                         },
-                        "name": "post",
-                        "leadingComments": [
-                          {
-                            "type": "CommentLine",
-                            "value": "retrieve all current-rates from DB",
-                            "start": 271,
-                            "end": 307,
-                            "loc": {
-                              "start": {
-                                "line": 7,
-                                "column": 45
-                              },
-                              "end": {
-                                "line": 7,
-                                "column": 81
-                              }
-                            }
-                          }
-                        ]
+                        "name": "post"
                       },
                       "computed": false,
                       "leadingComments": null
@@ -574,29 +538,29 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
-                        "start": 323,
-                        "end": 355,
+                        "start": 368,
+                        "end": 400,
                         "loc": {
                           "start": {
-                            "line": 8,
+                            "line": 12,
                             "column": 14
                           },
                           "end": {
-                            "line": 8,
+                            "line": 12,
                             "column": 46
                           }
                         },
                         "object": {
                           "type": "Identifier",
-                          "start": 323,
-                          "end": 337,
+                          "start": 368,
+                          "end": 382,
                           "loc": {
                             "start": {
-                              "line": 8,
+                              "line": 12,
                               "column": 14
                             },
                             "end": {
-                              "line": 8,
+                              "line": 12,
                               "column": 28
                             },
                             "identifierName": "rateController"
@@ -605,15 +569,15 @@
                         },
                         "property": {
                           "type": "Identifier",
-                          "start": 338,
-                          "end": 355,
+                          "start": 383,
+                          "end": 400,
                           "loc": {
                             "start": {
-                              "line": 8,
+                              "line": 12,
                               "column": 29
                             },
                             "end": {
-                              "line": 8,
+                              "line": 12,
                               "column": 46
                             },
                             "identifierName": "addNewCurrentRate"
@@ -627,52 +591,36 @@
                   },
                   "leadingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "Routes to add and retrieve coin-rates",
-                      "start": 154,
-                      "end": 193,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Routes to fetch and create rate for coins\r\n    ",
+                      "start": 204,
+                      "end": 274,
                       "loc": {
                         "start": {
-                          "line": 5,
-                          "column": 4
+                          "line": 7,
+                          "column": 0
                         },
                         "end": {
-                          "line": 5,
-                          "column": 43
+                          "line": 9,
+                          "column": 6
                         }
                       }
                     }
                   ],
                   "trailingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "add new current-rate to DB",
-                      "start": 357,
-                      "end": 385,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Route to fetch current rate for respective coin\r\n    ",
+                      "start": 406,
+                      "end": 482,
                       "loc": {
                         "start": {
-                          "line": 8,
-                          "column": 48
+                          "line": 14,
+                          "column": 0
                         },
                         "end": {
-                          "line": 8,
-                          "column": 76
-                        }
-                      }
-                    },
-                    {
-                      "type": "CommentLine",
-                      "value": "Route to retrieve a particular coin-rate from DB based on coin-name",
-                      "start": 393,
-                      "end": 462,
-                      "loc": {
-                        "start": {
-                          "line": 10,
-                          "column": 4
-                        },
-                        "end": {
-                          "line": 10,
-                          "column": 73
+                          "line": 16,
+                          "column": 6
                         }
                       }
                     }
@@ -680,85 +628,85 @@
                 },
                 {
                   "type": "ExpressionStatement",
-                  "start": 468,
-                  "end": 553,
+                  "start": 488,
+                  "end": 573,
                   "loc": {
                     "start": {
-                      "line": 11,
+                      "line": 17,
                       "column": 4
                     },
                     "end": {
-                      "line": 12,
+                      "line": 18,
                       "column": 48
                     }
                   },
                   "expression": {
                     "type": "CallExpression",
-                    "start": 468,
-                    "end": 552,
+                    "start": 488,
+                    "end": 572,
                     "loc": {
                       "start": {
-                        "line": 11,
+                        "line": 17,
                         "column": 4
                       },
                       "end": {
-                        "line": 12,
+                        "line": 18,
                         "column": 47
                       }
                     },
                     "callee": {
                       "type": "MemberExpression",
-                      "start": 468,
-                      "end": 517,
+                      "start": 488,
+                      "end": 537,
                       "loc": {
                         "start": {
-                          "line": 11,
+                          "line": 17,
                           "column": 4
                         },
                         "end": {
-                          "line": 12,
+                          "line": 18,
                           "column": 12
                         }
                       },
                       "object": {
                         "type": "CallExpression",
-                        "start": 468,
-                        "end": 503,
+                        "start": 488,
+                        "end": 523,
                         "loc": {
                           "start": {
-                            "line": 11,
+                            "line": 17,
                             "column": 4
                           },
                           "end": {
-                            "line": 11,
+                            "line": 17,
                             "column": 39
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
-                          "start": 468,
-                          "end": 477,
+                          "start": 488,
+                          "end": 497,
                           "loc": {
                             "start": {
-                              "line": 11,
+                              "line": 17,
                               "column": 4
                             },
                             "end": {
-                              "line": 11,
+                              "line": 17,
                               "column": 13
                             }
                           },
                           "object": {
                             "type": "Identifier",
-                            "start": 468,
-                            "end": 471,
+                            "start": 488,
+                            "end": 491,
                             "loc": {
                               "start": {
-                                "line": 11,
+                                "line": 17,
                                 "column": 4
                               },
                               "end": {
-                                "line": 11,
+                                "line": 17,
                                 "column": 7
                               },
                               "identifierName": "app"
@@ -768,15 +716,15 @@
                           },
                           "property": {
                             "type": "Identifier",
-                            "start": 472,
-                            "end": 477,
+                            "start": 492,
+                            "end": 497,
                             "loc": {
                               "start": {
-                                "line": 11,
+                                "line": 17,
                                 "column": 8
                               },
                               "end": {
-                                "line": 11,
+                                "line": 17,
                                 "column": 13
                               },
                               "identifierName": "route"
@@ -789,15 +737,15 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 478,
-                            "end": 502,
+                            "start": 498,
+                            "end": 522,
                             "loc": {
                               "start": {
-                                "line": 11,
+                                "line": 17,
                                 "column": 14
                               },
                               "end": {
-                                "line": 11,
+                                "line": 17,
                                 "column": 38
                               }
                             },
@@ -812,15 +760,15 @@
                       },
                       "property": {
                         "type": "Identifier",
-                        "start": 514,
-                        "end": 517,
+                        "start": 534,
+                        "end": 537,
                         "loc": {
                           "start": {
-                            "line": 12,
+                            "line": 18,
                             "column": 9
                           },
                           "end": {
-                            "line": 12,
+                            "line": 18,
                             "column": 12
                           },
                           "identifierName": "get"
@@ -833,29 +781,29 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
-                        "start": 518,
-                        "end": 551,
+                        "start": 538,
+                        "end": 571,
                         "loc": {
                           "start": {
-                            "line": 12,
+                            "line": 18,
                             "column": 13
                           },
                           "end": {
-                            "line": 12,
+                            "line": 18,
                             "column": 46
                           }
                         },
                         "object": {
                           "type": "Identifier",
-                          "start": 518,
-                          "end": 532,
+                          "start": 538,
+                          "end": 552,
                           "loc": {
                             "start": {
-                              "line": 12,
+                              "line": 18,
                               "column": 13
                             },
                             "end": {
-                              "line": 12,
+                              "line": 18,
                               "column": 27
                             },
                             "identifierName": "rateController"
@@ -864,15 +812,15 @@
                         },
                         "property": {
                           "type": "Identifier",
-                          "start": 533,
-                          "end": 551,
+                          "start": 553,
+                          "end": 571,
                           "loc": {
                             "start": {
-                              "line": 12,
+                              "line": 18,
                               "column": 28
                             },
                             "end": {
-                              "line": 12,
+                              "line": 18,
                               "column": 46
                             },
                             "identifierName": "getCoinCurrentRate"
@@ -886,52 +834,36 @@
                   },
                   "leadingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "add new current-rate to DB",
-                      "start": 357,
-                      "end": 385,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Route to fetch current rate for respective coin\r\n    ",
+                      "start": 406,
+                      "end": 482,
                       "loc": {
                         "start": {
-                          "line": 8,
-                          "column": 48
+                          "line": 14,
+                          "column": 0
                         },
                         "end": {
-                          "line": 8,
-                          "column": 76
-                        }
-                      }
-                    },
-                    {
-                      "type": "CommentLine",
-                      "value": "Route to retrieve a particular coin-rate from DB based on coin-name",
-                      "start": 393,
-                      "end": 462,
-                      "loc": {
-                        "start": {
-                          "line": 10,
-                          "column": 4
-                        },
-                        "end": {
-                          "line": 10,
-                          "column": 73
+                          "line": 16,
+                          "column": 6
                         }
                       }
                     }
                   ],
                   "trailingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "Routes to fetch rate-history of all coins",
-                      "start": 562,
-                      "end": 605,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Route to fetch all rates for all coins\r\n    ",
+                      "start": 577,
+                      "end": 644,
                       "loc": {
                         "start": {
-                          "line": 14,
-                          "column": 5
+                          "line": 20,
+                          "column": 0
                         },
                         "end": {
-                          "line": 14,
-                          "column": 48
+                          "line": 22,
+                          "column": 6
                         }
                       }
                     }
@@ -939,85 +871,85 @@
                 },
                 {
                   "type": "ExpressionStatement",
-                  "start": 612,
-                  "end": 680,
+                  "start": 651,
+                  "end": 719,
                   "loc": {
                     "start": {
-                      "line": 15,
+                      "line": 23,
                       "column": 5
                     },
                     "end": {
-                      "line": 16,
+                      "line": 24,
                       "column": 41
                     }
                   },
                   "expression": {
                     "type": "CallExpression",
-                    "start": 612,
-                    "end": 679,
+                    "start": 651,
+                    "end": 718,
                     "loc": {
                       "start": {
-                        "line": 15,
+                        "line": 23,
                         "column": 5
                       },
                       "end": {
-                        "line": 16,
+                        "line": 24,
                         "column": 40
                       }
                     },
                     "callee": {
                       "type": "MemberExpression",
-                      "start": 612,
-                      "end": 648,
+                      "start": 651,
+                      "end": 687,
                       "loc": {
                         "start": {
-                          "line": 15,
+                          "line": 23,
                           "column": 5
                         },
                         "end": {
-                          "line": 16,
+                          "line": 24,
                           "column": 9
                         }
                       },
                       "object": {
                         "type": "CallExpression",
-                        "start": 612,
-                        "end": 637,
+                        "start": 651,
+                        "end": 676,
                         "loc": {
                           "start": {
-                            "line": 15,
+                            "line": 23,
                             "column": 5
                           },
                           "end": {
-                            "line": 15,
+                            "line": 23,
                             "column": 30
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
-                          "start": 612,
-                          "end": 621,
+                          "start": 651,
+                          "end": 660,
                           "loc": {
                             "start": {
-                              "line": 15,
+                              "line": 23,
                               "column": 5
                             },
                             "end": {
-                              "line": 15,
+                              "line": 23,
                               "column": 14
                             }
                           },
                           "object": {
                             "type": "Identifier",
-                            "start": 612,
-                            "end": 615,
+                            "start": 651,
+                            "end": 654,
                             "loc": {
                               "start": {
-                                "line": 15,
+                                "line": 23,
                                 "column": 5
                               },
                               "end": {
-                                "line": 15,
+                                "line": 23,
                                 "column": 8
                               },
                               "identifierName": "app"
@@ -1027,15 +959,15 @@
                           },
                           "property": {
                             "type": "Identifier",
-                            "start": 616,
-                            "end": 621,
+                            "start": 655,
+                            "end": 660,
                             "loc": {
                               "start": {
-                                "line": 15,
+                                "line": 23,
                                 "column": 9
                               },
                               "end": {
-                                "line": 15,
+                                "line": 23,
                                 "column": 14
                               },
                               "identifierName": "route"
@@ -1048,15 +980,15 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 622,
-                            "end": 636,
+                            "start": 661,
+                            "end": 675,
                             "loc": {
                               "start": {
-                                "line": 15,
+                                "line": 23,
                                 "column": 15
                               },
                               "end": {
-                                "line": 15,
+                                "line": 23,
                                 "column": 29
                               }
                             },
@@ -1071,15 +1003,15 @@
                       },
                       "property": {
                         "type": "Identifier",
-                        "start": 645,
-                        "end": 648,
+                        "start": 684,
+                        "end": 687,
                         "loc": {
                           "start": {
-                            "line": 16,
+                            "line": 24,
                             "column": 6
                           },
                           "end": {
-                            "line": 16,
+                            "line": 24,
                             "column": 9
                           },
                           "identifierName": "get"
@@ -1092,29 +1024,29 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
-                        "start": 649,
-                        "end": 678,
+                        "start": 688,
+                        "end": 717,
                         "loc": {
                           "start": {
-                            "line": 16,
+                            "line": 24,
                             "column": 10
                           },
                           "end": {
-                            "line": 16,
+                            "line": 24,
                             "column": 39
                           }
                         },
                         "object": {
                           "type": "Identifier",
-                          "start": 649,
-                          "end": 663,
+                          "start": 688,
+                          "end": 702,
                           "loc": {
                             "start": {
-                              "line": 16,
+                              "line": 24,
                               "column": 10
                             },
                             "end": {
-                              "line": 16,
+                              "line": 24,
                               "column": 24
                             },
                             "identifierName": "rateController"
@@ -1123,15 +1055,15 @@
                         },
                         "property": {
                           "type": "Identifier",
-                          "start": 664,
-                          "end": 678,
+                          "start": 703,
+                          "end": 717,
                           "loc": {
                             "start": {
-                              "line": 16,
+                              "line": 24,
                               "column": 25
                             },
                             "end": {
-                              "line": 16,
+                              "line": 24,
                               "column": 39
                             },
                             "identifierName": "allRateHistory"
@@ -1145,36 +1077,36 @@
                   },
                   "leadingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "Routes to fetch rate-history of all coins",
-                      "start": 562,
-                      "end": 605,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Route to fetch all rates for all coins\r\n    ",
+                      "start": 577,
+                      "end": 644,
                       "loc": {
                         "start": {
-                          "line": 14,
-                          "column": 5
+                          "line": 20,
+                          "column": 0
                         },
                         "end": {
-                          "line": 14,
-                          "column": 48
+                          "line": 22,
+                          "column": 6
                         }
                       }
                     }
                   ],
                   "trailingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "Route to fetch rate-history of a particular coin based on coin-name",
-                      "start": 688,
-                      "end": 757,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Route to fetch all rates for specific coin\r\n    ",
+                      "start": 723,
+                      "end": 794,
                       "loc": {
                         "start": {
-                          "line": 18,
-                          "column": 4
+                          "line": 26,
+                          "column": 0
                         },
                         "end": {
-                          "line": 18,
-                          "column": 73
+                          "line": 28,
+                          "column": 6
                         }
                       }
                     }
@@ -1182,85 +1114,85 @@
                 },
                 {
                   "type": "ExpressionStatement",
-                  "start": 763,
-                  "end": 848,
+                  "start": 800,
+                  "end": 885,
                   "loc": {
                     "start": {
-                      "line": 19,
+                      "line": 29,
                       "column": 4
                     },
                     "end": {
-                      "line": 20,
+                      "line": 30,
                       "column": 48
                     }
                   },
                   "expression": {
                     "type": "CallExpression",
-                    "start": 763,
-                    "end": 847,
+                    "start": 800,
+                    "end": 884,
                     "loc": {
                       "start": {
-                        "line": 19,
+                        "line": 29,
                         "column": 4
                       },
                       "end": {
-                        "line": 20,
+                        "line": 30,
                         "column": 47
                       }
                     },
                     "callee": {
                       "type": "MemberExpression",
-                      "start": 763,
-                      "end": 812,
+                      "start": 800,
+                      "end": 849,
                       "loc": {
                         "start": {
-                          "line": 19,
+                          "line": 29,
                           "column": 4
                         },
                         "end": {
-                          "line": 20,
+                          "line": 30,
                           "column": 12
                         }
                       },
                       "object": {
                         "type": "CallExpression",
-                        "start": 763,
-                        "end": 798,
+                        "start": 800,
+                        "end": 835,
                         "loc": {
                           "start": {
-                            "line": 19,
+                            "line": 29,
                             "column": 4
                           },
                           "end": {
-                            "line": 19,
+                            "line": 29,
                             "column": 39
                           }
                         },
                         "callee": {
                           "type": "MemberExpression",
-                          "start": 763,
-                          "end": 772,
+                          "start": 800,
+                          "end": 809,
                           "loc": {
                             "start": {
-                              "line": 19,
+                              "line": 29,
                               "column": 4
                             },
                             "end": {
-                              "line": 19,
+                              "line": 29,
                               "column": 13
                             }
                           },
                           "object": {
                             "type": "Identifier",
-                            "start": 763,
-                            "end": 766,
+                            "start": 800,
+                            "end": 803,
                             "loc": {
                               "start": {
-                                "line": 19,
+                                "line": 29,
                                 "column": 4
                               },
                               "end": {
-                                "line": 19,
+                                "line": 29,
                                 "column": 7
                               },
                               "identifierName": "app"
@@ -1270,15 +1202,15 @@
                           },
                           "property": {
                             "type": "Identifier",
-                            "start": 767,
-                            "end": 772,
+                            "start": 804,
+                            "end": 809,
                             "loc": {
                               "start": {
-                                "line": 19,
+                                "line": 29,
                                 "column": 8
                               },
                               "end": {
-                                "line": 19,
+                                "line": 29,
                                 "column": 13
                               },
                               "identifierName": "route"
@@ -1291,15 +1223,15 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 773,
-                            "end": 797,
+                            "start": 810,
+                            "end": 834,
                             "loc": {
                               "start": {
-                                "line": 19,
+                                "line": 29,
                                 "column": 14
                               },
                               "end": {
-                                "line": 19,
+                                "line": 29,
                                 "column": 38
                               }
                             },
@@ -1314,15 +1246,15 @@
                       },
                       "property": {
                         "type": "Identifier",
-                        "start": 809,
-                        "end": 812,
+                        "start": 846,
+                        "end": 849,
                         "loc": {
                           "start": {
-                            "line": 20,
+                            "line": 30,
                             "column": 9
                           },
                           "end": {
-                            "line": 20,
+                            "line": 30,
                             "column": 12
                           },
                           "identifierName": "get"
@@ -1335,29 +1267,29 @@
                     "arguments": [
                       {
                         "type": "MemberExpression",
-                        "start": 813,
-                        "end": 846,
+                        "start": 850,
+                        "end": 883,
                         "loc": {
                           "start": {
-                            "line": 20,
+                            "line": 30,
                             "column": 13
                           },
                           "end": {
-                            "line": 20,
+                            "line": 30,
                             "column": 46
                           }
                         },
                         "object": {
                           "type": "Identifier",
-                          "start": 813,
-                          "end": 827,
+                          "start": 850,
+                          "end": 864,
                           "loc": {
                             "start": {
-                              "line": 20,
+                              "line": 30,
                               "column": 13
                             },
                             "end": {
-                              "line": 20,
+                              "line": 30,
                               "column": 27
                             },
                             "identifierName": "rateController"
@@ -1366,15 +1298,15 @@
                         },
                         "property": {
                           "type": "Identifier",
-                          "start": 828,
-                          "end": 846,
+                          "start": 865,
+                          "end": 883,
                           "loc": {
                             "start": {
-                              "line": 20,
+                              "line": 30,
                               "column": 28
                             },
                             "end": {
-                              "line": 20,
+                              "line": 30,
                               "column": 46
                             },
                             "identifierName": "allRateHistoryCoin"
@@ -1388,18 +1320,18 @@
                   },
                   "leadingComments": [
                     {
-                      "type": "CommentLine",
-                      "value": "Route to fetch rate-history of a particular coin based on coin-name",
-                      "start": 688,
-                      "end": 757,
+                      "type": "CommentBlock",
+                      "value": "*\r\n   * @desc Rate Route to fetch all rates for specific coin\r\n    ",
+                      "start": 723,
+                      "end": 794,
                       "loc": {
                         "start": {
-                          "line": 18,
-                          "column": 4
+                          "line": 26,
+                          "column": 0
                         },
                         "end": {
-                          "line": 18,
-                          "column": 73
+                          "line": 28,
+                          "column": 6
                         }
                       }
                     }
@@ -1410,7 +1342,7 @@
             },
             "extra": {
               "parenthesized": true,
-              "parenStart": 62
+              "parenStart": 116
             }
           }
         }
@@ -1419,29 +1351,29 @@
     "directives": [
       {
         "type": "Directive",
-        "start": 30,
-        "end": 43,
+        "start": 84,
+        "end": 97,
         "loc": {
           "start": {
-            "line": 2,
+            "line": 4,
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 4,
             "column": 13
           }
         },
         "value": {
           "type": "DirectiveLiteral",
-          "start": 30,
-          "end": 42,
+          "start": 84,
+          "end": 96,
           "loc": {
             "start": {
-              "line": 2,
+              "line": 4,
               "column": 0
             },
             "end": {
-              "line": 2,
+              "line": 4,
               "column": 12
             }
           },
@@ -1454,18 +1386,18 @@
         },
         "leadingComments": [
           {
-            "type": "CommentLine",
-            "value": "Setting routes for the API",
+            "type": "CommentBlock",
+            "value": "*\r\n   * @desc Routes for fetching and creating rates for different coins\r\n    ",
             "start": 0,
-            "end": 28,
+            "end": 82,
             "loc": {
               "start": {
                 "line": 1,
                 "column": 0
               },
               "end": {
-                "line": 1,
-                "column": 28
+                "line": 3,
+                "column": 6
               }
             }
           }
@@ -1475,132 +1407,100 @@
   },
   "comments": [
     {
-      "type": "CommentLine",
-      "value": "Setting routes for the API",
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Routes for fetching and creating rates for different coins\r\n    ",
       "start": 0,
-      "end": 28,
+      "end": 82,
       "loc": {
         "start": {
           "line": 1,
           "column": 0
         },
         "end": {
-          "line": 1,
-          "column": 28
+          "line": 3,
+          "column": 6
         }
       }
     },
     {
-      "type": "CommentLine",
-      "value": "Routes to add and retrieve coin-rates",
-      "start": 154,
-      "end": 193,
-      "loc": {
-        "start": {
-          "line": 5,
-          "column": 4
-        },
-        "end": {
-          "line": 5,
-          "column": 43
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "retrieve all current-rates from DB",
-      "start": 271,
-      "end": 307,
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Routes to fetch and create rate for coins\r\n    ",
+      "start": 204,
+      "end": 274,
       "loc": {
         "start": {
           "line": 7,
-          "column": 45
+          "column": 0
         },
         "end": {
-          "line": 7,
-          "column": 81
+          "line": 9,
+          "column": 6
         }
       }
     },
     {
-      "type": "CommentLine",
-      "value": "add new current-rate to DB",
-      "start": 357,
-      "end": 385,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 48
-        },
-        "end": {
-          "line": 8,
-          "column": 76
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "Route to retrieve a particular coin-rate from DB based on coin-name",
-      "start": 393,
-      "end": 462,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 4
-        },
-        "end": {
-          "line": 10,
-          "column": 73
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "Routes to fetch rate-history of all coins",
-      "start": 562,
-      "end": 605,
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Route to fetch current rate for respective coin\r\n    ",
+      "start": 406,
+      "end": 482,
       "loc": {
         "start": {
           "line": 14,
-          "column": 5
+          "column": 0
         },
         "end": {
-          "line": 14,
-          "column": 48
+          "line": 16,
+          "column": 6
         }
       }
     },
     {
-      "type": "CommentLine",
-      "value": "Route to fetch rate-history of a particular coin based on coin-name",
-      "start": 688,
-      "end": 757,
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Route to fetch all rates for all coins\r\n    ",
+      "start": 577,
+      "end": 644,
       "loc": {
         "start": {
-          "line": 18,
-          "column": 4
+          "line": 20,
+          "column": 0
         },
         "end": {
-          "line": 18,
-          "column": 73
+          "line": 22,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Route to fetch all rates for specific coin\r\n    ",
+      "start": 723,
+      "end": 794,
+      "loc": {
+        "start": {
+          "line": 26,
+          "column": 0
+        },
+        "end": {
+          "line": 28,
+          "column": 6
         }
       }
     }
   ],
   "tokens": [
     {
-      "type": "CommentLine",
-      "value": "Setting routes for the API",
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Routes for fetching and creating rates for different coins\r\n    ",
       "start": 0,
-      "end": 28,
+      "end": 82,
       "loc": {
         "start": {
           "line": 1,
           "column": 0
         },
         "end": {
-          "line": 1,
-          "column": 28
+          "line": 3,
+          "column": 6
         }
       }
     },
@@ -1618,15 +1518,15 @@
         "updateContext": null
       },
       "value": "use strict",
-      "start": 30,
-      "end": 42,
+      "start": 84,
+      "end": 96,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 4,
           "column": 0
         },
         "end": {
-          "line": 2,
+          "line": 4,
           "column": 12
         }
       }
@@ -1644,15 +1544,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 42,
-      "end": 43,
+      "start": 96,
+      "end": 97,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 4,
           "column": 12
         },
         "end": {
-          "line": 2,
+          "line": 4,
           "column": 13
         }
       }
@@ -1670,15 +1570,15 @@
         "binop": null
       },
       "value": "module",
-      "start": 45,
-      "end": 51,
+      "start": 99,
+      "end": 105,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 6
         }
       }
@@ -1696,15 +1596,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 51,
-      "end": 52,
+      "start": 105,
+      "end": 106,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 6
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 7
         }
       }
@@ -1722,15 +1622,15 @@
         "binop": null
       },
       "value": "exports",
-      "start": 52,
-      "end": 59,
+      "start": 106,
+      "end": 113,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 14
         }
       }
@@ -1749,15 +1649,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 60,
-      "end": 61,
+      "start": 114,
+      "end": 115,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 16
         }
       }
@@ -1774,15 +1674,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 62,
-      "end": 63,
+      "start": 116,
+      "end": 117,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 17
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 18
         }
       }
@@ -1799,15 +1699,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 63,
-      "end": 64,
+      "start": 117,
+      "end": 118,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 18
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 19
         }
       }
@@ -1825,15 +1725,15 @@
         "binop": null
       },
       "value": "app",
-      "start": 64,
-      "end": 67,
+      "start": 118,
+      "end": 121,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 19
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 22
         }
       }
@@ -1850,15 +1750,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 67,
-      "end": 68,
+      "start": 121,
+      "end": 122,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 22
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 23
         }
       }
@@ -1876,15 +1776,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 69,
-      "end": 71,
+      "start": 123,
+      "end": 125,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 24
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 26
         }
       }
@@ -1901,15 +1801,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 72,
-      "end": 73,
+      "start": 126,
+      "end": 127,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 5,
           "column": 27
         },
         "end": {
-          "line": 3,
+          "line": 5,
           "column": 28
         }
       }
@@ -1929,15 +1829,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 79,
-      "end": 84,
+      "start": 133,
+      "end": 138,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 4
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 9
         }
       }
@@ -1955,15 +1855,15 @@
         "binop": null
       },
       "value": "rateController",
-      "start": 85,
-      "end": 99,
+      "start": 139,
+      "end": 153,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 10
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 24
         }
       }
@@ -1982,15 +1882,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 100,
-      "end": 101,
+      "start": 154,
+      "end": 155,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 25
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 26
         }
       }
@@ -2008,15 +1908,15 @@
         "binop": null
       },
       "value": "require",
-      "start": 102,
-      "end": 109,
+      "start": 156,
+      "end": 163,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 27
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 34
         }
       }
@@ -2033,15 +1933,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 109,
-      "end": 110,
+      "start": 163,
+      "end": 164,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 34
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 35
         }
       }
@@ -2060,15 +1960,15 @@
         "updateContext": null
       },
       "value": "../controllers/rateList-controller",
-      "start": 110,
-      "end": 146,
+      "start": 164,
+      "end": 200,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 35
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 71
         }
       }
@@ -2085,15 +1985,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 146,
-      "end": 147,
+      "start": 200,
+      "end": 201,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 71
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 72
         }
       }
@@ -2111,32 +2011,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 147,
-      "end": 148,
+      "start": 201,
+      "end": 202,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 72
         },
         "end": {
-          "line": 4,
+          "line": 6,
           "column": 73
         }
       }
     },
     {
-      "type": "CommentLine",
-      "value": "Routes to add and retrieve coin-rates",
-      "start": 154,
-      "end": 193,
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Routes to fetch and create rate for coins\r\n    ",
+      "start": 204,
+      "end": 274,
       "loc": {
         "start": {
-          "line": 5,
-          "column": 4
+          "line": 7,
+          "column": 0
         },
         "end": {
-          "line": 5,
-          "column": 43
+          "line": 9,
+          "column": 6
         }
       }
     },
@@ -2153,15 +2053,15 @@
         "binop": null
       },
       "value": "app",
-      "start": 199,
-      "end": 202,
+      "start": 280,
+      "end": 283,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 10,
           "column": 4
         },
         "end": {
-          "line": 6,
+          "line": 10,
           "column": 7
         }
       }
@@ -2179,15 +2079,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 202,
-      "end": 203,
+      "start": 283,
+      "end": 284,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 10,
           "column": 7
         },
         "end": {
-          "line": 6,
+          "line": 10,
           "column": 8
         }
       }
@@ -2205,15 +2105,15 @@
         "binop": null
       },
       "value": "route",
-      "start": 203,
-      "end": 208,
+      "start": 284,
+      "end": 289,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 10,
           "column": 8
         },
         "end": {
-          "line": 6,
+          "line": 10,
           "column": 13
         }
       }
@@ -2230,15 +2130,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 208,
-      "end": 209,
+      "start": 289,
+      "end": 290,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 10,
           "column": 13
         },
         "end": {
-          "line": 6,
+          "line": 10,
           "column": 14
         }
       }
@@ -2257,15 +2157,15 @@
         "updateContext": null
       },
       "value": "/currentRate",
-      "start": 209,
-      "end": 223,
+      "start": 290,
+      "end": 304,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 10,
           "column": 14
         },
         "end": {
-          "line": 6,
+          "line": 10,
           "column": 28
         }
       }
@@ -2282,15 +2182,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 223,
-      "end": 224,
+      "start": 304,
+      "end": 305,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 10,
           "column": 28
         },
         "end": {
-          "line": 6,
+          "line": 10,
           "column": 29
         }
       }
@@ -2308,15 +2208,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 234,
-      "end": 235,
+      "start": 315,
+      "end": 316,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 8
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 9
         }
       }
@@ -2334,15 +2234,15 @@
         "binop": null
       },
       "value": "get",
-      "start": 235,
-      "end": 238,
+      "start": 316,
+      "end": 319,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 9
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 12
         }
       }
@@ -2359,15 +2259,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 238,
-      "end": 239,
+      "start": 319,
+      "end": 320,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 12
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 13
         }
       }
@@ -2385,15 +2285,15 @@
         "binop": null
       },
       "value": "rateController",
-      "start": 239,
-      "end": 253,
+      "start": 320,
+      "end": 334,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 13
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 27
         }
       }
@@ -2411,15 +2311,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 253,
-      "end": 254,
+      "start": 334,
+      "end": 335,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 27
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 28
         }
       }
@@ -2437,15 +2337,15 @@
         "binop": null
       },
       "value": "allCurrentRates",
-      "start": 254,
-      "end": 269,
+      "start": 335,
+      "end": 350,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 28
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 43
         }
       }
@@ -2462,32 +2362,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 269,
-      "end": 270,
+      "start": 350,
+      "end": 351,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 43
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 44
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "retrieve all current-rates from DB",
-      "start": 271,
-      "end": 307,
-      "loc": {
-        "start": {
-          "line": 7,
-          "column": 45
-        },
-        "end": {
-          "line": 7,
-          "column": 81
         }
       }
     },
@@ -2504,15 +2388,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 317,
-      "end": 318,
+      "start": 362,
+      "end": 363,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 8
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 9
         }
       }
@@ -2530,15 +2414,15 @@
         "binop": null
       },
       "value": "post",
-      "start": 318,
-      "end": 322,
+      "start": 363,
+      "end": 367,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 9
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 13
         }
       }
@@ -2555,15 +2439,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 322,
-      "end": 323,
+      "start": 367,
+      "end": 368,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 13
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 14
         }
       }
@@ -2581,15 +2465,15 @@
         "binop": null
       },
       "value": "rateController",
-      "start": 323,
-      "end": 337,
+      "start": 368,
+      "end": 382,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 14
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 28
         }
       }
@@ -2607,15 +2491,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 337,
-      "end": 338,
+      "start": 382,
+      "end": 383,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 28
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 29
         }
       }
@@ -2633,15 +2517,15 @@
         "binop": null
       },
       "value": "addNewCurrentRate",
-      "start": 338,
-      "end": 355,
+      "start": 383,
+      "end": 400,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 29
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 46
         }
       }
@@ -2658,15 +2542,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 355,
-      "end": 356,
+      "start": 400,
+      "end": 401,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 46
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 47
         }
       }
@@ -2684,48 +2568,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 356,
-      "end": 357,
+      "start": 401,
+      "end": 402,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 12,
           "column": 47
         },
         "end": {
-          "line": 8,
+          "line": 12,
           "column": 48
         }
       }
     },
     {
-      "type": "CommentLine",
-      "value": "add new current-rate to DB",
-      "start": 357,
-      "end": 385,
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Route to fetch current rate for respective coin\r\n    ",
+      "start": 406,
+      "end": 482,
       "loc": {
         "start": {
-          "line": 8,
-          "column": 48
+          "line": 14,
+          "column": 0
         },
         "end": {
-          "line": 8,
-          "column": 76
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "Route to retrieve a particular coin-rate from DB based on coin-name",
-      "start": 393,
-      "end": 462,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 4
-        },
-        "end": {
-          "line": 10,
-          "column": 73
+          "line": 16,
+          "column": 6
         }
       }
     },
@@ -2742,15 +2610,15 @@
         "binop": null
       },
       "value": "app",
-      "start": 468,
-      "end": 471,
+      "start": 488,
+      "end": 491,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 4
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 7
         }
       }
@@ -2768,15 +2636,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 471,
-      "end": 472,
+      "start": 491,
+      "end": 492,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 7
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 8
         }
       }
@@ -2794,15 +2662,15 @@
         "binop": null
       },
       "value": "route",
-      "start": 472,
-      "end": 477,
+      "start": 492,
+      "end": 497,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 8
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 13
         }
       }
@@ -2819,15 +2687,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 477,
-      "end": 478,
+      "start": 497,
+      "end": 498,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 13
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 14
         }
       }
@@ -2846,15 +2714,15 @@
         "updateContext": null
       },
       "value": "/currentRate/:coinname",
-      "start": 478,
-      "end": 502,
+      "start": 498,
+      "end": 522,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 14
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 38
         }
       }
@@ -2871,15 +2739,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 502,
-      "end": 503,
+      "start": 522,
+      "end": 523,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 38
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 39
         }
       }
@@ -2897,15 +2765,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 513,
-      "end": 514,
+      "start": 533,
+      "end": 534,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 8
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 9
         }
       }
@@ -2923,15 +2791,15 @@
         "binop": null
       },
       "value": "get",
-      "start": 514,
-      "end": 517,
+      "start": 534,
+      "end": 537,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 9
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 12
         }
       }
@@ -2948,15 +2816,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 517,
-      "end": 518,
+      "start": 537,
+      "end": 538,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 12
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 13
         }
       }
@@ -2974,15 +2842,15 @@
         "binop": null
       },
       "value": "rateController",
-      "start": 518,
-      "end": 532,
+      "start": 538,
+      "end": 552,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 13
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 27
         }
       }
@@ -3000,15 +2868,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 532,
-      "end": 533,
+      "start": 552,
+      "end": 553,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 27
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 28
         }
       }
@@ -3026,15 +2894,15 @@
         "binop": null
       },
       "value": "getCoinCurrentRate",
-      "start": 533,
-      "end": 551,
+      "start": 553,
+      "end": 571,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 28
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 46
         }
       }
@@ -3051,15 +2919,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 551,
-      "end": 552,
+      "start": 571,
+      "end": 572,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 46
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 47
         }
       }
@@ -3077,32 +2945,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 552,
-      "end": 553,
+      "start": 572,
+      "end": 573,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 47
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 48
         }
       }
     },
     {
-      "type": "CommentLine",
-      "value": "Routes to fetch rate-history of all coins",
-      "start": 562,
-      "end": 605,
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Route to fetch all rates for all coins\r\n    ",
+      "start": 577,
+      "end": 644,
       "loc": {
         "start": {
-          "line": 14,
-          "column": 5
+          "line": 20,
+          "column": 0
         },
         "end": {
-          "line": 14,
-          "column": 48
+          "line": 22,
+          "column": 6
         }
       }
     },
@@ -3119,15 +2987,15 @@
         "binop": null
       },
       "value": "app",
-      "start": 612,
-      "end": 615,
+      "start": 651,
+      "end": 654,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 23,
           "column": 5
         },
         "end": {
-          "line": 15,
+          "line": 23,
           "column": 8
         }
       }
@@ -3145,15 +3013,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 615,
-      "end": 616,
+      "start": 654,
+      "end": 655,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 23,
           "column": 8
         },
         "end": {
-          "line": 15,
+          "line": 23,
           "column": 9
         }
       }
@@ -3171,15 +3039,15 @@
         "binop": null
       },
       "value": "route",
-      "start": 616,
-      "end": 621,
+      "start": 655,
+      "end": 660,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 23,
           "column": 9
         },
         "end": {
-          "line": 15,
+          "line": 23,
           "column": 14
         }
       }
@@ -3196,15 +3064,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 621,
-      "end": 622,
+      "start": 660,
+      "end": 661,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 23,
           "column": 14
         },
         "end": {
-          "line": 15,
+          "line": 23,
           "column": 15
         }
       }
@@ -3223,15 +3091,15 @@
         "updateContext": null
       },
       "value": "/rateHistory",
-      "start": 622,
-      "end": 636,
+      "start": 661,
+      "end": 675,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 23,
           "column": 15
         },
         "end": {
-          "line": 15,
+          "line": 23,
           "column": 29
         }
       }
@@ -3248,15 +3116,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 636,
-      "end": 637,
+      "start": 675,
+      "end": 676,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 23,
           "column": 29
         },
         "end": {
-          "line": 15,
+          "line": 23,
           "column": 30
         }
       }
@@ -3274,15 +3142,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 644,
-      "end": 645,
+      "start": 683,
+      "end": 684,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 5
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 6
         }
       }
@@ -3300,15 +3168,15 @@
         "binop": null
       },
       "value": "get",
-      "start": 645,
-      "end": 648,
+      "start": 684,
+      "end": 687,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 6
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 9
         }
       }
@@ -3325,15 +3193,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 648,
-      "end": 649,
+      "start": 687,
+      "end": 688,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 9
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 10
         }
       }
@@ -3351,15 +3219,15 @@
         "binop": null
       },
       "value": "rateController",
-      "start": 649,
-      "end": 663,
+      "start": 688,
+      "end": 702,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 10
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 24
         }
       }
@@ -3377,15 +3245,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 663,
-      "end": 664,
+      "start": 702,
+      "end": 703,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 24
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 25
         }
       }
@@ -3403,15 +3271,15 @@
         "binop": null
       },
       "value": "allRateHistory",
-      "start": 664,
-      "end": 678,
+      "start": 703,
+      "end": 717,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 25
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 39
         }
       }
@@ -3428,15 +3296,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 678,
-      "end": 679,
+      "start": 717,
+      "end": 718,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 39
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 40
         }
       }
@@ -3454,32 +3322,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 679,
-      "end": 680,
+      "start": 718,
+      "end": 719,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 24,
           "column": 40
         },
         "end": {
-          "line": 16,
+          "line": 24,
           "column": 41
         }
       }
     },
     {
-      "type": "CommentLine",
-      "value": "Route to fetch rate-history of a particular coin based on coin-name",
-      "start": 688,
-      "end": 757,
+      "type": "CommentBlock",
+      "value": "*\r\n   * @desc Rate Route to fetch all rates for specific coin\r\n    ",
+      "start": 723,
+      "end": 794,
       "loc": {
         "start": {
-          "line": 18,
-          "column": 4
+          "line": 26,
+          "column": 0
         },
         "end": {
-          "line": 18,
-          "column": 73
+          "line": 28,
+          "column": 6
         }
       }
     },
@@ -3496,15 +3364,15 @@
         "binop": null
       },
       "value": "app",
-      "start": 763,
-      "end": 766,
+      "start": 800,
+      "end": 803,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 29,
           "column": 4
         },
         "end": {
-          "line": 19,
+          "line": 29,
           "column": 7
         }
       }
@@ -3522,15 +3390,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 766,
-      "end": 767,
+      "start": 803,
+      "end": 804,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 29,
           "column": 7
         },
         "end": {
-          "line": 19,
+          "line": 29,
           "column": 8
         }
       }
@@ -3548,15 +3416,15 @@
         "binop": null
       },
       "value": "route",
-      "start": 767,
-      "end": 772,
+      "start": 804,
+      "end": 809,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 29,
           "column": 8
         },
         "end": {
-          "line": 19,
+          "line": 29,
           "column": 13
         }
       }
@@ -3573,15 +3441,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 772,
-      "end": 773,
+      "start": 809,
+      "end": 810,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 29,
           "column": 13
         },
         "end": {
-          "line": 19,
+          "line": 29,
           "column": 14
         }
       }
@@ -3600,15 +3468,15 @@
         "updateContext": null
       },
       "value": "/rateHistory/:coinname",
-      "start": 773,
-      "end": 797,
+      "start": 810,
+      "end": 834,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 29,
           "column": 14
         },
         "end": {
-          "line": 19,
+          "line": 29,
           "column": 38
         }
       }
@@ -3625,15 +3493,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 797,
-      "end": 798,
+      "start": 834,
+      "end": 835,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 29,
           "column": 38
         },
         "end": {
-          "line": 19,
+          "line": 29,
           "column": 39
         }
       }
@@ -3651,15 +3519,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 808,
-      "end": 809,
+      "start": 845,
+      "end": 846,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 8
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 9
         }
       }
@@ -3677,15 +3545,15 @@
         "binop": null
       },
       "value": "get",
-      "start": 809,
-      "end": 812,
+      "start": 846,
+      "end": 849,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 9
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 12
         }
       }
@@ -3702,15 +3570,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 812,
-      "end": 813,
+      "start": 849,
+      "end": 850,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 12
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 13
         }
       }
@@ -3728,15 +3596,15 @@
         "binop": null
       },
       "value": "rateController",
-      "start": 813,
-      "end": 827,
+      "start": 850,
+      "end": 864,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 13
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 27
         }
       }
@@ -3754,15 +3622,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 827,
-      "end": 828,
+      "start": 864,
+      "end": 865,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 27
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 28
         }
       }
@@ -3780,15 +3648,15 @@
         "binop": null
       },
       "value": "allRateHistoryCoin",
-      "start": 828,
-      "end": 846,
+      "start": 865,
+      "end": 883,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 28
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 46
         }
       }
@@ -3805,15 +3673,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 846,
-      "end": 847,
+      "start": 883,
+      "end": 884,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 46
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 47
         }
       }
@@ -3831,15 +3699,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 847,
-      "end": 848,
+      "start": 884,
+      "end": 885,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 30,
           "column": 47
         },
         "end": {
-          "line": 20,
+          "line": 30,
           "column": 48
         }
       }
@@ -3856,15 +3724,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 853,
-      "end": 854,
+      "start": 890,
+      "end": 891,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 32,
           "column": 0
         },
         "end": {
-          "line": 22,
+          "line": 32,
           "column": 1
         }
       }
@@ -3881,15 +3749,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 854,
-      "end": 855,
+      "start": 891,
+      "end": 892,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 32,
           "column": 1
         },
         "end": {
-          "line": 22,
+          "line": 32,
           "column": 2
         }
       }
@@ -3907,15 +3775,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 855,
-      "end": 856,
+      "start": 892,
+      "end": 893,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 32,
           "column": 2
         },
         "end": {
-          "line": 22,
+          "line": 32,
           "column": 3
         }
       }
@@ -3933,16 +3801,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 858,
-      "end": 858,
+      "start": 893,
+      "end": 893,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 0
+          "line": 32,
+          "column": 3
         },
         "end": {
-          "line": 23,
-          "column": 0
+          "line": 32,
+          "column": 3
         }
       }
     }

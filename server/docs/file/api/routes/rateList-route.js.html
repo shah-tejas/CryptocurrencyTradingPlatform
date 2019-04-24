@@ -34,6 +34,40 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/routes/rateList-route.js</h1>
+<<<<<<< HEAD
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+   * @desc Routes for fetching and creating rates for different coins
+    */
+&apos;use strict&apos;;
+module.exports = ((app) =&gt; {
+    const rateController = require(&apos;../controllers/rateList-controller&apos;);
+/**
+   * @desc Rate Routes to fetch and create rate for coins
+    */
+    app.route(&apos;/currentRate&apos;)
+        .get(rateController.allCurrentRates) 
+        .post(rateController.addNewCurrentRate);
+
+/**
+   * @desc Rate Route to fetch current rate for respective coin
+    */
+    app.route(&apos;/currentRate/:coinname&apos;)
+        .get(rateController.getCoinCurrentRate);
+
+/**
+   * @desc Rate Route to fetch all rates for all coins
+    */
+     app.route(&apos;/rateHistory&apos;)
+     .get(rateController.allRateHistory);
+
+/**
+   * @desc Rate Route to fetch all rates for specific coin
+    */
+    app.route(&apos;/rateHistory/:coinname&apos;)
+        .get(rateController.allRateHistoryCoin);
+ 
+});</code></pre>
+=======
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">//Setting routes for the API
 &apos;use strict&apos;;
 module.exports = ((app) =&gt; {
@@ -57,6 +91,7 @@ module.exports = ((app) =&gt; {
  
 });
 </code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 
