@@ -295,7 +295,7 @@ export class TradeComponent implements OnInit {
           let existingTo = false;
           // Debit coins from the logged-In user's wallet
           for (const coin of wallet[0].coins) {
-            if (coin.coin_name === order.from_coin) {
+            if ((coin.coin_name === order.from_coin) && (coin.coin_qty >= order.from_qty)) {
               existingFrom = true;
               coin.coin_qty -= order.from_qty;
               break;
@@ -329,7 +329,7 @@ export class TradeComponent implements OnInit {
                 let existingTo = false;
                 // Debit coins from the matched-user wallet
                 for (const coin of walletMatched[0].coins) {
-                  if (coin.coin_name === order.to_coin) {
+                  if ((coin.coin_name === order.to_coin) && (coin.coin_qty >= order.to_qty)) {
                     existingFrom = true;
                     coin.coin_qty -= order.to_qty;
                     break;
