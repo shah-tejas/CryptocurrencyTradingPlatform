@@ -17,6 +17,9 @@ export class OrderHistoryComponent implements OnInit {
    *  @var holds pending or completed or canceled orders
    */
   orders: Array<Order>;
+  displayPendingOrders: boolean = false;
+  displayCompletedOrders: boolean = false;
+  displayCanceledOrders: boolean = false;
 
   constructor(private orderhistory: OrderHistoryService, private router: Router) {
   }
@@ -42,7 +45,10 @@ export class OrderHistoryComponent implements OnInit {
     this.orderhistory.get("pending")
     .subscribe({
       next: response => {
+        this.displayCompletedOrders = false;
+        this.displayCanceledOrders = false;
         this.orders = response["data"];
+        if(this.orders.length != 0) this.displayPendingOrders = true;
       },
       error: err => console.log(err)
     });
@@ -55,7 +61,10 @@ export class OrderHistoryComponent implements OnInit {
     this.orderhistory.get("completed")
     .subscribe({
       next: response => {
+        this.displayPendingOrders = false;
+        this.displayCanceledOrders = false;
         this.orders = response["data"];
+        if(this.orders.length != 0) this.displayCompletedOrders = true;
       },
       error: err => console.log(err)
     });
@@ -68,7 +77,10 @@ export class OrderHistoryComponent implements OnInit {
     this.orderhistory.get("canceled")
     .subscribe({
       next: response => {
+        this.displayPendingOrders = false;
+        this.displayCompletedOrders = false;
         this.orders = response["data"];
+        if(this.orders.length != 0) this.displayCanceledOrders = true;
       },
       error: err => console.log(err)
     });
