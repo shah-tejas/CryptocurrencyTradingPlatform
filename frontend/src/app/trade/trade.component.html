@@ -5,7 +5,9 @@
     <button mat-raised-button (click)="logOut()" mat-button routerLink="/login">Logout</button>
   </mat-toolbar-row>
 </mat-toolbar> -->
-<mat-tab-group>
+<!-- PAGE STARTS -->
+<mat-tab-group  (selectedTabChange)="displayTabData($event)">
+  <!-- BUY SECTION STARTS -->
   <mat-tab label="BUY">
     <label class="error">{{ noBuyDataMsg }}</label>
     <label class="error">{{ insufficientFundsMsg }}</label>
@@ -72,7 +74,8 @@
       <mat-paginator #buyPaginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
   </mat-tab>
-
+  <!-- BUY SECTION ENDS -->
+  <!-- SELL SECTION STARTS -->
   <mat-tab label=SELL>
     <label class="error">{{ noSellDataMsg }}</label>
     <label class="error">{{ insufficientFundsMsg }}</label>
@@ -138,9 +141,10 @@
       <mat-paginator #sellPaginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
   </mat-tab>
-
+  <!-- SELL SECTION ENDS -->
+  <!-- PLACE-ORDER SECTION STARTS -->
   <mat-tab label="PLACE-ORDER">
-    <form class="placeOrder-form" [formGroup]="placeOrderForm" (ngSubmit)="onSubmit()">
+    <form class="placeOrder-form" [formGroup]="placeOrderForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
     <mat-grid-list cols="5" rowHeight="80px">
       <!-- Message Row -->
       <mat-grid-tile ></mat-grid-tile>
@@ -158,7 +162,7 @@
               {{orderType}}
             </mat-radio-button>
             <mat-error
-              *ngIf="submitted && placeOrderForm.controls.selectedOrderType.errors && placeOrderForm.controls.selectedOrderType.hasError('required')">
+              *ngIf="!success && submitted && placeOrderForm.controls.selectedOrderType.errors && placeOrderForm.controls.selectedOrderType.hasError('required')">
               Order-Type is required!
             </mat-error>
           </mat-radio-group>
@@ -249,4 +253,6 @@
     </mat-grid-list>
     </form>
   </mat-tab>
+  <!-- PLACE-ORDER SECTION ENDS -->
 </mat-tab-group>
+<!-- PAGE ENDS -->

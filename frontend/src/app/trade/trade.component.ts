@@ -4,7 +4,7 @@ import { WalletService } from "./../services/wallet.service";
 import { AuthService } from "./../services/auth.service";
 import { CoinOrder } from "./../models/coin-order";
 import { Observable } from "rxjs";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormGroupDirective } from "@angular/forms";
 import { AppState } from "./../store/state/app.states";
 import { LogOut } from "./../store/actions/user.actions";
 import { Store } from "@ngrx/store";
@@ -33,7 +33,7 @@ export class TradeComponent implements OnInit {
   // User-Id
   userId: string;
 
-  //BUY-SELL Section : Tables
+  // BUY-SELL Section : Tables
   displayedColumns: string[] = [
     "buy_or_sell",
     "from_coin",
@@ -48,7 +48,7 @@ export class TradeComponent implements OnInit {
   noBuyDataMsg: string = "No pending SELL Orders exist!";
   noSellDataMsg: string = "No pending BUY Orders exist!";
 
-  //PLACE-ORDER Section
+  // PLACE-ORDER Section
   placeOrderForm: FormGroup;
   submitted: boolean = false;
   success: boolean = false;
@@ -60,10 +60,10 @@ export class TradeComponent implements OnInit {
   coins: string[] = []; // = ['BTC', 'EOS', 'ETH', 'LTC'];
   coinsArr: Array<CoinOrder>;
 
-  //Wallet variable declaration
+  // Wallet variable declaration
   matchingUserId: string = "";
 
-  //Bind children to tables in BUY-SELL Sections
+  // Bind children to tables in BUY-SELL Sections
   @ViewChild("buySort") public buySort: MatSort;
   @ViewChild("sellSort") public sellSort: MatSort;
   @ViewChild("buyPaginator") buyPaginator: MatPaginator;
@@ -115,6 +115,43 @@ export class TradeComponent implements OnInit {
     }
   }
 
+  // Method to load data for Tab selected by the user
+  displayTabData($event){
+    let tabIndex = $event.index;
+    if(tabIndex == 0) {
+      this.submitted=false;
+      this.success=false;
+      this.error=false;
+      this.loadBuyTable();
+    } else if(tabIndex == 1) {
+      this.submitted=false;
+      this.success=false;
+      this.error=false;
+      this.loadSellTable();
+    } else{
+      //this.clearFields();
+    }
+  }
+
+  // Method to clear the PLACE-ORDER Section
+  clearFields(){
+    this.placeOrderForm = this.formBuilder.group({
+      selectedOrderType: ["", Validators.required],
+      fromCoin: ["", Validators.required],
+      fromQty: [
+        "",
+        [Validators.required, Validators.pattern(/^([1-9][0-9]*)$/)]
+      ],
+      fromValue: [{ value: "-", disabled: true }],
+      toCoin: ["", Validators.required],
+      toQty: [
+        "",
+        [Validators.required, Validators.pattern(/^(0|[1-9][0-9]*)$/)]
+      ],
+      toValue: [{ value: "-", disabled: true }]
+    });
+  }
+
   // Method to update the USD(From) Value in PLACE-ORDER Section
   updateFromValue() {
     let coinName = this.placeOrderForm.get("fromCoin").value;
@@ -152,10 +189,12 @@ export class TradeComponent implements OnInit {
   }
 
   // Method to submit order-details on the PLACE-ORDER Section
-  onSubmit() {
+  onSubmit(formDirective: FormGroupDirective) {
     this.submitted = true;
-    this.errorMsg = "";
+    this.errorMsg = '';
+    this.orderMatchedMsg = '';
     this.error = false;
+    this.success =  false;
     // Check if Form-Validations failed
     if (this.placeOrderForm.invalid) {
       return;
@@ -202,8 +241,8 @@ export class TradeComponent implements OnInit {
         // Call to Add-Pending-Order REST-API
         this.orderService.addOrder(order).subscribe(order => {
           this.success = true;
-          this.loadBuyTable();
-          this.loadSellTable();
+          formDirective.resetForm();
+          this.placeOrderForm.reset();
         });
       }
     });
