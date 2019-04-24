@@ -34,6 +34,69 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/services/rateList-service.js</h1>
+<<<<<<< HEAD
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+* @desc Services for fetching and adding rates for coins
+*/
+&apos;use strict&apos;;
+/**
+* @desc variable for mongoose library
+*/
+const mongoose = require(&apos;mongoose&apos;),
+/**
+* @desc variable for Rate-List model
+*/
+RateList = mongoose.model(&apos;RateList&apos;);
+
+/**
+   * @desc Service to retrieve current-rates of all coins from DB
+    */
+exports.getAllCurrentRates = (() =&gt; {
+    const promise = RateList.find({&apos;active&apos;: &quot;A&quot;}).exec();
+    return promise;
+});
+
+/**
+   * @desc Service to mark all previous-rates as obsolete to DB
+    */
+exports.voidPreviousRates = ((rate) =&gt; {
+    const promise = RateList.updateMany({&apos;coinname&apos;: rate.coinname}, { &apos;active&apos;: &apos;I&apos;}).exec();
+    return promise;
+});
+
+/**
+   * @desc Service to add current-rate of a coin to DB
+    */
+exports.save = ((rate) =&gt; {
+    const newCurrentRate = new RateList(rate);
+    const promise = newCurrentRate.save();
+    return promise;
+});
+
+/**
+   * @desc Service to fetch current-rate of single coin from DB using coin-name
+    */
+exports.getCoinCurrentRate = ((coinname) =&gt; {
+    const promise = RateList.find({coinname: coinname , active: &quot;A&quot; }).exec();
+    return promise
+});
+
+/**
+   * @desc Service to retrieve all-rates of all coins from DB
+    */
+exports.getAllRates = (() =&gt; {
+    const promise = RateList.find().exec();
+    return promise;
+});
+
+/**
+   * @desc Service to fetch all-rates of single coin from DB using coin-name
+    */
+exports.getAllRatesCoin = ((coinname) =&gt; {
+    const promise = RateList.find({coinname: coinname }).exec();
+    return promise
+});</code></pre>
+=======
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">//Setting up Service for API to interact with DB
 &apos;use strict&apos;;
 const mongoose = require(&apos;mongoose&apos;),
@@ -76,6 +139,7 @@ exports.getAllRatesCoin = ((coinname) =&gt; {
     return promise
 });
 </code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 

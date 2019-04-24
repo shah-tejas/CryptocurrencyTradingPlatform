@@ -34,6 +34,71 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/model/RateList.js</h1>
+<<<<<<< HEAD
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @desc Model for coin-rates endpoints
+ */
+&apos;use strict&apos;;
+/**
+* @desc variable for mongoose library
+*/
+const mongoose = require(&apos;mongoose&apos;);
+/**
+* @desc variable for Schema for mongoose
+*/
+const Schema = mongoose.Schema;
+
+/**
+ * Mongoose schema for storing rates of all coins.
+ * This schema represents each transaction conducted on wallet
+ */
+let RateSchema = new Schema({
+    /**
+     * coinname of the coin the rate pertains to
+     * @type {String}
+     */
+    coinname: {
+        type: String,
+        required: &quot;Coin-Name is required&quot;
+    },
+    /**
+     * usdvalue of the coin the rate pertains to
+     * @type {Number}
+     */
+    usdvalue: {
+        type: Number,
+        required: &quot;USD-Value is required&quot;
+    },
+    /**
+     * active denotes if the rate is the current rate of the coin the rate pertains to
+     * @type {String}
+     */
+   active: {
+       type: String,
+       default: &quot;A&quot; 
+   },
+    /**
+     * insert_date denotes the date the rate was inserted in the schema
+     * @type {Date}
+     */
+    insert_date: {
+        type: Date,
+        default: Date.now
+    },
+    /**
+     * modified_date denotes the date the rate was last modified in the schema
+     * @type {Date}
+     */
+    modified_date: {
+        type: Date,
+        default: Date.now
+    }
+}, {
+    versionKey: false
+});
+
+module.exports = mongoose.model(&apos;RateList&apos;, RateSchema);</code></pre>
+=======
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 const mongoose = require(&apos;mongoose&apos;);
 const Schema = mongoose.Schema;
@@ -72,6 +137,7 @@ let RateSchema = new Schema({
 
 module.exports = mongoose.model(&apos;RateList&apos;, RateSchema);
 </code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 

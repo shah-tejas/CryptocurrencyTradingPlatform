@@ -4,8 +4,13 @@
     "filePath": "api/controllers/loginController.js",
     "lines": [
       {
+<<<<<<< HEAD
+        "lineNumber": 16,
+        "line": "exports.post = function (request, response) {"
+=======
         "lineNumber": 21,
         "line": "exports.post = function (request, response) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -22,8 +27,13 @@
     "filePath": "api/controllers/loginController.js",
     "lines": [
       {
+<<<<<<< HEAD
+        "lineNumber": 33,
+        "line": "exports.getUser = function (request, response) {"
+=======
         "lineNumber": 48,
         "line": "exports.getUser = function (request, response) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -36,6 +46,41 @@
     ]
   },
   {
+<<<<<<< HEAD
+    "name": "renderErrorRes",
+    "filePath": "api/controllers/rateList-controller.js",
+    "lines": [
+      {
+        "lineNumber": 89,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 90,
+        "line": " * @desc Throws error if error object is present.\r"
+      },
+      {
+        "lineNumber": 91,
+        "line": " * @param {Response} response The response object\r"
+      },
+      {
+        "lineNumber": 92,
+        "line": " * @return {Function} The error handler function.\r"
+      },
+      {
+        "lineNumber": 93,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 94,
+        "line": "let renderErrorRes = (res) => {\r"
+      }
+    ],
+    "codeParams": [
+      "res"
+    ],
+    "docParams": [
+      "response"
+=======
     "name": "put",
     "filePath": "api/controllers/loginController.js",
     "lines": [
@@ -298,6 +343,7 @@
     "docParams": [
       "{HTTP",
       "{HTTP"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     ]
   },
   {
@@ -305,8 +351,13 @@
     "filePath": "api/controllers/walletController.js",
     "lines": [
       {
+<<<<<<< HEAD
+        "lineNumber": 14,
+        "line": "exports.getUserWallet = function (request, response) {"
+=======
         "lineNumber": 16,
         "line": "exports.getUserWallet = function (request, response) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -323,8 +374,13 @@
     "filePath": "api/controllers/walletController.js",
     "lines": [
       {
+<<<<<<< HEAD
+        "lineNumber": 30,
+        "line": "exports.updateUserWallet = function (request, response) {"
+=======
         "lineNumber": 33,
         "line": "exports.updateUserWallet = function (request, response) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -341,8 +397,13 @@
     "filePath": "api/controllers/walletController.js",
     "lines": [
       {
+<<<<<<< HEAD
+        "lineNumber": 48,
+        "line": "exports.getWalletHistory = function (request, response) {"
+=======
         "lineNumber": 51,
         "line": "exports.getWalletHistory = function (request, response) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -359,8 +420,13 @@
     "filePath": "api/controllers/walletController.js",
     "lines": [
       {
+<<<<<<< HEAD
+        "lineNumber": 65,
+        "line": "exports.createWalletTransaction = function (request, response) {"
+=======
         "lineNumber": 68,
         "line": "exports.createWalletTransaction = function (request, response) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -377,8 +443,13 @@
     "filePath": "api/controllers/walletController.js",
     "lines": [
       {
+<<<<<<< HEAD
+        "lineNumber": 83,
+        "line": "exports.createWallet = function (request, response) {"
+=======
         "lineNumber": 86,
         "line": "exports.createWallet = function (request, response) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -391,6 +462,8 @@
     ]
   },
   {
+<<<<<<< HEAD
+=======
     "name": "getAllOrderHistory",
     "filePath": "api/services/order-history-service.js",
     "lines": [
@@ -632,12 +705,17 @@
     ]
   },
   {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "name": "update",
     "filePath": "api/services/wallet-services.js",
     "lines": [
       {
         "lineNumber": 25,
+<<<<<<< HEAD
+        "line": "exports.update = function (wallet) {"
+=======
         "line": "exports.update = function (wallet) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -648,6 +726,8 @@
     ]
   },
   {
+<<<<<<< HEAD
+=======
     "name": "searchWalletTransactionById",
     "filePath": "api/services/wallet-services.js",
     "lines": [
@@ -664,12 +744,17 @@
     ]
   },
   {
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     "name": "createWalletHistory",
     "filePath": "api/services/wallet-services.js",
     "lines": [
       {
         "lineNumber": 49,
+<<<<<<< HEAD
+        "line": "exports.createWalletHistory = function (walletHistory) {"
+=======
         "line": "exports.createWalletHistory = function (walletHistory) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [
@@ -685,7 +770,11 @@
     "lines": [
       {
         "lineNumber": 60,
+<<<<<<< HEAD
+        "line": "exports.createWallet = function (wallet) {"
+=======
         "line": "exports.createWallet = function (wallet) {\r"
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
       }
     ],
     "codeParams": [

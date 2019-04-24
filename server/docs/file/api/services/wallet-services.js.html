@@ -49,8 +49,13 @@ const mongoose = require(&quot;mongoose&quot;),
  *
  * @param {Object} params {id}
  */
+<<<<<<< HEAD
+exports.searchById = function (params) {
+  const promise = Wallet.findById(params).exec();
+=======
 exports.searchByUserId = function (params) {
   const promise = Wallet.find(params).exec();
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
   return promise;
 };
 
@@ -62,7 +67,11 @@ exports.searchByUserId = function (params) {
 exports.update = function (wallet) {
   wallet.modified_date = new Date();
   const promise = Wallet.findOneAndUpdate(
+<<<<<<< HEAD
+    { _id: wallet._id },
+=======
     { user_id: wallet.user_id },
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
     wallet
   ).exec();
   return promise;
@@ -73,8 +82,13 @@ exports.update = function (wallet) {
  *
  * @param {Object} params {id}
  */
+<<<<<<< HEAD
+exports.searchWalletTransactionById = function (params) {
+  const promise = WalletHistory.findById(params).exec();
+=======
 exports.searchWalletTransactionById = function (user_id) {
   const promise = WalletHistory.find({ user_id: user_id }).sort({ created_date: -1 }).exec();
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
   return promise;
 };
 
@@ -98,8 +112,12 @@ exports.createWallet = function (wallet) {
   const newWallet = new Wallet(wallet);
   const promise = newWallet.save();
   return promise;
+<<<<<<< HEAD
+};</code></pre>
+=======
 };
 </code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 

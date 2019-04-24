@@ -34,6 +34,24 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">api/app.js</h1>
+<<<<<<< HEAD
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+module.exports = function (app) {
+    //Initialize models
+    let walletModel = require(&apos;./model/wallet&apos;);
+    let walletHistoryModel = require(&apos;./model/wallet-history&apos;);
+    let userModel = require(&apos;./model/users&apos;);
+    const rateModel = require(&apos;./model/RateList&apos;);
+
+    //Initialize routes
+    let walletRoutes = require(&apos;./routes/wallet-route&apos;);
+    walletRoutes(app);
+    let userRoutes = require(&apos;./routes/user&apos;);
+    userRoutes(app);
+    const rateRoutes = require(&apos;./routes/rateList-route&apos;);
+    rateRoutes(app);
+};</code></pre>
+=======
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">  &apos;use strict&apos;;
   /* The main app configuration to bootstrap the server from */
   module.exports = function (app) {
@@ -57,6 +75,7 @@
   };
 
 </code></pre>
+>>>>>>> f93eb7b005a56bd3a5482d552696ac744ada7fbf
 
 </div>
 
