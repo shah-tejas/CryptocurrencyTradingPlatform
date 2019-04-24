@@ -33,12 +33,6 @@ th.mat-header-sorted{
   background: grey;
 }
 
-/* Style for container div for Tabs */
-.order-container{
-  overflow: auto;
-  height: 400px;
-}
-
 /* Style for Form-Fields on PLACE-ORDER section */
 .mat-form-field {
   font-size: 14px;
@@ -53,31 +47,47 @@ th.mat-header-sorted{
   width: 100%;
 }
 
-.error {
-  margin-top: 20px;
-  color: red;
-  padding: .5em;
-  display: block;
-  font-size: .9em;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
+/* Style for Order-Type label on PLACE-ORDER Section */
 .requiredSpan{
   color: red;
 }
 
+/* Style for USD-Value (From) on PLACE-ORDER Section */
 .fromValueClass{
   color: red;
 }
 
+/* Style for USD-Value (To) on PLACE-ORDER Section */
 .toValueClass{
   color: green;
 }
 
-.submitDiv{
-  display:flex;
+/* Style for the Success-Message on PLACE-ORDER Section */
+.success {
+  margin-top: 20px;
+  color: green;
+  padding: .5em;
+  display: block;
+  font-size: 1em;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
-.flex-spacer{
-  width: 65%;
+/* Style for the Error-Message on PLACE-ORDER Section */
+.error {
+  color: red;
+  padding: .5em;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* Style for Radio-Button on PLACE-ORDER Section */
+.radio-button{
+  margin-right: 5px;
+}
+
+
+/* Style for Drop-Down on PLACE-ORDER Section */
+.dropdownClass{
+  padding-left: 100px;
 }
